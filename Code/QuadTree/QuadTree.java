@@ -1,3 +1,5 @@
+// import java.lang.IllegalArguementException;
+
 public class QuadTree<E> {
 
 	private QuadTree<E> tl;
@@ -50,6 +52,35 @@ public class QuadTree<E> {
 			return true;
 		}
 		return false;
+	}
+
+	public static Coordinate getCoordinate(String code) throws IllegalArgumentException {
+		String bits = "";
+		for (char c: code.toCharArray()) {
+			if (c == '0') {
+				bits += "00";
+			} else if (c == '1') {
+				bits += "01";
+			} else if (c == '2') {
+				bits += "10";
+			} else if (c == '3') {
+				bits += "11";
+			} else {
+				throw new IllegalArgumentException();
+			}
+		}
+
+		short count = 0;
+		for (char c: bits.toCharArray()) {
+			if (count%2 == 0) {
+				// Row Bits
+			} else {
+				// Column Bits
+			}
+			count++;
+		}
+
+		return new Coordinate(1,1);
 	}
 
 	@Override
