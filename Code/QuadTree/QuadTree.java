@@ -45,6 +45,13 @@ public class QuadTree<E> {
 		return br;
 	}
 
+	public static boolean adjacent(String qt1, String qt2) {
+		if (qt1.charAt(0) == qt2.charAt(0)) {
+			return true;
+		}
+		return false;
+	}
+
 	@Override
 	public String toString() {
 		if (leaf) {
