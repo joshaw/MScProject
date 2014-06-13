@@ -1,3 +1,7 @@
+---
+title: Links
+---
+
 ### Adjacency Detection using quad codes
 [http://dl.acm.org/citation.cfm?id=28574]
 
