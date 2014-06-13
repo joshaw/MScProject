@@ -9,11 +9,15 @@ public class QuadTree<E> {
 	private E value;
 	private boolean leaf;
 
+	/** Creates a leaf node of a quadtree with the given value.
+	 */
 	public QuadTree(E value) {
 		this.value = value;
 		this.leaf = true;
 	}
 
+	/** Creates a quadtree which is not a leaf and so contains 4 sub-trees.
+	 */
 	public QuadTree(QuadTree<E> tl, QuadTree<E>tr, QuadTree<E> bl,
 			QuadTree<E> br) {
 		this.tl = tl;
@@ -47,6 +51,8 @@ public class QuadTree<E> {
 		return br;
 	}
 
+	/** Returns true if the two nodes are adjacent.
+	 */
 	public static boolean adjacent(String qt1, String qt2) {
 		if (qt1.charAt(0) == qt2.charAt(0)) {
 			return true;
@@ -93,6 +99,12 @@ public class QuadTree<E> {
 		}
 	}
 
+	/* Method to create a graphical representation of a quadtree using the
+	 * Graphviz "dot" program. Either write the generate code to a file and
+	 * read the file with the dot program or write to stdout and pipe.
+	 *
+	 * javac testQuadTree | dot -Tps -o graph.ps
+	 */
 	public String toDot() {
 		String result = "digraph g {\n";
 		result += toDot("t");
