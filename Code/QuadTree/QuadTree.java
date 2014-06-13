@@ -64,17 +64,17 @@ public class QuadTree<E> {
 	private String toDot(String s) {
 		String result = "";
 		if (!this.isLeaf()) {
-			result += s + " [label=\"X\"]\n";
-			result += s + "0 [label=\"" + this.getTL().getValue() + "\"]\n";
+			result += s + " [label=\"X\\n\\N\"]\n";
+			result += s + "0 [label=\"" + this.getTL().getValue() + "\\n\\N\"]\n";
 			result += s + "->" + s + "0\n";
 			result += this.getTL().toDot(s+"0");
-			result += s + "1 [label=\"" + this.getTR().getValue() + "\"]\n";
+			result += s + "1 [label=\"" + this.getTR().getValue() + "\\n\\N\"]\n";
 			result += s + "->" + s + "1\n";
 			result += this.getTR().toDot(s+"1");
-			result += s + "2 [label=\"" + this.getBL().getValue() + "\"]\n";
+			result += s + "2 [label=\"" + this.getBL().getValue() + "\\n\\N\"]\n";
 			result += s + "->" + s + "2\n";
 			result += this.getBL().toDot(s+"2");
-			result += s + "3 [label=\"" + this.getBR().getValue() + "\"]\n";
+			result += s + "3 [label=\"" + this.getBR().getValue() + "\\n\\N\"]\n";
 			result += s + "->" + s + "3\n";
 			result += this.getBR().toDot(s+"3");
 		}
