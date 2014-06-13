@@ -169,6 +169,34 @@ public class QuadTree<E> {
 		}
 		return "" + s1.charAt(0) + s2.charAt(0) + interleave(s1.substring(1), s2.substring(1));
 	}
+
+	public static Coordinate[] getNeighboursCoordinates(String code) {
+		Coordinate coord = getCoordinate(code);
+		return getNeighboursCoordinates(coord);
+	}
+
+	public static Coordinate[] getNeighboursCoordinates(Coordinate coord) {
+		Coordinate[] neighbours = new Coordinate[4];
+
+		neighbours[0] = new Coordinate(coord.getX()-1, coord.getY());
+		neighbours[1] = new Coordinate(coord.getX(), coord.getY()+1);
+		neighbours[2] = new Coordinate(coord.getX()+1, coord.getY());
+		neighbours[3] = new Coordinate(coord.getX(), coord.getY()-1);
+
+		return neighbours;
+	}
+
+	public static String[] getNeighboursCodes(String code) {
+		Coordinate coord = getCoordinate(code);
+		Coordinate[] codes = getNeighboursCoordinates(coord);
+		String[] neighbours = new String[4];
+
+		neighbours[0] = getCode(new Coordinate(coord.getX()-1, coord.getY()));
+		neighbours[1] = getCode(new Coordinate(coord.getX(), coord.getY()+1));
+		neighbours[2] = getCode(new Coordinate(coord.getX()+1, coord.getY()));
+		neighbours[3] = getCode(new Coordinate(coord.getX(), coord.getY()-1));
+
+		return neighbours;
 	}
 
 	@Override
