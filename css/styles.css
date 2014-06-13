@@ -1,7 +1,5 @@
-/*@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);*/
-/*@import url(http://fonts.googleapis.com/css?family=Raleway:300);*/
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:700);
-/* @import url(http://fonts.googleapis.com/css?family=Merriweather:300); */
+@import url(http://fonts.googleapis.com/css?family=Merriweather:300);
 
 html {
 	height: 100%;
@@ -14,9 +12,13 @@ body {
 	font:14px/1.5 "Merriweather", sans-serif;
 	color:#444;
 	font-weight:normal;
+	counter-reset: h2counter;
+	counter-reset: h3counter;
+	counter-reset: h4counter;
 }
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: "Josefin Sans", serif;
 	color:#222;
 	margin:0 0 20px;
 }
@@ -26,18 +28,22 @@ p, ol, table, pre, dl {
 }
 
 h1, h2 {
-	font-family: "Josefin Sans", serif;
 	line-height:1.1;
 }
 
 h1 {
 	font-size:34px;
+	counter-reset: h2counter;
 }
 
 h1 a {
 	font-weight: bold;
 	font-size:28px;
 	color:#222;
+}
+
+h3, h4, h5, h6 {
+	color:#494949;
 }
 
 #main_name {
@@ -48,51 +54,17 @@ h1 a {
 h2 {
 	color:#393939;
 	font-size:30px;
-}
-/* h2 ~ :not(h1):not(h2) { */
-/* 	background: #00ffff; */
-/* 	margin-left:15px; */
-/* 	border-style:solid; */
-/* 	border-width:thin; */
-/* 	border-right:none; */
-/* 	border-top:none; */
-/* 	border-bottom:none; */
-/* } */
-
-h3, h4, h5, h6 {
-	color:#494949;
+	counter-reset: h3counter;
 }
 
 h3 {
 	font-size: 24px;
-}
-/* h3 ~ :not(h1):not(h2):not(h3) { */
-/* 	background: #ffff00; */
-/* 	margin-left:30px; */
-/* 	border-style:solid; */
-/* 	border-width:medium; */
-/* 	border-right:none; */
-/* 	border-top:none; */
-/* 	border-bottom:none; */
-/* } */
-
-h3 ul {
-	border:1px solid #e5e5e5;
-	color:#00ff00;
+	counter-reset: h4counter;
 }
 
 h4 {
 	font-size: 20px;
 }
-/* h4 ~ :not(h1):not(h2):not(h3):not(h4) { */
-/* 	background: #ff00ff; */
-/* 	/1* margin-left:60px; *1/ */
-/* 	/1* border-style:solid; *1/ */
-/* 	/1* border-width:thick; *1/ */
-/* 	/1* border-right:none; *1/ */
-/* 	/1* border-top:none; *1/ */
-/* 	/1* border-bottom:none; *1/ */
-/* } */
 
 a {
 	color: #d45949;
