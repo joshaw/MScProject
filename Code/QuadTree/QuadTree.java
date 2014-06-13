@@ -54,9 +54,33 @@ public class QuadTree<E> {
 	/** Returns true if the two nodes are adjacent.
 	 */
 	public static boolean adjacent(String qt1, String qt2) {
-		if (qt1.charAt(0) == qt2.charAt(0)) {
+
+		// These are the same node.
+		if (qt1.equals(qt2)) {
 			return true;
 		}
+
+		// One location is inside the other.
+		if (qt1.contains(qt2) || qt2.contains(qt1)) {
+			return true;
+		}
+
+		Coordinate qt1Coord = getCoordinate(qt1);
+		Coordinate qt2Coord = getCoordinate(qt2);
+		int qt1x = qt1Coord.getX();
+		int qt1y = qt1Coord.getY();
+		int qt2x = qt2Coord.getX();
+		int qt2y = qt2Coord.getY();
+
+		/* If the two coordinates are the same in the x-axis and differ by 1 in
+		 * the y-axis, or are the same in the y-axis and differ by 1 in the
+		 * x-axis, then they are adjacent. */
+		if ( ((qt1x == qt2x) && (Math.abs(qt1y-qt2y) == 1) ) ||
+			( (qt1y == qt2y) && (Math.abs(qt1x-qt2x) == 1)) ) {
+
+			return true;
+		}
+
 		return false;
 	}
 
