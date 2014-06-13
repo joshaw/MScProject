@@ -1,0 +1,54 @@
+---
+title: university
+---
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title>University | Josh Wainwright</title>
+
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/css/fontawesome.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				{% include nameHeader.html %}
+					<p></p>
+
+					<ul class="menu">
+						<li class="view"><a class="smoothScroll" href="#computers">Computer Science</a></li>
+						<li class="view"><a href="#" onclick="toggle_visibility('physics-menu');" class="smoothScroll" href="#physics">Physics</a></li>
+							<ul id="physics-menu" style="display: none">
+								<li><a class="smoothScroll" onclick="visible('compmod');" href="#compmodH">Computational Modelling</a> <a class="smoothScroll" href="#compmodH" onclick="toggle_visibility('compmod');"> <i class="icon-double-angle-right"></i></a></li>
+
+								<li><a class="smoothScroll" onclick="visible('critique');" href="#critiqueH">Physics Critique</a> <a class="smoothScroll" href="#critiqueH" onclick="toggle_visibility('critique');"> <i class="icon-double-angle-right"></i></a></li>
+
+								<li><a class="smoothScroll" onclick="visible('labs');" href="#labsH">Laboratory Report</a> <a class="smoothScroll" href="#labsH" onclick="toggle_visibility('labs');"> <i class="icon-double-angle-right"></i></a></li>
+
+								<li><a class="smoothScroll" onclick="visible('image');" href="#imageH">Image Processing</a> <a class="smoothScroll" href="#imageH" onclick="toggle_visibility('image');"> <i class="icon-double-angle-right"></i></a></li>
+
+								<li><a class="smoothScroll" onclick="visible('teaching');" href="#teachingH">Physics Teaching in Schools</a> <a class="smoothScroll" href="#teachingH" onclick="toggle_visibility('teaching');"> <i class="icon-double-angle-right"></i></a></li>
+
+								<li><a class="smoothScroll" onclick="visible('galaxies');" href="#galaxiesH">Formation of Galaxies</a> <a class="smoothScroll" href="#galaxiesH" onclick="toggle_visibility('galaxies');"> <i class="icon-double-angle-right"></i></a></li>
+							</ul>
+						<li><a href="ace.html">Ace</a> | <a href="http://prose.io/">Prose</a></li>
+						<li><a href="index.html">Home</a></li>
+					</ul>
+
+			</header>
+			<section>
+				{{ content }}
+				{% include dateModified.html %}
+			</section>
+			<footer>
+			</footer>
+		</div>
+		<!-- <script src="javascripts/scale.fix.js"></script> -->
+		<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+		<!-- <script type="text/javascript" src="javascripts/smoothscroll.js"></script> -->
+
+	</body>
+</html>
