@@ -84,33 +84,91 @@ public class QuadTree<E> {
 		return false;
 	}
 
-	public static Coordinate getCoordinate(String code) throws IllegalArgumentException {
+	/** Produces the decimal coordinates of the code specifying a single
+	 * quadtree element using Morton's order.
+	 *
+	 * @param code node code of a single element in base 4.
+	 */
+	public static Coordinate getCoordinate(String code)
+		throws IllegalArgumentException {
+
+		/* Convert the node code from base 4 to binary. */
 		String bits = "";
 		for (char c: code.toCharArray()) {
-			if (c == '0') {
-				bits += "00";
-			} else if (c == '1') {
-				bits += "01";
-			} else if (c == '2') {
-				bits += "10";
-			} else if (c == '3') {
-				bits += "11";
+			if (c == '0')        { bits += "00";
+			} else if (c == '1') { bits += "01";
+			} else if (c == '2') { bits += "10";
+			} else if (c == '3') { bits += "11";
 			} else {
 				throw new IllegalArgumentException();
 			}
 		}
 
+		/* For the bits, de-interleave the row and column bits, row first. This
+		 * gives the coordinates in binary, then convert to decimal to give
+		 * quadtree coordinate of node. */
 		short count = 0;
+		String rowBits = "";
+		String columnBits = "";
 		for (char c: bits.toCharArray()) {
 			if (count%2 == 0) {
 				// Row Bits
+				rowBits += c;
 			} else {
 				// Column Bits
+				columnBits += c;
 			}
 			count++;
 		}
 
-		return new Coordinate(1,1);
+		int row = Integer.parseInt(rowBits, 2);
+		int column = Integer.parseInt(columnBits, 2);
+
+		return new Coordinate(row,column);
+	}
+
+	public static String getCode(Coordinate coord) {
+
+		String code = "";
+		String x = Integer.toBinaryString(coord.getX());
+		String y = Integer.toBinaryString(coord.getY());
+
+		while (x.length() != y.length()) {
+			if (x.length() < y.length()) {
+				x = 0 + x;
+			} else {
+				y = 0 + y;
+			}
+		}
+
+		String bits = interleave(x, y);
+
+		while (bits.length() > 0) {
+			String couple = bits.substring(0, 2);
+
+			if (couple.equals("00"))      { code += "0"; }
+			else if (couple.equals("01")) { code += "1"; }
+			else if (couple.equals("10")) { code += "2"; }
+			else if (couple.equals("11")) { code += "3"; }
+			else {
+				throw new IllegalArgumentException();
+			}
+
+			bits = bits.substring(2);
+		}
+
+		return code;
+	}
+
+	private static String interleave(String s1, String s2) {
+		if (s1.length() == 0) {
+			return s2;
+		}
+		if (s2.length() == 0) {
+			return s1;
+		}
+		return "" + s1.charAt(0) + s2.charAt(0) + interleave(s1.substring(1), s2.substring(1));
+	}
 	}
 
 	@Override
