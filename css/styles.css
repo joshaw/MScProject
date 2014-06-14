@@ -17,11 +17,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Josefin Sans", serif;
 	color:#222;
-	margin:0 0 20px;
+	margin:20px 0 0;
 }
 
 p, ol, table, pre, dl {
 	margin:0 0 20px;
+}
+
+ul {
+	margin: 4px 0 14px;
 }
 
 h1, h2 {
