@@ -25,3 +25,9 @@ title: Home
 
 #### Morton Order
 <http://en.wikipedia.org/wiki/Z-order_curve>
+
+#### Un-even quadtrees
+- <https://www.youtube.com/watch?v=Wnbm9j8PFWg>
+- Add nodes to tree, location of each node defines how the current node is 
+  divided
+- Check the existing nodes for which child to place new nodes into.
