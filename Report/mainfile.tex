@@ -1,0 +1,96 @@
+% Created:  Sun 15 Jun 2014 04:15 pm
+% Modified: Sun 15 Jun 2014 04:28 pm
+\documentclass[a4paper,10pt,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+
+%%% PAGE DIMENSIONS ------------------------------------------------------------
+\usepackage{geometry}
+\usepackage[parfill]{parskip}
+
+%%% HEADERS & FOOTERS ----------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+% \fancyheadoffset[R]{3.84cm}
+%\renewcommand{\headrulewidth}{0.3pt}
+%\rhead{}
+%\lhead{\nouppercase{\leftmark}}
+\lhead{}\chead{}\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{}\cfoot{page \thepage\ of \pageref{LastPage}}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE ---------------------------------------------------
+% \usepackage{sectsty}
+% \allsectionsfont{\sffamily\mdseries\upshape}
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+%%% PACKAGES -------------------------------------------------------------------
+\usepackage[hypcap=false,
+	font=small,
+	labelfont=bf,
+	textfont=it]{caption}
+\usepackage[pdftex]{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[%
+	activate={true,nocompatibility},
+	final,
+	tracking=true,
+	kerning=true,
+	spacing=true,
+	factor=1100,
+	stretch=10,
+	shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+
+%% BIBIOGRAPHY -----------------------------------------------------------------
+\usepackage{cite}
+
+%%% ToC (table of contents) APPEARANCE -----------------------------------------
+\renewcommand{\contentsname}{\huge Table of Contents}
+% \usepackage[nottoc,notlof,notlot]{tocbibind}
+% \usepackage[titles,subfigure]{tocloft}
+% \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+% \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape}
+% \setcounter{tocdepth}{2}
+
+%%% PDF LINKS AND STYLE --------------------------------------------------------
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{%
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+	citecolor=black,        % color of links to bibliography
+	filecolor=black,      % color of file links
+	urlcolor=black           % color of external links
+}
+\hypersetup{pdftitle={Josh Wainwright MSc Project},
+	pdfauthor={Josh Wainwright}}
+
+%%% END Article customizations
+
+%*******************************************************************************
+%******************************** END HEADER ***********************************
+%*******************************************************************************
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\graphicspath{{front/}}
+\input{front/titlepage.tex}
+
+\pagenumbering{arabic}
+
+\input{intro/introduction.tex}
+
+\input{back/appendix.tex}
+
+\end{document}
+
+% vim: autochdir
