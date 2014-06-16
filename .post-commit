@@ -1,0 +1,4 @@
+#!/bin/bash
+git checkout gh-pages
+git merge -s subtree master --commit -m "Merge master into pages"
+git checkout master
