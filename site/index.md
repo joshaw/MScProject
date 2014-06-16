@@ -41,6 +41,3 @@ title: Home
 - Add nodes to tree, location of each node defines how the current node is 
   divided
 - Check the existing nodes for which child to place new nodes into.
-
-## Todo
-- testing
