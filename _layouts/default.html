@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<!doctype html>
+<html>
+	<head>
+		{% include headMatter.html %}
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				{% include nameHeader.html %}
+				<p></p>
+				{% include sidebarMSc.html %}
+
+			</header>
+			<section>
+				{{ content }}
+				{% include dateModified.html %}
+			</section>
+			<footer>
+			</footer>
+		</div>
+	</body>
+</html>
