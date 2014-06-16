@@ -1,0 +1,88 @@
+% Created:  Sun 15 Jun 2014 04:15 pm
+% Modified: Sun 15 Jun 2014 07:39 pm
+\documentclass[a4paper,10pt,twocolumn,twoside]{article}
+\usepackage[utf8]{inputenc}
+
+%%% PAGE DIMENSIONS ------------------------------------------------------------
+\usepackage[hmarginratio=1:1]{geometry}
+\usepackage[parfill]{parskip}
+\setlength{\columnsep}{1.5em}
+
+%%% HEADERS & FOOTERS ----------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\leftmark}
+\fancyfoot[CE,CO]{}
+\fancyfoot[LE,RO]{}
+
+%%% SECTION TITLE APPEARANCE ---------------------------------------------------
+% \usepackage{sectsty}
+% \allsectionsfont{\sffamily\mdseries\upshape}
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+%%% PACKAGES -------------------------------------------------------------------
+\usepackage[hypcap=false,
+	font=small,
+	labelfont=bf,
+	textfont=it]{caption}
+\usepackage[pdftex]{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[%
+	activate={true,nocompatibility},
+	final,
+	tracking=true,
+	kerning=true,
+	spacing=true,
+	factor=1100,
+	stretch=10,
+	shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+
+%% BIBIOGRAPHY -----------------------------------------------------------------
+\usepackage{cite}
+
+%%% ToC (table of contents) APPEARANCE -----------------------------------------
+\renewcommand{\contentsname}{Table of Contents}
+% \setcounter{tocdepth}{2}
+
+%%% PDF LINKS AND STYLE --------------------------------------------------------
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{%
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+	citecolor=black,        % color of links to bibliography
+	filecolor=black,      % color of file links
+	urlcolor=black           % color of external links
+}
+\hypersetup{pdftitle={Josh Wainwright MSc Project},
+	pdfauthor={Josh Wainwright}}
+
+%%% END Article customizations
+
+%*******************************************************************************
+%******************************** END HEADER ***********************************
+%*******************************************************************************
+
+\begin{document}
+
+\graphicspath{{front/}}
+\input{front/titlepage.tex}
+
+\input{intro/introduction.tex}
+
+\clearpage
+\input{back/appendix.tex}
+
+\end{document}
+
+% vim: autochdir
