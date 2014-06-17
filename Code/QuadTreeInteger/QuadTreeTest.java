@@ -1,11 +1,7 @@
-/**
- *
+/** Created: Wed 16 Jun 2014 9:02 AM
+ * Modified: Tue 17 Jun 2014 05:41 PM
  * @author Josh Wainwright
- * UID       : 1079596
- * Worksheet : 5
- * Exercise  : 4
- * File name : QuadtreeTest.java
- * @version 2013-12-07
+ * File name : Coordinate.java
  */
 import org.junit.Test;
 import static org.junit.Assert.*;

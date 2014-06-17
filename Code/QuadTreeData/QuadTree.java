@@ -1,3 +1,8 @@
+/** Created: Tue 17 Jun 2014 12:02 PM
+ * Modified: Tue 17 Jun 2014 06:08 PM
+ * @author Josh Wainwright
+ * File name : QuadTree.java
+ */
 import java.util.ArrayList;
 
 public class QuadTree {

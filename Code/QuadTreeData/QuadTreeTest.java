@@ -1,11 +1,7 @@
-/**
- *
+/** Created: Tue 17 Jun 2014 12:00 PM
+ * Modified: Tue 17 Jun 2014 06:04 PM
  * @author Josh Wainwright
- * UID       : 1079596
- * Worksheet : 5
- * Exercise  : 4
  * File name : QuadtreeTest.java
- * @version 2013-12-07
  */
 import org.junit.Test;
 import static org.junit.Assert.*;
