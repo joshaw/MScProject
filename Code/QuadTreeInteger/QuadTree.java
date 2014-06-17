@@ -112,22 +112,26 @@ public class QuadTree<E> {
 		String columnBits = "";
 		for (char c: bits.toCharArray()) {
 			if (count%2 == 0) {
-				// Row Bits
-				rowBits += c;
-			} else {
 				// Column Bits
 				columnBits += c;
+			} else {
+				// Row Bits
+				rowBits += c;
 			}
 			count++;
 		}
 
-		int row = Integer.parseInt(rowBits, 2);
+		int row    = Integer.parseInt(rowBits, 2);
 		int column = Integer.parseInt(columnBits, 2);
 
 		return new Coordinate(row,column);
 	}
 
 	public static String getCode(Coordinate coord) {
+
+		if (coord.getX() < 0 || coord.getY() < 0) {
+			return null;
+		}
 
 		String code = "";
 		String x = Integer.toBinaryString(coord.getX());
@@ -141,7 +145,7 @@ public class QuadTree<E> {
 			}
 		}
 
-		String bits = interleave(x, y);
+		String bits = interleave(y, x);
 
 		while (bits.length() > 0) {
 			String couple = bits.substring(0, 2);
@@ -167,7 +171,8 @@ public class QuadTree<E> {
 		if (s2.length() == 0) {
 			return s1;
 		}
-		return "" + s1.charAt(0) + s2.charAt(0) + interleave(s1.substring(1), s2.substring(1));
+		return "" + s1.charAt(0) + s2.charAt(0) +
+			interleave(s1.substring(1), s2.substring(1));
 	}
 
 	private static Coordinate checkCoord(Coordinate c) {
@@ -178,18 +183,18 @@ public class QuadTree<E> {
 		return c;
 	}
 
-	public static Coordinate[] getNeighboursCoordinates(String code) {
-		Coordinate coord = getCoordinate(code);
-		return getNeighboursCoordinates(coord);
-	}
-
+	/** Return the coordinates of the 4 neighbours to this node when this
+	 * node's location is given as a coordinate.      1
+	 *                                              0 a 2
+	 *                                                3
+	 */
 	public static Coordinate[] getNeighboursCoordinates(Coordinate coord) {
 		Coordinate[] neighbours = new Coordinate[4];
 
 		neighbours[0] = new Coordinate(coord.getX()-1, coord.getY());
-		neighbours[1] = new Coordinate(coord.getX(), coord.getY()+1);
+		neighbours[1] = new Coordinate(coord.getX(), coord.getY()-1);
 		neighbours[2] = new Coordinate(coord.getX()+1, coord.getY());
-		neighbours[3] = new Coordinate(coord.getX(), coord.getY()-1);
+		neighbours[3] = new Coordinate(coord.getX(), coord.getY()+1);
 
 		for (int i = 0; i < 4; i++) {
 			neighbours[i] = checkCoord(neighbours[i]);
@@ -198,15 +203,19 @@ public class QuadTree<E> {
 		return neighbours;
 	}
 
+	public static Coordinate[] getNeighboursCoordinates(String code) {
+		Coordinate coord = getCoordinate(code);
+		return getNeighboursCoordinates(coord);
+	}
+
 	public static String[] getNeighboursCodes(String code) {
 		Coordinate coord = getCoordinate(code);
-		Coordinate[] codes = getNeighboursCoordinates(coord);
 		String[] neighbours = new String[4];
 
 		neighbours[0] = getCode(new Coordinate(coord.getX()-1, coord.getY()));
-		neighbours[1] = getCode(new Coordinate(coord.getX(), coord.getY()+1));
+		neighbours[1] = getCode(new Coordinate(coord.getX(), coord.getY()-1));
 		neighbours[2] = getCode(new Coordinate(coord.getX()+1, coord.getY()));
-		neighbours[3] = getCode(new Coordinate(coord.getX(), coord.getY()-1));
+		neighbours[3] = getCode(new Coordinate(coord.getX(), coord.getY()+1));
 
 		return neighbours;
 	}
