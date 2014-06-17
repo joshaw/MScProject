@@ -170,6 +170,14 @@ public class QuadTree<E> {
 		return "" + s1.charAt(0) + s2.charAt(0) + interleave(s1.substring(1), s2.substring(1));
 	}
 
+	private static Coordinate checkCoord(Coordinate c) {
+		if (c.getX() < 0 || c.getY() < 0) {
+			return null;
+		}
+		// TODO: Add other checks for right and bottom sides
+		return c;
+	}
+
 	public static Coordinate[] getNeighboursCoordinates(String code) {
 		Coordinate coord = getCoordinate(code);
 		return getNeighboursCoordinates(coord);
@@ -182,6 +190,10 @@ public class QuadTree<E> {
 		neighbours[1] = new Coordinate(coord.getX(), coord.getY()+1);
 		neighbours[2] = new Coordinate(coord.getX()+1, coord.getY());
 		neighbours[3] = new Coordinate(coord.getX(), coord.getY()-1);
+
+		for (int i = 0; i < 4; i++) {
+			neighbours[i] = checkCoord(neighbours[i]);
+		}
 
 		return neighbours;
 	}

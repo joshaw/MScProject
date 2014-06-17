@@ -1,0 +1,8 @@
+name: "MScProject"
+
+url: "http://joshaw.github.io/MScProject"
+
+permalinks: pretty
+
+category-list: [index]
+markdown: kramdown
