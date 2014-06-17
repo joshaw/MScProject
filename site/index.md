@@ -6,6 +6,7 @@ title: Home
 # MSc Project
 
 ## About
+- Sub-diffraction-limit imaging with quadtrees.
 
 ## Papers
 - [Ultra-High Resolution Imaging by Flourescence Photoactivation Localization
