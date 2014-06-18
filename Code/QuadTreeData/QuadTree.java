@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 18 Jun 2014 12:56 PM
+ * Modified: Wed 18 Jun 2014 04:59 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -52,7 +52,7 @@ public class QuadTree {
 	public boolean addPoint(Coordinate c) {
 		checkValid(c);
 		if (this.leaf) {
-			System.out.println("Points: " + this.points.size() + " < " + this.maxDensity);
+			System.out.println("Points: " + this.points.size() + " <= " + this.maxDensity + " " + (this.points.size()<=this.maxDensity));
 			if (this.points.size() <= this.maxDensity) {
 				System.out.println("AddPoint " + c + " minX: " + minX + ", minY: " + minY
 						+ ", maxX: " + maxX + ", maxY: " + maxY);
@@ -80,21 +80,22 @@ public class QuadTree {
 	private QuadTree newPointLocation(Coordinate c) {
 		System.out.println("NewLocation " + c + " minX: " + minX + ", minY: " + minY
 				+ ", maxX: " + maxX + ", maxY: " + maxY);
-		int x = c.getX();
-		int y = c.getY();
-		if ( (x >= minX && x <= maxX/2) && (y >= minY && y <= maxY/2)) {
+		double x = c.getX();
+		double y = c.getY();
+		// System.out.println(c + " " + (maxX/2+minX/2) + " " + maxY/2.0);
+		if ( (x >= minX && x <= maxX/2+minX/2) && (y >= minY && y <= maxY/2+minY/2)) {
 			System.out.println("return 0");
 			return tl;
 		}
-		if ( (x >= maxX/2 && x <= maxX) && (y >= minY && y <= maxY/2)) {
+		if ( (x >= maxX/2+minX/2 && x <= maxX) && (y >= minY && y <= maxY/2+minY/2)) {
 			System.out.println("return 1");
 			return tr;
 		}
-		if ( (x >= minX && x <= maxX/2) && (y >= maxY/2 && y <= maxY)) {
+		if ( (x >= minX && x <= maxX/2+minX/2) && (y >= maxY/2+minY/2 && y <= maxY)) {
 			System.out.println("return 2");
 			return bl;
 		}
-		if ( (x >= maxX/2 && x <= maxX) && (y >= maxY/2 && y <= maxY)) {
+		if ( (x >= maxX/2+minX/2 && x <= maxX) && (y >= maxY/2+minY/2 && y <= maxY)) {
 			System.out.println("return 3");
 			return br;
 		}
@@ -103,18 +104,15 @@ public class QuadTree {
 	}
 
 	private void createSubTrees() {
-		this.tl = new QuadTree(minX, minY, maxX/2+maxX/4, maxY/2, depth, maxDensity);
-		this.tr = new QuadTree(maxX/2, minY, maxX, maxY/2, depth, maxDensity);
-		this.bl = new QuadTree(minX, maxY/2, maxX/2, maxY, depth, maxDensity);
-		this.br = new QuadTree(maxX/2, maxY/2, maxX, maxY, depth, maxDensity);
-			System.out.println("Create tl minX: " + tl.minX + ", minY: " + tl.minY
-					+ ", maxX: " + tl.maxX + ", maxY: " + tl.maxY);
-			System.out.println("Create tr minX: " + tr.minX + ", minY: " + tr.minY
-					+ ", maxX: " + tr.maxX + ", maxY: " + tr.maxY);
-			System.out.println("Create bl minX: " + bl.minX + ", minY: " + bl.minY
-					+ ", maxX: " + bl.maxX + ", maxY: " + bl.maxY);
-			System.out.println("Create br minX: " + br.minX + ", minY: " + br.minY
-					+ ", maxX: " + br.maxX + ", maxY: " + br.maxY);
+		this.tl = new QuadTree(minX         ,minY         ,maxX/2+minX/2,maxY/2+minY/2,depth,maxDensity);
+		this.tr = new QuadTree(maxX/2+minX/2,minY         ,maxX         ,maxY/2+minY/2,depth,maxDensity);
+		this.bl = new QuadTree(minX         ,maxY/2+minY/2,maxX/2+minX/2,maxY         ,depth,maxDensity);
+		this.br = new QuadTree(maxX/2+minX/2,maxY/2+minY/2,maxX         ,maxY         ,depth,maxDensity);
+
+		System.out.println("Create tl ("+tl.minX+" , "+tl.minY+") ("+tl.maxX+" , "+tl.maxY+")");
+		System.out.println("Create tr ("+tr.minX+" , "+tr.minY+") ("+tr.maxX+" , "+tr.maxY+")");
+		System.out.println("Create bl ("+bl.minX+" , "+bl.minY+") ("+bl.maxX+" , "+bl.maxY+")");
+		System.out.println("Create br ("+br.minX+" , "+br.minY+") ("+br.maxX+" , "+br.maxY+")");
 	}
 
 	private boolean checkValid(Coordinate c) {
