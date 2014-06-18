@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Tue 17 Jun 2014 06:08 PM
+ * Modified: Wed 18 Jun 2014 11:59 AM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -50,17 +50,16 @@ public class QuadTree {
 	}
 
 	public boolean addPoint(Coordinate c) {
-		System.out.println("addPoint");
-		System.out.println(c + " minX: " + minX + " maxX: " + maxX
-				+ " minY: " + minY + " maxY: " + maxY);
 		checkValid(c);
 		if (this.leaf) {
-			// System.out.println("Points: " + this.points.size() + " maxDensity " + this.maxDensity);
-			if (this.points.size() < this.maxDensity) {
-				System.out.println("is leaf");
+			System.out.println("Points: " + this.points.size() + " maxDensity " + this.maxDensity);
+			if (this.points.size() <= this.maxDensity) {
+				System.out.println("AddPoint " + c + " minX: " + minX + ", minY: " + minY
+						+ ", maxX: " + maxX + ", maxY: " + maxY);
 				this.points.add(c);
 				return true;
 			} else {
+				System.out.println("Deleafing .............");
 				deleaf();
 			}
 		}
@@ -72,30 +71,28 @@ public class QuadTree {
 		this.leaf = false;
 
 		for (Coordinate c: points) {
-			System.out.println("Message");
 			addPoint(c);
 		}
 	}
 
 	private QuadTree newPointLocation(Coordinate c) {
-		System.out.println("newPointLocation");
-		System.out.println(c + " minX: " + minX + " maxX: " + maxX
-				+ " minY: " + minY + " maxY: " + maxY);
+		System.out.println("NewLocation " + c + " minX: " + minX + ", minY: " + minY
+				+ ", maxX: " + maxX + ", maxY: " + maxY);
 		int x = c.getX();
 		int y = c.getY();
-		if ( (x >= minX && x < maxX/2) && (y >= minY && y < maxY/2)) {
+		if ( (x >= minX && x <= maxX/2) && (y >= minY && y <= maxY/2)) {
 			System.out.println("return 0");
 			return tl;
 		}
-		if ( (x >= maxX/2 && x < maxX) && (y > minY && y <= maxY/2)) {
+		if ( (x >= maxX/2 && x <= maxX) && (y >= minY && y <= maxY/2)) {
 			System.out.println("return 1");
 			return tr;
 		}
-		if ( (x >= minX && x < maxX/2) && (y >= maxY/2 && y <= maxY)) {
+		if ( (x >= minX && x <= maxX/2) && (y >= maxY/2 && y <= maxY)) {
 			System.out.println("return 2");
 			return bl;
 		}
-		if ( (x >= maxX/2 && x <= maxX) && (y > maxY/2 && y <= maxY)) {
+		if ( (x >= maxX/2 && x <= maxX) && (y >= maxY/2 && y <= maxY)) {
 			System.out.println("return 3");
 			return br;
 		}
@@ -111,7 +108,6 @@ public class QuadTree {
 	}
 
 	private boolean checkValid(Coordinate c) {
-		System.out.println("CheckValid");
 		int x = c.getX();
 		int y = c.getY();
 		if (y < 0)    throw new IllegalArgumentException("y too small");
@@ -129,21 +125,14 @@ public class QuadTree {
 		return points;
 	}
 
-	public QuadTree getTL() {
-		return tl;
-	}
-
-	public QuadTree getTR() {
-		return tr;
-	}
-
-	public QuadTree getBL() {
-		return bl;
-	}
-
-	public QuadTree getBR() {
-		return br;
-	}
+	public QuadTree getTL() { return tl; }
+	public QuadTree getTR() { return tr; }
+	public QuadTree getBL() { return bl; }
+	public QuadTree getBR() { return br; }
+	public int getMinX() { return minX; }
+	public int getMaxX() { return maxX; }
+	public int getMinY() { return minY; }
+	public int getMaxY() { return maxY; }
 
 	@Override
 	public String toString() {
