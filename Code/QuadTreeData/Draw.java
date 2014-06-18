@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Wed 18 Jun 2014 04:37 PM
+ * Modified: Wed 18 Jun 2014 05:40 PM
  */
 import java.awt.Graphics;
 import javax.swing.JFrame;
@@ -13,15 +13,17 @@ public class Draw extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private QuadTree quadtree;
+	private int scaleFactor;
 
 	public Draw(QuadTree quadtree) {
 		this.quadtree = quadtree;
+		this.scaleFactor = quadtree.getScaleFactor();
 	}
 
 	public void DrawQuadTree() {
 		JFrame f = new JFrame();
 		f.setSize(750, 750);
-		f.add(new Draw(quadtree));
+		f.add(this);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
@@ -32,9 +34,6 @@ public class Draw extends JPanel {
 	}
 
 	private boolean recurseTree(QuadTree q, Graphics2D g) {
-		System.out.println("minX: " + q.getMinX() + ", minY: " + q.getMinY()
-				+ ", maxX: " + q.getMaxX() + ", maxY: " + q.getMaxY());
-		int scaleFactor = 5;
 		double ox = q.getMinX();
 		double oX = q.getMaxX();
 		double oy = q.getMinY();

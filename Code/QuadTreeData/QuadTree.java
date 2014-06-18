@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 18 Jun 2014 04:59 PM
+ * Modified: Wed 18 Jun 2014 05:40 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -13,6 +13,7 @@ public class QuadTree {
 	private double minY;
 	private double maxY;
 	private int maxDensity;
+	private int scaleFactor;
 
 	public QuadTree tl;
 	public QuadTree tr;
@@ -24,16 +25,22 @@ public class QuadTree {
 
 	/** Creates a new root node for a new quadtree.
 	 */
-	public QuadTree(double maxX, double maxY, int maxDensity){
-		this.root    = true;
-		this.depth   = 0;
-		this.leaf    = false;
-		this.maxDensity = maxDensity;
-		this.minX    = 0;
-		this.maxX    = maxX;
-		this.minY    = 0;
-		this.maxY    = maxY;
+	public QuadTree(double maxX, double maxY, int maxDensity, int scaleFactor){
+		this.root        = true;
+		this.depth       = 0;
+		this.leaf        = false;
+		this.maxDensity  = maxDensity;
+		this.scaleFactor = scaleFactor;
+		this.minX        = 0;
+		this.maxX        = maxX;
+		this.minY        = 0;
+		this.maxY        = maxY;
+
 		createSubTrees();
+	}
+
+	public QuadTree(double maxX, double maxY, int maxDensity) {
+		this(maxX, maxY, maxDensity, 5);
 	}
 
 	private QuadTree(double minX, double minY, double maxX, double maxY, int depth,
@@ -41,7 +48,11 @@ public class QuadTree {
 		this.root   = false;
 		this.leaf   = true;
 		this.depth  = depth + 1;
-		this.maxDensity = maxDensity;
+		if (maxDensity > 0) {
+			this.maxDensity = maxDensity;
+		} else {
+			throw new IllegalArgumentException("Maximum density must be greater than 0");
+		}
 		this.minX   = minX;
 		this.maxX   = maxX;
 		this.minY   = minY;
@@ -126,7 +137,7 @@ public class QuadTree {
 	}
 
 	public boolean isLeaf() { return leaf; }
-
+	public int getScaleFactor() { return scaleFactor; }
 	public ArrayList<Coordinate> getPoints() { return points; }
 
 	public QuadTree getTL() { return tl; }
