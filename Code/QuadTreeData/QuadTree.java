@@ -1,12 +1,16 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 18 Jun 2014 05:40 PM
+ * Modified: Wed 18 Jun 2014 06:06 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class QuadTree {
 
+	private String filepath;
 	private boolean root = false;
 	private double minX;
 	private double maxX;
@@ -25,7 +29,7 @@ public class QuadTree {
 
 	/** Creates a new root node for a new quadtree.
 	 */
-	public QuadTree(double maxX, double maxY, int maxDensity, int scaleFactor){
+	public QuadTree(double maxX, double maxY, int maxDensity, int scaleFactor, String filepath) {
 		this.root        = true;
 		this.depth       = 0;
 		this.leaf        = false;
@@ -36,11 +40,18 @@ public class QuadTree {
 		this.minY        = 0;
 		this.maxY        = maxY;
 
+		this.filepath    = filepath;
+
 		createSubTrees();
+		try {
+			readDataFile();
+		} catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 
 	public QuadTree(double maxX, double maxY, int maxDensity) {
-		this(maxX, maxY, maxDensity, 5);
+		this(maxX, maxY, maxDensity, 5, "");
 	}
 
 	private QuadTree(double minX, double minY, double maxX, double maxY, int depth,
@@ -189,6 +200,30 @@ public class QuadTree {
 			result += this.getBR().toDot(s+"3");
 		}
 		return result;
-  }
+	}
+
+	private boolean readDataFile() throws IOException {
+		if (!filepath.equals("")) {
+			BufferedReader reader = null;
+			try {
+				reader = new BufferedReader(new FileReader(filepath));
+				String line = null;
+				while ((line = reader.readLine()) != null) {
+					String[] xyString = line.split("\\s");
+					double[] xyDouble = new double[2];
+					xyDouble[0] = Double.parseDouble(xyString[0]);
+					xyDouble[1] = Double.parseDouble(xyString[1]);
+					Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
+					System.out.println(c);
+					addPoint(c);
+				}
+			} finally {
+				if (reader != null) {
+					reader.close();
+				}
+			}
+		}
+		return true;
+	}
 
 }
