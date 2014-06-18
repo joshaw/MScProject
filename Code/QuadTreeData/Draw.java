@@ -1,9 +1,13 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Wed 18 Jun 2014 11:47 AM
+ * Modified: Wed 18 Jun 2014 04:37 PM
  */
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.Ellipse2D;
 
 public class Draw extends JPanel {
 
@@ -16,33 +20,42 @@ public class Draw extends JPanel {
 
 	public void DrawQuadTree() {
 		JFrame f = new JFrame();
-		f.setSize(800, 800);
+		f.setSize(750, 750);
 		f.add(new Draw(quadtree));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
 
 	public void paint(Graphics g) {
-		recurseTree(quadtree, g);
+		Graphics2D g2 = (Graphics2D) g;
+		recurseTree(quadtree, g2);
 	}
 
-	private boolean recurseTree(QuadTree q, Graphics g) {
+	private boolean recurseTree(QuadTree q, Graphics2D g) {
 		System.out.println("minX: " + q.getMinX() + ", minY: " + q.getMinY()
 				+ ", maxX: " + q.getMaxX() + ", maxY: " + q.getMaxY());
-		int ox = q.getMinX();
-		int oX = q.getMaxX();
-		int oy = q.getMinY();
-		int oY = q.getMaxY();
-		int x = 5*q.getMinX();
-		int X = 5*q.getMaxX();
-		int y = 5*q.getMinY();
-		int Y = 5*q.getMaxY();
-		g.drawRect(100+x, 100+y, X-x, Y-y);
-		// g.drawString("("+ox+","+oy+")", 100+x, 100+y);
-		// g.drawString("("+oX+","+oy+")", 100+X, 100+y);
-		// g.drawString("("+ox+","+oY+")", 100+x, 100+Y);
-		// g.drawString("("+oX+","+oY+")", 100+X, 100+Y);
+		int scaleFactor = 5;
+		double ox = q.getMinX();
+		double oX = q.getMaxX();
+		double oy = q.getMinY();
+		double oY = q.getMaxY();
+		double x = scaleFactor*q.getMinX();
+		double X = scaleFactor*q.getMaxX();
+		double y = scaleFactor*q.getMinY();
+		double Y = scaleFactor*q.getMaxY();
+
+		g.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+		// g.drawString("("+ox+","+oy+")", 10+x, 10+y);
+		// g.drawString("("+oX+","+oy+")", 10+X, 10+y);
+		// g.drawString("("+ox+","+oY+")", 10+x, 10+Y);
+		// g.drawString("("+oX+","+oY+")", 10+X, 10+Y);
 		if (q.isLeaf()) {
+			for(Coordinate c: q.getPoints()) {
+				g.draw(new Ellipse2D.Double(
+							scaleFactor*c.getX()+10,
+							scaleFactor*c.getY()+10,
+							4, 4));
+			}
 			return true;
 		}
 		return recurseTree(q.getTL(), g) &&

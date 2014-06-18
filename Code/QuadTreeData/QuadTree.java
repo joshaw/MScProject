@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class QuadTree {
 
 	private boolean root = false;
-	private int minX;
-	private int maxX;
-	private int minY;
-	private int maxY;
+	private double minX;
+	private double maxX;
+	private double minY;
+	private double maxY;
 	private int maxDensity;
 
 	public QuadTree tl;
@@ -24,7 +24,7 @@ public class QuadTree {
 
 	/** Creates a new root node for a new quadtree.
 	 */
-	public QuadTree(int maxX, int maxY, int maxDensity){
+	public QuadTree(double maxX, double maxY, int maxDensity){
 		this.root    = true;
 		this.depth   = 0;
 		this.leaf    = false;
@@ -36,7 +36,7 @@ public class QuadTree {
 		createSubTrees();
 	}
 
-	private QuadTree(int minX, int minY, int maxX, int maxY, int depth,
+	private QuadTree(double minX, double minY, double maxX, double maxY, int depth,
 			int maxDensity) {
 		this.root   = false;
 		this.leaf   = true;
@@ -118,8 +118,8 @@ public class QuadTree {
 	}
 
 	private boolean checkValid(Coordinate c) {
-		int x = c.getX();
-		int y = c.getY();
+		double x = c.getX();
+		double y = c.getY();
 		if (y < 0)    throw new IllegalArgumentException("y too small");
 		if (y > maxY) throw new IllegalArgumentException("y too large");
 		if (x < 0)    throw new IllegalArgumentException("x too small");
@@ -127,22 +127,18 @@ public class QuadTree {
 		return true;
 	}
 
-	public boolean isLeaf() {
-		return leaf;
-	}
+	public boolean isLeaf() { return leaf; }
 
-	public ArrayList<Coordinate> getPoints() {
-		return points;
-	}
+	public ArrayList<Coordinate> getPoints() { return points; }
 
 	public QuadTree getTL() { return tl; }
 	public QuadTree getTR() { return tr; }
 	public QuadTree getBL() { return bl; }
 	public QuadTree getBR() { return br; }
-	public int getMinX() { return minX; }
-	public int getMaxX() { return maxX; }
-	public int getMinY() { return minY; }
-	public int getMaxY() { return maxY; }
+	public double getMinX() { return minX; }
+	public double getMaxX() { return maxX; }
+	public double getMinY() { return minY; }
+	public double getMaxY() { return maxY; }
 
 	@Override
 	public String toString() {
