@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 18 Jun 2014 11:59 AM
+ * Modified: Wed 18 Jun 2014 12:56 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -14,10 +14,10 @@ public class QuadTree {
 	private int maxY;
 	private int maxDensity;
 
-	private QuadTree tl;
-	private QuadTree tr;
-	private QuadTree bl;
-	private QuadTree br;
+	public QuadTree tl;
+	public QuadTree tr;
+	public QuadTree bl;
+	public QuadTree br;
 	private ArrayList<Coordinate> points;
 	private boolean leaf;
 	private int depth;
@@ -36,7 +36,7 @@ public class QuadTree {
 		createSubTrees();
 	}
 
-	private QuadTree(int minX, int maxX, int minY, int maxY, int depth,
+	private QuadTree(int minX, int minY, int maxX, int maxY, int depth,
 			int maxDensity) {
 		this.root   = false;
 		this.leaf   = true;
@@ -52,7 +52,7 @@ public class QuadTree {
 	public boolean addPoint(Coordinate c) {
 		checkValid(c);
 		if (this.leaf) {
-			System.out.println("Points: " + this.points.size() + " maxDensity " + this.maxDensity);
+			System.out.println("Points: " + this.points.size() + " < " + this.maxDensity);
 			if (this.points.size() <= this.maxDensity) {
 				System.out.println("AddPoint " + c + " minX: " + minX + ", minY: " + minY
 						+ ", maxX: " + maxX + ", maxY: " + maxY);
@@ -61,6 +61,7 @@ public class QuadTree {
 			} else {
 				System.out.println("Deleafing .............");
 				deleaf();
+				return addPoint(c);
 			}
 		}
 		return newPointLocation(c).addPoint(c);
@@ -73,6 +74,7 @@ public class QuadTree {
 		for (Coordinate c: points) {
 			addPoint(c);
 		}
+		this.points = null;
 	}
 
 	private QuadTree newPointLocation(Coordinate c) {
@@ -101,10 +103,18 @@ public class QuadTree {
 	}
 
 	private void createSubTrees() {
-		this.tl = new QuadTree(minX, maxX/2, minY, maxY/2, depth, maxDensity);
-		this.tr = new QuadTree(maxX/2, maxX, minY, maxY/2, depth, maxDensity);
-		this.bl = new QuadTree(minX, maxX/2, maxY/2, maxY, depth, maxDensity);
-		this.br = new QuadTree(maxX/2, maxX, maxY/2, maxY, depth, maxDensity);
+		this.tl = new QuadTree(minX, minY, maxX/2+maxX/4, maxY/2, depth, maxDensity);
+		this.tr = new QuadTree(maxX/2, minY, maxX, maxY/2, depth, maxDensity);
+		this.bl = new QuadTree(minX, maxY/2, maxX/2, maxY, depth, maxDensity);
+		this.br = new QuadTree(maxX/2, maxY/2, maxX, maxY, depth, maxDensity);
+			System.out.println("Create tl minX: " + tl.minX + ", minY: " + tl.minY
+					+ ", maxX: " + tl.maxX + ", maxY: " + tl.maxY);
+			System.out.println("Create tr minX: " + tr.minX + ", minY: " + tr.minY
+					+ ", maxX: " + tr.maxX + ", maxY: " + tr.maxY);
+			System.out.println("Create bl minX: " + bl.minX + ", minY: " + bl.minY
+					+ ", maxX: " + bl.maxX + ", maxY: " + bl.maxY);
+			System.out.println("Create br minX: " + br.minX + ", minY: " + br.minY
+					+ ", maxX: " + br.maxX + ", maxY: " + br.maxY);
 	}
 
 	private boolean checkValid(Coordinate c) {

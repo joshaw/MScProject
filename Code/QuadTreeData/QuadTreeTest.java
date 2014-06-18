@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Wed 18 Jun 2014 11:51 AM
+ * Modified: Wed 18 Jun 2014 12:30 PM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
@@ -28,15 +28,15 @@ public class QuadTreeTest {
 		// main.addPoint(new Coordinate(8, 8));
 		// main.addPoint(new Coordinate(9, 9));
 
-		// main.addPoint(new Coordinate(99, 1));
-		// main.addPoint(new Coordinate(98, 2));
-		// main.addPoint(new Coordinate(97, 3));
-		// main.addPoint(new Coordinate(96, 4));
-		// main.addPoint(new Coordinate(95, 5));
-		// main.addPoint(new Coordinate(94, 6));
-		// main.addPoint(new Coordinate(93, 7));
-		// main.addPoint(new Coordinate(92, 8));
-		// main.addPoint(new Coordinate(91, 9));
+		main.addPoint(new Coordinate(99, 1));
+		main.addPoint(new Coordinate(98, 2));
+		main.addPoint(new Coordinate(97, 3));
+		main.addPoint(new Coordinate(96, 4));
+		main.addPoint(new Coordinate(95, 5));
+		main.addPoint(new Coordinate(94, 6));
+		main.addPoint(new Coordinate(93, 7));
+		main.addPoint(new Coordinate(92, 8));
+		main.addPoint(new Coordinate(91, 9));
 
 		// main.addPoint(new Coordinate(1, 99));
 		// main.addPoint(new Coordinate(2, 98));
@@ -48,10 +48,10 @@ public class QuadTreeTest {
 		// main.addPoint(new Coordinate(8, 92));
 		// main.addPoint(new Coordinate(9, 91));
 
-		main.addPoint(new Coordinate(99, 99));
-		main.addPoint(new Coordinate(98, 98));
-		main.addPoint(new Coordinate(97, 97));
-		main.addPoint(new Coordinate(96, 96));
+		// main.addPoint(new Coordinate(99, 99));
+		// main.addPoint(new Coordinate(98, 98));
+		// main.addPoint(new Coordinate(97, 97));
+		// main.addPoint(new Coordinate(96, 96));
 		// main.addPoint(new Coordinate(95, 95));
 		// main.addPoint(new Coordinate(94, 94));
 		// main.addPoint(new Coordinate(93, 93));
