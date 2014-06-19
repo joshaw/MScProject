@@ -15,7 +15,7 @@ y-coordinate are both smaller than 100 and greater that 0,
 1. plots this data to allow checking for sanity, and
 1. writes the data to the file given.
 
-```R
+```
 x <- simcor(1000, 50, 65, 50, 65, 0.999)
 y <- x[ x[,1]>0 & x[,1]<100 & x[,2]>0 & x[,2]<100, ]
 plot(y)
@@ -26,7 +26,7 @@ write.table(y, file="data", sep=" ", row.names=F, col.names=F)
 The simcor (simulate correlated data) from [here][simcor] function is defined 
 as:
 
-```R
+```
 simcor <- function (n, xmean, xsd, ymean, ysd, correlation) {
     x <- rnorm(n)
     y <- rnorm(n)
