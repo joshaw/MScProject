@@ -1,5 +1,5 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Sun 15 Jun 2014 04:30 pm
+# Modified: Thu 19 Jun 2014 05:00 PM
 
 PROJECT=mainfile
 TEX=pdflatex
@@ -20,7 +20,7 @@ all:
 	@$(BUILDTEX) > /dev/null
 	@echo -e "\n"
 	@$(BUILDTEX) > /dev/null
-	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1
+	# @xdotool search $(PROJECT).pdf key r > /dev/null 2>&1
 
 once:
 	$(BUILDTEX)
