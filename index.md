@@ -6,6 +6,7 @@ title: Home
 # MSc Project
 
 ## About
+- Sub-diffraction-limit imaging with quadtrees.
 
 ## Papers
 - [Ultra-High Resolution Imaging by Flourescence Photoactivation Localization
@@ -16,6 +17,9 @@ title: Home
   Microscopy (STORM)](Papers/rust2006sub.pdf)
 - [Pre-Existing Clusters of the Adaptor Lat do not Participate in Early T Cell
   Signaling Events](Papers/williamson2011pre.pdf)
+
+## Info
+- [Randomly generated data](randomdata/index.html)
 
 ## Links
 
