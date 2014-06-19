@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Thu 19 Jun 2014 10:19 AM
+ * Modified: Thu 19 Jun 2014 06:03 PM
  */
 import java.awt.Graphics;
 import javax.swing.JFrame;
@@ -15,11 +15,17 @@ public class Draw extends JPanel {
 	private QuadTree quadtree;
 	private int scaleFactor;
 
+	/** Create a new object which does the drawing.
+	 */
 	public Draw(QuadTree quadtree) {
 		this.quadtree = quadtree;
 		this.scaleFactor = quadtree.getScaleFactor();
 	}
 
+	/** Create the window to hold the quadtree graphics.
+	 *
+	 * Implicitly calls the paint method.
+	 */
 	public void DrawQuadTree() {
 		JFrame f = new JFrame();
 		int width = (int) (quadtree.getScaleFactor()*quadtree.getMaxX()+25);
@@ -30,11 +36,18 @@ public class Draw extends JPanel {
 		f.setVisible(true);
 	}
 
+	/** Draw the graphics of the quadtree.
+	 *
+	 * Called when updating the screen.
+	 */
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		recurseTree(quadtree, g2);
 	}
 
+	/** Recursivly go through the quadtree and draw sqare on screen based on
+	 * the minimum and maximum limits of the node are.
+	 */
 	private boolean recurseTree(QuadTree q, Graphics2D g) {
 		double ox = q.getMinX();
 		double oX = q.getMaxX();
