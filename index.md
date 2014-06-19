@@ -19,7 +19,7 @@ title: Home
   Signaling Events](Papers/williamson2011pre.pdf)
 
 ## Info
-- [Randomly generated data](randomdata/index.html)
+- [Randomly generated data](infoposts/randomdata.html)
 
 ## Links
 
