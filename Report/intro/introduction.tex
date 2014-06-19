@@ -1,9 +1,40 @@
 % Created:  Sun 15 Jun 2014 04:25 pm
-% Modified: Thu 19 Jun 2014 12:18 PM
-\part{Intro}
+% Modified: Thu 19 Jun 2014 04:57 PM
+\part{Introduction}
 
-\section{section name}
+\section{Medical Imaging}
 \label{sec:section_name}
 
-\section{Section2}
-\label{sec:section2}
+\section[Sub-Diffraction-Limit Imaging]{Sub-Diffraction-Limit\\ Imaging}
+\label{sec:sub_diffraction_limit_imaging}
+
+Imaging objects becomes more difficult as they get smaller because of the
+wavelength of light. Once two objects are separated by a distance of an order
+similar to that of the wavelength ($\lambda$) of the light used to view them,
+it is no longer possible to resolve these two objects apart, instead all that
+can be seen is a blur of the two objects together.
+
+There have been several techniques developed for distinguishing objects apart
+on smaller and smaller scales. Many of these involve using different
+wavelengths of light.  For example, instead of being limited by visible light,
+$\lambda \approx 5\times 10^{-7} \textrm{m}$, x-ray radiation ($\lambda \approx
+10^{-10} \textrm{m}$) or even electrons ($\lambda \approx 10^{-11} \textrm{m}$)
+can be used to resolve smaller scales in x-ray and electron microscopy
+respectively. These, however, have the issue that, because the smaller
+wavelengths imply higher energies, there is the danger of damaging the sample.
+When imaging biological samples, this can be unreasonable.
+%todo - unreasonable
+
+\subsection{STORM}
+\label{sub:storm}
+
+Other techniques employ different methods of actually capturing the image, or
+cleaver manipulation of the images that are produced, to get around the
+limitations of the diffraction problem.
+
+For example the STORM method\cite{rust2006sub} uses a technique where the
+objects to be imaged are flourescent dyes. The type of dye molecule used allows
+the flourecence to be switched on and off, allowing some markers to be imaged
+separately to others, effectivly increasing the distance between points. Once
+an image is captured, the point spread function (PSF) of the point is used to
+locate the single marker, the ``on'' markers are changed and the image retaken.
