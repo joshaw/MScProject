@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Wed 18 Jun 2014 06:03 PM
+ * Modified: Thu 19 Jun 2014 10:19 AM
  */
 import java.awt.Graphics;
 import javax.swing.JFrame;
@@ -22,7 +22,9 @@ public class Draw extends JPanel {
 
 	public void DrawQuadTree() {
 		JFrame f = new JFrame();
-		f.setSize(750, 750);
+		int width = (int) (quadtree.getScaleFactor()*quadtree.getMaxX()+25);
+		int height = (int) (quadtree.getScaleFactor()*quadtree.getMaxY()+45);
+		f.setSize(width, height);
 		f.add(this);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
