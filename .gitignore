@@ -10,6 +10,12 @@
 *.out
 *.toc
 
+# Latex Styles
+*.sty
+*.def
+*.cfg
+*expl3-code.tex
+
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
