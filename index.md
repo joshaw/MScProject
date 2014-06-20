@@ -22,6 +22,7 @@ title: Home
 - [Quadtrees](infoposts/quadtrees.html)
 - [Quadtree algorithm for adding points](infoposts/point_adding_to_quadtree.md)
 - [Randomly generated data](infoposts/randomdata.html)
+- [Adding real data](infoposts/real_data/adding_real_data.md)
 
 ## Links
 
