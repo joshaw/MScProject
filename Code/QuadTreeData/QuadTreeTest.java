@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Fri 20 Jun 2014 04:52 PM
+ * Modified: Fri 20 Jun 2014 09:52 PM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
@@ -10,7 +10,13 @@ public class QuadTreeTest {
 	public static void main(String[] args) {
 
 		QuadTree main;
-		if (args.length == 3) {
+		if (args.length == 5) {
+			double xdim = Double.parseDouble(args[0]);
+			double ydim = Double.parseDouble(args[1]);
+			int density = Integer.parseInt(args[2]);
+			double scale = Double.parseDouble(args[3]);
+			main = new QuadTree(xdim, ydim, density, scale, args[4]);
+		} else if (args.length == 3) {
 			int density = Integer.parseInt(args[0]);
 			double scale = Double.parseDouble(args[1]);
 			main = new QuadTree(41000.0, 41000.0, density, scale, args[2]);
