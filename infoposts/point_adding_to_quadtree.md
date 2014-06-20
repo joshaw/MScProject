@@ -9,7 +9,7 @@ This is an overview of the algorithm used to add points to a new quadtree.
 
 TODO
 
-<--
+<!--
 Created:  Thu 19 Jun 2014 09:01 PM
-Modified: Thu 19 Jun 2014 09:01 PM
+Modified: Fri 20 Jun 2014 04:22 PM
 -->
