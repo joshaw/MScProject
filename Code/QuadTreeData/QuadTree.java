@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Thu 19 Jun 2014 05:56 PM
+ * Modified: Fri 20 Jun 2014 03:29 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -187,10 +187,10 @@ public class QuadTree {
 	private boolean checkValid(Coordinate c) {
 		double x = c.getX();
 		double y = c.getY();
-		if (y < 0)    throw new IllegalArgumentException("y too small");
-		if (y > maxY) throw new IllegalArgumentException("y too large");
-		if (x < 0)    throw new IllegalArgumentException("x too small");
-		if (x > maxX) throw new IllegalArgumentException("x too large");
+		if (y < 0)    throw new IllegalArgumentException("[" + y + "] y too small");
+		if (y > maxY) throw new IllegalArgumentException("[" + y + "] y too large");
+		if (x < 0)    throw new IllegalArgumentException("[" + x + "] x too small");
+		if (x > maxX) throw new IllegalArgumentException("[" + x + "] x too large");
 		return true;
 	}
 
@@ -251,24 +251,40 @@ public class QuadTree {
 
 	/** Reads the given data file and interprets the contents as coordinates.
 	 * Each coordinate is added to the quadtree.
-	 * TODO Add header to quadtree file which allows a quadtree to be entirely
-	 * defined in the file.
+	 * TODO reformat to be able to read sample data.
 	 */
 	private boolean readDataFile() throws IOException {
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
+			String cvsSplitBy = ",";
+
 			try {
 				reader = new BufferedReader(new FileReader(filepath));
 				String line = null;
+
+				// while ((line = reader.readLine()) != null) {
+				// 	String[] xyString = line.split("\\s");
+				// 	double[] xyDouble = new double[2];
+
+				// 	xyDouble[0] = Double.parseDouble(xyString[0]);
+				// 	xyDouble[1] = Double.parseDouble(xyString[1]);
+				// 	Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
+				// 	System.out.println(c);
+				// 	addPoint(c);
+				// }
+				reader.readLine();
 				while ((line = reader.readLine()) != null) {
-					String[] xyString = line.split("\\s");
+
+					String[] entries = line.split("\t");
 					double[] xyDouble = new double[2];
-					xyDouble[0] = Double.parseDouble(xyString[0]);
-					xyDouble[1] = Double.parseDouble(xyString[1]);
+					xyDouble[0] = Double.parseDouble(entries[3]);
+					xyDouble[1] = Double.parseDouble(entries[4]);
+
 					Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
 					System.out.println(c);
 					addPoint(c);
 				}
+
 			} finally {
 				if (reader != null) {
 					reader.close();
