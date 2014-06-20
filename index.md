@@ -20,9 +20,9 @@ title: Home
 
 ## Info
 - [Quadtrees](infoposts/quadtrees.html)
-- [Quadtree algorithm for adding points](infoposts/point_adding_to_quadtree.md)
+- [Quadtree algorithm for adding points](infoposts/point_adding_to_quadtree.htmlhtml)
 - [Randomly generated data](infoposts/randomdata.html)
-- [Adding real data](infoposts/real_data/adding_real_data.md)
+- [Adding real data](infoposts/real_data/adding_real_data.html)
 
 ## Links
 
