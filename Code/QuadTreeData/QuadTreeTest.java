@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Fri 20 Jun 2014 03:56 PM
+ * Modified: Fri 20 Jun 2014 04:52 PM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
@@ -9,7 +9,16 @@ import static org.junit.Assert.*;
 public class QuadTreeTest {
 	public static void main(String[] args) {
 
-		QuadTree main = new QuadTree(41000, 41000, 20, 0.022, "../sampledata/1.txt");
+		QuadTree main;
+		if (args.length == 3) {
+			int density = Integer.parseInt(args[0]);
+			double scale = Double.parseDouble(args[1]);
+			main = new QuadTree(41000.0, 41000.0, density, scale, args[2]);
+		} else if (args.length == 1) {
+			main = new QuadTree(41000.0, 41000.0, 20, 0.02, args[0]);
+		} else {
+			main = new QuadTree(41000.0, 41000.0, 20, 0.022, "../sampledata/1.txt");
+		}
 
 		System.out.println(main);
 		Draw d = new Draw(main);

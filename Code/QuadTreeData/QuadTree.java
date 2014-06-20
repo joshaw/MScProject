@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Fri 20 Jun 2014 03:29 PM
+ * Modified: Fri 20 Jun 2014 04:41 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -251,7 +251,6 @@ public class QuadTree {
 
 	/** Reads the given data file and interprets the contents as coordinates.
 	 * Each coordinate is added to the quadtree.
-	 * TODO reformat to be able to read sample data.
 	 */
 	private boolean readDataFile() throws IOException {
 		if (!filepath.equals("")) {
