@@ -38,9 +38,9 @@ simcor <- function (n, xmean, xsd, ymean, ysd, correlation) {
 }
 ```
 
-[simcor][http://stackoverflow.com/a/13292645]
+[simcor]: [http://stackoverflow.com/a/13292645]
 
-<--
+<!--
 Created:  Tue 17 Jun 2014 07:02 PM
-Modified: Thu 19 Jun 2014 09:02 PM
->
+Modified: Fri 20 Jun 2014 09:34 PM
+-->

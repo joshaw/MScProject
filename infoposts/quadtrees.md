@@ -25,7 +25,7 @@ contains the whole image, each of the children a quarter and so on. By
 representing the image like this, information regarding the spatial index of 
 features can be stored efficiently and then manipulated.
 
-<--
+<!--
 Created:  Thu 19 Jun 2014 08:43 PM
-Modified: Thu 19 Jun 2014 08:49 PM
+Modified: Fri 20 Jun 2014 09:34 PM
 -->
