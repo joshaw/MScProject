@@ -40,7 +40,9 @@ public class Draw extends JPanel {
 	 *
 	 * Called when updating the screen.
 	 */
-	public void paint(Graphics g) {
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		this.setBackground(Color.WHITE);
 		Graphics2D g2 = (Graphics2D) g;
 		recurseTree(quadtree, g2);
 	}
