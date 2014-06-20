@@ -1,14 +1,101 @@
 \section{Background}
 \label{sec:background}
 
+In medical imaging, viewing individual features of single cells is essential to
+learn about how the processes in the cells take place, but also extremely
+difficult. To view something as small as a cell, fluorescent dyes are attached
+to the cell. When light of a certain frequency is shone on these dyes, the dye
+molecule is excited. When de-excitation occurs, a photon of light is released
+with a different wave length. This allows the dye molecules to be imaged.
+
+Imaging objects becomes more difficult as they get smaller because of the
+wavelength of light. Once two objects are separated by a distance of an order
+similar to that of the wavelength ($\lambda$) of the light used to view them,
+it is no longer possible to resolve these two objects apart, instead all that
+can be seen is a blur of the two objects together. The dyes that are used
+usually respond in the visible frequency range, thus limiting the resolution of
+separate points to around \SI{300}{\nano\metre}.
+
+There are several techniques that have been developed to avoid this problem.
+Two examples that are used in medical imaging are PALM\cite{owen2010palm} and
+STORM\cite{rust2006sub}. These both employ special dyes that allow molecules
+to be imaged at different times, a subset of all the dye molecules is imaged at
+a time. Using the point spread function (PSF) of the imaged molecule, the
+precise location can be estimated and combined with the locations of other
+molecules from other images of the cell. This allows the diffraction limit to
+be circumvented and produces a large number of points, each representing a
+single molecule attached to a position on the cell.
+
 \section{Project}
 \label{sec:project}
+
+This project aims to interpret the data that is produced from this analysis in
+a more efficient way, and to provide certain quantitative statistics regarding
+the data; size of structure, number of points, density, etc. Current analysis
+methods have proven to be inefficient and are often not able to cope well with
+noisy data. This project will investigate alternative methods for identifying
+clusters in the data and ignoring erroneous points.
+
+\subsection{Uniform Discrete Cell Method}
+\label{sub:uniform_discrete_cell_method}
+
+An initial method for identifying structure in the data points will involve
+splitting the image space into discretized cells and treating each cell as a
+grey scale pixel. The value that will be assigned to each pixel will depend on
+the number of data points that it contains and noise will be removed by
+thresholding the image to a predetermined limit value.
+
+\subsection{Quadtree Method}
+\label{sub:quadtree_method}
+
+A second method that will be investigated will be to use a quadtree abstract
+data type to hold the data points. Each datum will be placed into the quadtree
+such that a maximum number of points in each node is allowed. This should have
+the benefit of being much more dynamic, so respond better to the types of
+structure expected.
+
+With both of these initial approaches, a method for classifying the resultant
+information will need to be produced and tested.
 
 \section{Deliverables}
 \label{sec:deliverables}
 
-\section{Timescale Outline}
-\label{sec:timescale_outline}
+The final goal deliverable will be an easily usable and intuitive plugin for
+the ImageJ program. ImageJ\cite{rasband1997imagej}, developed by the Natural
+Institutes of Health, is used as the industry standard for analysis and
+manipulation of biological or medical images. Since it is an public-domain
+program with an open Java plugin architecture, this should be achievable.
 
-\section{Limitations and Constraints}
-\label{sec:limitations_and_constraints}
+\section{Software Development Model}
+\label{sec:software_development_model}
+
+Since there is a distinction in steps between the initial design and development
+of the strategy to use to analyse the data and writing the plugin for ImageJ,
+the steps involved in this project will follow an agile development model.
+There will be stages of development of the algorithms and the plugin and these
+will be revisited as necessary during the development.
+
+\section{Preliminary Timescale}
+\label{sec:preliminary_timescale}
+
+\begin{center}
+	\begin{tabu} to \pagewidth {c X c}
+	\toprule
+	Stage & Tasks & Date \\
+	\midrule
+	1 & Research existing methods of cluster analysis and identify short
+	  comings. & 20th June 2014 \\
+	1 & Build implementation of Uniform Discrete Cell method. & 24th June 2014\\
+	1 & Build implementation of Quadtree method. & 30th June 2014 \\
+	1 & Test and compare previous algorithms. Perform timing and resource
+	  usage analysis. & 8th June 2014 \\
+	1 & Using chosen method, implement cluster analysis algorithms. & \\
+	1 & Write-up of background research and current implementations
+	  investigation & \\
+	1 & Write-up of data structure algorithms. & \\
+	1 & Write-up of cluster analysis algorithms. & \\
+	1 & Final write-up of processes, improvements and end results of project. &
+	  \\
+	\bottomrule
+	\end{tabu}
+\end{center}
