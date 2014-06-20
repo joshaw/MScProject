@@ -17,7 +17,7 @@ public class QuadTree {
 	private double minY;
 	private double maxY;
 	private int maxDensity;
-	private int scaleFactor;
+	private double scaleFactor;
 
 	public QuadTree tl;
 	public QuadTree tr;
@@ -36,8 +36,8 @@ public class QuadTree {
 	 * @param scaleFactor factor to increase the size of the quadtree when
 	 * drawing to screen.
 	 */
-	public QuadTree(double maxX, double maxY, int maxDensity, int scaleFactor,
-			String filepath) {
+	public QuadTree(double maxX, double maxY, int maxDensity,
+			double scaleFactor, String filepath) {
 		this.root        = true;
 		this.depth       = 0;
 		this.leaf        = false;
@@ -65,11 +65,6 @@ public class QuadTree {
 
 	public QuadTree(double maxX, double maxY, int maxDensity) {
 		this(maxX, maxY, maxDensity, 5, "");
-	}
-
-	// TODO
-	public QuadTree(String filepath){
-		this.filepath = filepath;
 	}
 
 	/** Create a new leaf node.
@@ -200,7 +195,7 @@ public class QuadTree {
 	}
 
 	public boolean isLeaf() { return leaf; }
-	public int getScaleFactor() { return scaleFactor; }
+	public double getScaleFactor() { return scaleFactor; }
 	public ArrayList<Coordinate> getPoints() { return points; }
 
 	public QuadTree getTL() { return tl; }

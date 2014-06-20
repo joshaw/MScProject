@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Thu 19 Jun 2014 06:03 PM
+ * Modified: Fri 20 Jun 2014 03:55 PM
  */
 import java.awt.Graphics;
 import javax.swing.JFrame;
@@ -13,7 +13,7 @@ public class Draw extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private QuadTree quadtree;
-	private int scaleFactor;
+	private double scaleFactor;
 
 	/** Create a new object which does the drawing.
 	 */
@@ -28,8 +28,10 @@ public class Draw extends JPanel {
 	 */
 	public void DrawQuadTree() {
 		JFrame f = new JFrame();
+
 		int width = (int) (quadtree.getScaleFactor()*quadtree.getMaxX()+25);
 		int height = (int) (quadtree.getScaleFactor()*quadtree.getMaxY()+45);
+
 		f.setSize(width, height);
 		f.add(this);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
