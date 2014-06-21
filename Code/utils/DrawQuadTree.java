@@ -1,7 +1,7 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Sat 21 Jun 2014 08:12 AM
+ * Modified: Sat 21 Jun 2014 02:48 pm
  */
-package quadtree.data;
+package utils;
 
 import utils.Coordinate;
 import quadtree.data.*;
@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D;
 
-public class Draw extends JPanel {
+public class DrawQuadTree extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private QuadTree quadtree;
@@ -22,7 +22,7 @@ public class Draw extends JPanel {
 
 	/** Create a new object which does the drawing.
 	 */
-	public Draw(QuadTree quadtree) {
+	public DrawQuadTree(QuadTree quadtree) {
 		this.quadtree = quadtree;
 		this.scaleFactor = quadtree.getScaleFactor();
 	}
@@ -31,7 +31,7 @@ public class Draw extends JPanel {
 	 *
 	 * Implicitly calls the paint method.
 	 */
-	public void DrawQuadTree() {
+	public void draw() {
 		JFrame f = new JFrame();
 
 		int width = (int) (quadtree.getScaleFactor()*quadtree.getMaxX()+25);
@@ -58,6 +58,7 @@ public class Draw extends JPanel {
 	 * the minimum and maximum limits of the node are.
 	 */
 	private boolean recurseTree(QuadTree q, Graphics2D g) {
+		System.out.println("Something");
 		double ox = q.getMinX();
 		double oX = q.getMaxX();
 		double oy = q.getMinY();
