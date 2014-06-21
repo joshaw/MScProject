@@ -7,6 +7,7 @@ title: Home
 
 ## About
 - Sub-diffraction-limit imaging with quadtrees.
+- [Project Proposal](res/proposal.pdf)
 
 ## Papers
 - [Ultra-High Resolution Imaging by Flourescence Photoactivation Localization
