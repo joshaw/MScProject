@@ -1,8 +1,13 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Fri 20 Jun 2014 09:52 PM
+ * Modified: Sat 21 Jun 2014 08:14 AM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
+package quadtree.data;
+
+import utils.Coordinate;
+import quadtree.data.*;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -23,7 +28,7 @@ public class QuadTreeTest {
 		} else if (args.length == 1) {
 			main = new QuadTree(41000.0, 41000.0, 20, 0.02, args[0]);
 		} else {
-			main = new QuadTree(41000.0, 41000.0, 20, 0.022, "../sampledata/1.txt");
+			main = new QuadTree(41000.0, 41000.0, 20, 0.022, "sampledata/1.txt");
 		}
 
 		System.out.println(main);

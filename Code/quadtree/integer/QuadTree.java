@@ -1,8 +1,12 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Tue 17 Jun 2014 12:03 PM
+ * Modified: Sat 21 Jun 2014 08:18 AM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */
+package quadtree.integer;
+
+import utils.Coordinate;
+
 public class QuadTree<E> {
 
 	private QuadTree<E> tl;
@@ -70,10 +74,10 @@ public class QuadTree<E> {
 
 		Coordinate qt1Coord = getCoordinate(qt1);
 		Coordinate qt2Coord = getCoordinate(qt2);
-		int qt1x = qt1Coord.getX();
-		int qt1y = qt1Coord.getY();
-		int qt2x = qt2Coord.getX();
-		int qt2y = qt2Coord.getY();
+		double qt1x = qt1Coord.getX();
+		double qt1y = qt1Coord.getY();
+		double qt2x = qt2Coord.getX();
+		double qt2y = qt2Coord.getY();
 
 		/* If the two coordinates are the same in the x-axis and differ by 1 in
 		 * the y-axis, or are the same in the y-axis and differ by 1 in the
@@ -137,8 +141,8 @@ public class QuadTree<E> {
 		}
 
 		String code = "";
-		String x = Integer.toBinaryString(coord.getX());
-		String y = Integer.toBinaryString(coord.getY());
+		String x = Integer.toBinaryString((int) coord.getX());
+		String y = Integer.toBinaryString((int) coord.getY());
 
 		while (x.length() != y.length()) {
 			if (x.length() < y.length()) {

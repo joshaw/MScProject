@@ -1,8 +1,13 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Tue 17 Jun 2014 05:41 PM
+ * Modified: Sat 21 Jun 2014 08:19 AM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */
+package quadtree.integer;
+
+import utils.Coordinate;
+import quadtree.integer.*;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 

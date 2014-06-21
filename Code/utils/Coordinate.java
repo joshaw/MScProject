@@ -1,23 +1,25 @@
-/** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Tue 17 Jun 2014 12:03 PM
+/** Created: Tue 17 Jun 2014 12:00 PM
+ * Modified: Sat 21 Jun 2014 07:35 AM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */
+package utils;
+
 public class Coordinate {
 
-	private int x;
-	private int y;
+	private double x;
+	private double y;
 
-	public Coordinate(int x, int y) {
+	public Coordinate(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 

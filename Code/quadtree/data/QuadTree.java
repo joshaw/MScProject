@@ -1,8 +1,12 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Fri 20 Jun 2014 09:56 PM
+ * Modified: Sat 21 Jun 2014 08:28 AM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
+package quadtree.data;
+
+import utils.Coordinate;
+
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -56,6 +60,7 @@ public class QuadTree {
 		}
 
 		createSubTrees();
+		// TODO do we need the try catch block here?
 		try {
 			readDataFile();
 		} catch(IOException e){
@@ -255,7 +260,6 @@ public class QuadTree {
 	private boolean readDataFile() throws IOException {
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
-			String cvsSplitBy = ",";
 
 			try {
 				reader = new BufferedReader(new FileReader(filepath));

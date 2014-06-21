@@ -1,6 +1,11 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Fri 20 Jun 2014 03:55 PM
+ * Modified: Sat 21 Jun 2014 08:12 AM
  */
+package quadtree.data;
+
+import utils.Coordinate;
+import quadtree.data.*;
+
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
