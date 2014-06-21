@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Sat 21 Jun 2014 02:48 pm
+ * Modified: Sat 21 Jun 2014 02:53 pm
  */
 package utils;
 
@@ -58,7 +58,6 @@ public class DrawQuadTree extends JPanel {
 	 * the minimum and maximum limits of the node are.
 	 */
 	private boolean recurseTree(QuadTree q, Graphics2D g) {
-		System.out.println("Something");
 		double ox = q.getMinX();
 		double oX = q.getMaxX();
 		double oy = q.getMinY();
