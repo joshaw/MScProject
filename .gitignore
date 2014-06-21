@@ -26,3 +26,6 @@
 
 ## ctags
 tags
+
+# Website generated files
+_site/
