@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Sat 21 Jun 2014 02:42 pm
+ * Modified: Sat 21 Jun 2014 07:58 PM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
@@ -29,10 +29,10 @@ public class QuadTreeTest {
 		} else if (args.length == 1) {
 			main = new QuadTree(41000.0, 41000.0, 20, 0.02, args[0]);
 		} else {
-			main = new QuadTree(41000.0, 41000.0, 20, 0.022, "sampledata/palm_1.txt");
+			main = new QuadTree(41000.0, 41000.0, 20, 0.012, "sampledata/palm_1.txt");
 		}
 
-		System.out.println(main);
+		// System.out.println(main);
 		DrawQuadTree d = new DrawQuadTree(main);
 		d.draw();
 	}

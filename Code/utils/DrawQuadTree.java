@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Sat 21 Jun 2014 02:53 pm
+ * Modified: Sat 21 Jun 2014 09:48 PM
  */
 package utils;
 
@@ -19,6 +19,7 @@ public class DrawQuadTree extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private QuadTree quadtree;
 	private double scaleFactor;
+	private int addedCount = 0;
 
 	/** Create a new object which does the drawing.
 	 */
@@ -52,6 +53,7 @@ public class DrawQuadTree extends JPanel {
 		this.setBackground(Color.WHITE);
 		Graphics2D g2 = (Graphics2D) g;
 		recurseTree(quadtree, g2);
+		System.out.println("Total added to tree: " + addedCount);
 	}
 
 	/** Recursivly go through the quadtree and draw sqare on screen based on
@@ -78,6 +80,9 @@ public class DrawQuadTree extends JPanel {
 							scaleFactor*c.getX()+10,
 							scaleFactor*c.getY()+10,
 							4, 4));
+				// TODO find out why the number of points added to the screen
+				// is double the number in the tree.
+				addedCount++;
 			}
 			return true;
 		}

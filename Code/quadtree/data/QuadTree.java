@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Sat 21 Jun 2014 08:28 AM
+ * Modified: Sat 21 Jun 2014 09:45 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -99,20 +99,20 @@ public class QuadTree {
 		/* If we have reached a leaf node, then c needs to be added here,
 		 * otherwise, we need to find the correct sub tree to go down.*/
 		if (this.leaf) {
-			System.out.println("Points: " +
-					this.points.size() + " <= " + this.maxDensity + " " +
-					(this.points.size()<=this.maxDensity));
+			// System.out.println("Points: " +
+			// 		this.points.size() + " <= " + this.maxDensity + " " +
+			// 		(this.points.size()<=this.maxDensity));
 
 			/* If this leaf can still take more points, then simply add it to
 			 * the list of points, otherwise we need to split the list into new
 			 * subtrees. */
 			if (this.points.size() <= this.maxDensity) {
-				System.out.println("AddPoint " +c+ " minX: "+minX + ", minY: "
-						+ minY + ", maxX: " + maxX + ", maxY: " + maxY);
+				// System.out.println("AddPoint " +c+ " minX: "+minX + ", minY: "
+				// 		+ minY + ", maxX: " + maxX + ", maxY: " + maxY);
 				this.points.add(c);
 				return true;
 			} else {
-				System.out.println("Deleafing .............");
+				// System.out.println("Deleafing .............");
 				deleaf();
 				return addPoint(c);
 			}
@@ -142,29 +142,29 @@ public class QuadTree {
 	 * quadtree for that quadrant.
 	 */
 	private QuadTree newPointLocation(Coordinate c) {
-		System.out.println("NewLocation " + c + " minX: " + minX + ", minY: "
-				+ minY + ", maxX: " + maxX + ", maxY: " + maxY);
+		// System.out.println("newlocation " + c + " minx: " + minx + ", miny: "
+		// 		+ minY + ", maxX: " + maxX + ", maxY: " + maxY);
 		double x = c.getX();
 		double y = c.getY();
 
 		if ( (x >= minX && x <= maxX/2+minX/2) &&
 			 (y >= minY && y <= maxY/2+minY/2)) {
-			System.out.println("return 0");
+			// System.out.println("return 0");
 			return tl;                             // Top Left - 0
 		}
 		if ( (x >= maxX/2+minX/2 && x <= maxX) &&
 			 (y >= minY && y <= maxY/2+minY/2)) {
-			System.out.println("return 1");
+			// System.out.println("return 1");
 			return tr;                             // Top Right - 1
 		}
 		if ( (x >= minX && x <= maxX/2+minX/2) &&
 			 (y >= maxY/2+minY/2 && y <= maxY)) {
-			System.out.println("return 2");
+			// System.out.println("return 2");
 			return bl;                             // Bottom Left - 2
 		}
 		if ( (x >= maxX/2+minX/2 && x <= maxX) &&
 			 (y >= maxY/2+minY/2 && y <= maxY)) {
-			System.out.println("return 3");
+			// System.out.println("return 3");
 			return br;                             // Bottom Right - 3
 		}
 
@@ -180,10 +180,10 @@ public class QuadTree {
 		this.bl = new QuadTree(minX         ,maxY/2+minY/2,maxX/2+minX/2,maxY         ,depth,maxDensity);
 		this.br = new QuadTree(maxX/2+minX/2,maxY/2+minY/2,maxX         ,maxY         ,depth,maxDensity);
 
-		System.out.println("Create tl ("+tl.minX+" , "+tl.minY+") ("+tl.maxX+" , "+tl.maxY+")");
-		System.out.println("Create tr ("+tr.minX+" , "+tr.minY+") ("+tr.maxX+" , "+tr.maxY+")");
-		System.out.println("Create bl ("+bl.minX+" , "+bl.minY+") ("+bl.maxX+" , "+bl.maxY+")");
-		System.out.println("Create br ("+br.minX+" , "+br.minY+") ("+br.maxX+" , "+br.maxY+")");
+		// System.out.println("Create tl ("+tl.minX+" , "+tl.minY+") ("+tl.maxX+" , "+tl.maxY+")");
+		// System.out.println("Create tr ("+tr.minX+" , "+tr.minY+") ("+tr.maxX+" , "+tr.maxY+")");
+		// System.out.println("Create bl ("+bl.minX+" , "+bl.minY+") ("+bl.maxX+" , "+bl.maxY+")");
+		// System.out.println("Create br ("+br.minX+" , "+br.minY+") ("+br.maxX+" , "+br.maxY+")");
 	}
 
 	/** Checks that a coordinate is valid, ie exists in the quadtree-space of
@@ -275,6 +275,7 @@ public class QuadTree {
 				// 	System.out.println(c);
 				// 	addPoint(c);
 				// }
+				int countFile = 0;
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
@@ -284,9 +285,11 @@ public class QuadTree {
 					xyDouble[1] = Double.parseDouble(entries[4]);
 
 					Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
-					System.out.println(c);
+					// System.out.println(c);
 					addPoint(c);
+					countFile++;
 				}
+				System.out.println("Total read from file: " + countFile);
 
 			} finally {
 				if (reader != null) {
