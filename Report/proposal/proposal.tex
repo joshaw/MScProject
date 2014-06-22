@@ -25,13 +25,13 @@ require or cause damage to the sample.
 
 Two examples that are used in medical imaging are PALM\cite{owen2010palm} and
 STORM\cite{rust2006sub}. These both employ special dyes that allow molecules to
-be imaged at different times, a subset of all the dye molecules is imaged at a
-time. Using the point spread function (PSF) of the imaged molecule, the precise
-location can be estimated and combined with the locations of other molecules
-from other images of the cell. This allows the diffraction limit to be
-circumvented without affecting the sample material, producing a large number
-of points, each representing a single molecule attached to a position on the
-cell.
+be imaged at different times, a different subset of all the dye molecules are
+activated for each image. Using the point spread function (PSF) of the imaged
+molecule, the precise location can be estimated and combined with the locations
+of other molecules from other images of the cell. This allows the diffraction
+limit to be circumvented without affecting the sample material, producing a
+large number of points, each representing a single molecule attached to a
+position on the cell.
 
 \section{Project}
 \label{sec:project}
@@ -77,17 +77,17 @@ performance with large real data-sets.
 The final goal deliverable will be an easily usable and intuitive plugin for
 the ImageJ program. ImageJ\cite{rasband1997imagej}, developed by the Natural
 Institutes of Health, is used as the industry standard for analysis and
-manipulation of biological or medical images. Since it is an public-domain
+manipulation of biological or medical images. Since it is a public-domain
 program with an open Java plugin architecture, this should be achievable.
 
 \section{Software Development Model}
 \label{sec:software_development_model}
 
-Since there is a distinction in steps between the initial design and development
-of the strategy to use to analyse the data and writing the plugin for ImageJ,
-the steps involved in this project will follow an agile development model.
-There will be stages of development of the algorithms and the plugin and these
-will be revisited as necessary during the development.
+There is a distinction in steps between the initial design of the data
+structres and algorithms and the development of the program and the plugin for
+ImageJ. To make the most use of this, the project will follow an Agile
+development model. There will be stages of development of the algorithms and
+the plugin and these will be revisited as necessary during the development.
 
 \section{Preliminary Timescale}
 \label{sec:preliminary_timescale}
