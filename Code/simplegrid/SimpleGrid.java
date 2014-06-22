@@ -38,12 +38,7 @@ public class SimpleGrid {
 			}
 		}
 
-		// TODO do we need the try catch block here?
-		try {
-			readDataFile();
-		} catch(IOException e){
-			e.printStackTrace();
-		}
+		readDataFile();
 	}
 
 	public int addPoint(Coordinate c) {
@@ -88,7 +83,7 @@ public class SimpleGrid {
 	/** Reads the given data file and interprets the contents as coordinates.
 	 * Each coordinate is added to the grid.
 	 */
-	private boolean readDataFile() throws IOException {
+	private boolean readDataFile() {
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -116,10 +111,15 @@ public class SimpleGrid {
 					Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
 					addPoint(c);
 				}
-
+			} catch (IOException e) {
+				System.err.println("Error: Could not open file " + filepath);
 			} finally {
 				if (reader != null) {
-					reader.close();
+					try {
+						reader.close();
+					} catch(IOException e){
+						e.printStackTrace();
+					}
 				}
 			}
 		}

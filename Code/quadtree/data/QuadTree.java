@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Sat 21 Jun 2014 09:45 PM
+ * Modified: Sun 22 Jun 2014 10:23 AM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -60,12 +60,7 @@ public class QuadTree {
 		}
 
 		createSubTrees();
-		// TODO do we need the try catch block here?
-		try {
-			readDataFile();
-		} catch(IOException e){
-			e.printStackTrace();
-		}
+		readDataFile();
 	}
 
 	public QuadTree(double maxX, double maxY, int maxDensity) {
@@ -257,7 +252,7 @@ public class QuadTree {
 	/** Reads the given data file and interprets the contents as coordinates.
 	 * Each coordinate is added to the quadtree.
 	 */
-	private boolean readDataFile() throws IOException {
+	private boolean readDataFile() {
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -284,16 +279,20 @@ public class QuadTree {
 					xyDouble[0] = Double.parseDouble(entries[3]);
 					xyDouble[1] = Double.parseDouble(entries[4]);
 
-					Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
+					addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
 					// System.out.println(c);
-					addPoint(c);
 					countFile++;
 				}
 				System.out.println("Total read from file: " + countFile);
-
+			} catch (IOException e) {
+				System.err.println("Error: Could not open file " + filepath);
 			} finally {
 				if (reader != null) {
-					reader.close();
+					try {
+						reader.close();
+					} catch(IOException e){
+						e.printStackTrace();
+					}
 				}
 			}
 		}
