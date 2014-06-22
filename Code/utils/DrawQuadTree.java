@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Sat 21 Jun 2014 09:48 PM
+ * Modified: Sun 22 Jun 2014 10:13 AM
  */
 package utils;
 
@@ -47,8 +47,10 @@ public class DrawQuadTree extends JPanel {
 	/** Draw the graphics of the quadtree.
 	 *
 	 * Called when updating the screen.
+	 * TODO paint vs. paintComponent
 	 */
 	public void paintComponent(Graphics g) {
+		addedCount = 0;
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
 		Graphics2D g2 = (Graphics2D) g;
@@ -80,8 +82,6 @@ public class DrawQuadTree extends JPanel {
 							scaleFactor*c.getX()+10,
 							scaleFactor*c.getY()+10,
 							4, 4));
-				// TODO find out why the number of points added to the screen
-				// is double the number in the tree.
 				addedCount++;
 			}
 			return true;

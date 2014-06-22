@@ -1,5 +1,5 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Sat 21 Jun 2014 08:18 AM
+ * Modified: Sun 22 Jun 2014 10:14 AM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */
@@ -186,7 +186,6 @@ public class QuadTree<E> {
 		if (c.getX() < 0 || c.getY() < 0) {
 			return null;
 		}
-		// TODO: Add other checks for right and bottom sides
 		return c;
 	}
 
