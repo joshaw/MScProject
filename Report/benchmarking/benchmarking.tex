@@ -1,5 +1,5 @@
 % Created:  Sun 22 Jun 2014 11:25 AM
-% Modified: Sun 22 Jun 2014 11:40 AM
+% Modified: Mon 23 Jun 2014 11:59 AM
 
 \section{Benchmarking}
 \label{sec:benchmarking}
@@ -8,21 +8,24 @@ Throughout the project, a set of files wil be used to test the algorithms that
 are developed, their correctness and effectiveness, speed and resource use.
 These files contain real data formated in the same way as would be expected for
 data given to the plugin in general use. The four files that will be used are
-detailed in table~\ref{tab:menchmarking_files}.
+detailed in table~\ref{tab:benchmarking-files}.
 
 \renewcommand{\arraystretch}{1.3}
-\begin{tabu} to \linewidth {c X l}
+\begin{center}
+\begin{tabu} {l c l}
 	\toprule
 	File Name & Size & No. of points \\
 	\midrule
-	\texttt{palm_1.txt} & \SI{12}{\mega\bytes} & 65572 \\
-	\texttt{palm_2.txt} & \SI{6.4}{\mega\bytes} & 36672 \\
-	\texttt{palm_3.txt} & \SI{5.8}{\mega\bytes} & 33342 \\
-	\texttt{palm_3_small.txt} & \SI{176}{\kilo\bytes} & 1000 \\
+	\texttt{palm-1.txt} & \SI{12}{\mebi\byte} & 65572 \\
+	\texttt{palm-2.txt} & \SI{6.4}{\mebi\byte} & 36672 \\
+	\texttt{palm-3.txt} & \SI{5.8}{\mebi\byte} & 33342 \\
+	\texttt{palm-3-small.txt} & \SI{176}{\kibi\byte} & 1000 \\
 	\bottomrule
+	\label{tab:benchmarking-files}
 \end{tabu}
+\end{center}
 
-Note that \texttt{palm_3_small.txt} is a subset of \texttt{palm_3.txt} which is
+Note that \texttt{palm-3-small.txt} is a subset of \texttt{palm-3.txt} which is
 used for simply checking correctess of alogorithms. A summary of the columns
 that are included in the files, used and unused fields, is included in
 Appendix~\ref{app:columns}.

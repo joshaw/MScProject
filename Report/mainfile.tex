@@ -1,6 +1,6 @@
 % Created:  Sun 15 Jun 2014 04:15 pm
-% Modified: Fri 20 Jun 2014 10:27 AM
-\documentclass[a4paper,9pt,twocolumn,twoside]{article}
+% Modified: Mon 23 Jun 2014 01:07 PM
+\documentclass[a4paper,9pt,twoside]{article}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
@@ -34,6 +34,9 @@
 	font=small,
 	labelfont=bf,
 	textfont=it]{caption}
+\usepackage{subcaption}
+\captionsetup{subrefformat=parens}
+
 \usepackage[pdftex]{graphicx}
 \usepackage{booktabs}
 \usepackage{array}
@@ -41,6 +44,8 @@
 \usepackage{verbatim}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{tabu}
+\usepackage[binary-units]{siunitx}
 % \usepackage[%
 % 	activate={true,nocompatibility},
 % 	final,
@@ -79,17 +84,19 @@
 
 \begin{document}
 
-\graphicspath{{front/}}
+\graphicspath{{front/} {grid/}}
 % \input{front/titlepage.tex}
 
 \input{intro/introduction.tex}
+\input{benchmarking/benchmarking.tex}
+\input{grid/grid.tex}
 
 \bibliographystyle{apalike}
 % or: plain,unsrt,alpha,abbrv,acm,apalike,...
 \bibliography{references}
 
 \clearpage
-\input{back/appendix.tex}
+\input{appendix/appendix.tex}
 
 \end{document}
 
