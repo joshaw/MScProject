@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Mon 23 Jun 2014 04:55 PM
+ * Modified: Mon 23 Jun 2014 06:07 PM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
@@ -31,7 +31,7 @@ public class QuadTreeTest {
 			main = new QuadTree(41000.0, 41000.0, 20, 0.012, "../sampledata/palm_1.txt");
 		}
 
-		main.draw(true, true);
+		main.draw(false, true);
 	}
 
 	@Test

@@ -46,7 +46,7 @@ public class SimpleGrid {
 		int posX = (int) c.getX()/cellSize;
 		int posY = (int) c.getY()/cellSize;
 
-		System.out.println(c);
+		// System.out.println(c);
 		points[posX][posY] ++;
 		return points[posX][posY];
 	}

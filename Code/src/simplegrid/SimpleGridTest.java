@@ -24,7 +24,9 @@ public class SimpleGridTest {
 		}
 
 		// System.out.println(s.toString());
-		main.writeToFile("analysis.pnm");
+		if (main.writeToFile("analysis.pnm")) {
+			System.out.println("Written data to file.");
+		}
 
 	}
 }

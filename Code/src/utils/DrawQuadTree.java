@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Mon 23 Jun 2014 04:30 PM
+ * Modified: Mon 23 Jun 2014 06:12 PM
  */
 package utils;
 
@@ -82,17 +82,9 @@ public class DrawQuadTree extends JPanel {
 		if (incLines) {
 			g.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
 		}
-		// g.drawString("("+ox+","+oy+")", 10+x, 10+y);
-		// g.drawString("("+oX+","+oy+")", 10+X, 10+y);
-		// g.drawString("("+ox+","+oY+")", 10+x, 10+Y);
-		// g.drawString("("+oX+","+oY+")", 10+X, 10+Y);
 		if (q.isLeaf()) {
 			if (incPoints) {
 				for(Coordinate c: q.getPoints()) {
-					// g.draw(new Ellipse2D.Double(
-					// 			scaleFactor*c.getX()+10,
-					// 			scaleFactor*c.getY()+10,
-					// 			1, 1));
 					g.draw(new Line2D.Double(
 								scaleFactor*c.getX()+10,
 								scaleFactor*c.getY()+10,

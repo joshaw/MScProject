@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Mon 23 Jun 2014 05:07 PM
+ * Modified: Mon 23 Jun 2014 06:09 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -213,7 +213,7 @@ public class QuadTree {
 			return points.toString();
 		} else {
 			return "[" + tl.toString() + ", " + tr.toString() + ", "
-				+ bl.toString() + ", " + br.toString() + "(" + depth + ")]";
+				+ bl.toString() + ", " + br.toString() + "]";
 		}
 	}
 
