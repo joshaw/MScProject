@@ -7,6 +7,7 @@ title: Home
 
 ## About
 - Sub-diffraction-limit imaging with quadtrees.
+- [Project Proposal](res/proposal.pdf)
 
 ## Papers
 - [Ultra-High Resolution Imaging by Flourescence Photoactivation Localization
@@ -20,8 +21,9 @@ title: Home
 
 ## Info
 - [Quadtrees](infoposts/quadtrees.html)
-- [Quadtree algorithm for adding points](infoposts/point_adding_to_quadtree.md)
+- [Quadtree algorithm for adding points](infoposts/point_adding_to_quadtree.html)
 - [Randomly generated data](infoposts/randomdata.html)
+- [Adding real data](infoposts/real_data/adding_real_data.html)
 
 ## Links
 

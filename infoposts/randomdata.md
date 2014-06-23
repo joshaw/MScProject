@@ -11,22 +11,22 @@ to test the quadtree.
 To generate the data, use the following R snippet. This
 1. generates a set of random numbers with the given properties,
 1. selects from that data only the points where both the x- and the 
-y-coordinate are both smaller than 100 and greater that 0,
+   y-coordinate are both smaller than 100 and greater that 0,
 1. plots this data to allow checking for sanity, and
 1. writes the data to the file given.
 
-```
+~~~
 x <- simcor(1000, 50, 65, 50, 65, 0.999)
 y <- x[ x[,1]>0 & x[,1]<100 & x[,2]>0 & x[,2]<100, ]
 plot(y)
 
 write.table(y, file="data", sep=" ", row.names=F, col.names=F)
-```
+~~~
 
 The simcor (simulate correlated data) from [here][simcor] function is defined 
 as:
 
-```
+~~~
 simcor <- function (n, xmean, xsd, ymean, ysd, correlation) {
     x <- rnorm(n)
     y <- rnorm(n)
@@ -36,11 +36,11 @@ simcor <- function (n, xmean, xsd, ymean, ysd, correlation) {
     yresult <- ymean + ysd * z
     data.frame(x=xresult,y=yresult)
 }
-```
+~~~
 
 [simcor]: [http://stackoverflow.com/a/13292645]
 
 <!--
 Created:  Tue 17 Jun 2014 07:02 PM
-Modified: Fri 20 Jun 2014 04:24 PM
+Modified: Mon 23 Jun 2014 06:36 PM
 -->
