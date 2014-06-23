@@ -20,7 +20,7 @@ public class SimpleGridTest {
 		} else if (args.length == 1) {
 			main = new SimpleGrid(41000.0, 41000.0, 200, args[0]);
 		} else {
-			main = new SimpleGrid(41000.0, 41000.0, 200, "sampledata/palm_1.txt");
+			main = new SimpleGrid(41000.0, 41000.0, 200, "../sampledata/palm_1.txt");
 		}
 
 		// System.out.println(s.toString());

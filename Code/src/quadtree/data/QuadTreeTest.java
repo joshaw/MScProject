@@ -1,12 +1,11 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Mon 23 Jun 2014 10:55 AM
+ * Modified: Mon 23 Jun 2014 04:55 PM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
 package quadtree.data;
 
 import utils.Coordinate;
-import utils.DrawQuadTree;
 import quadtree.data.*;
 
 import org.junit.Test;
@@ -29,12 +28,10 @@ public class QuadTreeTest {
 		} else if (args.length == 1) {
 			main = new QuadTree(41000.0, 41000.0, 20, 0.02, args[0]);
 		} else {
-			main = new QuadTree(41000.0, 41000.0, 20, 0.012, "sampledata/palm_1.txt");
+			main = new QuadTree(41000.0, 41000.0, 20, 0.012, "../sampledata/palm_1.txt");
 		}
 
-		// System.out.println(main);
-		DrawQuadTree d = new DrawQuadTree(main);
-		d.draw();
+		main.draw(true, true);
 	}
 
 	@Test

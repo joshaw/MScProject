@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Mon 23 Jun 2014 11:08 AM
+ * Modified: Mon 23 Jun 2014 04:30 PM
  */
 package utils;
 
@@ -21,6 +21,8 @@ public class DrawQuadTree extends JPanel {
 	private QuadTree quadtree;
 	private double scaleFactor;
 	private int addedCount = 0;
+	private boolean incPoints;
+	private boolean incLines;
 
 	/** Create a new object which does the drawing.
 	 */
@@ -33,7 +35,9 @@ public class DrawQuadTree extends JPanel {
 	 *
 	 * Implicitly calls the paint method.
 	 */
-	public void draw() {
+	public void draw(boolean incPoints, boolean incLines) {
+		this.incPoints = incPoints;
+		this.incLines = incLines;
 		JFrame f = new JFrame();
 
 		int width = (int) (quadtree.getScaleFactor()*quadtree.getMaxX()+25);
@@ -43,6 +47,10 @@ public class DrawQuadTree extends JPanel {
 		f.add(this);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
+	}
+
+	public void draw() {
+		draw(true, true);
 	}
 
 	/** Draw the graphics of the quadtree.
@@ -71,23 +79,27 @@ public class DrawQuadTree extends JPanel {
 		double y = scaleFactor*q.getMinY();
 		double Y = scaleFactor*q.getMaxY();
 
-		g.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+		if (incLines) {
+			g.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+		}
 		// g.drawString("("+ox+","+oy+")", 10+x, 10+y);
 		// g.drawString("("+oX+","+oy+")", 10+X, 10+y);
 		// g.drawString("("+ox+","+oY+")", 10+x, 10+Y);
 		// g.drawString("("+oX+","+oY+")", 10+X, 10+Y);
 		if (q.isLeaf()) {
-			for(Coordinate c: q.getPoints()) {
-				// g.draw(new Ellipse2D.Double(
-				// 			scaleFactor*c.getX()+10,
-				// 			scaleFactor*c.getY()+10,
-				// 			1, 1));
-				g.draw(new Line2D.Double(
-							scaleFactor*c.getX()+10,
-							scaleFactor*c.getY()+10,
-							scaleFactor*c.getX()+10,
-							scaleFactor*c.getY()+10));
-				addedCount++;
+			if (incPoints) {
+				for(Coordinate c: q.getPoints()) {
+					// g.draw(new Ellipse2D.Double(
+					// 			scaleFactor*c.getX()+10,
+					// 			scaleFactor*c.getY()+10,
+					// 			1, 1));
+					g.draw(new Line2D.Double(
+								scaleFactor*c.getX()+10,
+								scaleFactor*c.getY()+10,
+								scaleFactor*c.getX()+10,
+								scaleFactor*c.getY()+10));
+					addedCount++;
+				}
 			}
 			return true;
 		}
