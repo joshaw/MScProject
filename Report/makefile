@@ -1,5 +1,5 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Thu 19 Jun 2014 05:00 PM
+# Modified: Mon 23 Jun 2014 09:25 pm
 
 PROJECT=mainfile
 TEX=pdflatex
@@ -15,12 +15,15 @@ CHECKDIR=mkdir -p $(DIR)
 
 all:
 	$(CHECKDIR)
-	$(BUILDTEX) | egrep ":[0-9]*:|LaTeX Error" || true
-	$(BIBTEX) ${DIR}/$(PROJECT) || true
+	@echo "$(BUILDTEX)"
+	@! $(BUILDTEX) | egrep -A 4 ":[0-9]*:|LaTeX Error"
+	@echo "$(BIBTEX) $(DIR)/$(PROJECT)"
+	@$(BIBTEX) $(DIR)/$(PROJECT) || true
+	@echo "$(BUILDTEX)"
 	@$(BUILDTEX) > /dev/null
-	@echo -e "\n"
+	@echo "$(BUILDTEX)"
 	@$(BUILDTEX) > /dev/null
-	# @xdotool search $(PROJECT).pdf key r > /dev/null 2>&1
+	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
 
 once:
 	$(BUILDTEX)
