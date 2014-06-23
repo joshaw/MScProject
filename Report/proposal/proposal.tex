@@ -17,11 +17,11 @@ usually respond in the visible frequency range, thus limiting the resolution of
 separate points to around \SI{300}{\nano\metre}.
 
 There are a number of techniques that have been developed to avoid this
-problem. Some of them employ different wavelengths of light. X-ray and electro
+problem. Some of them employ different wavelengths of light. X-ray and electron
 microscopy use x-rays and electrons respectively which have shorter wavelengths
 than visible light and so can resolve smaller distances. These have problems,
 however, since the shorter wavelengths imply higher energies and so often
-require or cause damage to the sample.
+cause damage or require destroying to the sample.
 
 Two examples that are used in medical imaging are PALM\cite{owen2010palm} and
 STORM\cite{rust2006sub}. These both employ special dyes that allow molecules to
@@ -37,7 +37,7 @@ position on the cell.
 \label{sec:project}
 
 This project aims to interpret the data that is produced by this analysis in a
-more efficient way than currently used methods, and to provide certain
+more efficient way than currently used methods and to provide certain
 quantitative statistics regarding the data; size of structure, number of
 points, density of points, etc. Current analysis methods have proven to be
 inefficient and are often not able to cope well with noisy data. This project
@@ -62,7 +62,7 @@ A second method that will be investigated will be to use a quadtree abstract
 data type to arrange the data points such that structure emerges naturally.
 Each datum will be placed into the quadtree such that only up to a maximum
 number of points in each node is allowed. This should have the benefit of being
-much more dynamic, so being faster and less resource expensive to achieve. It
+much more dynamic, so being faster and less resource demanding to achieve. It
 will require that the data structure that is used can be traversed efficiently
 in order to determine adjacent nodes when extracting statistics.
 
