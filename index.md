@@ -20,10 +20,12 @@ title: Home
   Signaling Events](Papers/williamson2011pre.pdf)
 
 ## Info
+- [Simple grid method](infoposts/simple_grid.md)
 - [Quadtrees](infoposts/quadtrees.html)
 - [Quadtree algorithm for adding points](infoposts/point_adding_to_quadtree.html)
 - [Randomly generated data](infoposts/randomdata.html)
 - [Adding real data](infoposts/real_data/adding_real_data.html)
+- [Rolling ball analysis](infoposts/rolling_ball_analysis.md)
 
 ## Links
 
