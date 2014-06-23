@@ -7,7 +7,8 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
 
-    <property name="main-class"  value="quadtree.data.QuadTreeTest"/>
+    <property name="quadtree-class"  value="quadtree.data.QuadTreeTest"/>
+    <property name="grid-class"  value="simplegrid.SimpleGridTest"/>
 
 	<target name="init">
 		<mkdir dir="${classes.dir}"/>
@@ -19,29 +20,21 @@
 		</javac>
 	</target>
 
-	<target name="jar">
-		<mkdir dir="build/jar"/>
-		<jar destfile="${jar.dir}/clusters.jar" basedir="${classes.dir}">
-			<manifest>
-				<attribute name="Main-Class" value="${main-class}"/>
-			</manifest>
-		</jar>
-	</target>
+	<!-- <target name="jar"> -->
+	<!-- 	<mkdir dir="build/jar"/> -->
+	<!-- 	<jar destfile="${jar.dir}/clusters.jar" basedir="${classes.dir}"> -->
+	<!-- 		<manifest> -->
+	<!-- 			<attribute name="Main-Class" value="${main-class}"/> -->
+	<!-- 		</manifest> -->
+	<!-- 	</jar> -->
+	<!-- </target> -->
 
 	<target name="clean">
 		<delete dir="build" />
 	</target>
 
-	<target name="runQ" depends="compile, jar">
-		<java jar="${jar.dir}/clusters.jar" fork="true"/>
-		<arg line="${args}"/>
-	</target>
-
-	<target name="print-defaults">
-	</target>
-
-
-	<target name="run" depends="compile">
+	<!-- QuadTree Method -->
+	<target name="quadtree" depends="compile">
 
 		<property name="xdim" value="41000"/>
 		<property name="ydim" value="41000"/>
@@ -55,11 +48,35 @@
 		<echo message="scale = ${scale}"/>
 		<echo message="file = ${file}"/>
 
-		<java classname="${main-class}" fork="true">
+		<java classname="${quadtree-class}" fork="true">
 			<arg value="${xdim}"/>
 			<arg value="${ydim}"/>
 			<arg value="${density}"/>
 			<arg value="${scale}"/>
+			<arg value="${file}"/>
+			<classpath>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<!-- Simple Grid Method -->
+	<target name="grid" depends="compile">
+
+		<property name="xdim" value="41000"/>
+		<property name="ydim" value="41000"/>
+		<property name="density" value="200"/>
+		<property name="file" value="sampledata/palm_1.txt"/>
+
+		<echo message="xdim = ${xdim}"/>
+		<echo message="ydim = ${ydim}"/>
+		<echo message="density = ${density}"/>
+		<echo message="file = ${file}"/>
+
+		<java classname="${grid-class}" fork="true">
+			<arg value="${xdim}"/>
+			<arg value="${ydim}"/>
+			<arg value="${density}"/>
 			<arg value="${file}"/>
 			<classpath>
 				<pathelement location="${classes.dir}"/>
