@@ -1,5 +1,5 @@
 % Created:  Mon 23 Jun 2014 04:06 PM
-% Modified: Mon 23 Jun 2014 04:06 PM
+% Modified: Mon 23 Jun 2014 09:21 pm
 
 \section{Data File Structure}
 \label{sec:data_file_structure}
@@ -15,38 +15,40 @@ standard format.
 
 The columns that represent fields in the file are as follows.
 
-\begin{tabular}{c l c}
-\toprule
-Header & Meaning & Used?
-\midrule
-Channel Name (I/E) & Wavelength channel that was used to capture data. First
-value, $I$, is the incident wavelength of the light used to excite the dye and
-the second, $E$, is the wavelength emitted that was imaged. & no \\
-X & x-coordinate of the point & no \\
-Y & y-coordinate of the point & no \\ \\
-& Xc & centered, normalised x-coordinate of point & yes & \\
-& Yc & centered, normalised y-coordinate of point & yes & \\
-& Height & the height of the fitted gaussian peak used to extract the point
-from the original image & not yet & \\
-& Area         & area of the point & not yet & \\
-& Width        & full width half maximum of the point & not yet & \\
-& Phi          & ? & no & \\
-& Ax           & ? & no & \\
-& BG           & ? & no & \\
-& I            & ? & no & \\
-& Frame        & ? & no & \\
-& Length       & ? & no & \\
-& Valid        & ? & no & \\
-& Z            & ? & no & \\
-& Zc           & ? & no & \\
-& Photons      & ? & no & \\
-& Lateral      & ? & no & \\
-& Localisation & ? & no & \\
-& Accuracy     & ? & no & \\
-& Xw           & ? & no & \\
-& Yw           & ? & no & \\
-& Xwc          & ? & no & \\
-& Ywc          & ? & no & \\
-
-\bottomrule
-\end{tabular}
+\begin{center}
+	\begin{tabular}{r p{8cm} c}
+		\toprule
+		Header & Meaning & Used? \\
+		\midrule
+		\texttt{Channel Name} & Wavelength channel that was used to capture data.
+			First value, $I$, is the incident wavelength of the light used to
+			excite the dye and the second, $E$, is the wavelength emitted that
+			was imaged. & no \\
+		\texttt{X} & x-coordinate of the point & no \\
+		\texttt{Y} & y-coordinate of the point & no \\
+		\texttt{Xc} & centered, normalised x-coordinate of point & yes \\
+		\texttt{Yc} & centered, normalised y-coordinate of point & yes \\
+		\texttt{Height} & the height of the fitted gaussian peak used to
+			extract the point from the original image & not yet \\
+		Area & area of the point & not yet \\
+		\texttt{Width} & full width half maximum of the point & not yet \\
+		\texttt{Phi}          & ? & no \\
+		\texttt{Ax}           & ? & no \\
+		\texttt{BG}           & ? & no \\
+		\texttt{I}            & ? & no \\
+		\texttt{Frame}        & ? & no \\
+		\texttt{Length}       & ? & no \\
+		\texttt{Valid}        & ? & no \\
+		\texttt{Z}            & ? & no \\
+		\texttt{Zc}           & ? & no \\
+		\texttt{Photons}      & ? & no \\
+		\texttt{Lateral}      & ? & no \\
+		\texttt{Localisation} & ? & no \\
+		\texttt{Accuracy}     & ? & no \\
+		\texttt{Xw}           & ? & no \\
+		\texttt{Yw}           & ? & no \\
+		\texttt{Xwc}          & ? & no \\
+		\texttt{Ywc}          & ? & no \\
+		\bottomrule
+	\end{tabular}
+\end{center}
