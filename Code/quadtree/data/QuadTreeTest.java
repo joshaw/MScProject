@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Sun 22 Jun 2014 09:34 AM
+ * Modified: Mon 23 Jun 2014 10:55 AM
  * @author Josh Wainwright
  * File name : QuadtreeTest.java
  */
@@ -34,7 +34,7 @@ public class QuadTreeTest {
 
 		// System.out.println(main);
 		DrawQuadTree d = new DrawQuadTree(main);
-		// d.draw();
+		d.draw();
 	}
 
 	@Test

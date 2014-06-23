@@ -27,8 +27,8 @@ public class SimpleGrid {
 		this.cellSize = cellSize;
 		this.filepath = filepath;
 
-		this.gridX = (int) maxX / cellSize;
-		this.gridY = (int) maxY / cellSize;
+		this.gridX = (int) maxX / cellSize + 1;
+		this.gridY = (int) maxY / cellSize + 1;
 
 		this.points = new int[gridX][gridY];
 
@@ -46,6 +46,7 @@ public class SimpleGrid {
 		int posX = (int) c.getX()/cellSize;
 		int posY = (int) c.getY()/cellSize;
 
+		System.out.println(c);
 		points[posX][posY] ++;
 		return points[posX][posY];
 	}

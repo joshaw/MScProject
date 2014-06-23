@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Sun 22 Jun 2014 10:13 AM
+ * Modified: Mon 23 Jun 2014 11:08 AM
  */
 package utils;
 
@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
 
 public class DrawQuadTree extends JPanel {
 
@@ -47,7 +48,6 @@ public class DrawQuadTree extends JPanel {
 	/** Draw the graphics of the quadtree.
 	 *
 	 * Called when updating the screen.
-	 * TODO paint vs. paintComponent
 	 */
 	public void paintComponent(Graphics g) {
 		addedCount = 0;
@@ -78,10 +78,15 @@ public class DrawQuadTree extends JPanel {
 		// g.drawString("("+oX+","+oY+")", 10+X, 10+Y);
 		if (q.isLeaf()) {
 			for(Coordinate c: q.getPoints()) {
-				g.draw(new Ellipse2D.Double(
+				// g.draw(new Ellipse2D.Double(
+				// 			scaleFactor*c.getX()+10,
+				// 			scaleFactor*c.getY()+10,
+				// 			1, 1));
+				g.draw(new Line2D.Double(
 							scaleFactor*c.getX()+10,
 							scaleFactor*c.getY()+10,
-							4, 4));
+							scaleFactor*c.getX()+10,
+							scaleFactor*c.getY()+10));
 				addedCount++;
 			}
 			return true;
