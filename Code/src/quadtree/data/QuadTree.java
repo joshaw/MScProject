@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Tue 24 Jun 2014 09:56 AM
+ * Modified: Tue 24 Jun 2014 04:49 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -17,6 +17,7 @@ public class QuadTree {
 
 	private String filepath;
 	private boolean root = false;
+	private int depth;
 	private double minX;
 	private double maxX;
 	private double minY;
@@ -32,7 +33,7 @@ public class QuadTree {
 	public QuadTree br;
 	private ArrayList<Coordinate> points;
 	private boolean leaf;
-	private int depth;
+	private int code;
 
 	/** Creates a new root node for a new quadtree.
 	 *
@@ -46,16 +47,17 @@ public class QuadTree {
 	public QuadTree(double maxX, double maxY, int maxDensity,
 			double scaleFactor, String filepath, boolean incLines,
 			boolean incPoints) {
-		this.root        = true;
-		this.depth       = 0;
-		this.leaf        = false;
-		this.minX        = 0;
-		this.maxX        = maxX;
-		this.minY        = 0;
-		this.maxY        = maxY;
-		this.filepath    = filepath;
-		this.incLines    = incLines;
-		this.incPoints   = incPoints;
+		this.root      = true;
+		this.code      = 0;
+		this.leaf      = false;
+		this.minX      = 0;
+		this.maxX      = maxX;
+		this.minY      = 0;
+		this.maxY      = maxY;
+		this.depth     = 0;
+		this.filepath  = filepath;
+		this.incLines  = incLines;
+		this.incPoints = incPoints;
 
 		if (maxDensity > 0 && scaleFactor > 0) {
 			this.maxDensity = maxDensity;
@@ -72,11 +74,12 @@ public class QuadTree {
 	/** Create a new leaf node.
 	 */
 	private QuadTree(double minX, double minY, double maxX, double maxY,
-			int depth, int maxDensity) {
+			int code, int maxDensity, int depth) {
 		this.root        = false;
 		this.leaf        = true;
-		this.depth       = depth + 1;
+		this.code        = code;
 		this.maxDensity  = maxDensity;
+		this.depth       = depth;
 
 		this.minX        = minX;
 		this.maxX        = maxX;
@@ -96,20 +99,14 @@ public class QuadTree {
 		/* If we have reached a leaf node, then c needs to be added here,
 		 * otherwise, we need to find the correct sub tree to go down.*/
 		if (this.leaf) {
-			// System.out.println("Points: " +
-			// 		this.points.size() + " <= " + this.maxDensity + " " +
-			// 		(this.points.size()<=this.maxDensity));
 
 			/* If this leaf can still take more points, then simply add it to
 			 * the list of points, otherwise we need to split the list into new
 			 * subtrees. */
 			if (this.points.size() <= this.maxDensity) {
-				// System.out.println("AddPoint " +c+ " minX: "+minX + ", minY: "
-				// 		+ minY + ", maxX: " + maxX + ", maxY: " + maxY);
 				this.points.add(c);
 				return true;
 			} else {
-				// System.out.println("Deleafing .............");
 				deleaf();
 				return addPoint(c);
 			}
@@ -139,29 +136,23 @@ public class QuadTree {
 	 * quadtree for that quadrant.
 	 */
 	private QuadTree newPointLocation(Coordinate c) {
-		// System.out.println("newlocation " + c + " minx: " + minx + ", miny: "
-		// 		+ minY + ", maxX: " + maxX + ", maxY: " + maxY);
 		double x = c.getX();
 		double y = c.getY();
 
 		if ( (x >= minX && x <= maxX/2+minX/2) &&
 			 (y >= minY && y <= maxY/2+minY/2)) {
-			// System.out.println("return 0");
 			return tl;                             // Top Left - 0
 		}
 		if ( (x >= maxX/2+minX/2 && x <= maxX) &&
 			 (y >= minY && y <= maxY/2+minY/2)) {
-			// System.out.println("return 1");
 			return tr;                             // Top Right - 1
 		}
 		if ( (x >= minX && x <= maxX/2+minX/2) &&
 			 (y >= maxY/2+minY/2 && y <= maxY)) {
-			// System.out.println("return 2");
 			return bl;                             // Bottom Left - 2
 		}
 		if ( (x >= maxX/2+minX/2 && x <= maxX) &&
 			 (y >= maxY/2+minY/2 && y <= maxY)) {
-			// System.out.println("return 3");
 			return br;                             // Bottom Right - 3
 		}
 
@@ -173,13 +164,13 @@ public class QuadTree {
 	 */
 	private void createSubTrees() {
 		this.tl=new QuadTree(
-				minX,minY,maxX/2+minX/2,maxY/2+minY/2,depth,maxDensity);
+				minX, minY, maxX/2+minX/2, maxY/2+minY/2, (code<<2)|00, maxDensity, depth+1);
 		this.tr=new QuadTree(
-				maxX/2+minX/2,minY,maxX,maxY/2+minY/2,depth,maxDensity);
+				maxX/2+minX/2, minY, maxX, maxY/2+minY/2, (code<<2)|01, maxDensity, depth+1);
 		this.bl=new QuadTree(
-				minX,maxY/2+minY/2,maxX/2+minX/2,maxY,depth,maxDensity);
+				minX, maxY/2+minY/2, maxX/2+minX/2, maxY, (code<<2)|10, maxDensity, depth+1);
 		this.br=new QuadTree(
-				maxX/2+minX/2,maxY/2+minY/2,maxX,maxY,depth,maxDensity);
+				maxX/2+minX/2, maxY/2+minY/2, maxX, maxY, (code<<2)|11, maxDensity, depth+1);
 	}
 
 	/** Checks that a coordinate is valid, ie exists in the quadtree-space of
@@ -199,6 +190,19 @@ public class QuadTree {
 	public double getScaleFactor() { return scaleFactor; }
 	public ArrayList<Coordinate> getPoints() { return points; }
 
+	public String getCode() {
+		String codeString = Integer.toBinaryString(code & 0b11);
+		if (codeString.length() < 2) { codeString = 0 + codeString; }
+
+		for (int i = 1; i < depth; i++) {
+			String tempString = Integer.toBinaryString((code >> (2*i)) & 0b11);
+			if (tempString.length() < 2) { tempString = 0 + tempString; }
+			codeString += tempString;
+		}
+		System.out.println("depth: " + depth + ", code: " + Integer.toBinaryString(code) + ", codeString: " + codeString);
+		return codeString;
+	}
+
 	public QuadTree getTL() { return tl; }
 	public QuadTree getTR() { return tr; }
 	public QuadTree getBL() { return bl; }
@@ -211,7 +215,7 @@ public class QuadTree {
 	@Override
 	public String toString() {
 		if (leaf) {
-			return points.toString();
+			return code + "" ;
 		} else {
 			return "[" + tl.toString() + ", " + tr.toString() + ", "
 				+ bl.toString() + ", " + br.toString() + "]";
