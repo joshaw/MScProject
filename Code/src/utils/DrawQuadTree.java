@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Mon 23 Jun 2014 06:12 PM
+ * Modified: Tue 24 Jun 2014 09:51 AM
  */
 package utils;
 
@@ -35,9 +35,9 @@ public class DrawQuadTree extends JPanel {
 	 *
 	 * Implicitly calls the paint method.
 	 */
-	public void draw(boolean incPoints, boolean incLines) {
-		this.incPoints = incPoints;
+	public void draw(boolean incLines, boolean incPoints) {
 		this.incLines = incLines;
+		this.incPoints = incPoints;
 		JFrame f = new JFrame();
 
 		int width = (int) (quadtree.getScaleFactor()*quadtree.getMaxX()+25);

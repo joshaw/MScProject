@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<project name="Clusters" default="run" basedir=".">
+<project name="Clusters" default="quadtree" basedir=".">
 
 	<property name="src.dir"     value="src"/>
 
@@ -41,12 +41,16 @@
 		<property name="density" value="200"/>
 		<property name="scale" value="0.015"/>
 		<property name="file" value="sampledata/palm_1.txt"/>
+		<property name="incLines" value="true"/>
+		<property name="incPoints" value="true"/>
 
 		<echo message="xdim = ${xdim}"/>
 		<echo message="ydim = ${ydim}"/>
 		<echo message="density = ${density}"/>
 		<echo message="scale = ${scale}"/>
 		<echo message="file = ${file}"/>
+		<echo message="incLines = ${incLines}"/>
+		<echo message="incPoints = ${incPoints}"/>
 
 		<java classname="${quadtree-class}" fork="true">
 			<arg value="${xdim}"/>
@@ -54,6 +58,8 @@
 			<arg value="${density}"/>
 			<arg value="${scale}"/>
 			<arg value="${file}"/>
+			<arg value="${incLines}"/>
+			<arg value="${incPoints}"/>
 			<classpath>
 				<pathelement location="${classes.dir}"/>
 			</classpath>

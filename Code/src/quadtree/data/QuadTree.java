@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Mon 23 Jun 2014 06:09 PM
+ * Modified: Tue 24 Jun 2014 09:56 AM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -23,6 +23,8 @@ public class QuadTree {
 	private double maxY;
 	private int maxDensity;
 	private double scaleFactor;
+	private boolean incLines;
+	private boolean incPoints;
 
 	public QuadTree tl;
 	public QuadTree tr;
@@ -42,7 +44,8 @@ public class QuadTree {
 	 * drawing to screen.
 	 */
 	public QuadTree(double maxX, double maxY, int maxDensity,
-			double scaleFactor, String filepath) {
+			double scaleFactor, String filepath, boolean incLines,
+			boolean incPoints) {
 		this.root        = true;
 		this.depth       = 0;
 		this.leaf        = false;
@@ -51,6 +54,8 @@ public class QuadTree {
 		this.minY        = 0;
 		this.maxY        = maxY;
 		this.filepath    = filepath;
+		this.incLines    = incLines;
+		this.incPoints   = incPoints;
 
 		if (maxDensity > 0 && scaleFactor > 0) {
 			this.maxDensity = maxDensity;
@@ -62,10 +67,6 @@ public class QuadTree {
 
 		createSubTrees();
 		readDataFile();
-	}
-
-	public QuadTree(double maxX, double maxY, int maxDensity) {
-		this(maxX, maxY, maxDensity, 5, "");
 	}
 
 	/** Create a new leaf node.
@@ -217,9 +218,13 @@ public class QuadTree {
 		}
 	}
 
-	public void draw(boolean a, boolean b) {
+	public void draw(boolean incLines, boolean incPoints) {
 		DrawQuadTree d = new DrawQuadTree(this);
-		d.draw(a, b);
+		d.draw(incLines, incPoints);
+	}
+
+	public void draw() {
+		draw(this.incLines, this.incPoints);
 	}
 
 	/** Reads the given data file and interprets the contents as coordinates.
