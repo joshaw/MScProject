@@ -7,6 +7,7 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
 
+    <property name="integer-class"  value="quadtree.integer.QuadTreeTest"/>
     <property name="quadtree-class"  value="quadtree.data.QuadTreeTest"/>
     <property name="grid-class"  value="simplegrid.SimpleGridTest"/>
 
@@ -31,6 +32,15 @@
 
 	<target name="clean">
 		<delete dir="build" />
+	</target>
+
+	<!-- QuadTree Neightbour methods -->
+	<target name="integer" depends="compile">
+		<java classname="${integer-class}" fork="true">
+			<classpath>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
 	</target>
 
 	<!-- QuadTree Method -->
