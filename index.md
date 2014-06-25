@@ -55,3 +55,6 @@ title: Home
 #### Spatial Indexing with Quadtrees
 - <http://architects.dzone.com/articles/algorithm-week-spatial>
 - Add coordinates to a quadtree
+
+#### Spatial indexing with Quadtrees and Hilbert Curves
+- <http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves>
