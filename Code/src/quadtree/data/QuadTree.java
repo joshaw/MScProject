@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Tue 24 Jun 2014 04:49 PM
+ * Modified: Wed 25 Jun 2014 12:15 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -33,7 +33,8 @@ public class QuadTree {
 	public QuadTree br;
 	private ArrayList<Coordinate> points;
 	private boolean leaf;
-	private int code;
+	private String pos;
+	private String code;
 
 	/** Creates a new root node for a new quadtree.
 	 *
@@ -48,7 +49,8 @@ public class QuadTree {
 			double scaleFactor, String filepath, boolean incLines,
 			boolean incPoints) {
 		this.root      = true;
-		this.code      = 0;
+		this.pos       = "tr";
+		this.code      = "";
 		this.leaf      = false;
 		this.minX      = 0;
 		this.maxX      = maxX;
@@ -74,12 +76,13 @@ public class QuadTree {
 	/** Create a new leaf node.
 	 */
 	private QuadTree(double minX, double minY, double maxX, double maxY,
-			int code, int maxDensity, int depth) {
+			String code, int maxDensity, int depth, String pos) {
 		this.root        = false;
 		this.leaf        = true;
 		this.code        = code;
 		this.maxDensity  = maxDensity;
 		this.depth       = depth;
+		this.pos         = pos;
 
 		this.minX        = minX;
 		this.maxX        = maxX;
@@ -163,14 +166,35 @@ public class QuadTree {
 	 * them with the correct limits based on the limits of the parent.
 	 */
 	private void createSubTrees() {
+		String[] newCode = new String[4];
+		if (pos.equals("tr") || pos.equals("tl")) {
+			newCode[0] = code+"01";
+			newCode[1] = code+"10";
+			newCode[2] = code+"00";
+			newCode[3] = code+"11";
+
+		} else if (pos.equals("bl")) {
+			newCode[0] = code+"11";
+			newCode[1] = code+"10";
+			newCode[2] = code+"00";
+			newCode[3] = code+"01";
+
+		} else if (pos.equals("br")){
+			newCode[0] = code+"01";
+			newCode[1] = code+"00";
+			newCode[2] = code+"10";
+			newCode[3] = code+"11";
+		} else {
+			System.exit(1);
+		}
 		this.tl=new QuadTree(
-				minX, minY, maxX/2+minX/2, maxY/2+minY/2, (code<<2)|00, maxDensity, depth+1);
+				minX, minY, maxX/2+minX/2, maxY/2+minY/2, newCode[0], maxDensity, depth+1, "tl");
 		this.tr=new QuadTree(
-				maxX/2+minX/2, minY, maxX, maxY/2+minY/2, (code<<2)|01, maxDensity, depth+1);
+				maxX/2+minX/2, minY, maxX, maxY/2+minY/2, newCode[1], maxDensity, depth+1, "tr");
 		this.bl=new QuadTree(
-				minX, maxY/2+minY/2, maxX/2+minX/2, maxY, (code<<2)|10, maxDensity, depth+1);
+				minX, maxY/2+minY/2, maxX/2+minX/2, maxY, newCode[2], maxDensity, depth+1, "bl");
 		this.br=new QuadTree(
-				maxX/2+minX/2, maxY/2+minY/2, maxX, maxY, (code<<2)|11, maxDensity, depth+1);
+				maxX/2+minX/2, maxY/2+minY/2, maxX, maxY, newCode[3], maxDensity, depth+1, "br");
 	}
 
 	/** Checks that a coordinate is valid, ie exists in the quadtree-space of
@@ -191,16 +215,17 @@ public class QuadTree {
 	public ArrayList<Coordinate> getPoints() { return points; }
 
 	public String getCode() {
-		String codeString = Integer.toBinaryString(code & 0b11);
-		if (codeString.length() < 2) { codeString = 0 + codeString; }
+		// String codeString = Integer.toBinaryString(code & 0b11);
+		// if (codeString.length() < 2) { codeString = 0 + codeString; }
 
-		for (int i = 1; i < depth; i++) {
-			String tempString = Integer.toBinaryString((code >> (2*i)) & 0b11);
-			if (tempString.length() < 2) { tempString = 0 + tempString; }
-			codeString += tempString;
-		}
-		System.out.println("depth: " + depth + ", code: " + Integer.toBinaryString(code) + ", codeString: " + codeString);
-		return codeString;
+		// for (int i = 1; i < depth; i++) {
+		// 	String tempString = Integer.toBinaryString((code >> (2*i)) & 0b11);
+		// 	if (tempString.length() < 2) { tempString = 0 + tempString; }
+		// 	codeString += tempString;
+		// }
+		// System.out.println("depth: " + depth + ", code: " + Integer.toBinaryString(code) + ", codeString: " + codeString);
+		// return codeString;
+		return code;
 	}
 
 	public QuadTree getTL() { return tl; }
