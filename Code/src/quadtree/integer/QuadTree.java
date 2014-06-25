@@ -1,5 +1,5 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Sun 22 Jun 2014 10:14 AM
+ * Modified: Tue 24 Jun 2014 05:36 PM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */
@@ -85,6 +85,18 @@ public class QuadTree<E> {
 		if ( ((qt1x == qt2x) && (Math.abs(qt1y-qt2y) == 1) ) ||
 			( (qt1y == qt2y) && (Math.abs(qt1x-qt2x) == 1)) ) {
 
+			return true;
+		}
+
+		return false;
+	}
+
+	public static boolean adjacent2(String qt1, String qt2) {
+		if (qt1.equals(qt2)) {
+			return true;
+		}
+
+		if (qt1.startsWith(qt2) || qt2.startsWith(qt1)) {
 			return true;
 		}
 
@@ -222,6 +234,22 @@ public class QuadTree<E> {
 		neighbours[1] = getCode(new Coordinate(coord.getX(), coord.getY()-1));
 		neighbours[2] = getCode(new Coordinate(coord.getX()+1, coord.getY()));
 		neighbours[3] = getCode(new Coordinate(coord.getX(), coord.getY()+1));
+
+		return neighbours;
+	}
+
+	public static int[] getNeighbours(String code) {
+		// TODO edge cases
+		int[] neighbours = new int[4];
+
+		int codeInt = Integer.parseInt(code, 2);
+		int n1 = codeInt & 0b11;
+
+		int ref = n1 ^ 0b01;
+		neighbours[0] = ref;
+		neighbours[1] = ref ^ 0b11;
+		neighbours[2] = ref;
+		neighbours[3] = ref ^ 0b11;
 
 		return neighbours;
 	}

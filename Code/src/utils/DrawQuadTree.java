@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Tue 24 Jun 2014 09:51 AM
+ * Modified: Tue 24 Jun 2014 04:52 PM
  */
 package utils;
 
@@ -70,10 +70,7 @@ public class DrawQuadTree extends JPanel {
 	 * the minimum and maximum limits of the node are.
 	 */
 	private boolean recurseTree(QuadTree q, Graphics2D g) {
-		double ox = q.getMinX();
-		double oX = q.getMaxX();
-		double oy = q.getMinY();
-		double oY = q.getMaxY();
+		String code = q.getCode();
 		double x = scaleFactor*q.getMinX();
 		double X = scaleFactor*q.getMaxX();
 		double y = scaleFactor*q.getMinY();
@@ -85,6 +82,7 @@ public class DrawQuadTree extends JPanel {
 		if (q.isLeaf()) {
 			if (incPoints) {
 				for(Coordinate c: q.getPoints()) {
+					g.drawString(code, (float)(13+x), (float)(22+y));
 					g.draw(new Line2D.Double(
 								scaleFactor*c.getX()+10,
 								scaleFactor*c.getY()+10,
