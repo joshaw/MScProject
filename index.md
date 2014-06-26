@@ -26,6 +26,7 @@ title: Home
 - [Randomly generated data](infoposts/randomdata.html)
 - [Adding real data](infoposts/real_data/adding_real_data.html)
 - [Rolling ball analysis](infoposts/rolling_ball_analysis.html)
+- [Quadtree numbering systems](infoposts/alternative_quadtree_numbering.html)
 
 ## Links
 
@@ -58,3 +59,5 @@ title: Home
 
 #### Spatial indexing with Quadtrees and Hilbert Curves
 - <http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves>
+- <http://www5.in.tum.de/lehre/vorlesungen/asc/ss10/vorlesung/quadtrees.pdf>
+- <http://www.cs.umd.edu/~hjs/pubs/bulkload.pdf>
