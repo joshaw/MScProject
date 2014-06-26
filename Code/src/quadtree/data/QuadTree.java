@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 25 Jun 2014 12:15 PM
+ * Modified: Thu 26 Jun 2014 10:09 AM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -49,7 +49,7 @@ public class QuadTree {
 			double scaleFactor, String filepath, boolean incLines,
 			boolean incPoints) {
 		this.root      = true;
-		this.pos       = "tr";
+		this.pos       = "tl";
 		this.code      = "";
 		this.leaf      = false;
 		this.minX      = 0;
@@ -167,23 +167,30 @@ public class QuadTree {
 	 */
 	private void createSubTrees() {
 		String[] newCode = new String[4];
-		if (pos.equals("tr") || pos.equals("tl")) {
-			newCode[0] = code+"01";
-			newCode[1] = code+"10";
-			newCode[2] = code+"00";
+		if (pos.equals("tl") ) {
+			newCode[0] = code+"00";
+			newCode[1] = code+"01";
+			newCode[2] = code+"10";
 			newCode[3] = code+"11";
 
+		} else if (pos.equals("tr")) {
+			newCode[0] = code+"01";
+			newCode[1] = code+"00";
+			newCode[2] = code+"11";
+			newCode[3] = code+"10";
+
 		} else if (pos.equals("bl")) {
-			newCode[0] = code+"11";
-			newCode[1] = code+"10";
+			newCode[0] = code+"10";
+			newCode[1] = code+"11";
 			newCode[2] = code+"00";
 			newCode[3] = code+"01";
 
 		} else if (pos.equals("br")){
-			newCode[0] = code+"01";
-			newCode[1] = code+"00";
-			newCode[2] = code+"10";
-			newCode[3] = code+"11";
+			newCode[0] = code+"11";
+			newCode[1] = code+"10";
+			newCode[2] = code+"01";
+			newCode[3] = code+"00";
+
 		} else {
 			System.exit(1);
 		}
