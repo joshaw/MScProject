@@ -28,5 +28,8 @@ public class BinaryTest {
 		String code = "01000111";
 		System.out.println(Integer.parseInt(code, 2));
 
+		int mask = 1 << 7;
+		System.out.println(Integer.toBinaryString(mask));
+
 	}
 }
