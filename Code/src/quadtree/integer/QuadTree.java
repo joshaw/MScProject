@@ -1,5 +1,5 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Thu 26 Jun 2014 06:07 PM
+ * Modified: Fri 27 Jun 2014 10:34 AM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */
@@ -105,14 +105,15 @@ public class QuadTree<E> {
 
 	public static int[] getNeighbours(String code) {
 		// TODO edge cases
-		int[] neighbours = new int[code.length()];
+
+		int[] neighbours = new int[4];
 
 		int codeInt = Integer.parseInt(code, 2);
 
-		for (int i = 0; i < code.length(); i++) {
-			mask = 1 << i;
-			neighbours[i] = codeInt ^ mask;
-		}
+		// for (int i = 0; i < code.length(); i++) {
+		// 	int mask = 1 << i;
+		// 	neighbours[i] = codeInt ^ mask;
+		// }
 
 		neighbours[0] = codeInt ^ 0b1;
 		neighbours[1] = codeInt ^ 0b10;
@@ -126,10 +127,15 @@ public class QuadTree<E> {
 
 		// 2 LSB == 00
 		if ((codeInt & 0b11) == 0b00) {
-			if ((codeInt & 0b00001100) == 0b1100) {
-				neighbours[2] = codeInt ^ 0b1000;
-				neighbours[3] = codeInt ^ 0b10000;
+			int tmpCode = codeInt;
+			int count = 0;
+			while ((tmpCode & 0b11) != 0b11 ) {
+				tmpCode = tmpCode >> 2;
+				count++;
 			}
+			neighbours[2] = codeInt ^ (0b1 << 2*count+2);
+			neighbours[3] = codeInt ^ (0b1 << 2*count+3);
+			return neighbours;
 
 		}
 
@@ -141,6 +147,7 @@ public class QuadTree<E> {
 
 		// 2 LSB == 10
 		if ((codeInt & 0b11) == 0b10) {
+			neighbours[2] = codeInt ^ 0b1000;
 
 		}
 

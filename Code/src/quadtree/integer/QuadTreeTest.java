@@ -13,16 +13,8 @@ import static org.junit.Assert.*;
 
 public class QuadTreeTest {
 	public static void main(String[] args) {
-		String[] codes = new String[9];
-		codes[0] = "00110010";
-		codes[1] = "00110000";
-		codes[2] = "00110001";
-		codes[3] = "01110010";
-		codes[4] = "01110000";
-		codes[5] = "01110001";
-		codes[6] = "10110010";
-		codes[7] = "10110000";
-		codes[8] = "10110001";
+		String[] codes = new String[1];
+		codes[0] = "11011000";
 		for (String c : codes) {
 			int[] n = QuadTree.getNeighbours(c);
 			System.out.println("\nCode: " + c);
