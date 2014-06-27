@@ -1,0 +1,171 @@
+% Created:  Fri 27 Jun 2014 11:24 AM
+% Modified: Fri 27 Jun 2014 04:41 PM
+
+\section{Quadtrees}
+\label{sec:quadtrees}
+
+Since the simple grid method described in section~\ref{sec:simple_grid_method}
+performs slowly and does not offer good cluster analysis, a different approach
+is needed. The chosen method is to use a quadtree data structure.
+
+Quadtrees are a type of recursive abstract data type in the form of a tree
+where every node has exactly zero or four children. A node with zero children
+is a leaf and contains some information, value or quantity. A node with four
+children is not a leaf and cannot hold information.
+
+Quadtrees are often used in image processing since the four children of the
+root node can naturally represent the four quadrants of the image; upper left,
+upper right, lower left and lower right. Since each of these children is also
+a quadtree, the image can be subdivided to any arbitrary depth based on some
+quality of the image. From this point, information about the image can be
+``seen'' more easily by the computer and statistics calculated.
+
+In order to identify a node uniquely in the tree, each node is given a code
+that is built up from it's parent code plus some value that identifies it
+among it's siblings. The root node is usually chosen to have an empty code so
+that the first four children are given the first level codes.
+
+The choice of in what order to label the children is important if the order
+in which the nodes are placed is important. For spatial indexing, for example,
+each node represents a quadrant in two dimensional space, so being able to
+traverse the children in a sensible and predictable way is essential.
+
+\subsection[Morton Code]{Morton Code (Z-Order)}
+\label{sub:morton_code_z_order_}
+
+Perhaps the most natural order to give to the values in a spatial quadtree is
+to number them from 1 to 4, left to right, top to bottom. This can be made
+more appropriate for a computer to use by numbering from 0 to 3. This is
+called Morton Order\cite{mortoncomputer} or Z-order because of the resulting
+path that would be followed by traversing the nodes in order,
+Figure~\ref{fig:traverse-z-order.pdf}. This has several useful features.
+
+\begin{enumerate}
+	\item First, the numbers can be converted to base 2:
+	\begin{itemize}
+		\item 0 becomes 00
+		\item 1 becomes 01
+		\item 2 becomes 10 and
+		\item 3 becomes 11.
+	\end{itemize}
+
+	\item This has advantages since binary is very efficient for computers to
+	work with and allows certain tricks to be employed (see Morton order
+	coordinates.
+
+	\item Also, this numbering system is easily extendible to any depth of
+	tree that can be imagined.
+
+	\begin{enumerate}
+		\item The root, as mentioned before, is given no value,
+		\item each of the children are numbered {00} through 11.
+
+		\item the children of these children are numbered 00 to 11 with the
+		parent as a prefix. So the children of node 00 are 0000, 0001, 0010
+		and 0011. Likewise, the children of 11 are 1100, 1101, 1110 and 1111.
+
+		\item The children are always numbered in the same order. If starting
+		at the top and going top to bottom and left to right, this is
+		maintained for all children.
+	\end{enumerate}
+\end{enumerate}
+
+This method of numbering is simple and so acceptable for the standard uses of
+quadtrees, but it was found to be difficult to work with in a spatial context
+when information about neighbouring cells is needed. The steps required to
+calculate the neighbours of any given cell are reasonably complex and so would
+add computational and time complexity to calculations performed on the tree.
+
+\subsection{Hilbert Order}
+\label{sub:hilbert_order}
+
+One of the reasons the Z-order above becomes difficult to work with is that
+the resulting path from traversing the nodes in-order has to make large jumps
+and so cells which are numbered next to each other may, in fact, not be near
+each other in the image.
+
+A number of routes exist that avoid this jumping around the image. These are
+based on space filling curves which have the property of being a simple
+recursive pattern that visits every point in a 2D space exactly once. These
+curves were first discovered in the early 1900's and described mathematically
+by D. Hilbert\cite{hilbert1970stetige}. One of the curves that Hilbert found,
+the Hilbert Curve, is particularly useful since it can be represented in the
+simplest level in a two by two square which is then recursively repeated for
+each quadrant of that first square---exactly as the quadtree does.
+
+The path that the traversal of points follows becomes fairly complicated,
+Figure~\ref{fig:traverse-hilbert-order.pdf}. This means, again, that the
+calculation of neighbours becomes difficult.
+
+\begin{figure}[tbp]
+    \centering
+    \begin{subfigure}[b]{0.42\linewidth}
+        \includegraphics[width=\textwidth]{traverse-z-order.pdf}
+        \caption{} \label{fig:traverse-z-order.pdf}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[b]{0.42\linewidth}
+        \includegraphics[width=\textwidth]{traverse-hilbert-order.pdf}
+        \caption{} \label{fig:traverse-hilbert-order.pdf}
+    \end{subfigure}
+    \\[0.2cm]
+    \begin{subfigure}[b]{0.42\linewidth}
+        \includegraphics[width=\textwidth]{traverse-gray-order.pdf}
+        \caption{} \label{fig:traverse-gray-order.pdf}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[b]{0.42\linewidth}
+        \includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
+        \caption{}\label{fig:traverse-modgray-order.pdf}
+    \end{subfigure}
+    \caption{}\label{fig:order_traversals}
+\end{figure}
+
+\subsection{Gray Codes}
+\label{sub:gray_codes}
+
+The Gray Code\cite{gray1953pulse}, developed by Frank Gray in 1953, was
+originally designed to reduce the error rate produced by mechanical
+electronics. The code is a variation on binary where each step when counting
+up changes only a single bit at a time. This meant that electromechanical
+apperatus was less likely to make a mistake or generate errors since the
+actions required to count from one to two required only a single bit change,
+rather than two, as would be required for binary counting. When using just two
+bits, i.e.\ couting from zero to three, the steps are very similar to binary.
+
+\begin{tabular}{c c l}
+0 & 00 \\
+1 & 01 \\
+2 & 11 \\
+3 & 01
+\end{tabular}
+
+The path that this follows is shown in
+Figure~\ref{fig:traverse-gray-order.pdf}. This does not seem to add any
+benefits since there is now more jumping around the image space than with
+Z-order and the neighbours are just as difficult to calculate as for Hilbert
+Order. However, by using a different arangement of the sub-trees, as the
+Hilbert curve does, the leaf nodes group themselves in a way in a very ordered
+fasion. When arranged as in Figures~\ref{fig:traverse-modgray-order.pdf}
+and~\ref{fig:modgray-2-levels.pdf}, the
+
+% \begin{figure}[htpb]
+% 	\centering
+% 	\includegraphics[width=0.8\linewidth]{modgray-2-levels.pdf}
+% 	\caption{modgray-2-Levels}
+% 	\label{fig:modgray-2-levels.pdf}
+% \end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.42\textwidth}
+        \includegraphics[width=\textwidth]{modgray-2-levels-arrows.pdf}
+        \caption{}\label{fig:modgray-2-levels-arrows.pdf}
+    \end{subfigure}%
+    \qquad
+    \begin{subfigure}[b]{0.42\textwidth}
+        \includegraphics[width=\textwidth]{modgray-2-levels-numbers.pdf}
+        \caption{}
+    \end{subfigure}
+    \caption{}\label{fig:modgray-2-levels-numbers.pdf}
+\end{figure}

@@ -1,14 +1,13 @@
 % Created:  Sun 15 Jun 2014 04:15 pm
-% Modified: Mon 23 Jun 2014 04:06 PM
-\documentclass[a4paper,9pt,twoside]{article}
+% Modified: Fri 27 Jun 2014 12:05 PM
+\documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
-\usepackage[hmarginratio=1:1,
-	top=3cm,
+\usepackage[top=3cm,
 	bottom=2cm,
-	left=3cm,
-	right=2cm]{geometry}
+	left=2cm,
+	right=1cm]{geometry}
 \usepackage[parfill]{parskip}
 \setlength{\columnsep}{1.5em}
 
@@ -41,10 +40,11 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{tabu}
+\usepackage{multirow}
 \usepackage{verbatim}
 \usepackage{listings}
 \usepackage{color}
-\usepackage{tabu}
 \usepackage[binary-units]{siunitx}
 % \usepackage[%
 % 	activate={true,nocompatibility},
@@ -82,13 +82,15 @@
 
 \begin{document}
 
-\graphicspath{{front/} {grid/}}
+\graphicspath{{front/} {grid/} {quadtree/}}
 % \input{front/titlepage.tex}
 
 \input{intro/introduction.tex}
 \input{benchmarking/benchmarking.tex}
 \input{grid/grid.tex}
+\input{quadtree/quadtree.tex}
 
+\clearpage
 \bibliographystyle{apalike}
 \bibliography{references}
 
