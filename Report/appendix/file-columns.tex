@@ -1,8 +1,8 @@
 % Created:  Mon 23 Jun 2014 04:06 PM
-% Modified: Mon 23 Jun 2014 09:21 pm
+% Modified: Fri 27 Jun 2014 12:02 PM
 
 \section{Data File Structure}
-\label{sec:data_file_structure}
+\label{app:data_file_structure}
 
 The data files that are produced from the initial analysis of the images have a
 standard format.
@@ -16,7 +16,7 @@ standard format.
 The columns that represent fields in the file are as follows.
 
 \begin{center}
-	\begin{tabular}{r p{8cm} c}
+	\begin{tabu}{p{1.1cm} X c}
 		\toprule
 		Header & Meaning & Used? \\
 		\midrule
@@ -30,7 +30,7 @@ The columns that represent fields in the file are as follows.
 		\texttt{Yc} & centered, normalised y-coordinate of point & yes \\
 		\texttt{Height} & the height of the fitted gaussian peak used to
 			extract the point from the original image & not yet \\
-		Area & area of the point & not yet \\
+		\texttt{Area} & area of the point & not yet \\
 		\texttt{Width} & full width half maximum of the point & not yet \\
 		\texttt{Phi}          & ? & no \\
 		\texttt{Ax}           & ? & no \\
@@ -43,12 +43,12 @@ The columns that represent fields in the file are as follows.
 		\texttt{Zc}           & ? & no \\
 		\texttt{Photons}      & ? & no \\
 		\texttt{Lateral}      & ? & no \\
-		\texttt{Localisation} & ? & no \\
+		\texttt{Localisation} & \qquad ? & no \\
 		\texttt{Accuracy}     & ? & no \\
 		\texttt{Xw}           & ? & no \\
 		\texttt{Yw}           & ? & no \\
 		\texttt{Xwc}          & ? & no \\
 		\texttt{Ywc}          & ? & no \\
 		\bottomrule
-	\end{tabular}
+	\end{tabu}
 \end{center}
