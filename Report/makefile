@@ -22,6 +22,7 @@ all: $(DIAPDF) $(DIR)/$(PROJECT).pdf
 	dia -t svg -e "/dev/stdout" $<\
 		| head -n-1 | rsvg-convert -f pdf > "$@"
 	echo $@
+	cp $@ $(DIR)/
 
 $(DIR)/$(PROJECT).pdf: $(PROJECT).tex
 	$(CHECKDIR)

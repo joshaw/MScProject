@@ -10,6 +10,9 @@ Code/build/
 *.fls
 *.out
 *.toc
+*.fdb_latexmk
+build/
+!mainfile.pdf
 
 # Latex Styles
 *.sty
