@@ -6,8 +6,8 @@
 %%% PAGE DIMENSIONS ------------------------------------------------------------
 \usepackage[top=3cm,
 	bottom=2cm,
-	left=2cm,
-	right=1cm]{geometry}
+	left=1.5cm,
+	right=1.5cm]{geometry}
 \usepackage[parfill]{parskip}
 \setlength{\columnsep}{1.5em}
 
@@ -46,16 +46,16 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage[binary-units]{siunitx}
-% \usepackage[%
-% 	activate={true,nocompatibility},
-% 	final,
-% 	tracking=true,
-% 	kerning=true,
-% 	spacing=true,
-% 	factor=1100,
-% 	stretch=10,
-% 	shrink=10]{microtype}
-% \microtypecontext{spacing=nonfrench}
+\usepackage[%
+	activate={true,nocompatibility},
+	final,
+	tracking=true,
+	kerning=true,
+	spacing=true,
+	factor=1100,
+	stretch=10,
+	shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
 
 %% BIBIOGRAPHY -----------------------------------------------------------------
 \usepackage{cite}
@@ -83,7 +83,7 @@
 \begin{document}
 
 \graphicspath{{front/} {grid/} {quadtree/}}
-% \input{front/titlepage.tex}
+\input{front/titlepage.tex}
 
 \input{intro/introduction.tex}
 \input{benchmarking/benchmarking.tex}
@@ -98,5 +98,3 @@
 \input{appendix/appendix.tex}
 
 \end{document}
-
-% vim: autochdir

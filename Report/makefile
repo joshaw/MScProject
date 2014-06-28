@@ -1,37 +1,36 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Mon 23 Jun 2014 09:25 pm
+# Modified: Sat 28 Jun 2014 10:10 am
 
 PROJECT=mainfile
 TEX=pdflatex
-OPTIONS=-interaction nonstopmode\
-		-file-line-error\
+OPTIONS=-file-line-error\
 		-output-directory=$(DIR)\
 		-halt-on-error
 BIBTEX=bibtex -terse
 DIR=build
-BUILDTEX=$(TEX) $(OPTIONS) $(PROJECT).tex
+BUILDTEX=latexmk -pdf -pdflatex="$(TEX)" $(OPTIONS) $(PROJECT).tex
 
 CHECKDIR=mkdir -p $(DIR)
 
-all:
-	$(CHECKDIR)
-	@echo "$(BUILDTEX)"
-	@! $(BUILDTEX) | egrep -A 4 ":[0-9]*:|LaTeX Error"
-	@echo "$(BIBTEX) $(DIR)/$(PROJECT)"
-	@$(BIBTEX) $(DIR)/$(PROJECT) || true
-	@echo "$(BUILDTEX)"
-	@$(BUILDTEX) > /dev/null
-	@echo "$(BUILDTEX)"
-	@$(BUILDTEX) > /dev/null
-	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
+DIASRC=$(wildcard **/*.dia)
+DIAPDF=$(subst .dia,.pdf,$(DIASRC))
 
-once:
+all: $(DIAPDF) $(DIR)/$(PROJECT).pdf
+
+%.pdf: %.dia
+	echo $<
+	dia -t svg -e "/dev/stdout" $<\
+		| head -n-1 | rsvg-convert -f pdf > "$@"
+	echo $@
+
+$(DIR)/$(PROJECT).pdf: $(PROJECT).tex
+	$(CHECKDIR)
 	$(BUILDTEX)
+	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
 
 clean-all:
 	find ${DIR}/ -type f -delete
 
 clean:
 	find ${DIR}/ -type f ! -name "*.pdf" -delete
-
 # vim:ft=make
