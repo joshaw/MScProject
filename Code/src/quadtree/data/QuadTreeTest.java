@@ -23,11 +23,13 @@ public class QuadTreeTest {
 			boolean incLines = Boolean.parseBoolean(args[5]);
 			boolean incPoints = Boolean.parseBoolean(args[6]);
 			main = new QuadTree(xdim, ydim, density, scale, args[4], incLines, incPoints);
+		} else if (args.length == 1) {
+			main = new QuadTree(41000.0, 41000.0, 20, 0.012, args[0], true, true);
 		} else {
 			main = new QuadTree(41000.0, 41000.0, 20, 0.012, "../sampledata/palm_1.txt", true, true);
 		}
 
-		main.draw();
+		// main.draw();
 	}
 
 }

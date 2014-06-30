@@ -14,13 +14,13 @@ import static org.junit.Assert.*;
 public class QuadTreeTest {
 	public static void main(String[] args) {
 		String[] codes = new String[1];
-		codes[0] = "11011000";
+		codes[0] = "00011000";
 		for (String c : codes) {
-			int[] n = QuadTree.getNeighbours(c);
-			System.out.println("\nCode: " + c);
-			for (int a : n) {
-				System.out.println(Integer.toBinaryString(a));
-			}
+			int[] n = QuadTree.getNeighbours2(c);
+			// System.out.println("\nCode: " + c);
+			// for (int a : n) {
+			// 	System.out.println(Integer.toBinaryString(a));
+			// }
 		}
 	}
 
