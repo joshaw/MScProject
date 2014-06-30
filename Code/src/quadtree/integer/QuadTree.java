@@ -154,6 +154,35 @@ public class QuadTree<E> {
 		return neighbours;
 	}
 
+	public static int[] getNeighbours2(String code) {
+		int[] neighbours = new int[4];
+		int[] possN = new int[code.length()];
+		int codeInt = Integer.parseInt(code,2);
+
+		neighbours[0] = codeInt ^ 0b1;
+		neighbours[1] = codeInt ^ 0b10;
+
+		for (int i = 2; i < code.length(); i++) {
+			int mask = 1 << i;
+			possN[i] = codeInt ^ mask;
+		}
+
+		for (int i = 0; i < code.length()-2; i++) {
+			for (int j = i; j < code.length()-2; j++) {
+
+				possN[i] = poss1;
+				possN[j] = poss2;
+
+
+
+			}
+		}
+	}
+
+	private int[] generatePossNeighbours(int code) {
+
+	}
+
 	// /** Produces the decimal coordinates of the code specifying a single
 	//  * quadtree element using Morton's order.
 	//  *
