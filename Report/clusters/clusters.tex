@@ -1,0 +1,24 @@
+% Created:  TIMESTAMP
+% Modified: TIMESTAMP
+
+\section{Cluster Analysis}
+\label{sec:cluster_analysis}
+
+Cluster analysis is the grouping of a set of objects or items in a spatially or
+informationally logical way such that the items that are placed in the same
+group are more similar to each other than they are to the objects in the other
+groups in the set. These groups are called clusters. When dealing with images,
+the clustering that is of interest is based on spatial location, i.e.\ clusters
+should be composed of objects that are close together in the image and clusters
+should be separated by regions of emptiness or background level noise.
+
+One of the primary reasons for chosing the quadtree method over the simple grid
+methods was that the simple act of placing the objects, in this case
+coordinates of data points, into the quadtree starts the process of analysing
+the data. Since the points end up in a tree structure with the number of points
+closely separated being on the lowest levels of the tree, the data is already
+clustered in a way.
+
+There are a number of alternative methods of identifying clusters in images.
+
+\input{rolling-ball.tex}
