@@ -46,16 +46,16 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage[binary-units]{siunitx}
-\usepackage[%
-	activate={true,nocompatibility},
-	final,
-	tracking=true,
-	kerning=true,
-	spacing=true,
-	factor=1100,
-	stretch=10,
-	shrink=10]{microtype}
-\microtypecontext{spacing=nonfrench}
+% \usepackage[%
+% 	activate={true,nocompatibility},
+% 	final,
+% 	tracking=true,
+% 	kerning=true,
+% 	spacing=true,
+% 	factor=1100,
+% 	stretch=10,
+% 	shrink=10]{microtype}
+% \microtypecontext{spacing=nonfrench}
 
 %% BIBIOGRAPHY -----------------------------------------------------------------
 \usepackage{cite}
@@ -82,13 +82,15 @@
 
 \begin{document}
 
-\graphicspath{{front/} {grid/}}
+\graphicspath{{front/} {grid/} {quadtree/}}
+
 \input{front/titlepage.tex}
 
 \input{intro/introduction.tex}
 \input{benchmarking/benchmarking.tex}
 \input{grid/grid.tex}
 \input{quadtree/quadtree.tex}
+\input{clusters/rolling-ball.tex}
 
 \clearpage
 \bibliographystyle{apalike}
