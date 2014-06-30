@@ -1,5 +1,5 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Sat 28 Jun 2014 10:10 am
+# Modified: Mon 30 Jun 2014 10:37 pm
 
 PROJECT=mainfile
 TEX=pdflatex
@@ -10,27 +10,36 @@ BIBTEX=bibtex -terse
 DIR=build
 BUILDTEX=latexmk -pdf -pdflatex="$(TEX)" $(OPTIONS) $(PROJECT).tex
 
-CHECKDIR=mkdir -p $(DIR)
+TEXFILES=$(wildcard **/*.tex)
+# SVGSRC=$(wildcard **/*.svg)
+SVGPDF=$(addprefix $(DIR)/,$(subst .svg,.pdf,$(wildcard **/*.svg)))
+# DIASRC=$(wildcard **/*.dia)
+DIAPDF=$(addprefix $(DIR)/,$(subst .dia,.pdf,$(wildcard **/*.dia)))
 
-DIASRC=$(wildcard **/*.dia)
-DIAPDF=$(subst .dia,.pdf,$(DIASRC))
+all: $(DIR) $(DIR)/$(PROJECT).pdf
 
-all: $(DIAPDF) $(DIR)/$(PROJECT).pdf
+$(DIR):
+	mkdir $(DIR)
+	echo $(DIAPDF)
 
-%.pdf: %.dia
-	echo $<
+.SECONDEXPANSION:
+$(DIR)/%.pdf: %.dia
+	echo "$< ---> $@"
+	mkdir -p $(shell dirname $@)
 	dia -t svg -e "/dev/stdout" $<\
 		| head -n-1 | rsvg-convert -f pdf > "$@"
-	echo $@
-	cp $@ $(DIR)/
 
-$(DIR)/$(PROJECT).pdf: $(PROJECT).tex
-	$(CHECKDIR)
+$(DIR)/%.pdf: %.svg
+	echo "$< ---> $@"
+	mkdir -p $(shell dirname $@)
+	rsvg-convert -f pdf $< > "$@"
+
+$(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(TEXFILES) $(DIAPDF) $(SVGPDF)
 	$(BUILDTEX)
 	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
 
 clean-all:
-	find ${DIR}/ -type f -delete
+	rm -r $(DIR)
 
 clean:
 	find ${DIR}/ -type f ! -name "*.pdf" -delete
