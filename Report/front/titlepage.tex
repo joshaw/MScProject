@@ -1,5 +1,5 @@
 % Created:  Sun 15 Jun 2014 04:29 pm
-% Modified: Sun 15 Jun 2014 07:10 pm
+% Modified: Tue 01 Jul 2014 12:19 PM
 
 \newgeometry{margin=1in}
 \begin{titlepage}
@@ -34,7 +34,10 @@
 \end{titlepage}
 \restoregeometry%
 
-\onecolumn
+% \onecolumn
+\newgeometry{onecolumn,top=2in,left=1.5in,right=1.5in}
+\thispagestyle{empty}
+
 \pagenumbering{roman}
 
 \part*{Abstract}
@@ -60,8 +63,11 @@ depth of surveys by up to 3 magnitudes.
 
 \clearpage
 
+\thispagestyle{empty}
 \tableofcontents
 \addcontentsline{toc}{section}{Table of Contents}
 
-\twocolumn
+\restoregeometry
+% \twocolumn
+
 \pagenumbering{arabic}

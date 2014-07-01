@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Fri 27 Jun 2014 04:41 PM
+% Modified: Tue 01 Jul 2014 03:52 PM
 
 \section{Quadtrees}
 \label{sec:quadtrees}
@@ -15,10 +15,10 @@ children is not a leaf and cannot hold information.
 
 Quadtrees are often used in image processing since the four children of the
 root node can naturally represent the four quadrants of the image; upper left,
-upper right, lower left and lower right. Since each of these children is also
-a quadtree, the image can be subdivided to any arbitrary depth based on some
-quality of the image. From this point, information about the image can be
-``seen'' more easily by the computer and statistics calculated.
+upper right, lower left and lower right. Since each of these children is also a
+quadtree, the image can be subdivided to any arbitrary depth. From this point,
+information about the image can be ``seen'' more easily by the computer and
+statistics calculated.
 
 In order to identify a node uniquely in the tree, each node is given a code
 that is built up from it's parent code plus some value that identifies it

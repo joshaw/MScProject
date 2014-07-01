@@ -1,5 +1,5 @@
 % Created:  Sun 15 Jun 2014 04:15 pm
-% Modified: Fri 27 Jun 2014 12:05 PM
+% Modified: Tue 01 Jul 2014 12:19 PM
 \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
 \usepackage[utf8]{inputenc}
 
@@ -46,6 +46,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage[binary-units]{siunitx}
+\usepackage{amsmath}
 % \usepackage[%
 % 	activate={true,nocompatibility},
 % 	final,
@@ -67,11 +68,11 @@
 %%% PDF LINKS AND STYLE --------------------------------------------------------
 \usepackage[bookmarks=true]{hyperref}
 \hypersetup{%
-	colorlinks=true,       % false: boxed links; true: colored links
-	linkcolor=black,          % color of internal links (change box color with linkbordercolor)
-	citecolor=black,        % color of links to bibliography
-	filecolor=black,      % color of file links
-	urlcolor=black           % color of external links
+	colorlinks=true, % false: boxed links; true: colored links
+	linkcolor=black, % color of internal links (change box color with linkbordercolor)
+	citecolor=black, % color of links to bibliography
+	filecolor=black, % color of file links
+	urlcolor=black   % color of external links
 }
 \hypersetup{pdftitle={Josh Wainwright MSc Project},
 	pdfauthor={Josh Wainwright}}
@@ -82,15 +83,18 @@
 
 \begin{document}
 
-\graphicspath{{front/} {grid/} {quadtree/} {clusters/} {build/}}
+\graphicspath{{front/} {intro/} {grid/} {quadtree/} {clusters/} {build/}}
 
 \input{front/titlepage.tex}
 
 \input{intro/introduction.tex}
 \input{benchmarking/benchmarking.tex}
+\input{datastructures/datastructures.tex}
 \input{grid/grid.tex}
 \input{quadtree/quadtree.tex}
 \input{clusters/clusters.tex}
+
+\input{plugin/imagej.tex}
 
 \clearpage
 \bibliographystyle{apalike}
