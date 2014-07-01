@@ -1,3 +1,6 @@
+// Created:  Tue 01 Jul 2014 03:39 PM
+// Modified: Tue 01 Jul 2014 03:39 PM
+
 package simplegrid;
 
 import utils.Coordinate;
@@ -20,6 +23,7 @@ public class SimpleGrid {
 	private int points[][];
 	private int cellSize;
 	private String filepath;
+	private int threshold = 0;
 
 	public SimpleGrid(double maxX, double maxY, int cellSize, String filepath) {
 		this.maxX = maxX;
@@ -141,7 +145,25 @@ public class SimpleGrid {
 			for (int j = 0; j < gridY; j++) {
 				for (int i = 0; i < gridX; i++) {
 					int pixelValue = (int) (points[i][j]);
-					gridString.append( pixelValue + " ");
+					int above = 0;
+					int right = 0;
+					int below = 0;
+					int left  = 0;
+					try {
+						above = (int) (points[i][j-1]);
+						right = (int) (points[i+1][j]);
+						below = (int) (points[i][j+1]);
+						left  = (int) (points[i-1][j]);
+					} catch(ArrayIndexOutOfBoundsException e){
+					}
+
+					if (pixelValue > threshold &&
+							above > threshold/2 && right > threshold/2 &&
+							below > threshold/2 && left > threshold/2) {
+						gridString.append(pixelValue + " ");
+					} else {
+						gridString.append("0 ");
+					}
 				}
 				gridString.append("\n");
 				writer.write(gridString.toString());
