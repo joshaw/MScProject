@@ -1,5 +1,5 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Mon 30 Jun 2014 10:37 pm
+# Modified: Tue 01 Jul 2014 11:07 AM
 
 PROJECT=mainfile
 TEX=pdflatex
@@ -37,6 +37,9 @@ $(DIR)/%.pdf: %.svg
 $(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(TEXFILES) $(DIAPDF) $(SVGPDF)
 	$(BUILDTEX)
 	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
+
+open: all
+	rifle $(DIR)/$(PROJECT).pdf
 
 clean-all:
 	rm -r $(DIR)
