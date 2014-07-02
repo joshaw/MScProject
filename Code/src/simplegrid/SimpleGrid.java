@@ -1,5 +1,5 @@
 // Created:  Tue 01 Jul 2014 03:39 PM
-// Modified: Tue 01 Jul 2014 03:39 PM
+// Modified: Wed 02 Jul 2014 10:04 AM
 
 package simplegrid;
 
@@ -22,6 +22,7 @@ public class SimpleGrid {
 
 	private int points[][];
 	private int cellSize;
+	private int maxCapacity;
 	private String filepath;
 	private int threshold = 0;
 
@@ -42,7 +43,10 @@ public class SimpleGrid {
 			}
 		}
 
-		readDataFile();
+		if (!readDataFile()) {
+			System.err.println("Error: Could not read input file.");
+			System.exit(1);
+		}
 	}
 
 	public int addPoint(Coordinate c) {
@@ -50,7 +54,6 @@ public class SimpleGrid {
 		int posX = (int) c.getX()/cellSize;
 		int posY = (int) c.getY()/cellSize;
 
-		// System.out.println(c);
 		points[posX][posY] ++;
 		return points[posX][posY];
 	}
@@ -72,6 +75,8 @@ public class SimpleGrid {
 		return true;
 	}
 
+	/** Find the maximum value in the array of pixel values.
+	 */
 	private int getMaxCapacity() {
 		int maxCapacity = 0;
 		for (int j = 0; j < gridY; j++) {
@@ -82,6 +87,7 @@ public class SimpleGrid {
 				}
 			}
 		}
+		this.maxCapacity = maxCapacity;
 		return maxCapacity;
 	}
 
@@ -96,15 +102,6 @@ public class SimpleGrid {
 				reader = new BufferedReader(new FileReader(filepath));
 				String line = null;
 
-				// while ((line = reader.readLine()) != null) {
-				// 	String[] xyString = line.split("\\s");
-				// 	double[] xyDouble = new double[2];
-
-				// 	xyDouble[0] = Double.parseDouble(xyString[0]);
-				// 	xyDouble[1] = Double.parseDouble(xyString[1]);
-				// 	Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
-				// 	addPoint(c);
-				// }
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
@@ -127,50 +124,32 @@ public class SimpleGrid {
 					}
 				}
 			}
+			return true;
 		}
-		return true;
+		return false;
 	}
 
+	/** Write the pixel data contained in the points array to the given file.
+	 * If the SimpleGrid object has not been initialised with a data file, the
+	 * output will be all zeros.
+	 *
+	 * @param output file to write data to, will end up as a pnm image file.
+	 * @return true if the file was written successfully.
+	 */
 	public boolean writeToFile(String output) {
+		getMaxCapacity();
 		Writer writer = null;
 		try {
 			writer = new BufferedWriter(new OutputStreamWriter(
 						new FileOutputStream(output), "utf-8"));
 
-			String headerInfo = "P2\n" + gridX + " " + gridY + "\n" + getMaxCapacity() + "\n";
+			String headerInfo = "P2\n" + gridX + " " + gridY + "\n" +
+				maxCapacity + "\n";
+
 			writer.write(headerInfo);
+			writer.write(pixelLoop());
 
-			StringBuilder gridString = new StringBuilder();
-
-			for (int j = 0; j < gridY; j++) {
-				for (int i = 0; i < gridX; i++) {
-					int pixelValue = (int) (points[i][j]);
-					int above = 0;
-					int right = 0;
-					int below = 0;
-					int left  = 0;
-					try {
-						above = (int) (points[i][j-1]);
-						right = (int) (points[i+1][j]);
-						below = (int) (points[i][j+1]);
-						left  = (int) (points[i-1][j]);
-					} catch(ArrayIndexOutOfBoundsException e){
-					}
-
-					if (pixelValue > threshold &&
-							above > threshold/2 && right > threshold/2 &&
-							below > threshold/2 && left > threshold/2) {
-						gridString.append(pixelValue + " ");
-					} else {
-						gridString.append("0 ");
-					}
-				}
-				gridString.append("\n");
-				writer.write(gridString.toString());
-				gridString.setLength(0);
-			}
 		} catch (IOException ex) {
-			// report
 			return false;
 		} finally {
 			try {
@@ -180,6 +159,40 @@ public class SimpleGrid {
 			}
 		}
 		return true;
+	}
+
+	private String pixelLoop() {
+		StringBuilder gridString = new StringBuilder();
+
+		for (int j = 0; j < gridY; j++) {
+			for (int i = 0; i < gridX; i++) {
+				int pixelValue = (int) (points[i][j]);
+
+				int above = 0;
+				int right = 0;
+				int below = 0;
+				int left  = 0;
+				try {
+					above = (int) (points[i][j-1]);
+					right = (int) (points[i+1][j]);
+					below = (int) (points[i][j+1]);
+					left  = (int) (points[i-1][j]);
+				} catch(ArrayIndexOutOfBoundsException e) {}
+
+				/* Only writes pixels that have neighbours with a value greater
+				 * than threshold/2. */
+				if (pixelValue > threshold &&
+						above > threshold/2 && right > threshold/2 &&
+						below > threshold/2 && left > threshold/2) {
+					gridString.append(maxCapacity-pixelValue + " ");
+				} else {
+					gridString.append(maxCapacity + " ");
+				}
+			}
+			gridString.append("\n");
+			// gridString.setLength(0);
+		}
+		return gridString.toString();
 	}
 
 	@Override
