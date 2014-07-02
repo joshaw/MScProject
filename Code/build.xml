@@ -1,15 +1,20 @@
 <?xml version="1.0" ?>
 <project name="Clusters" default="quadtree" basedir=".">
 
+	<!-- Variables {{{ -->
 	<property name="src.dir"     value="src"/>
 
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
+    <property name="imagej.dir"  value="${classes.dir}/imagej"/>
+    <property name="jar.imagej"  value="Cluster_Analysis.jar"/>
 
     <property name="integer-class"  value="quadtree.integer.QuadTreeTest"/>
-    <property name="quadtree-class"  value="quadtree.data.QuadTreeTest"/>
-    <property name="grid-class"  value="simplegrid.SimpleGridTest"/>
+    <property name="quadtree-class" value="quadtree.data.QuadTreeTest"/>
+    <property name="grid-class"     value="simplegrid.SimpleGridTest"/>
+    <property name="imagej-class"   value="Cluster_Analysis.class"/>
+	<!-- }}} -->
 
 	<target name="init">
 		<mkdir dir="${classes.dir}"/>
@@ -21,20 +26,25 @@
 		</javac>
 	</target>
 
-	<!-- <target name="jar"> -->
-	<!-- 	<mkdir dir="build/jar"/> -->
-	<!-- 	<jar destfile="${jar.dir}/clusters.jar" basedir="${classes.dir}"> -->
-	<!-- 		<manifest> -->
-	<!-- 			<attribute name="Main-Class" value="${main-class}"/> -->
-	<!-- 		</manifest> -->
-	<!-- 	</jar> -->
-	<!-- </target> -->
+	<target name="jar" depends="compile">
+		<mkdir dir="build/jar"/>
+		<jar destfile="${jar.dir}/${jar.imagej}" basedir="${classes.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="imagej" depends="jar">
+		<copy file="${jar.dir}/${jar.imagej}"
+			todir="/home/students/jaw097/Bin/ImageJ/plugins/jars/"/>
+	</target>
 
 	<target name="clean">
 		<delete dir="build" />
 	</target>
 
-	<!-- QuadTree Neightbour methods -->
+	<!-- QuadTree Neighbour methods {{{ -->
 	<target name="integer" depends="compile">
 		<java classname="${integer-class}" fork="true">
 			<classpath>
@@ -42,8 +52,8 @@
 			</classpath>
 		</java>
 	</target>
-
-	<!-- QuadTree Method -->
+	<!-- }}} -->
+	<!-- QuadTree Method  {{{ -->
 	<target name="quadtree" depends="compile">
 
 		<property name="xdim" value="41000"/>
@@ -75,29 +85,34 @@
 			</classpath>
 		</java>
 	</target>
-
-	<!-- Simple Grid Method -->
+	<!-- }}} -->
+	<!-- Simple Grid Method {{{ -->
 	<target name="grid" depends="compile">
 
 		<property name="xdim" value="41000"/>
 		<property name="ydim" value="41000"/>
-		<property name="density" value="200"/>
+		<property name="cellSize" value="200"/>
 		<property name="file" value="sampledata/palm_1.txt"/>
 
 		<echo message="xdim = ${xdim}"/>
 		<echo message="ydim = ${ydim}"/>
-		<echo message="density = ${density}"/>
+		<echo message="cellSize = ${cellSize}"/>
 		<echo message="file = ${file}"/>
 
 		<java classname="${grid-class}" fork="true">
 			<arg value="${xdim}"/>
 			<arg value="${ydim}"/>
-			<arg value="${density}"/>
+			<arg value="${cellSize}"/>
 			<arg value="${file}"/>
 			<classpath>
 				<pathelement location="${classes.dir}"/>
 			</classpath>
 		</java>
 	</target>
+	<!-- }}} -->
 
 </project>
+<!--
+Created:  Mon 23 Jun 2014 18:42 PM
+Modified: Wed 02 Jul 2014 10:46 AM
+-->
