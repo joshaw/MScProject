@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Thu 26 Jun 2014 10:09 AM
+ * Modified: Wed 02 Jul 2014 04:56 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -23,9 +23,6 @@ public class QuadTree {
 	private double minY;
 	private double maxY;
 	private int maxDensity;
-	private double scaleFactor;
-	private boolean incLines;
-	private boolean incPoints;
 
 	public QuadTree tl;
 	public QuadTree tr;
@@ -42,28 +39,21 @@ public class QuadTree {
 	 * @param maxY dimension in the y-axis
 	 * @param maxDensity maximum number of points that are allowed in a leaf
 	 * node before it is split into 4 subtrees.
-	 * @param scaleFactor factor to increase the size of the quadtree when
-	 * drawing to screen.
 	 */
-	public QuadTree(double maxX, double maxY, int maxDensity,
-			double scaleFactor, String filepath, boolean incLines,
-			boolean incPoints) {
-		this.root      = true;
-		this.pos       = "tl";
-		this.code      = "";
-		this.leaf      = false;
-		this.minX      = 0;
-		this.maxX      = maxX;
-		this.minY      = 0;
-		this.maxY      = maxY;
-		this.depth     = 0;
-		this.filepath  = filepath;
-		this.incLines  = incLines;
-		this.incPoints = incPoints;
+	public QuadTree(double maxX, double maxY, int maxDensity, String filepath) {
+		this.root     = true;
+		this.pos      = "tl";
+		this.code     = "";
+		this.leaf     = false;
+		this.minX     = 0;
+		this.maxX     = maxX;
+		this.minY     = 0;
+		this.maxY     = maxY;
+		this.depth    = 0;
+		this.filepath = filepath;
 
-		if (maxDensity > 0 && scaleFactor > 0) {
+		if (maxDensity > 0) {
 			this.maxDensity = maxDensity;
-			this.scaleFactor = scaleFactor;
 		} else {
 			throw new IllegalArgumentException(
 					"Maximum density must be greater than 0");
@@ -218,7 +208,6 @@ public class QuadTree {
 	}
 
 	public boolean isLeaf() { return leaf; }
-	public double getScaleFactor() { return scaleFactor; }
 	public ArrayList<Coordinate> getPoints() { return points; }
 
 	public String getCode() {
@@ -254,13 +243,10 @@ public class QuadTree {
 		}
 	}
 
-	public void draw(boolean incLines, boolean incPoints) {
-		DrawQuadTree d = new DrawQuadTree(this);
+	public void draw(boolean incLines, boolean incPoints, double scaleFactor) {
+		System.out.println(filepath);
+		DrawQuadTree d = new DrawQuadTree(this, scaleFactor);
 		d.draw(incLines, incPoints);
-	}
-
-	public void draw() {
-		draw(this.incLines, this.incPoints);
 	}
 
 	/** Reads the given data file and interprets the contents as coordinates.
@@ -274,16 +260,6 @@ public class QuadTree {
 				reader = new BufferedReader(new FileReader(filepath));
 				String line = null;
 
-				// while ((line = reader.readLine()) != null) {
-				// 	String[] xyString = line.split("\\s");
-				// 	double[] xyDouble = new double[2];
-
-				// 	xyDouble[0] = Double.parseDouble(xyString[0]);
-				// 	xyDouble[1] = Double.parseDouble(xyString[1]);
-				// 	Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
-				// 	System.out.println(c);
-				// 	addPoint(c);
-				// }
 				int countFile = 0;
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
@@ -294,7 +270,6 @@ public class QuadTree {
 					xyDouble[1] = Double.parseDouble(entries[4]);
 
 					addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
-					// System.out.println(c);
 					countFile++;
 				}
 				System.out.println("Total read from file: " + countFile);
@@ -311,6 +286,29 @@ public class QuadTree {
 			}
 		}
 		return true;
+	}
+
+	public Coordinate findMaxCoord(Coordinate highVal) {
+		if (leaf) {
+			for (Coordinate c : points) {
+				if (c.getX() > highVal.getX()) {
+					highVal.setX(c.getX());
+				}
+				if (c.getY() > highVal.getY()) {
+					highVal.setY(c.getY());
+				}
+			}
+			return highVal;
+		} else {
+			highX = Math.max(this.getTL().findMaxCoord(highVal),
+					Math.max(this.getTR().findMaxCoord(highVal),
+						Math.max(this.getBL().findMaxCoord(highVal),
+							this.getBR().findMaxCoord(highVal)
+							)
+						)
+					);
+		}
+		return new Coordinate(1,1);
 	}
 
 }

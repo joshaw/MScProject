@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Tue 24 Jun 2014 04:52 PM
+ * Modified: Wed 02 Jul 2014 04:55 PM
  */
 package utils;
 
@@ -26,13 +26,12 @@ public class DrawQuadTree extends JPanel {
 
 	/** Create a new object which does the drawing.
 	 */
-	public DrawQuadTree(QuadTree quadtree) {
+	public DrawQuadTree(QuadTree quadtree, double scaleFactor) {
 		this.quadtree = quadtree;
-		this.scaleFactor = quadtree.getScaleFactor();
+		this.scaleFactor = scaleFactor;
 	}
 
 	/** Create the window to hold the quadtree graphics.
-	 *
 	 * Implicitly calls the paint method.
 	 */
 	public void draw(boolean incLines, boolean incPoints) {
@@ -40,12 +39,12 @@ public class DrawQuadTree extends JPanel {
 		this.incPoints = incPoints;
 		JFrame f = new JFrame();
 
-		int width = (int) (quadtree.getScaleFactor()*quadtree.getMaxX()+25);
-		int height = (int) (quadtree.getScaleFactor()*quadtree.getMaxY()+45);
+		int width = (int) (scaleFactor*quadtree.getMaxX()+25);
+		int height = (int) (scaleFactor*quadtree.getMaxY()+45);
 
 		f.setSize(width, height);
 		f.add(this);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		f.setVisible(true);
 	}
 
@@ -54,7 +53,6 @@ public class DrawQuadTree extends JPanel {
 	}
 
 	/** Draw the graphics of the quadtree.
-	 *
 	 * Called when updating the screen.
 	 */
 	public void paintComponent(Graphics g) {
@@ -82,7 +80,7 @@ public class DrawQuadTree extends JPanel {
 		if (q.isLeaf()) {
 			if (incPoints) {
 				for(Coordinate c: q.getPoints()) {
-					g.drawString(code, (float)(13+x), (float)(22+y));
+					// g.drawString(code, (float)(13+x), (float)(22+y));
 					g.draw(new Line2D.Double(
 								scaleFactor*c.getX()+10,
 								scaleFactor*c.getY()+10,
