@@ -1,3 +1,6 @@
+// Created:  Wed 02 Jul 2014 9:55 AM
+// Modified: Thu 03 Jul 2014 11:55 AM
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -11,6 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import quadtree.data.*;
+import utils.ColumnChooser;
 
 public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
@@ -105,7 +109,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 		this.add(panel, BorderLayout.CENTER);
 		statusMessage = new Label("");
 		this.add(statusMessage, BorderLayout.NORTH);
-		fileStatus = new Label("File:");
+		fileStatus = new Label("No data file chosen.");
 		this.add(fileStatus, BorderLayout.SOUTH);
 
 		pack();
@@ -125,15 +129,19 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
 		if (label.equals("Data file")) {
 			OpenDialog od    = new OpenDialog("Open data file ...");
-			String file      = od .getFileName();
-			String directory = od.getDirectory();
-			fileName  = directory + file;
 
-			main = new QuadTree(fileName);
-			auto.setVisible(true);
+			if (od.getPath() != null) {
+				String file      = od .getFileName();
+				String directory = od.getDirectory();
+				fileName  = directory + file;
+				ColumnChooser cc = new ColumnChooser(fileName);
 
-			int numPoints = main.getCountFile();
-			fileStatus.setText("File: " + file + "\nPoints: " + numPoints);
+				main = new QuadTree(fileName);
+				auto.setVisible(true);
+
+				int numPoints = main.getCountFile();
+				fileStatus.setText("File: " + file + "\nPoints: " + numPoints);
+			}
 
 		} else if (label.equals("Draw")) {
 			String maxXstring = removeSpaces(maxX.getText());
@@ -187,12 +195,19 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 		public void keyPressed(KeyEvent e) {
 			char k = e.getKeyChar();
 			int c = e.getKeyCode();
-			if (Character.isDigit(k) ||
-					c == KeyEvent.VK_SHIFT ||
+			if (Character.isDigit(k)            ||
+					c == KeyEvent.VK_SHIFT      ||
 					c == KeyEvent.VK_BACK_SPACE ||
-					c == KeyEvent.VK_ENTER ||
-					c == KeyEvent.VK_SPACE
-				 ) {
+					c == KeyEvent.VK_ENTER      ||
+					c == KeyEvent.VK_SPACE      ||
+					c == KeyEvent.VK_DELETE     ||
+					c == KeyEvent.VK_CONTROL    ||
+					c == KeyEvent.VK_ALT        ||
+					c == KeyEvent.VK_ALT_GRAPH  ||
+					c == KeyEvent.VK_CAPS_LOCK  ||
+					c == KeyEvent.VK_HOME       ||
+					c == KeyEvent.VK_END        ||
+					c == KeyEvent.VK_META) {
 				statusMessage.setText("");
 			} else {
 				changeStatus(k + ": Please enter a number.");
