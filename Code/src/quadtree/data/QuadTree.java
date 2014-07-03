@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 02 Jul 2014 04:56 PM
+ * Modified: Wed 02 Jul 2014 06:23 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -23,6 +23,7 @@ public class QuadTree {
 	private double minY;
 	private double maxY;
 	private int maxDensity;
+	private Coordinate maxCoord;
 
 	public QuadTree tl;
 	public QuadTree tr;
@@ -32,6 +33,14 @@ public class QuadTree {
 	private boolean leaf;
 	private String pos;
 	private String code;
+	private boolean drawing;
+	private int countFile = 0;
+
+	public QuadTree(String filepath) {
+		this.filepath = filepath;
+		this.drawing = false;
+		readDataFile();
+	}
 
 	/** Creates a new root node for a new quadtree.
 	 *
@@ -51,6 +60,7 @@ public class QuadTree {
 		this.maxY     = maxY;
 		this.depth    = 0;
 		this.filepath = filepath;
+		this.drawing = true;
 
 		if (maxDensity > 0) {
 			this.maxDensity = maxDensity;
@@ -256,6 +266,7 @@ public class QuadTree {
 	 * Each coordinate is added to the quadtree.
 	 */
 	private boolean readDataFile() {
+		maxCoord = new Coordinate(0,0);
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -263,7 +274,6 @@ public class QuadTree {
 				reader = new BufferedReader(new FileReader(filepath));
 				String line = null;
 
-				int countFile = 0;
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
@@ -272,7 +282,18 @@ public class QuadTree {
 					xyDouble[0] = Double.parseDouble(entries[3]);
 					xyDouble[1] = Double.parseDouble(entries[4]);
 
-					addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
+					if (xyDouble[0] > maxCoord.getX()) {
+						maxCoord.setX(xyDouble[0]);
+						System.out.println("Max x: " + xyDouble[0]);
+					}
+					if (xyDouble[1] > maxCoord.getY()) {
+						maxCoord.setY(xyDouble[1]);
+						System.out.println("Max y: " + xyDouble[1]);
+					}
+
+					if (drawing) {
+						addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
+					}
 					countFile++;
 				}
 				System.out.println("Total read from file: " + countFile);
@@ -291,27 +312,14 @@ public class QuadTree {
 		return true;
 	}
 
-	public Coordinate findMaxCoord(Coordinate highVal) {
-		if (leaf) {
-			for (Coordinate c : points) {
-				if (c.getX() > highVal.getX()) {
-					highVal.setX(c.getX());
-				}
-				if (c.getY() > highVal.getY()) {
-					highVal.setY(c.getY());
-				}
-			}
-			return highVal;
-		} else {
-			highX = Math.max(this.getTL().findMaxCoord(highVal),
-					Math.max(this.getTR().findMaxCoord(highVal),
-						Math.max(this.getBL().findMaxCoord(highVal),
-							this.getBR().findMaxCoord(highVal)
-							)
-						)
-					);
-		}
-		return new Coordinate(1,1);
+	public double getMaxCoordX() {
+		return maxCoord.getX();
+	}
+	public double getMaxCoordY() {
+		return maxCoord.getY();
+	}
+	public int getCountFile() {
+		return countFile;
 	}
 
 }
