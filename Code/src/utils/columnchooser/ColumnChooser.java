@@ -49,6 +49,7 @@ public class ColumnChooser {
 				}
 
 				ColumnChooserGUI.showChooser(columnNames, entries);
+				System.out.println("ColumnChooser");
 
 			} catch (IOException e) {
 				System.err.println("Error: Could not open file " + filepath);

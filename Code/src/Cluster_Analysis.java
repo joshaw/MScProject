@@ -14,7 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import quadtree.data.*;
-import utils.ColumnChooser;
+import utils.columnchooser.ColumnChooser;
 
 public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
@@ -135,6 +135,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 				String directory = od.getDirectory();
 				fileName  = directory + file;
 				ColumnChooser cc = new ColumnChooser(fileName);
+				System.out.println("Called ColumnChooser");
 
 				main = new QuadTree(fileName);
 				auto.setVisible(true);
