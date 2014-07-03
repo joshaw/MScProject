@@ -1,9 +1,10 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Tue 01 Jul 2014 11:07 AM
+# Modified: Tue 01 Jul 2014 09:25 pm
 
 PROJECT=mainfile
 TEX=pdflatex
-OPTIONS=-file-line-error\
+OPTIONS=-silent\
+		-file-line-error\
 		-output-directory=$(DIR)\
 		-halt-on-error
 BIBTEX=bibtex -terse
@@ -17,6 +18,7 @@ SVGPDF=$(addprefix $(DIR)/,$(subst .svg,.pdf,$(wildcard **/*.svg)))
 DIAPDF=$(addprefix $(DIR)/,$(subst .dia,.pdf,$(wildcard **/*.dia)))
 
 all: $(DIR) $(DIR)/$(PROJECT).pdf
+	@echo $(SVGPDF)
 
 $(DIR):
 	mkdir $(DIR)
