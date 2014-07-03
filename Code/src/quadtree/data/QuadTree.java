@@ -87,7 +87,9 @@ public class QuadTree {
 	 * @param c coordinate to be added to the quadtree.
 	 */
 	public boolean addPoint(Coordinate c) {
-		checkValid(c);
+		if (!checkValid(c)) {
+			return false;
+		}
 
 		/* If we have reached a leaf node, then c needs to be added here,
 		 * otherwise, we need to find the correct sub tree to go down.*/
@@ -200,10 +202,11 @@ public class QuadTree {
 	private boolean checkValid(Coordinate c) {
 		double x = c.getX();
 		double y = c.getY();
-		if (y < 0)    throw new IllegalArgumentException("["+y+"] y too small");
-		if (y > maxY) throw new IllegalArgumentException("["+y+"] y too large");
-		if (x < 0)    throw new IllegalArgumentException("["+x+"] x too small");
-		if (x > maxX) throw new IllegalArgumentException("["+x+"] x too large");
+		// if (y < 0)    throw new IllegalArgumentException("["+y+"] y too small");
+		// if (y > maxY) throw new IllegalArgumentException("["+y+"] y too large");
+		// if (x < 0)    throw new IllegalArgumentException("["+x+"] x too small");
+		// if (x > maxX) throw new IllegalArgumentException("["+x+"] x too large");
+		if (y < 0 || y > maxY || x < 0 || x > maxX) return false;
 		return true;
 	}
 
