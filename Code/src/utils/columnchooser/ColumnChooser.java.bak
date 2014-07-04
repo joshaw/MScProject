@@ -34,10 +34,14 @@ public class ColumnChooser {
 				line = reader.readLine();
 				columnNames = line.split("\t");
 				int numCols = columnNames.length;
-				entries = new String[rows][numCols];
+				entries = new String[rows+1][numCols];
+
+				for (int i = 0; i < columnNames.length; i++) {
+					entries[0][i] = columnNames[i];
+				}
 
 				String[] lineArray;
-				int countFile = 0;
+				int countFile = 1;
 				while (countFile < rows && (line = reader.readLine()) != null) {
 
 					lineArray = line.split("\t");
@@ -48,7 +52,7 @@ public class ColumnChooser {
 					countFile++;
 				}
 
-				ColumnChooserGUI.showChooser(columnNames, entries);
+				// ColumnChooserGUI2.showChooser(columnNames, entries);
 				System.out.println("ColumnChooser");
 
 			} catch (IOException e) {
@@ -62,13 +66,6 @@ public class ColumnChooser {
 					}
 				}
 			}
-
-			// for (String[] lA : entries) {
-			// 	for (String s : lA) {
-			// 		System.out.print(s + "\t");
-			// 	}
-			// 	System.out.println("\n");
-			// }
 
 		}
 	}

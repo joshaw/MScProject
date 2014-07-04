@@ -29,6 +29,8 @@ public class ColumnChooserGUI extends JPanel implements ActionListener {
 
 	public static void showChooser(String[] columnNames, String[][] fileHead) {
 		new ColumnChooserGUI(columnNames, fileHead);
+		System.out.println("Starting gui2");
+		new ColumnChooserGUI2();
 	}
 
 	public ColumnChooserGUI(String[] columnNames, String[][] fileHead) {
@@ -95,13 +97,12 @@ public class ColumnChooserGUI extends JPanel implements ActionListener {
 			colStates[colNum] = cb.isSelected();
 
 		} else if (obj instanceof Button) {
-			System.out.println("Message");
 			int trues = 0;
 			for (int i = 0; i < colStates.length; i++) {
 				if (colStates[i] && trues == 0) {
-					trues = 10*(i+1);
+					trues = 10*i;
 				} else if (colStates[i]) {
-					trues += i+1;
+					trues += i;
 					break;
 				}
 			}
