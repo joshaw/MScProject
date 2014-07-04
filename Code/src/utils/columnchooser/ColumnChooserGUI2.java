@@ -1,5 +1,8 @@
 package utils.columnchooser;
 
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -10,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import javax.swing.JTabbedPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JDialog;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -26,22 +31,23 @@ public class ColumnChooserGUI2 extends JPanel {
 	private final int rows = 10;
 	private String filepath;
 
-	// Variables declaration - do not modify
-	private javax.swing.ButtonGroup buttonGroup2;
-	private javax.swing.JLabel xColLab;
-	private javax.swing.JLabel yColLab;
-	private javax.swing.JTable jTable1;
-	private javax.swing.JTextField otherSepField;
-	private javax.swing.JTextField xColField;
-	private javax.swing.JTextField yColField;
-	private javax.swing.JButton okButton;
-	private javax.swing.JPanel optionsPanel;
-	private javax.swing.JRadioButton otherSepCheck;
-	private javax.swing.JButton readFileButton;
-	private javax.swing.JScrollPane scrollPanel;
-	private javax.swing.JRadioButton spaceSepCheck;
-	private javax.swing.JRadioButton tabSepCheck;
-	private javax.swing.JTabbedPane tabbedPane;
+	private JDialog frame2;
+	private ButtonGroup buttonGroup2;
+	private JLabel xColLab;
+	private JLabel yColLab;
+	private JTable jTable1;
+	private JTextField otherSepField;
+	private JTextField xColField;
+	private JTextField yColField;
+	private JButton okButton;
+	private JButton cancelButton;
+	private JPanel optionsPanel;
+	private JRadioButton otherSepCheck;
+	private JButton readFileButton;
+	private JScrollPane scrollPanel;
+	private JRadioButton spaceSepCheck;
+	private JRadioButton tabSepCheck;
+	private JTabbedPane tabbedPane;
 
 	private String[][] entries;
 	private String[] columnNames;
@@ -49,6 +55,7 @@ public class ColumnChooserGUI2 extends JPanel {
 	private String separator = "\t";
 	private int xCol;
 	private int yCol;
+	private boolean success;
 	// End of variables declaration
 
 	public ColumnChooserGUI2(String filepath) {
@@ -56,13 +63,19 @@ public class ColumnChooserGUI2 extends JPanel {
 
 		readFile();
 		initComponents();
-		JFrame frame2 = new JFrame("Choose Data ...");
+		frame2 = new JDialog();
 		this.setOpaque(true);
 		frame2.setContentPane(this);
 
+		if (columnNames.length < 2) {
+			okButton.setEnabled(false);
+		}
+
 		System.out.println("GUI 2");
+		frame2.setModal(true);
+		frame2.setPreferredSize(new Dimension(800, 410));
+		frame2.pack();
 		frame2.setVisible(true);
-		frame2.setSize(800, 250);
 		// frame2.setResizable(false);
 	}
 
@@ -120,179 +133,208 @@ public class ColumnChooserGUI2 extends JPanel {
 		}
 	}
 
-    private void initComponents() {
+	private void tabSepCheckActionPerformed(ActionEvent evt) {
+		separator = "\t";
+	}
 
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        scrollPanel = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        optionsPanel = new javax.swing.JPanel();
-        tabSepCheck = new javax.swing.JRadioButton("Tabs");
-        spaceSepCheck = new javax.swing.JRadioButton("Spaces");
-        otherSepCheck = new javax.swing.JRadioButton("Other");
-        otherSepField = new javax.swing.JTextField();
-        readFileButton = new javax.swing.JButton("Read File");
-        okButton = new javax.swing.JButton("OK");
-        xColField = new javax.swing.JTextField();
-        xColLab = new javax.swing.JLabel("X Column");
-        yColLab = new javax.swing.JLabel("Y Column");
-        yColField = new javax.swing.JTextField();
+	private void spaceSepCheckActionPerformed(ActionEvent evt) {
+		separator = " ";
+	}
 
-        scrollPanel.setMaximumSize(new java.awt.Dimension(32767, 31767));
+	private void otherSepCheckActionPerformed(ActionEvent evt) {
+		separator = otherSepField.getText();
+	}
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(entries, columnNumbers));
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        scrollPanel.setViewportView(jTable1);
-
-        buttonGroup2.add(tabSepCheck);
-        tabSepCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tabSepCheckActionPerformed(evt);
-            }
-        });
-
-        buttonGroup2.add(spaceSepCheck);
-        spaceSepCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                spaceSepCheckActionPerformed(evt);
-            }
-        });
-
-        buttonGroup2.add(otherSepCheck);
-        otherSepCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSepCheckActionPerformed(evt);
-            }
-        });
-
-        otherSepField.setColumns(6);
-
-        readFileButton.setText("Read file");
-        readFileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                readFileButtonActionPerformed(evt);
-            }
-        });
-
-        xColField.setColumns(6);
-        xColField.setToolTipText("Column to use for the x coordinate.");
-        xColField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xColFieldActionPerformed(evt);
-            }
-        });
-
-        yColField.setColumns(6);
-        yColField.setToolTipText("Column to use for the y coordinate.");
-        yColField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yColFieldActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout optionsPanelLayout = new javax.swing.GroupLayout(optionsPanel);
-        optionsPanel.setLayout(optionsPanelLayout);
-        optionsPanelLayout.setHorizontalGroup(
-            optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(optionsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(optionsPanelLayout.createSequentialGroup()
-                        .addComponent(readFileButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(okButton)
-                        .addContainerGap())
-                    .addGroup(optionsPanelLayout.createSequentialGroup()
-                        .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(optionsPanelLayout.createSequentialGroup()
-                                .addComponent(otherSepCheck)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(otherSepField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tabSepCheck)
-                            .addComponent(spaceSepCheck))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(optionsPanelLayout.createSequentialGroup()
-                                .addComponent(yColLab)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(yColField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12))
-                            .addGroup(optionsPanelLayout.createSequentialGroup()
-                                .addComponent(xColLab)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(xColField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
-        );
-        optionsPanelLayout.setVerticalGroup(
-            optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(optionsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tabSepCheck)
-                    .addComponent(xColLab)
-                    .addComponent(xColField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(spaceSepCheck)
-                    .addComponent(yColLab)
-                    .addComponent(yColField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(otherSepCheck)
-                    .addComponent(otherSepField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(readFileButton)
-                    .addComponent(okButton))
-                .addGap(114, 114, 114))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(optionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(optionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-    }// </editor-fold>
-
-    private void tabSepCheckActionPerformed(java.awt.event.ActionEvent evt) {
-    	separator = "\t";
-    }
-
-    private void spaceSepCheckActionPerformed(java.awt.event.ActionEvent evt) {
-    	separator = " ";
-    }
-
-    private void otherSepCheckActionPerformed(java.awt.event.ActionEvent evt) {
-        separator = otherSepField.getText();
-    }
-
-    private void xColFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        xCol = Integer.parseInt(xColField.getText());
-    }
-
-    private void yColFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        yCol = Integer.parseInt(yColField.getText());
-    }
-
-    private void readFileButtonActionPerformed(java.awt.event.ActionEvent evt) {
+	private void readFileButtonActionPerformed(ActionEvent evt) {
 		System.out.println("Re-reading file");
 		readFile();
-		repaint();
-    }
+		jTable1.setModel(new DefaultTableModel(entries, columnNumbers));
 
-    public String getSeparator() { return separator; }
-    public int getXCol() { return xCol; }
-    public int getYCol() { return yCol; }
+		if (columnNames.length >= 2) {
+			okButton.setEnabled(true);
+
+			if (columnNames.length == 2) {
+				xColField.setText("0");
+				yColField.setText("1");
+			}
+		}
+	}
+
+	private void okButtonActionPerformed(ActionEvent evt) {
+		xCol = Integer.parseInt(xColField.getText());
+		yCol = Integer.parseInt(yColField.getText());
+		this.success = true;
+		frame2.dispose();
+	}
+
+	private void cancelButtonActionPerformed(ActionEvent evt) {
+		this.success = false;
+		frame2.dispose();
+	}
+
+	public String getSeparator() { return separator; }
+	public int getXCol() { return xCol; }
+	public int getYCol() { return yCol; }
+	public boolean getSuccess() { return success; }
+
+	private void initComponents() {
+
+		scrollPanel = new JScrollPane();
+		jTable1 = new JTable();
+		optionsPanel = new JPanel();
+		buttonGroup2 = new ButtonGroup();
+		tabSepCheck = new JRadioButton("Tabs");
+		spaceSepCheck = new JRadioButton("Spaces");
+		otherSepCheck = new JRadioButton("Other");
+		otherSepField = new JTextField();
+		readFileButton = new JButton("Read File");
+		okButton = new JButton("OK");
+		xColField = new JTextField();
+		xColLab = new JLabel("X Column");
+		yColLab = new JLabel("Y Column");
+		yColField = new JTextField();
+		cancelButton = new JButton("Cancel");
+
+		scrollPanel.setMaximumSize(new java.awt.Dimension(32767, 31767));
+
+		jTable1.setModel(new DefaultTableModel(entries, columnNumbers));
+		jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		scrollPanel.setViewportView(jTable1);
+
+		buttonGroup2.add(tabSepCheck);
+		tabSepCheck.setSelected(true);
+		tabSepCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				tabSepCheckActionPerformed(evt);
+			}
+		});
+
+		buttonGroup2.add(spaceSepCheck);
+		spaceSepCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				spaceSepCheckActionPerformed(evt);
+			}
+		});
+
+		buttonGroup2.add(otherSepCheck);
+		otherSepCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				otherSepCheckActionPerformed(evt);
+			}
+		});
+
+		otherSepField.setColumns(6);
+
+		readFileButton.setText("Read file");
+		readFileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				readFileButtonActionPerformed(evt);
+			}
+		});
+
+		okButton.setText("OK");
+		okButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				okButtonActionPerformed(evt);
+			}
+		});
+
+		xColField.setColumns(6);
+		xColField.setText("3");
+		xColField.setToolTipText("Column to use for the x coordinate.");
+		xColLab.setText("X Column");
+
+		yColLab.setText("Y Column");
+		yColField.setColumns(6);
+		yColField.setText("4");
+		yColField.setToolTipText("Column to use for the y coordinate.");
+
+		cancelButton.setText("Cancel");
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				cancelButtonActionPerformed(evt);
+			}
+		});
+
+		GroupLayout optionsPanelLayout = new GroupLayout(optionsPanel);
+		optionsPanel.setLayout(optionsPanelLayout);
+		optionsPanelLayout.setHorizontalGroup(
+				optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(optionsPanelLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addGroup(optionsPanelLayout.createSequentialGroup()
+							.addGroup(optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(optionsPanelLayout.createSequentialGroup()
+									.addComponent(otherSepCheck)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+									.addComponent(otherSepField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(tabSepCheck)
+								.addComponent(spaceSepCheck))
+							.addGap(18, 18, 18)
+							.addGroup(optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addGroup(optionsPanelLayout.createSequentialGroup()
+									.addComponent(yColLab)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+									.addComponent(yColField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addGroup(optionsPanelLayout.createSequentialGroup()
+									.addComponent(xColLab)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+									.addComponent(xColField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(optionsPanelLayout.createSequentialGroup()
+							.addComponent(readFileButton)
+							.addGap(142, 142, 142)
+							.addComponent(cancelButton)))
+							.addGap(18, 18, 18)
+							.addComponent(okButton)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							);
+		optionsPanelLayout.setVerticalGroup(
+				optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(optionsPanelLayout.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(tabSepCheck)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+					.addComponent(spaceSepCheck)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+					.addGroup(optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(otherSepCheck)
+						.addComponent(otherSepField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18, 18, 18)
+					.addGroup(optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(readFileButton)
+						.addComponent(okButton)
+						.addComponent(cancelButton))
+					.addGap(114, 114, 114))
+				.addGroup(optionsPanelLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(xColLab)
+						.addComponent(xColField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+					.addGroup(optionsPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(yColLab)
+						.addComponent(yColField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+
+		GroupLayout layout = new GroupLayout(this);
+		this.setLayout(layout);
+		layout.setHorizontalGroup(
+				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addComponent(scrollPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+				.addGroup(layout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(optionsPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addContainerGap())
+				);
+		layout.setVerticalGroup(
+				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+					.addComponent(scrollPanel, GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(optionsPanel, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
+				);
+	}// </editor-fold>
 
 }
