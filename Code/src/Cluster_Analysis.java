@@ -14,7 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import quadtree.data.*;
-import utils.columnchooser.ColumnChooser;
+import utils.columnchooser.ColumnChooserGUI2;
 
 public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
@@ -134,10 +134,12 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 				String file      = od .getFileName();
 				String directory = od.getDirectory();
 				fileName  = directory + file;
-				ColumnChooser cc = new ColumnChooser(fileName);
-				System.out.println("Called ColumnChooser");
+				ColumnChooserGUI2 cc = new ColumnChooserGUI2(fileName);
 
-				main = new QuadTree(fileName);
+				int colX = cc.getXCol();
+				int colY = cc.getYCol();
+				String separator = cc.getSeparator();
+				main = new QuadTree(fileName, colX, colY, separator);
 				auto.setVisible(true);
 
 				int numPoints = main.getCountFile();
@@ -154,7 +156,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
 				if (!maxXstring.equals("") && !maxYstring.equals("")
 						&& !densityString.equals("") && !scaleString.equals("")
-					 ) {
+				   ) {
 
 					maxXval = Double.parseDouble(maxXstring);
 					maxYval = Double.parseDouble(maxYstring);

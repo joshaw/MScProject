@@ -16,6 +16,9 @@ import java.io.IOException;
 public class QuadTree {
 
 	private String filepath;
+	private int colX;
+	private int colY;
+	private String separator;
 	private boolean root = false;
 	private int depth;
 	private double minX;
@@ -36,9 +39,12 @@ public class QuadTree {
 	private boolean drawing;
 	private int countFile = 0;
 
-	public QuadTree(String filepath) {
-		this.filepath = filepath;
-		this.drawing = false;
+	public QuadTree(String filepath, int colX, int colY, String separator) {
+		this.filepath  = filepath;
+		this.colX      = colX;
+		this.colY      = colY;
+		this.separator = separator;
+		this.drawing   = false;
 		readDataFile();
 	}
 
@@ -277,10 +283,10 @@ public class QuadTree {
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
-					String[] entries = line.split("\t");
+					String[] entries = line.split(separator);
 					double[] xyDouble = new double[2];
-					xyDouble[0] = Double.parseDouble(entries[3]);
-					xyDouble[1] = Double.parseDouble(entries[4]);
+					xyDouble[0] = Double.parseDouble(entries[colX]);
+					xyDouble[1] = Double.parseDouble(entries[colY]);
 
 					if (xyDouble[0] > maxCoord.getX()) {
 						maxCoord.setX(xyDouble[0]);
