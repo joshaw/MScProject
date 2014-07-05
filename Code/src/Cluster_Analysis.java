@@ -14,11 +14,22 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import quadtree.data.*;
-import utils.columnchooser.ColumnChooser;
+import utils.columnchooser.ColumnChooserGUI2;
 
 public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+
+	private String fileName;
+	private double maxXval;
+	private double maxYval;
+	private int densityVal;
+	private double scaleVal;
+	private int colX;
+	private int colY;
+	private String separator;
+
+	private QuadTree main = null;
 
 	private Panel panel;
 	private Panel subpanel1;
@@ -27,20 +38,13 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 	private Label statusMessage;
 	private Label fileStatus;
 
-	private String fileName;
 	private TextField maxX;
-	private double maxXval;
 	private TextField maxY;
-	private double maxYval;
 	private TextField density;
-	private int densityVal;
 	private TextField scale;
-	private double scaleVal;
 	private Checkbox linesBool;
 	private Checkbox pointsBool;
 	private Button auto;
-
-	private QuadTree main = null;
 
 	public Cluster_Analysis() {
 		super("Cluster Analysis");
@@ -134,14 +138,23 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 				String file      = od .getFileName();
 				String directory = od.getDirectory();
 				fileName  = directory + file;
-				ColumnChooser cc = new ColumnChooser(fileName);
-				System.out.println("Called ColumnChooser");
+				ColumnChooserGUI2 cc = new ColumnChooserGUI2(fileName);
 
-				main = new QuadTree(fileName);
-				auto.setVisible(true);
+				if (cc.getSuccess()) {
+					colX = cc.getXCol();
+					System.out.println("ColX: " + colX);
+					colY = cc.getYCol();
+					System.out.println("ColY: " + colY);
+					separator = cc.getSeparator();
 
-				int numPoints = main.getCountFile();
-				fileStatus.setText("File: " + file + "\nPoints: " + numPoints);
+					/* This is just here to allow the "auto" button to be able
+					 * to get the max and min values. */
+					main = new QuadTree(fileName, colX, colY, separator);
+					auto.setVisible(true);
+
+					int numPoints = main.getCountFile();
+					fileStatus.setText("File: " + file + ",    Points: " + numPoints);
+				}
 			}
 
 		} else if (label.equals("Draw")) {
@@ -154,14 +167,14 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
 				if (!maxXstring.equals("") && !maxYstring.equals("")
 						&& !densityString.equals("") && !scaleString.equals("")
-					 ) {
+				   ) {
 
 					maxXval = Double.parseDouble(maxXstring);
 					maxYval = Double.parseDouble(maxYstring);
 					densityVal = Integer.parseInt(densityString);
 					scaleVal = Double.parseDouble(scaleString);
 
-					main = new QuadTree(maxXval, maxYval, densityVal, fileName);
+					main = new QuadTree(maxXval, maxYval, densityVal, fileName, colX, colY, separator);
 
 					main.draw(linesBool.getState(), pointsBool.getState(), scaleVal);
 				} else {

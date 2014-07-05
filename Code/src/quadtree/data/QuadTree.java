@@ -16,6 +16,9 @@ import java.io.IOException;
 public class QuadTree {
 
 	private String filepath;
+	private int colX;
+	private int colY;
+	private String separator;
 	private boolean root = false;
 	private int depth;
 	private double minX;
@@ -36,9 +39,12 @@ public class QuadTree {
 	private boolean drawing;
 	private int countFile = 0;
 
-	public QuadTree(String filepath) {
-		this.filepath = filepath;
-		this.drawing = false;
+	public QuadTree(String filepath, int colX, int colY, String separator) {
+		this.filepath  = filepath;
+		this.colX      = colX;
+		this.colY      = colY;
+		this.separator = separator;
+		this.drawing   = false;
 		readDataFile();
 	}
 
@@ -49,18 +55,22 @@ public class QuadTree {
 	 * @param maxDensity maximum number of points that are allowed in a leaf
 	 * node before it is split into 4 subtrees.
 	 */
-	public QuadTree(double maxX, double maxY, int maxDensity, String filepath) {
-		this.root     = true;
-		this.pos      = "tl";
-		this.code     = "";
-		this.leaf     = false;
-		this.minX     = 0;
-		this.maxX     = maxX;
-		this.minY     = 0;
-		this.maxY     = maxY;
-		this.depth    = 0;
-		this.filepath = filepath;
-		this.drawing = true;
+	public QuadTree(double maxX, double maxY, int maxDensity, String filepath,
+			int colX, int colY, String separator) {
+		this.root      = true;
+		this.pos       = "tl";
+		this.code      = "";
+		this.leaf      = false;
+		this.minX      = 0;
+		this.maxX      = maxX;
+		this.minY      = 0;
+		this.maxY      = maxY;
+		this.depth     = 0;
+		this.filepath  = filepath;
+		this.colX      = colX;
+		this.colY      = colY;
+		this.separator = separator;
+		this.drawing   = true;
 
 		if (maxDensity > 0) {
 			this.maxDensity = maxDensity;
@@ -277,10 +287,10 @@ public class QuadTree {
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
-					String[] entries = line.split("\t");
+					String[] entries = line.split(separator);
 					double[] xyDouble = new double[2];
-					xyDouble[0] = Double.parseDouble(entries[3]);
-					xyDouble[1] = Double.parseDouble(entries[4]);
+					xyDouble[0] = Double.parseDouble(entries[colX]);
+					xyDouble[1] = Double.parseDouble(entries[colY]);
 
 					if (xyDouble[0] > maxCoord.getX()) {
 						maxCoord.setX(xyDouble[0]);
