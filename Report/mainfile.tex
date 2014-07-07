@@ -47,16 +47,16 @@
 \usepackage{color}
 \usepackage[binary-units]{siunitx}
 \usepackage{amsmath}
-\usepackage[%
-	activate={true,nocompatibility},
-	final,
-	tracking=true,
-	kerning=true,
-	spacing=true,
-	factor=1100,
-	stretch=10,
-	shrink=10]{microtype}
-\microtypecontext{spacing=nonfrench}
+% \usepackage[%
+% 	activate={true,nocompatibility},
+% 	final,
+% 	tracking=true,
+% 	kerning=true,
+% 	spacing=true,
+% 	factor=1100,
+% 	stretch=10,
+% 	shrink=10]{microtype}
+% \microtypecontext{spacing=nonfrench}
 
 %% BIBIOGRAPHY -----------------------------------------------------------------
 \usepackage{cite}
@@ -96,6 +96,7 @@
 \input{plugin/imagej.tex}
 
 \clearpage
+\nocite{*}
 \bibliographystyle{apalike}
 \bibliography{references}
 
