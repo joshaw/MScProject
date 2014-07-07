@@ -14,13 +14,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import quadtree.data.*;
+import simplegrid.*;
 import utils.columnchooser.ColumnChooserGUI2;
+import utils.ClusterStructure;
 
 public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	private String fileName;
+	private String filepath;
 	private double maxXval;
 	private double maxYval;
 	private int densityVal;
@@ -29,7 +31,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 	private int colY;
 	private String separator;
 
-	private QuadTree main = null;
+	private ClusterStructure dataStructure = null;
 
 	private Panel panel;
 	private Panel subpanel1;
@@ -94,7 +96,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 		subpanel1.add(pointsBool);
 
 		subpanel2 = new Panel();
-		subpanel2.setLayout(new GridLayout(3, 1, 3, 3));
+		subpanel2.setLayout(new GridLayout(4, 1, 3, 3));
 
 		auto = new Button("Auto");
 		auto.addActionListener(this);
@@ -102,7 +104,8 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 		auto.setVisible(false);
 
 		addButton("Data file", subpanel2);
-		addButton("Draw", subpanel2);
+		addButton("QuadTree", subpanel2);
+		addButton("Grid", subpanel2);
 
 		panel = new Panel();
 		panel.setLayout(new FlowLayout());
@@ -137,8 +140,8 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 			if (od.getPath() != null) {
 				String file      = od .getFileName();
 				String directory = od.getDirectory();
-				fileName  = directory + file;
-				ColumnChooserGUI2 cc = new ColumnChooserGUI2(fileName);
+				filepath  = directory + file;
+				ColumnChooserGUI2 cc = new ColumnChooserGUI2(filepath);
 
 				if (cc.getSuccess()) {
 					colX = cc.getXCol();
@@ -149,21 +152,21 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
 					/* This is just here to allow the "auto" button to be able
 					 * to get the max and min values. */
-					main = new QuadTree(fileName, colX, colY, separator);
+					dataStructure = new QuadTree(filepath, colX, colY, separator);
 					auto.setVisible(true);
 
-					int numPoints = main.getCountFile();
+					int numPoints = dataStructure.getCountFile();
 					fileStatus.setText("File: " + file + ",    Points: " + numPoints);
 				}
 			}
 
-		} else if (label.equals("Draw")) {
+		} else if (label.equals("QuadTree") || label.equals("Grid")) {
 			String maxXstring = removeSpaces(maxX.getText());
 			String maxYstring = removeSpaces(maxY.getText());
 			String densityString = removeSpaces(density.getText());
 			String scaleString = removeSpaces(scale.getText());
 
-			if (fileName != null) {
+			if (filepath != null) {
 
 				if (!maxXstring.equals("") && !maxYstring.equals("")
 						&& !densityString.equals("") && !scaleString.equals("")
@@ -174,9 +177,21 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 					densityVal = Integer.parseInt(densityString);
 					scaleVal = Double.parseDouble(scaleString);
 
-					main = new QuadTree(maxXval, maxYval, densityVal, fileName, colX, colY, separator);
+					if (label.equals("QuadTree")) {
+						dataStructure = new QuadTree(maxXval, maxYval,
+								densityVal, filepath, colX, colY, separator);
 
-					main.draw(linesBool.getState(), pointsBool.getState(), scaleVal);
+						 dataStructure.draw(linesBool.getState(),
+						 		 pointsBool.getState(), scaleVal);
+
+					} else if (label.equals("Grid")) {
+						dataStructure = new SimpleGrid(maxXval, maxYval,
+								densityVal, filepath, colX, colY, separator);
+
+						 dataStructure.draw(linesBool.getState(),
+						 		 pointsBool.getState(), scaleVal);
+					}
+
 				} else {
 					changeStatus("Please enter values for required parameters.");
 				}
@@ -185,10 +200,11 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 			}
 
 		} else if (label.equals("Auto")) {
-			if (main != null) {
-				maxXval = main.getMaxCoordX();
-				maxYval = main.getMaxCoordY();
-				scaleVal = ((int) (700/Math.max(maxXval, maxYval) * 1000) / 1) / 1000.0;
+			if (dataStructure != null) {
+				maxXval = dataStructure.getMaxCoordX();
+				maxYval = dataStructure.getMaxCoordY();
+				scaleVal = ((int) (700/Math.max(maxXval, maxYval) * 1000) / 1)
+					/ 1000.0;
 
 				maxX.setText(maxXval + "");
 				maxY.setText(maxYval + "");
