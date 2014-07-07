@@ -1,9 +1,16 @@
 // Created:  Tue 01 Jul 2014 03:39 PM
-// Modified: Wed 02 Jul 2014 10:04 AM
+// Modified: Mon 07 Jul 2014 05:36 PM
 
 package simplegrid;
 
 import utils.Coordinate;
+import utils.ClusterStructure;
+
+import ij.*;
+import ij.io.*;
+import ij.gui.*;
+import ij.plugin.*;
+import ij.process.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,7 +20,7 @@ import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 
-public class SimpleGrid {
+public class SimpleGrid implements ClusterStructure {
 
 	private double maxX;
 	private double maxY;
@@ -24,13 +31,23 @@ public class SimpleGrid {
 	private int cellSize;
 	private int maxCapacity;
 	private String filepath;
+	private int colX;
+	private int colY;
+	private String separator;
 	private int threshold = 0;
+	private int countFile = 0;
+	private Coordinate maxCoord;
+	private boolean drawing;
 
-	public SimpleGrid(double maxX, double maxY, int cellSize, String filepath) {
+	public SimpleGrid(double maxX, double maxY, int cellSize, String filepath,
+			int colX, int colY, String separator) {
 		this.maxX = maxX;
 		this.maxY = maxY;
 		this.cellSize = cellSize;
 		this.filepath = filepath;
+		this.colX = colX;
+		this.colY = colY;
+		this.separator = separator;
 
 		this.gridX = (int) maxX / cellSize + 1;
 		this.gridY = (int) maxY / cellSize + 1;
@@ -47,6 +64,14 @@ public class SimpleGrid {
 			System.err.println("Error: Could not read input file.");
 			System.exit(1);
 		}
+	}
+
+	public void draw(boolean incLines, boolean incPoints, double other) {
+		// TODO
+		// Sort getting actual pixels to the image
+		// get a sensible y and x ranges
+		ImagePlus img = NewImage.createByteImage(filepath, 20, 20, 1, NewImage.FILL_BLACK);
+		img.show();
 	}
 
 	public int addPoint(Coordinate c) {
@@ -95,6 +120,7 @@ public class SimpleGrid {
 	 * Each coordinate is added to the grid.
 	 */
 	private boolean readDataFile() {
+		maxCoord = new Coordinate(0,0);
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -105,13 +131,24 @@ public class SimpleGrid {
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
-					String[] entries = line.split("\t");
+					String[] entries = line.split(separator);
 					double[] xyDouble = new double[2];
-					xyDouble[0] = Double.parseDouble(entries[3]);
-					xyDouble[1] = Double.parseDouble(entries[4]);
+					xyDouble[0] = Double.parseDouble(entries[colX]);
+					xyDouble[1] = Double.parseDouble(entries[colY]);
 
-					Coordinate c = new Coordinate(xyDouble[0], xyDouble[1]);
-					addPoint(c);
+					if (xyDouble[0] > maxCoord.getX()) {
+						maxCoord.setX(xyDouble[0]);
+						System.out.println("Max x: " + xyDouble[0]);
+					}
+					if (xyDouble[1] > maxCoord.getY()) {
+						maxCoord.setY(xyDouble[1]);
+						System.out.println("Max y: " + xyDouble[1]);
+					}
+
+					if (drawing) {
+						addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
+					}
+					countFile++;
 				}
 			} catch (IOException e) {
 				System.err.println("Error: Could not open file " + filepath);
@@ -166,17 +203,17 @@ public class SimpleGrid {
 
 		for (int j = 0; j < gridY; j++) {
 			for (int i = 0; i < gridX; i++) {
-				int pixelValue = (int) (points[i][j]);
+				int pixelValue = (points[i][j]);
 
 				int above = 0;
 				int right = 0;
 				int below = 0;
 				int left  = 0;
 				try {
-					above = (int) (points[i][j-1]);
-					right = (int) (points[i+1][j]);
-					below = (int) (points[i][j+1]);
-					left  = (int) (points[i-1][j]);
+					above = (points[i][j-1]);
+					right = (points[i+1][j]);
+					below = (points[i][j+1]);
+					left  = (points[i-1][j]);
 				} catch(ArrayIndexOutOfBoundsException e) {}
 
 				/* Only writes pixels that have neighbours with a value greater
@@ -194,6 +231,11 @@ public class SimpleGrid {
 		}
 		return gridString.toString();
 	}
+
+	public double getMaxCoordX() { return maxCoord.getX(); }
+	public double getMaxCoordY() { return maxCoord.getY(); }
+	public int getCountFile() { return countFile; }
+	public String getFilepath() { return filepath; }
 
 	@Override
 	public String toString() {

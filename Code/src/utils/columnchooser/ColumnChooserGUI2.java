@@ -199,6 +199,8 @@ public class ColumnChooserGUI2 extends JPanel {
 
 		jTable1.setModel(new DefaultTableModel(entries, columnNumbers));
 		jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		jTable1.setColumnSelectionAllowed(true);
+    	jTable1.setRowSelectionAllowed(false);
 		scrollPanel.setViewportView(jTable1);
 
 		buttonGroup2.add(tabSepCheck);
