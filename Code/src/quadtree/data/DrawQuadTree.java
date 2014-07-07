@@ -1,7 +1,7 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
  * Modified: Wed 02 Jul 2014 04:55 PM
  */
-package utils;
+package quadtree;
 
 import utils.Coordinate;
 import quadtree.data.*;
@@ -37,7 +37,7 @@ public class DrawQuadTree extends JPanel {
 	public void draw(boolean incLines, boolean incPoints) {
 		this.incLines = incLines;
 		this.incPoints = incPoints;
-		JFrame f = new JFrame();
+		JFrame f = new JFrame(quadtree.getFilepath());
 
 		int width = (int) (scaleFactor*quadtree.getMaxX()+25);
 		int height = (int) (scaleFactor*quadtree.getMaxY()+45);

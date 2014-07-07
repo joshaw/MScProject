@@ -6,14 +6,15 @@
 package quadtree.data;
 
 import utils.Coordinate;
-import utils.DrawQuadTree;
+import quadtree.DrawQuadTree;
+import utils.ClusterStructure;
 
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class QuadTree {
+public class QuadTree implements ClusterStructure {
 
 	private String filepath;
 	private int colX;
@@ -222,10 +223,6 @@ public class QuadTree {
 	private boolean checkValid(Coordinate c) {
 		double x = c.getX();
 		double y = c.getY();
-		// if (y < 0)    throw new IllegalArgumentException("["+y+"] y too small");
-		// if (y > maxY) throw new IllegalArgumentException("["+y+"] y too large");
-		// if (x < 0)    throw new IllegalArgumentException("["+x+"] x too small");
-		// if (x > maxX) throw new IllegalArgumentException("["+x+"] x too large");
 		if (y < 0 || y > maxY || x < 0 || x > maxX) return false;
 		return true;
 	}
@@ -322,14 +319,9 @@ public class QuadTree {
 		return true;
 	}
 
-	public double getMaxCoordX() {
-		return maxCoord.getX();
-	}
-	public double getMaxCoordY() {
-		return maxCoord.getY();
-	}
-	public int getCountFile() {
-		return countFile;
-	}
+	public double getMaxCoordX() { return maxCoord.getX(); }
+	public double getMaxCoordY() { return maxCoord.getY(); }
+	public int getCountFile() { return countFile; }
+	public String getFilepath() { return filepath; }
 
 }
