@@ -6,7 +6,7 @@
 package quadtree.data;
 
 import utils.Coordinate;
-import quadtree.DrawQuadTree;
+import quadtree.data.DrawQuadTree;
 import utils.ClusterStructure;
 
 import java.util.ArrayList;
@@ -27,7 +27,6 @@ public class QuadTree implements ClusterStructure {
 	private double minY;
 	private double maxY;
 	private int maxDensity;
-	private Coordinate maxCoord;
 
 	public QuadTree tl;
 	public QuadTree tr;
@@ -273,7 +272,6 @@ public class QuadTree implements ClusterStructure {
 	 * Each coordinate is added to the quadtree.
 	 */
 	private boolean readDataFile() {
-		maxCoord = new Coordinate(0,0);
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -289,18 +287,8 @@ public class QuadTree implements ClusterStructure {
 					xyDouble[0] = Double.parseDouble(entries[colX]);
 					xyDouble[1] = Double.parseDouble(entries[colY]);
 
-					if (xyDouble[0] > maxCoord.getX()) {
-						maxCoord.setX(xyDouble[0]);
-						System.out.println("Max x: " + xyDouble[0]);
-					}
-					if (xyDouble[1] > maxCoord.getY()) {
-						maxCoord.setY(xyDouble[1]);
-						System.out.println("Max y: " + xyDouble[1]);
-					}
+					addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
 
-					if (drawing) {
-						addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
-					}
 					countFile++;
 				}
 				System.out.println("Total read from file: " + countFile);
@@ -319,8 +307,6 @@ public class QuadTree implements ClusterStructure {
 		return true;
 	}
 
-	public double getMaxCoordX() { return maxCoord.getX(); }
-	public double getMaxCoordY() { return maxCoord.getY(); }
 	public int getCountFile() { return countFile; }
 	public String getFilepath() { return filepath; }
 
