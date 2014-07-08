@@ -141,11 +141,11 @@ public class ColumnChooserGUI2 extends JPanel {
 		separator = " ";
 	}
 
-	private void otherSepCheckActionPerformed(ActionEvent evt) {
-		separator = otherSepField.getText();
-	}
-
 	private void readFileButtonActionPerformed(ActionEvent evt) {
+		if (otherSepCheck.isSelected()) {
+			separator = otherSepField.getText();
+		}
+
 		System.out.println("Re-reading file");
 		readFile();
 		jTable1.setModel(new DefaultTableModel(entries, columnNumbers));
@@ -219,11 +219,6 @@ public class ColumnChooserGUI2 extends JPanel {
 		});
 
 		buttonGroup2.add(otherSepCheck);
-		otherSepCheck.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				otherSepCheckActionPerformed(evt);
-			}
-		});
 
 		otherSepField.setColumns(6);
 
