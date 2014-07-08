@@ -60,10 +60,13 @@ when handling outlying points caused by noise.
 
 \begin{figure}[tbhp]
 	\centering
-	\frame{\includegraphics[width=0.48\linewidth]{grid-threshold-close.png}}
-	\caption{grid-threshold-Close}
+	\frame{\includegraphics[width=0.8\linewidth]{grid-threshold-close.png}}
+	\caption{Using a \texttt{close}ing algorithm can help to emphasise the
+	structure in the data and, at the same time, remove the isolated points
+	representing noise.}
 	\label{fig:grid-threshold-close}
 \end{figure}
 
 These steps lead to significantly better isolation of the interesting parts of
-the image, as can be seen in Figure~\ref{fig:grid-threshold-close}.
+the image, as can be seen in Figure~\ref{fig:grid-threshold-close}, however,
+much of the detail of the structure is lost in this process.

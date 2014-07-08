@@ -2,6 +2,7 @@
 # Modified: Tue 01 Jul 2014 09:25 pm
 
 PROJECT=mainfile
+REFERENCES=references.bib
 TEX=pdflatex
 OPTIONS=-silent\
 		-file-line-error\
@@ -36,7 +37,7 @@ $(DIR)/%.pdf: %.svg
 	mkdir -p $(shell dirname $@)
 	rsvg-convert -f pdf $< > "$@"
 
-$(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(TEXFILES) $(DIAPDF) $(SVGPDF)
+$(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(REFERENCES) $(TEXFILES) $(DIAPDF) $(SVGPDF)
 	$(BUILDTEX)
 	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
 
