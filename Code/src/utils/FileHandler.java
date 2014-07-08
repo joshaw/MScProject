@@ -30,14 +30,11 @@ public class FileHandler {
 
 					if (xyDouble[0] > maxCoord.getX()) {
 						maxCoord.setX(xyDouble[0]);
-						System.out.println("Max x: " + xyDouble[0]);
 					}
 					if (xyDouble[1] > maxCoord.getY()) {
 						maxCoord.setY(xyDouble[1]);
-						System.out.println("Max y: " + xyDouble[1]);
 					}
 
-					// countFile++;
 				}
 			} catch (IOException e) {
 				System.err.println("Error: Could not open file " + filepath);
@@ -52,6 +49,20 @@ public class FileHandler {
 			}
 		}
 		return maxCoord;
+	}
+
+	public static int getNumberOfLines(String filepath) {
+		int lines = 0;
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(filepath));
+			while (reader.readLine() != null) lines++;
+			reader.close();
+
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		return lines;
 	}
 
 }
