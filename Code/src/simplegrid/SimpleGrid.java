@@ -6,12 +6,6 @@ package simplegrid;
 import utils.Coordinate;
 import utils.ClusterStructure;
 
-import ij.*;
-import ij.io.*;
-import ij.gui.*;
-import ij.plugin.*;
-import ij.process.*;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -36,7 +30,6 @@ public class SimpleGrid implements ClusterStructure {
 	private String separator;
 	private int threshold = 0;
 	private int countFile = 0;
-	private Coordinate maxCoord;
 	private boolean drawing;
 
 	public SimpleGrid(double maxX, double maxY, int cellSize, String filepath,
@@ -66,21 +59,10 @@ public class SimpleGrid implements ClusterStructure {
 		}
 	}
 
+	// TODO remove nessessity for parameters - required because of interface
 	public void draw(boolean incLines, boolean incPoints, double other) {
-		// TODO Sort getting actual pixels to the image
-		ImagePlus img = NewImage.createFloatImage(filepath, gridX, gridY, 1,
-				NewImage.FILL_BLACK);
-		ImageProcessor imgpro = img.getProcessor();
-
-		float[] pixels = new float[gridX * gridY];
-		for (int j = 0; j < gridY; j++) {
-			for (int i = 0; i < gridX; i++) {
-				pixels[j*gridX + i] = points[i][j];
-			}
-		}
-
-		imgpro.setPixels(pixels);
-		img.show();
+		DrawSimpleGrid d = new DrawSimpleGrid(filepath, points, gridX, gridY);
+		d.draw();
 	}
 
 	public int addPoint(Coordinate c) {
@@ -129,7 +111,6 @@ public class SimpleGrid implements ClusterStructure {
 	 * Each coordinate is added to the grid.
 	 */
 	private boolean readDataFile() {
-		maxCoord = new Coordinate(0,0);
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -145,16 +126,7 @@ public class SimpleGrid implements ClusterStructure {
 					xyDouble[0] = Double.parseDouble(entries[colX]);
 					xyDouble[1] = Double.parseDouble(entries[colY]);
 
-					if (xyDouble[0] > maxCoord.getX()) {
-						maxCoord.setX(xyDouble[0]);
-					}
-					if (xyDouble[1] > maxCoord.getY()) {
-						maxCoord.setY(xyDouble[1]);
-					}
-
-					if (drawing) {
-						addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
-					}
+					addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
 					countFile++;
 				}
 			} catch (IOException e) {
@@ -239,8 +211,6 @@ public class SimpleGrid implements ClusterStructure {
 		return gridString.toString();
 	}
 
-	public double getMaxCoordX() { return maxCoord.getX(); }
-	public double getMaxCoordY() { return maxCoord.getY(); }
 	public int getCountFile() { return countFile; }
 	public String getFilepath() { return filepath; }
 
