@@ -58,6 +58,29 @@
 % 	shrink=10]{microtype}
 % \microtypecontext{spacing=nonfrench}
 
+%% CODE STYLING ----------------------------------------------------------------
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  captionpos=b,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
 %% BIBIOGRAPHY -----------------------------------------------------------------
 \usepackage{cite}
 
@@ -83,7 +106,8 @@
 
 \begin{document}
 
-\graphicspath{{front/} {intro/} {grid/} {quadtree/} {clusters/} {build/}}
+\graphicspath{{front/} {intro/} {grid/} {quadtree/} {clusters/} {plugin/}
+	{build/}}
 
 \input{front/titlepage.tex}
 
@@ -94,6 +118,7 @@
 \input{quadtree/quadtree.tex}
 \input{clusters/clusters.tex}
 \input{plugin/imagej.tex}
+\input{plugin/imagej_plugin.tex}
 
 \clearpage
 \nocite{*}

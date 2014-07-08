@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Fri 04 Jul 2014 05:04 PM
+% Modified: Tue 08 Jul 2014 11:08 AM
 
 \section{Quadtrees}
 \label{sec:quadtrees}
@@ -131,14 +131,8 @@ up changes only a single bit at a time. This meant that electromechanical
 apperatus was less likely to make a mistake or generate errors since the
 actions required to count from one to two required only a single bit change,
 rather than two, as would be required for binary counting. When using just two
-bits, i.e.\ couting from zero to three, the steps are very similar to binary.
-
-\begin{tabular}{c c l}
-0 & 00 \\
-1 & 01 \\
-2 & 11 \\
-3 & 01
-\end{tabular}
+bits, i.e.\ couting from zero to three, the steps are very similar to binary,
+(00, 01, 11, 10).
 
 The path that this follows is shown in
 Figure~\ref{fig:traverse-gray-order.pdf}. This does not seem to provide any
@@ -176,18 +170,21 @@ parents at the construction stage. It turns out that this is easy to acheive
 and thus adapting it for each of the arrangements discussed above is simply a
 matter of adjusting the next part of the code that is added for each of the
 four children when creating them. Pseudo code to acheive this for the Morton
-% TODO what word to use for code snippets?
-order and the modified Gray code order is shown in
+order and the modified Gray code order is shown in Listing
 ~\ref{code:child_construction}.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Code to generate children of the current quadtree
+while maintaining the correct ordering.},label=code:child_construction]
 // Constructor
 Quadtree(max_x, max_y, code)
 
 // Child creation
-top_left = new Quadtree(100, 100, this.code+"00");
-top_right = new Quadtree(100, 100, this.code+"01");
-bottom_left = new Quadtree(100, 100, this.code+"10");
-bottom_right = new Quadtree(100, 100, this.code+"11");
+top_left =
+	new Quadtree(100, 100, this.code+"00");
+top_right =
+	new Quadtree(100, 100, this.code+"01");
+bottom_left =
+	new Quadtree(100, 100, this.code+"10");
+bottom_right =
+	new Quadtree(100, 100, this.code+"11");
 \end{lstlisting}
-% TODO code listing references/labels.
