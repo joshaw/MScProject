@@ -17,6 +17,8 @@ import quadtree.data.*;
 import simplegrid.*;
 import utils.columnchooser.ColumnChooserGUI2;
 import utils.ClusterStructure;
+import utils.FileHandler;
+import utils.Coordinate;
 
 public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
@@ -30,6 +32,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 	private int colX;
 	private int colY;
 	private String separator;
+	private Coordinate maxCoord;
 
 	private ClusterStructure dataStructure = null;
 
@@ -152,10 +155,11 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 
 					/* This is just here to allow the "auto" button to be able
 					 * to get the max and min values. */
-					dataStructure = new QuadTree(filepath, colX, colY, separator);
+					maxCoord = FileHandler.getMaxCoord(filepath, colX, colY, separator);
+					// dataStructure = new QuadTree(filepath, colX, colY, separator);
 					auto.setVisible(true);
 
-					int numPoints = dataStructure.getCountFile();
+					int numPoints = FileHandler.getNumberOfLines(filepath);
 					fileStatus.setText("File: " + file + ",    Points: " + numPoints);
 				}
 			}
@@ -200,9 +204,9 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 			}
 
 		} else if (label.equals("Auto")) {
-			if (dataStructure != null) {
-				maxXval = dataStructure.getMaxCoordX();
-				maxYval = dataStructure.getMaxCoordY();
+			if (filepath != null) {
+				maxXval = maxCoord.getX();
+				maxYval = maxCoord.getY();
 				scaleVal = ((int) (700/Math.max(maxXval, maxYval) * 1000) / 1)
 					/ 1000.0;
 
