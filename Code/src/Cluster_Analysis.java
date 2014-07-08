@@ -127,7 +127,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	void addButton(String label, Panel p) {
+	private void addButton(String label, Panel p) {
 		Button b = new Button(label);
 		b.addActionListener(this);
 		b.addKeyListener(IJ.getInstance());
