@@ -67,10 +67,19 @@ public class SimpleGrid implements ClusterStructure {
 	}
 
 	public void draw(boolean incLines, boolean incPoints, double other) {
-		// TODO
-		// Sort getting actual pixels to the image
-		// get a sensible y and x ranges
-		ImagePlus img = NewImage.createByteImage(filepath, 20, 20, 1, NewImage.FILL_BLACK);
+		// TODO Sort getting actual pixels to the image
+		ImagePlus img = NewImage.createFloatImage(filepath, gridX, gridY, 1,
+				NewImage.FILL_BLACK);
+		ImageProcessor imgpro = img.getProcessor();
+
+		float[] pixels = new float[gridX * gridY];
+		for (int j = 0; j < gridY; j++) {
+			for (int i = 0; i < gridX; i++) {
+				pixels[j*gridX + i] = points[i][j];
+			}
+		}
+
+		imgpro.setPixels(pixels);
 		img.show();
 	}
 
@@ -138,11 +147,9 @@ public class SimpleGrid implements ClusterStructure {
 
 					if (xyDouble[0] > maxCoord.getX()) {
 						maxCoord.setX(xyDouble[0]);
-						System.out.println("Max x: " + xyDouble[0]);
 					}
 					if (xyDouble[1] > maxCoord.getY()) {
 						maxCoord.setY(xyDouble[1]);
-						System.out.println("Max y: " + xyDouble[1]);
 					}
 
 					if (drawing) {
