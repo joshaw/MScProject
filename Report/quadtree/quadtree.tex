@@ -118,6 +118,7 @@ calculation of neighbours becomes difficult.
         \includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
         \caption{}\label{fig:traverse-modgray-order.pdf}
     \end{subfigure}
+    % TODO caption
     \caption{}\label{fig:order_traversals}
 \end{figure}
 
@@ -131,7 +132,7 @@ up changes only a single bit at a time. This meant that electromechanical
 apperatus was less likely to make a mistake or generate errors since the
 actions required to count from one to two required only a single bit change,
 rather than two, as would be required for binary counting. When using just two
-bits, i.e.\ couting from zero to three, the steps are very similar to binary,
+bits, i.e., couting from zero to three, the steps are very similar to binary,
 (00, 01, 11, 10).
 
 The path that this follows is shown in
@@ -161,7 +162,15 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
         \includegraphics[width=\textwidth]{modgray-2-levels-numbers.pdf}
         \caption{}\label{fig:modgray-2-levels-numbers.pdf}
     \end{subfigure}
+    % TODO caption
     \caption{}\label{fig:modgray-traversal}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{modgray-steps.pdf}
+	\caption{modgray-Steps}
+	\label{fig:modgray-steps}
 \end{figure}
 
 Since the quadtree is a recursive data structure, it is nessessary to be able
@@ -178,13 +187,45 @@ while maintaining the correct ordering.},label=code:child_construction]
 // Constructor
 Quadtree(max_x, max_y, code)
 
-// Child creation
-top_left =
-	new Quadtree(100, 100, this.code+"00");
-top_right =
-	new Quadtree(100, 100, this.code+"01");
-bottom_left =
-	new Quadtree(100, 100, this.code+"10");
-bottom_right =
-	new Quadtree(100, 100, this.code+"11");
+// Child creation,  Z-Order
+t_l = new Quadtree(100, 100, this.code + "00");
+t_r = new Quadtree(100, 100, this.code + "01");
+b_l = new Quadtree(100, 100, this.code + "11");
+b_r = new Quadtree(100, 100, this.code + "10");
+
+// Child creation,  Gray Code
+t_l = new Quadtree(100, 100, this.code + "00");
+t_r = new Quadtree(100, 100, this.code + "01");
+b_l = new Quadtree(100, 100, this.code + "10");
+b_r = new Quadtree(100, 100, this.code + "11");
+
+// Child creation, Modified Gray Code
+if (pos == "tl") ) {
+	new_code[0] = code + "00";
+	new_code[1] = code + "01";
+	new_code[2] = code + "10";
+	new_code[3] = code + "11";
+
+} else if (pos == "tr")) {
+	new_code[0] = code + "01";
+	new_code[1] = code + "00";
+	new_code[2] = code + "11";
+	new_code[3] = code + "10";
+
+} else if (pos == "bl")) {
+	new_code[0] = code + "10";
+	new_code[1] = code + "11";
+	new_code[2] = code + "00";
+	new_code[3] = code + "01";
+
+} else if (pos == "br")){
+	new_code[0] = code + "11";
+	new_code[1] = code + "10";
+	new_code[2] = code + "01";
+	new_code[3] = code + "00";
+}
+t_l = new Quadtree(100, 100, this.code + new_code[0]);
+t_r = new Quadtree(100, 100, this.code + new_code[1]);
+b_l = new Quadtree(100, 100, this.code + new_code[2]);
+b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \end{lstlisting}
