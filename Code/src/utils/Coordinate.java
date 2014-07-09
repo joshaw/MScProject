@@ -31,6 +31,15 @@ public class Coordinate {
 		this.y = y;
 	}
 
+	/** Check if a Coordinate is sane for this usage, ie, not negative.
+	 */
+	public static Coordinate checkCoord(Coordinate c) {
+		if (c.getX() < 0 || c.getY() < 0) {
+			return null;
+		}
+		return c;
+	}
+
 	@Override
 	public String toString() {
 		return "[" + x + ", " + y + "]";
