@@ -28,25 +28,16 @@ public class QuadTree implements ClusterStructure {
 	private double maxY;
 	private int maxDensity;
 
-	public QuadTree tl;
-	public QuadTree tr;
-	public QuadTree bl;
-	public QuadTree br;
+	private QuadTree tl;
+	private QuadTree tr;
+	private QuadTree bl;
+	private QuadTree br;
 	private ArrayList<Coordinate> points;
 	private boolean leaf;
 	private String pos;
 	private String code;
 	private boolean drawing;
 	private int countFile = 0;
-
-	public QuadTree(String filepath, int colX, int colY, String separator) {
-		this.filepath  = filepath;
-		this.colX      = colX;
-		this.colY      = colY;
-		this.separator = separator;
-		this.drawing   = false;
-		readDataFile();
-	}
 
 	/** Creates a new root node for a new quadtree.
 	 *
@@ -91,9 +82,8 @@ public class QuadTree implements ClusterStructure {
 		this.leaf        = true;
 		this.code        = code;
 		this.maxDensity  = maxDensity;
-		this.depth       = depth;
+		this.depth       = depth + 1;
 		this.pos         = pos;
-
 		this.minX        = minX;
 		this.maxX        = maxX;
 		this.minY        = minY;
@@ -107,19 +97,19 @@ public class QuadTree implements ClusterStructure {
 	 * @param c coordinate to be added to the quadtree.
 	 */
 	public boolean addPoint(Coordinate c) {
-		if (!checkValid(c)) {
+		if (!Coordinate.checkValid(c, maxX, maxY)) {
 			return false;
 		}
 
 		/* If we have reached a leaf node, then c needs to be added here,
 		 * otherwise, we need to find the correct sub tree to go down.*/
-		if (this.leaf) {
+		if (leaf) {
 
 			/* If this leaf can still take more points, then simply add it to
 			 * the list of points, otherwise we need to split the list into new
 			 * subtrees. */
-			if (this.points.size() <= this.maxDensity) {
-				this.points.add(c);
+			if (points.size() <= maxDensity) {
+				points.add(c);
 				return true;
 			} else {
 				deleaf();
@@ -135,7 +125,7 @@ public class QuadTree implements ClusterStructure {
 	 */
 	private void deleaf() {
 		createSubTrees();
-		this.leaf = false;
+		leaf = false;
 
 		for (Coordinate c: points) {
 			addPoint(c);
@@ -144,7 +134,7 @@ public class QuadTree implements ClusterStructure {
 		/* The number of points in this node must be < maxDensity. These are no
 		 * longer needed as there should not be any points at a non-leaf node
 		 * anyway - remove them. */
-		this.points = null;
+		points = null;
 	}
 
 	/** Calculate which quadrant a point exists in and return a the relevant
@@ -207,27 +197,36 @@ public class QuadTree implements ClusterStructure {
 			System.exit(1);
 		}
 		this.tl=new QuadTree(
-				minX, minY, maxX/2+minX/2, maxY/2+minY/2, newCode[0], maxDensity, depth+1, "tl");
+				minX, minY, maxX/2+minX/2, maxY/2+minY/2, newCode[0],
+				maxDensity, depth, "tl");
 		this.tr=new QuadTree(
-				maxX/2+minX/2, minY, maxX, maxY/2+minY/2, newCode[1], maxDensity, depth+1, "tr");
+				maxX/2+minX/2, minY, maxX, maxY/2+minY/2, newCode[1],
+				maxDensity, depth, "tr");
 		this.bl=new QuadTree(
-				minX, maxY/2+minY/2, maxX/2+minX/2, maxY, newCode[2], maxDensity, depth+1, "bl");
+				minX, maxY/2+minY/2, maxX/2+minX/2, maxY, newCode[2],
+				maxDensity, depth, "bl");
 		this.br=new QuadTree(
-				maxX/2+minX/2, maxY/2+minY/2, maxX, maxY, newCode[3], maxDensity, depth+1, "br");
+				maxX/2+minX/2, maxY/2+minY/2, maxX, maxY, newCode[3],
+				maxDensity, depth, "br");
 	}
 
-	/** Checks that a coordinate is valid, ie exists in the quadtree-space of
-	 * the current quadtree.
-	 */
-	private boolean checkValid(Coordinate c) {
-		double x = c.getX();
-		double y = c.getY();
-		if (y < 0 || y > maxY || x < 0 || x > maxX) return false;
-		return true;
+	private void toArray() {
+
 	}
 
-	public boolean isLeaf() { return leaf; }
-	public ArrayList<Coordinate> getPoints() { return points; }
+	public int getDepth() {
+		return getDepth(0);
+	}
+
+	private int getDepth(int d) {
+		if (leaf) {
+			return Math.max(this.depth, d);
+		}
+
+		return Math.max(tl.getDepth(d),
+				Math.max(tr.getDepth(d),
+					Math.max(bl.getDepth(d), br.getDepth(d))));
+	}
 
 	public String getCode() {
 		// String codeString = Integer.toBinaryString(code & 0b11);
@@ -238,19 +237,22 @@ public class QuadTree implements ClusterStructure {
 		// 	if (tempString.length() < 2) { tempString = 0 + tempString; }
 		// 	codeString += tempString;
 		// }
-		// System.out.println("depth: " + depth + ", code: " + Integer.toBinaryString(code) + ", codeString: " + codeString);
 		// return codeString;
 		return code;
 	}
 
-	public QuadTree getTL() { return tl; }
-	public QuadTree getTR() { return tr; }
-	public QuadTree getBL() { return bl; }
-	public QuadTree getBR() { return br; }
-	public double getMinX() { return minX; }
-	public double getMaxX() { return maxX; }
-	public double getMinY() { return minY; }
-	public double getMaxY() { return maxY; }
+	public ArrayList<Coordinate> getPoints() { return points; }
+	public boolean isLeaf()     { return leaf; }
+	public QuadTree getTL()     { return tl; }
+	public QuadTree getTR()     { return tr; }
+	public QuadTree getBL()     { return bl; }
+	public QuadTree getBR()     { return br; }
+	public double getMinX()     { return minX; }
+	public double getMaxX()     { return maxX; }
+	public double getMinY()     { return minY; }
+	public double getMaxY()     { return maxY; }
+	public int getCountFile()   { return countFile; }
+	public String getFilepath() { return filepath; }
 
 	@Override
 	public String toString() {
@@ -306,8 +308,5 @@ public class QuadTree implements ClusterStructure {
 		}
 		return true;
 	}
-
-	public int getCountFile() { return countFile; }
-	public String getFilepath() { return filepath; }
 
 }

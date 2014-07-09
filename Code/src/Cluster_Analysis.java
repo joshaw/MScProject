@@ -1,6 +1,8 @@
-// Created:  Wed 02 Jul 2014 9:55 AM
-// Modified: Thu 03 Jul 2014 11:55 AM
-
+/** Created: Wed 02 Jul 2014 9:55 AM
+ * Modified: Thu 03 Jul 2014 11:55 AM
+ * @author Josh Wainwright
+ * filename: Cluster_Analysis.java
+ */
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -34,7 +36,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 	private String separator;
 	private Coordinate maxCoord;
 
-	private ClusterStructure dataStructure = null;
+	private ClusterStructure dataStructure;
 
 	private Panel panel;
 	private Panel subpanel1;
@@ -153,14 +155,14 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 					System.out.println("ColY: " + colY);
 					separator = cc.getSeparator();
 
-					/* This is just here to allow the "auto" button to be able
-					 * to get the max and min values. */
-					maxCoord = FileHandler.getMaxCoord(filepath, colX, colY, separator);
-					// dataStructure = new QuadTree(filepath, colX, colY, separator);
+					/* This is here to allow the "auto" button to be able to
+					 * get the max and min values. */
+					maxCoord = FileHandler.getMaxCoord(
+							filepath, colX, colY, separator);
 					auto.setVisible(true);
 
 					int numPoints = FileHandler.getNumberOfLines(filepath);
-					fileStatus.setText("File: " + file + ",    Points: " + numPoints);
+					fileStatus.setText("File: "+file+",  Points: "+numPoints);
 				}
 			}
 
@@ -184,6 +186,9 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 					if (label.equals("QuadTree")) {
 						dataStructure = new QuadTree(maxXval, maxYval,
 								densityVal, filepath, colX, colY, separator);
+
+						dataStructure = (QuadTree)dataStructure;
+						System.out.println(dataStructure.getDepth());
 
 						 dataStructure.draw(linesBool.getState(),
 						 		 pointsBool.getState(), scaleVal);

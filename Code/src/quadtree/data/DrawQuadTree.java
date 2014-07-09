@@ -80,7 +80,7 @@ public class DrawQuadTree extends JPanel {
 		if (q.isLeaf()) {
 			if (incPoints) {
 				for(Coordinate c: q.getPoints()) {
-					// g.drawString(code, (float)(13+x), (float)(22+y));
+					g.drawString(code, (float)(13+x), (float)(22+y));
 					g.draw(new Line2D.Double(
 								scaleFactor*c.getX()+10,
 								scaleFactor*c.getY()+10,

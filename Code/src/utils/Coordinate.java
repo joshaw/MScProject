@@ -40,6 +40,16 @@ public class Coordinate {
 		return c;
 	}
 
+	/** Checks that a coordinate is valid, ie exists in the quadtree-space of
+	 * the current quadtree.
+	 */
+	public static boolean checkValid(Coordinate c, double maxX, double maxY) {
+		double x = c.getX();
+		double y = c.getY();
+		if (y < 0 || y > maxY || x < 0 || x > maxX) return false;
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		return "[" + x + ", " + y + "]";
