@@ -1,6 +1,8 @@
-// Created:  TIMESTAMP
-// Modified: TIMESTAMP
-
+/** Created: Wed 09 Jul 2014 02:57 PM
+ * Modified: Wed 09 Jul 2014 02:57 PM
+ * @author Josh Wainwright
+ * File name : ClusterStructure.java
+ */
 package utils;
 
 public interface ClusterStructure {

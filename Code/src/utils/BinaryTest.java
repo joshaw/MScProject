@@ -1,3 +1,8 @@
+/** Created: Wed 09 Jul 2014 02:56 PM
+ * Modified: Wed 09 Jul 2014 02:56 PM
+ * @author Josh Wainwright
+ * File name : BinaryTest.java
+ */
 public class BinaryTest {
 	public static void main(String[] args) {
 		int a = 0b10;

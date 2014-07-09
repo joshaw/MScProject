@@ -1,6 +1,8 @@
-// Created:  Tue 08 Jul 2014 12:41 PM
-// Modified: Tue 08 Jul 2014 12:43 PM
-
+/** Created: Tue 08 Jul 2014 12:41 PM
+/* Modified: Tue 08 Jul 2014 12:43 PM
+ * @author Josh Wainwright
+ * File name : FileHandler.java
+ */
 package utils;
 
 import utils.Coordinate;

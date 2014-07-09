@@ -1,7 +1,7 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
  * Modified: Fri 27 Jun 2014 10:34 AM
  * @author Josh Wainwright
- * File name : Coordinate.java
+ * File name : QuadTree.java
  */
 package quadtree.integer;
 
@@ -43,7 +43,6 @@ public class QuadTree<E> {
 	}
 
 	// public static int[] getNeighbours(String code) {
-	// 	// TODO edge cases
 
 	// 	int[] neighbours = new int[4];
 
@@ -257,8 +256,7 @@ public class QuadTree<E> {
 	/** Return the coordinates of the 4 neighbours to this node when this
 	 * node's location is given as a coordinate.      1
 	 *                                              0 a 2
-	 *                                                3
-	 */
+	 *                                                3                */
 	public static Coordinate[] getNeighboursCoordinates(Coordinate coord) {
 		Coordinate[] neighbours = new Coordinate[4];
 

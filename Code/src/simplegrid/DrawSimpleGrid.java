@@ -1,3 +1,8 @@
+/** Created: Tue 08 Jul 2014 02:55 PM
+ * Modified: Wed 09 Jul 2014 02:55 PM
+ * @author Josh Wainwright
+ * File name : DrawSimpleGrid.java
+ */
 package simplegrid;
 
 import ij.*;
@@ -24,7 +29,6 @@ public class DrawSimpleGrid {
 	}
 
 	public void draw() {
-		// TODO Sort getting actual pixels to the image
 		ImagePlus imp = NewImage.createFloatImage(filepath, gridX, gridY, 1,
 				NewImage.FILL_BLACK);
 		ImageProcessor imgpro = imp.getProcessor();

@@ -1,6 +1,8 @@
-// Created:  Tue 01 Jul 2014 03:39 PM
-// Modified: Mon 07 Jul 2014 05:36 PM
-
+/** Created: Tue 01 Jul 2014 03:39 PM
+ * Modified: Mon 07 Jul 2014 05:36 PM
+ * @author Josh Wainwright
+ * File name : SimpleGrid.java
+ */
 package simplegrid;
 
 import utils.Coordinate;

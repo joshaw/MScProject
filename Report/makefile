@@ -1,5 +1,7 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
 # Modified: Tue 01 Jul 2014 09:25 pm
+# @author Josh Wainwright
+# File name : makefile
 
 PROJECT=mainfile
 REFERENCES=references.bib
