@@ -106,7 +106,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		autoButton = new Button("Auto");
 		autoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				autoButtonActionPerformed(evt);
+				autoButtonActionPerformed();
 			}
 		});
 		subpanel2.add(autoButton);
@@ -177,11 +177,13 @@ public class Cluster_Analysis extends PlugInFrame {
 
 				int numPoints = FileHandler.getNumberOfLines(filepath);
 				fileStatus.setText("File: "+file+",  Points: "+numPoints);
+
+				autoButtonActionPerformed();
 			}
 		}
 	}
 
-	private void autoButtonActionPerformed(ActionEvent evt) {
+	private void autoButtonActionPerformed() {
 		if (filepath != null) {
 			maxXval = maxCoord.getX();
 			maxYval = maxCoord.getY();
@@ -219,7 +221,7 @@ public class Cluster_Analysis extends PlugInFrame {
 							densityVal, filepath, colX, colY, separator);
 
 					QuadTree qt = (QuadTree)dataStructure;
-					System.out.println(qt.getDepth());
+					System.out.println("Max Depth:" + qt.getDepth());
 
 					qt.draw(linesBool.getState(), pointsBool.getState(),
 						 	scaleVal);
