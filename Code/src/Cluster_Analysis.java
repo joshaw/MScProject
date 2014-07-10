@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Thu 03 Jul 2014 11:55 AM
+ * Modified: Thu 10 Jul 2014 10:38 am
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -187,22 +187,22 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 						dataStructure = new QuadTree(maxXval, maxYval,
 								densityVal, filepath, colX, colY, separator);
 
-						dataStructure = (QuadTree)dataStructure;
-						System.out.println(dataStructure.getDepth());
+						QuadTree qt = (QuadTree)dataStructure;
+						System.out.println(qt.getDepth());
 
-						 dataStructure.draw(linesBool.getState(),
-						 		 pointsBool.getState(), scaleVal);
+						 qt.draw(linesBool.getState(), pointsBool.getState(),
+						 		 scaleVal);
 
 					} else if (label.equals("Grid")) {
 						dataStructure = new SimpleGrid(maxXval, maxYval,
 								densityVal, filepath, colX, colY, separator);
 
-						 dataStructure.draw(linesBool.getState(),
-						 		 pointsBool.getState(), scaleVal);
+						SimpleGrid sg = (SimpleGrid)dataStructure;
+						sg.draw();
 					}
 
 				} else {
-					changeStatus("Please enter values for required parameters.");
+					changeStatus("Please enter value for required parameter.");
 				}
 			} else {
 				changeStatus("Please select a data file first.");

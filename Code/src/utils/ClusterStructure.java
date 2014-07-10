@@ -8,6 +8,8 @@ package utils;
 public interface ClusterStructure {
 
 	public int getCountFile();
-	public void draw(boolean incLines, boolean incPoints, double scaleFactor);
+	public String getFilepath();
+	public boolean addPoint(Coordinate c);
+	public boolean readDataFile();
 
 }
