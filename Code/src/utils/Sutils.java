@@ -34,4 +34,14 @@ public class Sutils {
 			interleave(s1.substring(1), s2.substring(1));
 	}
 
+	public static int max(int...args) {
+		int m = 0;
+		for (int i : args) {
+			if (i > m) {
+				m = i;
+			}
+		}
+		return m;
+	}
+
 }

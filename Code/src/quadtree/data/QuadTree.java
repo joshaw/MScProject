@@ -220,9 +220,8 @@ public class QuadTree implements ClusterStructure {
 			return Math.max(this.depth, d);
 		}
 
-		return Math.max(tl.getDepth(d),
-				Math.max(tr.getDepth(d),
-					Math.max(bl.getDepth(d), br.getDepth(d))));
+		return Sutils.max(tl.getDepth(d), tr.getDepth(d),
+						  bl.getDepth(d), br.getDepth(d));
 	}
 
 	public String getCode() {
