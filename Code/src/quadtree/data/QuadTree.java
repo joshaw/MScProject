@@ -8,6 +8,7 @@ package quadtree.data;
 import utils.Coordinate;
 import quadtree.data.DrawQuadTree;
 import utils.ClusterStructure;
+import utils.FileDescriptor;
 
 import java.util.ArrayList;
 import java.io.BufferedReader;
@@ -17,10 +18,8 @@ import java.io.IOException;
 public class QuadTree implements ClusterStructure {
 
 	private String filepath;
-	private int colX;
-	private int colY;
-	private String separator;
 	private boolean root = false;
+	private FileDescriptor fileDesc;
 	private int depth;
 	private double minX;
 	private double maxX;
@@ -58,9 +57,7 @@ public class QuadTree implements ClusterStructure {
 		this.maxY      = maxY;
 		this.depth     = 0;
 		this.filepath  = filepath;
-		this.colX      = colX;
-		this.colY      = colY;
-		this.separator = separator;
+		this.fileDesc = new FileDescriptor(colX, colY, separator);
 		this.drawing   = true;
 
 		if (maxDensity > 0) {
@@ -273,7 +270,7 @@ public class QuadTree implements ClusterStructure {
 	/** Reads the given data file and interprets the contents as coordinates.
 	 * Each coordinate is added to the quadtree.
 	 */
-	private boolean readDataFile() {
+	public boolean readDataFile() {
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -284,10 +281,13 @@ public class QuadTree implements ClusterStructure {
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
-					String[] entries = line.split(separator);
+					String[] entries = line.split(fileDesc.getSeparator());
 					double[] xyDouble = new double[2];
-					xyDouble[0] = Double.parseDouble(entries[colX]);
-					xyDouble[1] = Double.parseDouble(entries[colY]);
+
+					xyDouble[0] = Double.parseDouble(
+							entries[fileDesc.getColX()]);
+					xyDouble[1] = Double.parseDouble(
+							entries[fileDesc.getColY()]);
 
 					addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
 

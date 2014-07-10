@@ -7,6 +7,7 @@ package simplegrid;
 
 import utils.Coordinate;
 import utils.ClusterStructure;
+import utils.FileDescriptor;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -27,9 +28,7 @@ public class SimpleGrid implements ClusterStructure {
 	private int cellSize;
 	private int maxCapacity;
 	private String filepath;
-	private int colX;
-	private int colY;
-	private String separator;
+	private FileDescriptor fileDesc;
 	private int threshold = 0;
 	private int countFile = 0;
 	private boolean drawing;
@@ -40,9 +39,7 @@ public class SimpleGrid implements ClusterStructure {
 		this.maxY = maxY;
 		this.cellSize = cellSize;
 		this.filepath = filepath;
-		this.colX = colX;
-		this.colY = colY;
-		this.separator = separator;
+		this.fileDesc = new FileDescriptor(colX, colY, separator);
 
 		this.gridX = (int) maxX / cellSize + 1;
 		this.gridY = (int) maxY / cellSize + 1;
@@ -112,7 +109,7 @@ public class SimpleGrid implements ClusterStructure {
 	/** Reads the given data file and interprets the contents as coordinates.
 	 * Each coordinate is added to the grid.
 	 */
-	private boolean readDataFile() {
+	public boolean readDataFile() {
 		if (!filepath.equals("")) {
 			BufferedReader reader = null;
 
@@ -123,10 +120,13 @@ public class SimpleGrid implements ClusterStructure {
 				reader.readLine();
 				while ((line = reader.readLine()) != null) {
 
-					String[] entries = line.split(separator);
+					String[] entries = line.split(fileDesc.getSeparator());
 					double[] xyDouble = new double[2];
-					xyDouble[0] = Double.parseDouble(entries[colX]);
-					xyDouble[1] = Double.parseDouble(entries[colY]);
+
+					xyDouble[0] = Double.parseDouble(
+							entries[fileDesc.getColX()]);
+					xyDouble[1] = Double.parseDouble(
+							entries[fileDesc.getColY()]);
 
 					addPoint(new Coordinate(xyDouble[0], xyDouble[1]));
 					countFile++;
