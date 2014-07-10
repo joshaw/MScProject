@@ -64,29 +64,15 @@ public class SimpleGrid implements ClusterStructure {
 		d.draw();
 	}
 
-	public int addPoint(Coordinate c) {
-		checkValid(c);
+	public boolean addPoint(Coordinate c) {
+		if (!Coordinate.checkValid(c, maxX, maxY)) {
+			return false;
+		}
+
 		int posX = (int) c.getX()/cellSize;
 		int posY = (int) c.getY()/cellSize;
 
 		points[posX][posY] ++;
-		return points[posX][posY];
-	}
-
-	/** Checks that a coordinate is valid, ie exists in the quadtree-space of
-	 * the current quadtree.
-	 */
-	private boolean checkValid(Coordinate c) {
-		double x = c.getX();
-		double y = c.getY();
-		if (y < 0)
-			throw new IllegalArgumentException("[" + y + "] y too small");
-		if (y > maxY)
-			throw new IllegalArgumentException("[" + y + "] y too large");
-		if (x < 0)
-			throw new IllegalArgumentException("[" + x + "] x too small");
-		if (x > maxX)
-			throw new IllegalArgumentException("[" + x + "] x too large");
 		return true;
 	}
 

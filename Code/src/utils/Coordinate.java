@@ -46,7 +46,17 @@ public class Coordinate {
 	public static boolean checkValid(Coordinate c, double maxX, double maxY) {
 		double x = c.getX();
 		double y = c.getY();
-		if (y < 0 || y > maxY || x < 0 || x > maxX) return false;
+		if (y < 0 || y > maxY || x < 0 || x > maxX) {
+			if (y < 0)
+				System.err.println("[" + y + "] y too small");
+			if (y > maxY)
+				System.err.println("[" + y + "] y too large");
+			if (x < 0)
+				System.err.println("[" + x + "] x too small");
+			if (x > maxX)
+				System.err.println("[" + x + "] x too large");
+			return false;
+		}
 		return true;
 	}
 
