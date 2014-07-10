@@ -23,6 +23,7 @@ public class DrawQuadTree extends JPanel {
 	private int addedCount = 0;
 	private boolean incPoints;
 	private boolean incLines;
+	int boxCount = 0;
 
 	/** Create a new object which does the drawing.
 	 */
@@ -48,10 +49,6 @@ public class DrawQuadTree extends JPanel {
 		f.setVisible(true);
 	}
 
-	public void draw() {
-		draw(true, true);
-	}
-
 	/** Draw the graphics of the quadtree.
 	 * Called when updating the screen.
 	 */
@@ -74,13 +71,14 @@ public class DrawQuadTree extends JPanel {
 		double y = scaleFactor*q.getMinY();
 		double Y = scaleFactor*q.getMaxY();
 
-		if (incLines) {
-			g.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
-		}
 		if (q.isLeaf()) {
+			if (incLines) {
+				g.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+				boxCount++;
+			}
 			if (incPoints) {
 				for(Coordinate c: q.getPoints()) {
-					g.drawString(code, (float)(13+x), (float)(22+y));
+					// g.drawString(code, (float)(13+x), (float)(22+y));
 					g.draw(new Line2D.Double(
 								scaleFactor*c.getX()+10,
 								scaleFactor*c.getY()+10,
