@@ -22,7 +22,7 @@ import utils.ClusterStructure;
 import utils.FileHandler;
 import utils.Coordinate;
 
-public class Cluster_Analysis extends PlugInFrame implements ActionListener {
+public class Cluster_Analysis extends PlugInFrame {
 
 	private static final long serialVersionUID = 1L;
 
@@ -51,7 +51,7 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 	private TextField scale;
 	private Checkbox linesBool;
 	private Checkbox pointsBool;
-	private Button auto;
+	private Button autoButton;
 
 	public Cluster_Analysis() {
 		super("Cluster Analysis");
@@ -103,14 +103,38 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 		subpanel2 = new Panel();
 		subpanel2.setLayout(new GridLayout(4, 1, 3, 3));
 
-		auto = new Button("Auto");
-		auto.addActionListener(this);
-		subpanel2.add(auto);
-		auto.setVisible(false);
+		autoButton = new Button("Auto");
+		autoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				autoButtonActionPerformed(evt);
+			}
+		});
+		subpanel2.add(autoButton);
+		autoButton.setVisible(false);
 
-		addButton("Data file", subpanel2);
-		addButton("QuadTree", subpanel2);
-		addButton("Grid", subpanel2);
+		Button dataFileButton = new Button("Data file");
+		dataFileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				dataFileButtonActionPerformed(evt);
+			}
+		});
+		subpanel2.add(dataFileButton);
+
+		Button quadtreeButton = new Button("QuadTree");
+		quadtreeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				drawStructureActionPerformed(evt);
+			}
+		});
+		subpanel2.add(quadtreeButton);
+
+		Button gridButton = new Button("Grid");
+		gridButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				drawStructureActionPerformed(evt);
+			}
+		});
+		subpanel2.add(gridButton);
 
 		panel = new Panel();
 		panel.setLayout(new FlowLayout());
@@ -129,98 +153,90 @@ public class Cluster_Analysis extends PlugInFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	private void addButton(String label, Panel p) {
-		Button b = new Button(label);
-		b.addActionListener(this);
-		b.addKeyListener(IJ.getInstance());
-		p.add(b);
+	private void dataFileButtonActionPerformed(ActionEvent evt) {
+		OpenDialog od    = new OpenDialog("Open data file ...");
+
+		if (od.getPath() != null) {
+			String file      = od .getFileName();
+			String directory = od.getDirectory();
+			filepath  = directory + file;
+			ColumnChooserGUI2 cc = new ColumnChooserGUI2(filepath);
+
+			if (cc.getSuccess()) {
+				colX = cc.getXCol();
+				System.out.println("ColX: " + colX);
+				colY = cc.getYCol();
+				System.out.println("ColY: " + colY);
+				separator = cc.getSeparator();
+
+				/* This is here to allow the "auto" button to be able to
+				 * get the max and min values. */
+				maxCoord = FileHandler.getMaxCoord(
+						filepath, colX, colY, separator);
+				autoButton.setVisible(true);
+
+				int numPoints = FileHandler.getNumberOfLines(filepath);
+				fileStatus.setText("File: "+file+",  Points: "+numPoints);
+			}
+		}
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		String label = e.getActionCommand();
+	private void autoButtonActionPerformed(ActionEvent evt) {
+		if (filepath != null) {
+			maxXval = maxCoord.getX();
+			maxYval = maxCoord.getY();
+			scaleVal = ((int) (700/Math.max(maxXval, maxYval) * 1000) / 1)
+				/ 1000.0;
 
-		if (label.equals("Data file")) {
-			OpenDialog od    = new OpenDialog("Open data file ...");
+			maxX.setText(maxXval + "");
+			maxY.setText(maxYval + "");
+			scale.setText(scaleVal + "");
+		} else {
+			changeStatus("Please select a data file first.");
+		}
+	}
 
-			if (od.getPath() != null) {
-				String file      = od .getFileName();
-				String directory = od.getDirectory();
-				filepath  = directory + file;
-				ColumnChooserGUI2 cc = new ColumnChooserGUI2(filepath);
+	private void drawStructureActionPerformed(ActionEvent evt) {
+		String label = evt.getActionCommand();
+		String maxXstring = removeSpaces(maxX.getText());
+		String maxYstring = removeSpaces(maxY.getText());
+		String densityString = removeSpaces(density.getText());
+		String scaleString = removeSpaces(scale.getText());
 
-				if (cc.getSuccess()) {
-					colX = cc.getXCol();
-					System.out.println("ColX: " + colX);
-					colY = cc.getYCol();
-					System.out.println("ColY: " + colY);
-					separator = cc.getSeparator();
+		if (filepath != null) {
 
-					/* This is here to allow the "auto" button to be able to
-					 * get the max and min values. */
-					maxCoord = FileHandler.getMaxCoord(
-							filepath, colX, colY, separator);
-					auto.setVisible(true);
+			if (!maxXstring.equals("") && !maxYstring.equals("")
+					&& !densityString.equals("") && !scaleString.equals("")
+			   ) {
 
-					int numPoints = FileHandler.getNumberOfLines(filepath);
-					fileStatus.setText("File: "+file+",  Points: "+numPoints);
+				maxXval = Double.parseDouble(maxXstring);
+				maxYval = Double.parseDouble(maxYstring);
+				densityVal = Integer.parseInt(densityString);
+				scaleVal = Double.parseDouble(scaleString);
+
+				if (label.equals("QuadTree")) {
+					dataStructure = new QuadTree(maxXval, maxYval,
+							densityVal, filepath, colX, colY, separator);
+
+					QuadTree qt = (QuadTree)dataStructure;
+					System.out.println(qt.getDepth());
+
+					qt.draw(linesBool.getState(), pointsBool.getState(),
+						 	scaleVal);
+
+				} else if (label.equals("Grid")) {
+					dataStructure = new SimpleGrid(maxXval, maxYval,
+							densityVal, filepath, colX, colY, separator);
+
+					SimpleGrid sg = (SimpleGrid)dataStructure;
+					sg.draw();
 				}
-			}
 
-		} else if (label.equals("QuadTree") || label.equals("Grid")) {
-			String maxXstring = removeSpaces(maxX.getText());
-			String maxYstring = removeSpaces(maxY.getText());
-			String densityString = removeSpaces(density.getText());
-			String scaleString = removeSpaces(scale.getText());
-
-			if (filepath != null) {
-
-				if (!maxXstring.equals("") && !maxYstring.equals("")
-						&& !densityString.equals("") && !scaleString.equals("")
-				   ) {
-
-					maxXval = Double.parseDouble(maxXstring);
-					maxYval = Double.parseDouble(maxYstring);
-					densityVal = Integer.parseInt(densityString);
-					scaleVal = Double.parseDouble(scaleString);
-
-					if (label.equals("QuadTree")) {
-						dataStructure = new QuadTree(maxXval, maxYval,
-								densityVal, filepath, colX, colY, separator);
-
-						QuadTree qt = (QuadTree)dataStructure;
-						System.out.println(qt.getDepth());
-
-						 qt.draw(linesBool.getState(), pointsBool.getState(),
-						 		 scaleVal);
-
-					} else if (label.equals("Grid")) {
-						dataStructure = new SimpleGrid(maxXval, maxYval,
-								densityVal, filepath, colX, colY, separator);
-
-						SimpleGrid sg = (SimpleGrid)dataStructure;
-						sg.draw();
-					}
-
-				} else {
-					changeStatus("Please enter value for required parameter.");
-				}
 			} else {
-				changeStatus("Please select a data file first.");
+				changeStatus("Please enter value for required parameter.");
 			}
-
-		} else if (label.equals("Auto")) {
-			if (filepath != null) {
-				maxXval = maxCoord.getX();
-				maxYval = maxCoord.getY();
-				scaleVal = ((int) (700/Math.max(maxXval, maxYval) * 1000) / 1)
-					/ 1000.0;
-
-				maxX.setText(maxXval + "");
-				maxY.setText(maxYval + "");
-				scale.setText(scaleVal + "");
-			} else {
-				changeStatus("Please select a data file first.");
-			}
+		} else {
+			changeStatus("Please select a data file first.");
 		}
 
 	}
