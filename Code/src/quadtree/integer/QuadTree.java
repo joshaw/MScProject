@@ -39,9 +39,9 @@ public class QuadTree {
 			double qt2x = qt2Coord.getX();
 			double qt2y = qt2Coord.getY();
 
-			/* If the two coordinates are the same in the x-axis and differ by 1 in
-		 	 * the y-axis, or are the same in the y-axis and differ by 1 in the
-		 	 * x-axis, then they are adjacent. */
+			/* If the two coordinates are the same in the x-axis and differ by
+			 * 1 in the y-axis, or are the same in the y-axis and differ by 1
+			 * in the x-axis, then they are adjacent. */
 			return ((qt1x == qt2x) && (Math.abs(qt1y-qt2y) == 1) ) ||
 				  ( (qt1y == qt2y) && (Math.abs(qt1x-qt2x) == 1));
 		}
@@ -285,14 +285,14 @@ public class QuadTree {
 	}
 
 	public static String[] getNeighboursCodes(String code) {
-		Coordinate coord = getCoordinate(code);
+		Coordinate c = getCoordinate(code);
 		String[] neighbours = new String[4];
 		int cl = code.length();
 
-		neighbours[0] = getCode(new Coordinate(coord.getX()-1, coord.getY()), cl);
-		neighbours[1] = getCode(new Coordinate(coord.getX(), coord.getY()-1), cl);
-		neighbours[2] = getCode(new Coordinate(coord.getX()+1, coord.getY()), cl);
-		neighbours[3] = getCode(new Coordinate(coord.getX(), coord.getY()+1), cl);
+		neighbours[0] = getCode(new Coordinate(c.getX()-1, c.getY()), cl);
+		neighbours[1] = getCode(new Coordinate(c.getX(), c.getY()-1), cl);
+		neighbours[2] = getCode(new Coordinate(c.getX()+1, c.getY()), cl);
+		neighbours[3] = getCode(new Coordinate(c.getX(), c.getY()+1), cl);
 
 		return neighbours;
 	}

@@ -5,12 +5,15 @@
  */
 package quadtree.data;
 
-import utils.Coordinate;
 import quadtree.data.DrawQuadTree;
+import utils.Coordinate;
 import utils.ClusterStructure;
 import utils.FileDescriptor;
+import utils.Sutils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -207,14 +210,39 @@ public class QuadTree implements ClusterStructure {
 				maxDensity, depth, "br");
 	}
 
-	private void toArray() {
+	/** Returns a HashMap representation of the current quadtree. This can
+	 * often be faster to access multiple entries from than the quadtree.
+	 *
+	 * The key is the code for the leaf node, the value is the arraylist of the
+	 * points that were added to the quadtree.
+	 */
+	public HashMap<String, ArrayList<Coordinate>> toHashMap() {
+		int maxLeaves = (int) getMaxNumberOfLeaves();
 
+		HashMap<String, ArrayList<Coordinate>> hashmap =
+			new HashMap<String, ArrayList<Coordinate>>();
+
+		return toHashMap(hashmap);
+	}
+	private HashMap<String, ArrayList<Coordinate>>
+		toHashMap(HashMap<String, ArrayList<Coordinate>> hm) {
+
+		if (leaf) {
+			hm.put(this.code, this.points);
+		} else {
+			tl.toHashMap(hm);
+			tr.toHashMap(hm);
+			bl.toHashMap(hm);
+			br.toHashMap(hm);
+		}
+		return hm;
 	}
 
+	/** Returns the maximum depth of a child node in the quadtree.
+	 */
 	public int getDepth() {
 		return getDepth(0);
 	}
-
 	private int getDepth(int d) {
 		if (leaf) {
 			return Math.max(this.depth, d);
@@ -222,6 +250,13 @@ public class QuadTree implements ClusterStructure {
 
 		return Sutils.max(tl.getDepth(d), tr.getDepth(d),
 						  bl.getDepth(d), br.getDepth(d));
+	}
+
+	/** Calculates the maximum number of leaf nodes that would be in the
+	 * quadtree if the quadtree is complete.
+	 */
+	private double getMaxNumberOfLeaves() {
+		return Math.pow(4, code.length()/2);
 	}
 
 	public String getCode() {
@@ -249,6 +284,19 @@ public class QuadTree implements ClusterStructure {
 	public double getMaxY()     { return maxY; }
 	public int getCountFile()   { return countFile; }
 	public String getFilepath() { return filepath; }
+
+	public static <E> String toString(HashMap<String, ArrayList<E>> hm) {
+
+		StringBuilder sb = new StringBuilder();
+
+		for(Entry<String, ArrayList<E>> leaf : hm.entrySet()) {
+			String key = leaf.getKey();
+			ArrayList<E> value = leaf.getValue();
+			sb.append(key + " (" + value.size() + "), ");
+		}
+
+		return sb.toString();
+	}
 
 	@Override
 	public String toString() {

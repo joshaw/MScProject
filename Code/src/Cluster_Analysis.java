@@ -226,6 +226,8 @@ public class Cluster_Analysis extends PlugInFrame {
 					qt.draw(linesBool.getState(), pointsBool.getState(),
 						 	scaleVal);
 
+					System.out.println(QuadTree.toString(qt.toHashMap()));
+
 				} else if (label.equals("Grid")) {
 					dataStructure = new SimpleGrid(maxXval, maxYval,
 							densityVal, filepath, colX, colY, separator);
