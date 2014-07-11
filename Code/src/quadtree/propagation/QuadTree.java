@@ -3,7 +3,7 @@
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
-package quadtree.integer;
+package quadtree.propagation;
 
 import utils.Coordinate;
 import utils.Sutils;

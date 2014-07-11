@@ -3,10 +3,10 @@
  * @author Josh Wainwright
  * File name : QuadTreeTest.java
  */
-package quadtree.integer;
+package quadtree.propagation;
 
 import utils.Coordinate;
-import quadtree.integer.QuadTree;
+import quadtree.propagation.QuadTree;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
