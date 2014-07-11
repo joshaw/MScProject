@@ -15,7 +15,8 @@ import ij.gui.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import quadtree.data.*;
+import quadtree.*;
+import quadtree.propagation.QuadTreePropagation;
 import simplegrid.*;
 import utils.columnchooser.ColumnChooserGUI2;
 import utils.ClusterStructure;
@@ -226,7 +227,8 @@ public class Cluster_Analysis extends PlugInFrame {
 					qt.draw(linesBool.getState(), pointsBool.getState(),
 						 	scaleVal);
 
-					System.out.println(QuadTree.toString(qt.toHashMap()));
+					QuadTreePropagation qtp =
+						new QuadTreePropagation(qt.toHashMap());
 
 				} else if (label.equals("Grid")) {
 					dataStructure = new SimpleGrid(maxXval, maxYval,
