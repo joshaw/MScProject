@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Fri 11 Jul 2014 12:28 PM
+ * Modified: Fri 11 Jul 2014 08:26 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -183,6 +183,7 @@ public class QuadTreePropagate {
 
 		for (int i = 0; i < neighbours.size(); i++) {
 			String s = neighbours.get(i);
+			// TODO check if these have been checked
 			if (! hashmap.containsKey(s)) {
 				neighbours.set(i, null);
 				// neighbours.add(s + "00");
