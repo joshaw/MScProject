@@ -1,5 +1,5 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Fri 11 Jul 2014 11:46 AM
+# Modified: Fri 11 Jul 2014 08:36 PM
 # @author Josh Wainwright
 # File name : makefile
 
@@ -7,7 +7,6 @@ PROJECT=mainfile
 REFERENCES=references.bib
 TEX=pdflatex
 OPTIONS=-file-line-error\
-		-silent\
 		-output-directory=$(DIR)\
 		-halt-on-error
 BIBTEX=bibtex -terse
@@ -29,10 +28,10 @@ $(DIR):
 
 .SECONDEXPANSION:
 $(DIR)/%.pdf: %.dia
-	echo "$< ---> $@"
+	echo "$< ==> $@"
 	mkdir -p $(shell dirname $@)
-	dia -t svg -e "/dev/stdout" $<\
-		| head -n-1 | rsvg-convert -f pdf > "$@"
+	dia -t svg -e "/dev/stdout" $< 2> /dev/null\
+		| rsvg-convert -f pdf > "$@"
 
 $(DIR)/%.pdf: %.svg
 	echo "$< ---> $@"
