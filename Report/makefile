@@ -42,6 +42,9 @@ $(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(REFERENCES) $(TEXFILES) $(DIAPDF) $(SVGP
 	$(BUILDTEX)
 	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
 
+once: $(PROJECT).tex
+	$(TEX) $(OPTIONS) $(PROJECT).tex
+
 open: all
 	rifle $(DIR)/$(PROJECT).pdf
 
