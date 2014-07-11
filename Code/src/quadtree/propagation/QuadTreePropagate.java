@@ -1,7 +1,7 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
  * Modified: Fri 11 Jul 2014 12:28 PM
  * @author Josh Wainwright
- * File name : QuadTreePropagation.java
+ * File name : QuadTreePropagate.java
  */
 package quadtree.propagation;
 
@@ -10,18 +10,20 @@ import utils.Sutils;
 import utils.PropogationDatum;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
-public class QuadTreePropagation {
+public class QuadTreePropagate {
 
 	private HashMap<String, PropogationDatum> hashmap;
 	private final String start;
 	private final int depthRange = 0;
 	private int searches = 0;
 
-	public QuadTreePropagation(HashMap<String, PropogationDatum> hashmap){
+	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
 		this.hashmap = hashmap;
 		this.start = getStart();
 		System.out.println("Start: " + start);
+		propagate(start);
 	}
 
 	private String getStart() {
@@ -38,12 +40,18 @@ public class QuadTreePropagation {
 	}
 
 	public void propagate(String cell) {
-		String[] neighbours = getNeighbours(cell);
+		ArrayList<String> neighbours = getNeighbours(cell);
 		int nulls = 0;
+
 		for (String c : neighbours) {
-			if (c != null) {
+			if (c != null &&
+					hashmap.get(c).status() == 0) {
+
 				searches++;
+				System.out.println("Hit: " + c);
+				hashmap.get(c).setStatus((byte)1);
 				propagate(c);
+
 			} else {
 				nulls++;
 			}
@@ -51,10 +59,6 @@ public class QuadTreePropagation {
 
 		if (nulls == 4) {
 			searches--;
-		}
-
-		while (searches > 0) {
-
 		}
 	}
 
@@ -167,19 +171,24 @@ public class QuadTreePropagation {
 		return code;
 	}
 
-	public String[] getNeighbours(String code) {
+	public ArrayList<String> getNeighbours(String code) {
 		Coordinate c = getCoordinate(code);
-		String[] neighbours = new String[4];
+		ArrayList<String> neighbours = new ArrayList<String>();
 		int cl = code.length();
 
-		neighbours[0] = getCode(new Coordinate(c.getX()-1, c.getY()), cl);
-		neighbours[1] = getCode(new Coordinate(c.getX(), c.getY()-1), cl);
-		neighbours[2] = getCode(new Coordinate(c.getX()+1, c.getY()), cl);
-		neighbours[3] = getCode(new Coordinate(c.getX(), c.getY()+1), cl);
+		neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()), cl));
+		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()-1), cl));
+		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()), cl));
+		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()+1), cl));
 
-		for (int i = 0; i < 4; i++) {
-			if (! hashmap.containsKey(neighbours[i])) {
-				neighbours[i] = null;
+		for (int i = 0; i < neighbours.size(); i++) {
+			String s = neighbours.get(i);
+			if (! hashmap.containsKey(s)) {
+				neighbours.set(i, null);
+				// neighbours.add(s + "00");
+				// neighbours.add(s + "01");
+				// neighbours.add(s + "10");
+				// neighbours.add(s + "11");
 			}
 		}
 

@@ -6,6 +6,7 @@
 package quadtree;
 
 import quadtree.DrawQuadTree;
+import quadtree.QuadTreeMap;
 import utils.Coordinate;
 import utils.ClusterStructure;
 import utils.FileDescriptor;
@@ -227,26 +228,24 @@ public class QuadTree implements ClusterStructure {
 	 * The key is the code for the leaf node, the value is the arraylist of the
 	 * points that were added to the quadtree.
 	 */
-	public HashMap<String, PropogationDatum> toHashMap() {
+	public QuadTreeMap toQuadTreeMap() {
 		int maxLeaves = (int) getMaxNumberOfLeaves();
 
-		HashMap<String, PropogationDatum> hm =
-			new HashMap<String, PropogationDatum>(100);
+		QuadTreeMap qtm = new QuadTreeMap(maxX, maxY);
 
-		return toHashMap(hm);
+		return toQuadTreeMap(qtm);
 	}
-	private HashMap<String, PropogationDatum> toHashMap(HashMap<String,
-			PropogationDatum> hm) {
+	private QuadTreeMap toQuadTreeMap(QuadTreeMap qtm) {
 
 		if (leaf) {
-			hm.put(this.code, new PropogationDatum(this.points, (byte)0));
+			qtm.put(this.code, new PropogationDatum(this.points, (byte)0));
 		} else {
-			tl.toHashMap(hm);
-			tr.toHashMap(hm);
-			bl.toHashMap(hm);
-			br.toHashMap(hm);
+			tl.toQuadTreeMap(qtm);
+			tr.toQuadTreeMap(qtm);
+			bl.toQuadTreeMap(qtm);
+			br.toQuadTreeMap(qtm);
 		}
-		return hm;
+		return qtm;
 	}
 
 	/** Returns the maximum depth of a child node in the quadtree.
