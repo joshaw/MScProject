@@ -3,9 +3,9 @@
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
-package quadtree.data;
+package quadtree;
 
-import quadtree.data.DrawQuadTree;
+import quadtree.DrawQuadTree;
 import utils.Coordinate;
 import utils.ClusterStructure;
 import utils.FileDescriptor;
@@ -230,10 +230,10 @@ public class QuadTree implements ClusterStructure {
 	public HashMap<String, PropogationDatum> toHashMap() {
 		int maxLeaves = (int) getMaxNumberOfLeaves();
 
-		HashMap<String, PropogationDatum> hashmap =
-			new HashMap<String, PropogationDatum>();
+		HashMap<String, PropogationDatum> hm =
+			new HashMap<String, PropogationDatum>(100);
 
-		return toHashMap(hashmap);
+		return toHashMap(hm);
 	}
 	private HashMap<String, PropogationDatum> toHashMap(HashMap<String,
 			PropogationDatum> hm) {
