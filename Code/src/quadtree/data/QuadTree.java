@@ -10,6 +10,7 @@ import utils.Coordinate;
 import utils.ClusterStructure;
 import utils.FileDescriptor;
 import utils.Sutils;
+import utils.PropogationDatum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -226,19 +227,19 @@ public class QuadTree implements ClusterStructure {
 	 * The key is the code for the leaf node, the value is the arraylist of the
 	 * points that were added to the quadtree.
 	 */
-	public HashMap<String, ArrayList<Coordinate>> toHashMap() {
+	public HashMap<String, PropogationDatum> toHashMap() {
 		int maxLeaves = (int) getMaxNumberOfLeaves();
 
-		HashMap<String, ArrayList<Coordinate>> hashmap =
-			new HashMap<String, ArrayList<Coordinate>>();
+		HashMap<String, PropogationDatum> hashmap =
+			new HashMap<String, PropogationDatum>();
 
 		return toHashMap(hashmap);
 	}
-	private HashMap<String, ArrayList<Coordinate>>
-		toHashMap(HashMap<String, ArrayList<Coordinate>> hm) {
+	private HashMap<String, PropogationDatum> toHashMap(HashMap<String,
+			PropogationDatum> hm) {
 
 		if (leaf) {
-			hm.put(this.code, this.points);
+			hm.put(this.code, new PropogationDatum(this.points, (byte)0));
 		} else {
 			tl.toHashMap(hm);
 			tr.toHashMap(hm);
@@ -295,13 +296,13 @@ public class QuadTree implements ClusterStructure {
 	public int getCountFile()   { return countFile; }
 	public String getFilepath() { return filepath; }
 
-	public static <E> String toString(HashMap<String, ArrayList<E>> hm) {
+	public static String toString(HashMap<String, PropogationDatum> hm) {
 
 		StringBuilder sb = new StringBuilder();
 
-		for(Entry<String, ArrayList<E>> leaf : hm.entrySet()) {
+		for(Entry<String, PropogationDatum> leaf : hm.entrySet()) {
 			String key = leaf.getKey();
-			ArrayList<E> value = leaf.getValue();
+			PropogationDatum value = leaf.getValue();
 			sb.append(key + " (" + value.size() + "), ");
 		}
 
