@@ -20,6 +20,8 @@ import java.io.IOException;
 
 public class QuadTree implements ClusterStructure {
 
+	private final String ORDER = "morton";
+
 	private String filepath;
 	private boolean root = false;
 	private FileDescriptor fileDesc;
@@ -169,32 +171,40 @@ public class QuadTree implements ClusterStructure {
 	 */
 	private void createSubTrees() {
 		String[] newCode = new String[4];
-		if (pos.equals("tl") ) {
-			newCode[0] = code+"00";
-			newCode[1] = code+"01";
-			newCode[2] = code+"10";
-			newCode[3] = code+"11";
+		if (ORDER.equals("modgray")) {
+			if (pos.equals("tl") ) {
+				newCode[0] = code+"00";
+				newCode[1] = code+"01";
+				newCode[2] = code+"10";
+				newCode[3] = code+"11";
 
-		} else if (pos.equals("tr")) {
-			newCode[0] = code+"01";
-			newCode[1] = code+"00";
-			newCode[2] = code+"11";
-			newCode[3] = code+"10";
+			} else if (pos.equals("tr")) {
+				newCode[0] = code+"01";
+				newCode[1] = code+"00";
+				newCode[2] = code+"11";
+				newCode[3] = code+"10";
 
-		} else if (pos.equals("bl")) {
-			newCode[0] = code+"10";
-			newCode[1] = code+"11";
-			newCode[2] = code+"00";
-			newCode[3] = code+"01";
+			} else if (pos.equals("bl")) {
+				newCode[0] = code+"10";
+				newCode[1] = code+"11";
+				newCode[2] = code+"00";
+				newCode[3] = code+"01";
 
-		} else if (pos.equals("br")){
-			newCode[0] = code+"11";
-			newCode[1] = code+"10";
-			newCode[2] = code+"01";
-			newCode[3] = code+"00";
+			} else if (pos.equals("br")){
+				newCode[0] = code+"11";
+				newCode[1] = code+"10";
+				newCode[2] = code+"01";
+				newCode[3] = code+"00";
 
-		} else {
-			System.exit(1);
+			} else {
+				System.exit(1);
+			}
+		} else if (ORDER.equals("morton")) {
+				newCode[0] = code+"00";
+				newCode[1] = code+"01";
+				newCode[2] = code+"10";
+				newCode[3] = code+"11";
+
 		}
 		this.tl=new QuadTree(
 				minX, minY, maxX/2+minX/2, maxY/2+minY/2, newCode[0],
