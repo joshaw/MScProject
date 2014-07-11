@@ -37,7 +37,7 @@
 
 	<target name="imagej" depends="jar">
 		<copy file="${jar.dir}/${jar.imagej}"
-			todir="/home/students/jaw097/Bin/ImageJ/plugins/jars/"/>
+			todir="${user.home}/Bin/ImageJ/plugins/jars/"/>
 	</target>
 
 	<target name="clean">
@@ -114,5 +114,5 @@
 </project>
 <!--
 Created:  Mon 23 Jun 2014 18:42 PM
-Modified: Wed 02 Jul 2014 10:46 AM
+Modified: Fri 11 Jul 2014 08:23 PM
 -->
