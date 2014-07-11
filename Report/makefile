@@ -1,13 +1,13 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Tue 01 Jul 2014 09:25 pm
+# Modified: Fri 11 Jul 2014 11:46 AM
 # @author Josh Wainwright
 # File name : makefile
 
 PROJECT=mainfile
 REFERENCES=references.bib
 TEX=pdflatex
-OPTIONS=-silent\
-		-file-line-error\
+OPTIONS=-file-line-error\
+		-silent\
 		-output-directory=$(DIR)\
 		-halt-on-error
 BIBTEX=bibtex -terse

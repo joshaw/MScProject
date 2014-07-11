@@ -127,9 +127,12 @@
 \clearpage
 \input{appendix/appendix.tex}
 
-\clearpage
+% \clearpage
+\newgeometry{onecolumn,top=2in,left=1.5in,right=1.5in}
+\thispagestyle{empty}
 \nocite{*}
 \bibliographystyle{apalike}
 \bibliography{references}
+\restoregeometry
 
 \end{document}
