@@ -5,6 +5,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="375.58926"
@@ -22,12 +23,24 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
      id="defs3598">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient6781">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop6783" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop6785" />
+    </linearGradient>
     <marker
        inkscape:stockid="Arrow2Lend"
        orient="auto"
@@ -42,6 +55,17 @@
          transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6781"
+       id="radialGradient6787"
+       cx="459.21536"
+       cy="100.25692"
+       fx="459.21536"
+       fy="100.25692"
+       r="43.3587"
+       gradientTransform="matrix(1,0,0,0.95167286,0,4.8451296)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -56,8 +80,8 @@
      inkscape:window-height="1059"
      id="namedview3596"
      showgrid="false"
-     inkscape:zoom="3.1020304"
-     inkscape:cx="187.79463"
+     inkscape:zoom="2.851321"
+     inkscape:cx="184.92858"
      inkscape:cy="144.90509"
      inkscape:window-x="0"
      inkscape:window-y="21"
@@ -125,165 +149,174 @@
      style="fill:none;stroke:#000000;stroke-width:1.20000005" />
   <g
      id="g3076"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3078"
        y2="357.54001"
        x2="335.10999"
        y1="353.54001"
        x1="331.10999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3080"
        y2="357.54001"
        x2="331.10999"
        y1="353.54001"
        x1="335.10999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3082"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3084"
        y2="371.14401"
        x2="342.92599"
        y1="367.14401"
        x1="338.92599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3086"
        y2="371.14401"
        x2="338.92599"
        y1="367.14401"
        x1="342.92599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3088"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3090"
        y2="372.638"
        x2="248.004"
        y1="368.638"
        x1="244.004"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3092"
        y2="372.638"
        x2="244.004"
        y1="368.638"
        x1="248.004"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3094"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3096"
        y2="357.04001"
        x2="256.354"
        y1="353.04001"
        x1="252.354"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3098"
        y2="357.04001"
        x2="252.354"
        y1="353.04001"
        x1="256.354"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3100"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3102"
        y2="380.082"
        x2="283.758"
        y1="376.082"
        x1="279.758"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3104"
        y2="380.082"
        x2="279.758"
        y1="376.082"
        x1="283.758"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3106"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3108"
        y2="391.37"
        x2="297.272"
        y1="387.37"
        x1="293.272"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3110"
        y2="391.37"
        x2="293.272"
        y1="387.37"
        x1="297.272"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3112"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3114"
        y2="370.07401"
        x2="281.76401"
        y1="366.07401"
        x1="277.76401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3116"
        y2="370.07401"
        x2="277.76401"
        y1="366.07401"
        x1="281.76401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3118"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3120"
        y2="351.45001"
        x2="322.87799"
        y1="347.45001"
        x1="318.87799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3122"
        y2="351.45001"
        x2="318.87799"
        y1="347.45001"
        x1="322.87799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3124"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3126"
        y2="348.672"
        x2="307.36801"
        y1="344.672"
        x1="303.36801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3128"
        y2="348.672"
        x2="303.36801"
        y1="344.672"
        x1="307.36801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3030"
@@ -324,35 +357,37 @@
   </g>
   <g
      id="g3486"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#555753;stroke-width:0.99971393;stroke-miterlimit:4;stroke-dasharray:3.99885573,3.99885573;stroke-dashoffset:0">
     <g
-       id="g3488">
+       id="g3488"
+       style="stroke:#555753;stroke-width:0.99971393;stroke-miterlimit:4;stroke-dasharray:3.99885573,3.99885573;stroke-dashoffset:0">
       <path
          inkscape:connector-curvature="0"
          id="path3490"
          d="m 446.238,329.656 c 36.694,12.232 10,40 -10,30 -20,-10 -20,-40 10,-30 z"
-         style="fill:#ffffff" />
+         style="fill:#ffffff;stroke:#555753;stroke-width:0.99971393;stroke-miterlimit:4;stroke-dasharray:3.99885573,3.99885573;stroke-dashoffset:0" />
       <path
          inkscape:connector-curvature="0"
          id="path3492"
          d="m 446.238,329.656 c 36.694,12.232 10,40 -10,30 -20,-10 -20,-40 10,-30"
-         style="fill:none;stroke:#000000;stroke-width:1.74729133;stroke-dasharray:2.91215216" />
+         style="fill:none;stroke:#555753;stroke-width:0.99971393;stroke-dasharray:3.99885573,3.99885573;stroke-miterlimit:4;stroke-dashoffset:0" />
     </g>
     <path
        inkscape:connector-curvature="0"
        id="path3496"
        d="m 444.74,362.168 c 5,25 1.498,17.488 21.498,27.488"
-       style="fill:none;stroke:#000000;stroke-width:1.74729133;stroke-dasharray:2.91215216" />
+       style="fill:none;stroke:#555753;stroke-width:0.99971393;stroke-dasharray:3.99885573,3.99885573;stroke-miterlimit:4;stroke-dashoffset:0" />
     <path
        inkscape:connector-curvature="0"
        id="path3498"
        d="m 406.238,369.656 c 20,0 3.812,-14.604 18.812,-19.604"
-       style="fill:none;stroke:#000000;stroke-width:1.74729133;stroke-dasharray:2.91215216" />
+       style="fill:none;stroke:#555753;stroke-width:0.99971393;stroke-dasharray:3.99885573,3.99885573;stroke-miterlimit:4;stroke-dashoffset:0" />
     <path
        inkscape:connector-curvature="0"
        id="path3494"
        d="m 526.238,379.656 c -35,-5 -6.74,-35 -61.52,-35"
-       style="fill:none;stroke:#000000;stroke-width:1.74729133;stroke-dasharray:2.91215216" />
+       style="fill:none;stroke:#555753;stroke-width:0.99971393;stroke-dasharray:3.99885573,3.99885573;stroke-miterlimit:4;stroke-dashoffset:0" />
   </g>
   <g
      id="g3036"
@@ -395,1047 +430,1105 @@
   </g>
   <g
      id="g3138"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3140"
        y2="347.51801"
        x2="479.51599"
        y1="343.51801"
        x1="475.51599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3142"
        y2="347.51801"
        x2="475.51599"
        y1="343.51801"
        x1="479.51599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3144"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3146"
        y2="346.88599"
        x2="476.72198"
        y1="342.88599"
        x1="472.72198"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3148"
        y2="346.88599"
        x2="472.72198"
        y1="342.88599"
        x1="476.72198"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3150"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3152"
        y2="346.854"
        x2="471.66199"
        y1="342.854"
        x1="467.66199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3154"
        y2="346.854"
        x2="467.66199"
        y1="342.854"
        x1="471.66199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3156"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3158"
        y2="347.76599"
        x2="482.78799"
        y1="343.76599"
        x1="478.78799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3160"
        y2="347.76599"
        x2="478.78799"
        y1="343.76599"
        x1="482.78799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3162"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3164"
        y2="347.10599"
        x2="473.95599"
        y1="343.10599"
        x1="469.95599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3166"
        y2="347.10599"
        x2="469.95599"
        y1="343.10599"
        x1="473.95599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3168"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3170"
        y2="346.918"
        x2="468.686"
        y1="342.918"
        x1="464.686"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3172"
        y2="346.918"
        x2="464.686"
        y1="342.918"
        x1="468.686"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3174"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3176"
        y2="355.026"
        x2="499.95001"
        y1="351.026"
        x1="495.95001"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3178"
        y2="355.026"
        x2="495.95001"
        y1="351.026"
        x1="499.95001"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3180"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3182"
        y2="350.68799"
        x2="493.01999"
        y1="346.68799"
        x1="489.01999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3184"
        y2="350.68799"
        x2="489.01999"
        y1="346.68799"
        x1="493.01999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3186"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3188"
        y2="353.89401"
        x2="498.19"
        y1="349.89401"
        x1="494.19"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3190"
        y2="353.89401"
        x2="494.19"
        y1="349.89401"
        x1="498.19"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3192"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3194"
        y2="352.23001"
        x2="495.81601"
        y1="348.23001"
        x1="491.81601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3196"
        y2="352.23001"
        x2="491.81601"
        y1="348.23001"
        x1="495.81601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3198"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3200"
        y2="349.77802"
        x2="491.086"
        y1="345.77802"
        x1="487.086"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3202"
        y2="349.77802"
        x2="487.086"
        y1="345.77802"
        x1="491.086"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3204"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3206"
        y2="349.05399"
        x2="488.556"
        y1="345.05399"
        x1="484.556"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3208"
        y2="349.05399"
        x2="484.556"
        y1="345.05399"
        x1="488.556"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3210"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3212"
        y2="348.48801"
        x2="485.71201"
        y1="344.48801"
        x1="481.71201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3214"
        y2="348.48801"
        x2="481.71201"
        y1="344.48801"
        x1="485.71201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3216"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3218"
        y2="370.742"
        x2="509.06601"
        y1="366.742"
        x1="505.06601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3220"
        y2="370.742"
        x2="505.06601"
        y1="366.742"
        x1="509.06601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3222"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3224"
        y2="368.76199"
        x2="508.10599"
        y1="364.76199"
        x1="504.10599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3226"
        y2="368.76199"
        x2="504.10599"
        y1="364.76199"
        x1="508.10599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3228"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3230"
        y2="364.582"
        x2="505.89001"
        y1="360.582"
        x1="501.89001"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3232"
        y2="364.582"
        x2="501.89001"
        y1="360.582"
        x1="505.89001"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3234"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3236"
        y2="366.68799"
        x2="507.44601"
        y1="362.68799"
        x1="503.44601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3238"
        y2="366.68799"
        x2="503.44601"
        y1="362.68799"
        x1="507.44601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3240"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3242"
        y2="362.664"
        x2="505.07401"
        y1="358.664"
        x1="501.07401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3244"
        y2="362.664"
        x2="501.07401"
        y1="358.664"
        x1="505.07401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3246"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3248"
        y2="360.21201"
        x2="503.79999"
        y1="356.21201"
        x1="499.79999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3250"
        y2="360.21201"
        x2="499.79999"
        y1="356.21201"
        x1="503.79999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3252"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3254"
        y2="358.23199"
        x2="502.84201"
        y1="354.23199"
        x1="498.84201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3256"
        y2="358.23199"
        x2="498.84201"
        y1="354.23199"
        x1="502.84201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3258"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3260"
        y2="356.724"
        x2="501.41199"
        y1="352.724"
        x1="497.41199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3262"
        y2="356.724"
        x2="497.41199"
        y1="352.724"
        x1="501.41199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3264"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3266"
        y2="380.172"
        x2="521.79401"
        y1="376.172"
        x1="517.79401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3268"
        y2="380.172"
        x2="517.79401"
        y1="376.172"
        x1="521.79401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3270"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3272"
        y2="380.078"
        x2="519.73602"
        y1="376.078"
        x1="515.73602"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3274"
        y2="380.078"
        x2="515.73602"
        y1="376.078"
        x1="519.73602"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3276"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3278"
        y2="375.42599"
        x2="512.64801"
        y1="371.42599"
        x1="508.64801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3280"
        y2="375.42599"
        x2="508.64801"
        y1="371.42599"
        x1="512.64801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3282"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3284"
        y2="379.26001"
        x2="518.13202"
        y1="375.26001"
        x1="514.13202"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3286"
        y2="379.26001"
        x2="514.13202"
        y1="375.26001"
        x1="518.13202"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3288"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3290"
        y2="378.38"
        x2="516.54602"
        y1="374.38"
        x1="512.54602"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3292"
        y2="378.38"
        x2="512.54602"
        y1="374.38"
        x1="516.54602"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3294"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3296"
        y2="376.71399"
        x2="515.11603"
        y1="372.71399"
        x1="511.116"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3298"
        y2="376.71399"
        x2="511.116"
        y1="372.71399"
        x1="515.11603"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3300"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3302"
        y2="374.26199"
        x2="512.42798"
        y1="370.26199"
        x1="508.42801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3304"
        y2="374.26199"
        x2="508.42801"
        y1="370.26199"
        x1="512.42798"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3306"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3308"
        y2="373.06799"
        x2="510.84"
        y1="369.06799"
        x1="506.84"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3310"
        y2="373.06799"
        x2="506.84"
        y1="369.06799"
        x1="510.84"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3312"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3314"
        y2="369.95599"
        x2="447.77399"
        y1="365.95599"
        x1="443.77399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3316"
        y2="369.95599"
        x2="443.77399"
        y1="365.95599"
        x1="447.77399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3318"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3320"
        y2="367.97601"
        x2="447.28601"
        y1="363.97601"
        x1="443.28601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3322"
        y2="367.97601"
        x2="443.28601"
        y1="363.97601"
        x1="447.28601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3324"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3326"
        y2="365.314"
        x2="446.53799"
        y1="361.314"
        x1="442.53799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3328"
        y2="365.314"
        x2="442.53799"
        y1="361.314"
        x1="446.53799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3330"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3332"
        y2="381.302"
        x2="527.24799"
        y1="377.302"
        x1="523.24799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3334"
        y2="381.302"
        x2="523.24799"
        y1="377.302"
        x1="527.24799"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3336"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3338"
        y2="380.73801"
        x2="524.40399"
        y1="376.73801"
        x1="520.40399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3340"
        y2="380.73801"
        x2="520.40399"
        y1="376.73801"
        x1="524.40399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3342"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3344"
        y2="388.34399"
        x2="461.21201"
        y1="384.34399"
        x1="457.21201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3346"
        y2="388.34399"
        x2="457.21201"
        y1="384.34399"
        x1="461.21201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3348"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3350"
        y2="387.14999"
        x2="458.52399"
        y1="383.14999"
        x1="454.52399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3352"
        y2="387.14999"
        x2="454.52399"
        y1="383.14999"
        x1="458.52399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3354"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3356"
        y2="386.112"
        x2="456.30801"
        y1="382.112"
        x1="452.30801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3358"
        y2="386.112"
        x2="452.30801"
        y1="382.112"
        x1="456.30801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3360"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3362"
        y2="383.504"
        x2="451.892"
        y1="379.504"
        x1="447.892"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3364"
        y2="383.504"
        x2="447.892"
        y1="379.504"
        x1="451.892"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3366"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3368"
        y2="385.138"
        x2="453.448"
        y1="381.138"
        x1="449.448"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3370"
        y2="385.138"
        x2="449.448"
        y1="381.138"
        x1="453.448"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3372"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3374"
        y2="381.11401"
        x2="450.60199"
        y1="377.11401"
        x1="446.60199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3376"
        y2="381.11401"
        x2="446.60199"
        y1="377.11401"
        x1="450.60199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3378"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3380"
        y2="377.72"
        x2="449.172"
        y1="373.72"
        x1="445.172"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3382"
        y2="377.72"
        x2="445.172"
        y1="373.72"
        x1="449.172"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3384"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3386"
        y2="374.95401"
        x2="448.37201"
        y1="370.95401"
        x1="444.37201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3388"
        y2="374.95401"
        x2="444.37201"
        y1="370.95401"
        x1="448.37201"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3390"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3392"
        y2="372.18799"
        x2="448.35599"
        y1="368.18799"
        x1="444.35599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3394"
        y2="372.18799"
        x2="444.35599"
        y1="368.18799"
        x1="448.35599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3396"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3398"
        y2="360.37"
        x2="420.508"
        y1="356.37"
        x1="416.508"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3400"
        y2="360.37"
        x2="416.508"
        y1="356.37"
        x1="420.508"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3402"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3404"
        y2="358.23199"
        x2="420.492"
        y1="354.23199"
        x1="416.492"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3406"
        y2="358.23199"
        x2="416.492"
        y1="354.23199"
        x1="420.492"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3408"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3410"
        y2="355.62399"
        x2="421.73401"
        y1="351.62399"
        x1="417.73401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3412"
        y2="355.62399"
        x2="417.73401"
        y1="351.62399"
        x1="421.73401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3414"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3416"
        y2="353.64401"
        x2="423.604"
        y1="349.64401"
        x1="419.604"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3418"
        y2="353.64401"
        x2="419.604"
        y1="349.64401"
        x1="423.604"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3420"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3422"
        y2="352.81601"
        x2="426.15399"
        y1="348.81601"
        x1="422.15399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3424"
        y2="352.81601"
        x2="422.15399"
        y1="348.81601"
        x1="426.15399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3426"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3428"
        y2="392.116"
        x2="469.61801"
        y1="388.116"
        x1="465.61801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3430"
        y2="392.116"
        x2="465.61801"
        y1="388.116"
        x1="469.61801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3432"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3434"
        y2="391.23599"
        x2="466.61801"
        y1="387.23599"
        x1="462.61801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3436"
        y2="391.23599"
        x2="462.61801"
        y1="387.23599"
        x1="466.61801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3438"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3440"
        y2="389.57001"
        x2="464.086"
        y1="385.57001"
        x1="460.086"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3442"
        y2="389.57001"
        x2="460.086"
        y1="385.57001"
        x1="464.086"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3444"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3446"
        y2="370.86801"
        x2="413.87601"
        y1="366.86801"
        x1="409.87601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3448"
        y2="370.86801"
        x2="409.87601"
        y1="366.86801"
        x1="413.87601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3450"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3452"
        y2="371.716"
        x2="408.67401"
        y1="367.716"
        x1="404.67401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3454"
        y2="371.716"
        x2="404.67401"
        y1="367.716"
        x1="408.67401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3456"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3458"
        y2="371.78"
        x2="411.48599"
        y1="367.78"
        x1="407.48599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3460"
        y2="371.78"
        x2="407.48599"
        y1="367.78"
        x1="411.48599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3462"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3464"
        y2="370.58401"
        x2="416.186"
        y1="366.58401"
        x1="412.186"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3466"
        y2="370.58401"
        x2="412.186"
        y1="366.58401"
        x1="416.186"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3468"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3470"
        y2="368.92001"
        x2="418.21399"
        y1="364.92001"
        x1="414.21399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3472"
        y2="368.92001"
        x2="414.21399"
        y1="364.92001"
        x1="418.21399"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3474"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3476"
        y2="365.996"
        x2="418.82599"
        y1="361.996"
        x1="414.82599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3478"
        y2="365.996"
        x2="414.82599"
        y1="361.996"
        x1="418.82599"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3480"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3482"
        y2="363.07199"
        x2="419.59601"
        y1="359.07199"
        x1="415.59601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3484"
        y2="363.07199"
        x2="415.59601"
        y1="359.07199"
        x1="419.59601"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <path
      inkscape:connector-curvature="0"
@@ -1454,165 +1547,174 @@
      style="fill:none;stroke:#000000;stroke-width:1.20000005" />
   <g
      id="g3520"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3522"
        y2="216.84599"
        x2="474.13199"
        y1="212.84599"
        x1="470.13199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3524"
        y2="216.84599"
        x2="470.13199"
        y1="212.84599"
        x1="474.13199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3526"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3528"
        y2="220.552"
        x2="490.056"
        y1="216.552"
        x1="486.056"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3530"
        y2="220.552"
        x2="486.056"
        y1="216.552"
        x1="490.056"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3532"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3534"
        y2="235.286"
        x2="503.23199"
        y1="231.286"
        x1="499.23199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3536"
        y2="235.286"
        x2="499.23199"
        y1="231.286"
        x1="503.23199"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3538"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3540"
        y2="249.384"
        x2="517.59198"
        y1="245.384"
        x1="513.59198"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3542"
        y2="249.384"
        x2="513.59198"
        y1="245.384"
        x1="517.59198"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3544"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3546"
        y2="241.14"
        x2="445.20401"
        y1="237.14"
        x1="441.20401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3548"
        y2="241.14"
        x2="441.20401"
        y1="237.14"
        x1="445.20401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3550"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3552"
        y2="257.33401"
        x2="455.89401"
        y1="253.334"
        x1="451.89401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3554"
        y2="257.33401"
        x2="451.89401"
        y1="253.334"
        x1="455.89401"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3556"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3558"
        y2="225.174"
        x2="418.48801"
        y1="221.174"
        x1="414.48801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3560"
        y2="225.174"
        x2="414.48801"
        y1="221.174"
        x1="418.48801"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3562"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="stroke:#ef2929">
     <line
        id="line3564"
        y2="240.53"
        x2="410.39999"
        y1="236.53"
        x1="406.39999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3566"
        y2="240.53"
        x2="406.39999"
        y1="236.53"
        x1="410.39999"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:none;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <g
      id="g3568"
-     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)">
+     transform="matrix(0.68694692,0,0,0.68660772,66.773058,56.480419)"
+     style="fill:#ef2929;stroke:#ef2929">
     <line
        id="line3570"
        y2="236.90199"
        x2="415.53"
        y1="232.90199"
        x1="411.53"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:#ef2929;stroke:#ef2929;stroke-width:1.74729132999999992" />
     <line
        id="line3572"
        y2="236.90199"
        x2="411.53"
        y1="232.90199"
        x1="415.53"
-       style="fill:none;stroke:#a52a2a;stroke-width:1.74729133" />
+       style="fill:#ef2929;stroke:#ef2929;stroke-width:1.74729132999999992" />
   </g>
   <text
      font-size="12.8"
@@ -1673,21 +1775,16 @@
   <text
      xml:space="preserve"
      style="font-size:7.7705183px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="302.49387"
-     y="254.60582"
+     x="316.11273"
+     y="257.45361"
      id="text3602"
      sodipodi:linespacing="125%"
      transform="scale(1.000247,0.99975307)"><tspan
        sodipodi:role="line"
-       id="tspan3604"
-       x="302.49387"
-       y="254.60582"
-       style="font-size:7.7705183px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;text-anchor:start;font-family:CMU Serif;-inkscape-font-specification:CMU Serif Medium">Many</tspan><tspan
-       sodipodi:role="line"
-       x="302.49387"
-       y="264.31897"
+       x="316.11273"
+       y="257.45361"
        id="tspan3606"
-       style="font-size:7.7705183px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;text-anchor:start;font-family:CMU Serif;-inkscape-font-specification:CMU Serif Medium">Images</tspan></text>
+       style="font-size:7.7705183px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;text-anchor:start;font-family:CMU Serif;-inkscape-font-specification:CMU Serif Medium">Many images</tspan></text>
   <path
      style="fill:none;stroke:#000000;stroke-width:0.77705187;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.1082074, 3.1082074;stroke-dashoffset:0;marker-end:url(#Arrow2Lend)"
      d="m 356.29701,238.4689 -50.69482,45.77658"
