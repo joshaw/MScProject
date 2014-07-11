@@ -14,9 +14,11 @@ import ij.gui.*;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.HashMap;
 
 import quadtree.*;
-import quadtree.propagation.QuadTreePropagation;
+import quadtree.propagation.QuadTreePropagate;
+import quadtree.QuadTreeMap;
 import simplegrid.*;
 import utils.columnchooser.ColumnChooserGUI2;
 import utils.ClusterStructure;
@@ -224,11 +226,15 @@ public class Cluster_Analysis extends PlugInFrame {
 					QuadTree qt = (QuadTree)dataStructure;
 					System.out.println("Max Depth:" + qt.getDepth());
 
-					qt.draw(linesBool.getState(), pointsBool.getState(),
-						 	scaleVal);
+					// qt.draw(linesBool.getState(), pointsBool.getState(),
+					// 	 	scaleVal);
 
-					QuadTreePropagation qtp =
-						new QuadTreePropagation(qt.toHashMap());
+					QuadTreeMap hm = qt.toQuadTreeMap();
+
+					QuadTreePropagate qtp = new QuadTreePropagate(hm);
+
+					DrawQuadTreeMap d = new DrawQuadTreeMap(hm, scaleVal);
+					d.draw(linesBool.getState(), pointsBool.getState());
 
 				} else if (label.equals("Grid")) {
 					dataStructure = new SimpleGrid(maxXval, maxYval,
