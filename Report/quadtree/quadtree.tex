@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Fri 11 Jul 2014 11:17 AM
+% Modified: Sun 13 Jul 2014 09:02 PM
 % @author Josh Wainwright
 % File name : quadtree.tex
 
@@ -131,19 +131,19 @@ The Gray Code\cite{gray1953pulse}, developed by Frank Gray in 1953, was
 originally designed to reduce the error rate produced by mechanical
 electronics. The code is a variation on binary where each step when counting
 up changes only a single bit at a time. This meant that electromechanical
-apperatus was less likely to make a mistake or generate errors since the
+apparatus was less likely to make a mistake or generate errors since the
 actions required to count from one to two required only a single bit change,
 rather than two, as would be required for binary counting. When using just two
-bits, i.e., couting from zero to three, the steps are very similar to binary,
+bits, i.e., counting from zero to three, the steps are very similar to binary,
 (00, 01, 11, 10).
 
 The path that this follows is shown in
 Figure~\ref{fig:traverse-gray-order.pdf}. This does not seem to provide any
 benefits since there is now more jumping around the image space than with
 Z-order and the neighbours are just as difficult to calculate as for Hilbert
-Order. However, by using a different arangement of the sub-trees, as the
+Order. However, by using a different arrangement of the sub-trees, as the
 Hilbert curve does, the leaf nodes group themselves in a very ordered
-fasion. When arranged as in Figure~\ref{fig:traverse-modgray-order.pdf}
+fashion. When arranged as in Figure~\ref{fig:traverse-modgray-order.pdf}
 and~\ref{fig:modgray-traversal}, each cell is arranged such that
 
 % \begin{figure}[htpb]
@@ -175,12 +175,12 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
 	\label{fig:modgray-steps}
 \end{figure}
 
-Since the quadtree is a recursive data structure, it is nessessary to be able
+Since the quadtree is a recursive data structure, it is necessary to be able
 to maintain the correct orientation of child trees with respect to their
-parents at the construction stage. It turns out that this is easy to acheive
+parents at the construction stage. It turns out that this is easy to achieve
 and thus adapting it for each of the arrangements discussed above is simply a
 matter of adjusting the next part of the code that is added for each of the
-four children when creating them. Pseudo code to acheive this for the Morton
+four children when creating them. Pseudo code to achieve this for the Morton
 order and the modified Gray code order is shown in Listing
 ~\ref{code:child_construction}.
 
@@ -236,12 +236,12 @@ b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \label{sub:quadtree_definitions}
 
 It is useful to define a few terms that shall be used in the context of
-quadtrees. Many of these are identical to the definitions more commonly applid
+quadtrees. Many of these are identical to the definitions more commonly applied
 to binary trees.
 
 \begin{description}
 	\item[Root] The node at the topmost position in the tree.
-	\item[Child] One of the four nodes that are beneith a given node for which
+	\item[Child] One of the four nodes that are beneath a given node for which
 	there is a direct path of length 1 between this node and it.
 	\item[Height] The length of the longest path from the root node to one of
 	the leaf nodes.
@@ -250,3 +250,24 @@ to binary trees.
 	four children have the same height. In this case, the number of leaves in
 	the tree is a maximum.
 \end{description}
+
+\subsection{Hash Table Implementation}
+\label{sub:hash_table_implementation}
+
+In order to speed up the subsequent operations applied to the quadtree
+structure, it can be converted to a simpler one dimensional data structure.
+The method discussed above, to number the cells in a logical fashion, can be
+viewed as a way to map the two dimensional image to a single unique binary
+code, and hence to a one dimensional format. Thus, the quadtree can be easily
+converted to an array structure by simply using the key code as the index
+array.
+
+As mentioned in Section~\ref{prt:data_structures}, this has the potential to
+have a poor space usage if the image is not densely populated (in which case it
+is likely that few clusters would be identifiable anyway). Instead, an
+implementation is tested that makes use of the \emph{Hash Table} data
+% TODO Hash table citation
+structure\cite{}. This allows the data structure to increase in size
+dynamically as more space is needed, but also provides $O(1)$ time complexity
+for access and modification. The quadtree code is used as the key for the hash
+table, and the data stored at that location is used as the value.
