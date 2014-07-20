@@ -6,6 +6,19 @@
 \section{Quadtree Traversal}
 \label{sec:quadtree_traversal}
 
+Whether the quadtree is stored in memory as a recursive quadtree data
+structure, or as hash table, Section~\ref{sub:hash_table_implementation}, the
+most important and computationally intensive step is extracting the clusters at
+the correct depth and disregarding those data points that can be attributed to
+noise.
+
+The quadtree numbering system chosen lends itself very well to analysis based
+on spatial location and the proximity of neighbours to a given cell being
+examined. The neighbours of interest, named as \emph{rook's case} neighbours
+% TODO Add abel and mark paper reference.
+by~ref{}, are the four cells that lie to the north, east, sound and west of the
+current
+
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=0.88\linewidth]{propogation.pdf}

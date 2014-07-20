@@ -255,19 +255,19 @@ to binary trees.
 \label{sub:hash_table_implementation}
 
 In order to speed up the subsequent operations applied to the quadtree
-structure, it can be converted to a simpler one dimensional data structure.
-The method discussed above, to number the cells in a logical fashion, can be
-viewed as a way to map the two dimensional image to a single unique binary
-code, and hence to a one dimensional format. Thus, the quadtree can be easily
-converted to an array structure by simply using the key code as the index
-array.
+structure, it can be converted to a simpler, one dimensional data structure.
+The method discussed above, to number the cells in a logical fashion based on
+the code of the parent, can be viewed as a way to map the two dimensional image
+to a single unique binary code, and hence to a one dimensional format. Thus,
+the quadtree can be easily converted to an array structure by simply using the
+key code as the index array.
 
 As mentioned in Section~\ref{prt:data_structures}, this has the potential to
-have a poor space usage if the image is not densely populated (in which case it
-is likely that few clusters would be identifiable anyway). Instead, an
+have a very poor space usage if the image is not densely populated (in which
+case it is likely that few clusters would be identifiable anyway). Instead, an
 implementation is tested that makes use of the \emph{Hash Table} data
 % TODO Hash table citation
 structure\cite{}. This allows the data structure to increase in size
-dynamically as more space is needed, but also provides $O(1)$ time complexity
+dynamically as more space is needed, but also provides linear time complexity
 for access and modification. The quadtree code is used as the key for the hash
-table, and the data stored at that location is used as the value.
+table, and the data stored within the cell with that code is the value.
