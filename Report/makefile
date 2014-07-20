@@ -19,8 +19,7 @@ SVGPDF=$(addprefix $(DIR)/,$(subst .svg,.pdf,$(wildcard **/*.svg)))
 # DIASRC=$(wildcard **/*.dia)
 DIAPDF=$(addprefix $(DIR)/,$(subst .dia,.pdf,$(wildcard **/*.dia)))
 
-all: $(DIR) $(DIR)/$(PROJECT).pdf
-	@echo $(SVGPDF)
+all: $(DIR) $(DIR)/$(PROJECT).pdf $(SVGPDF) $(DIAPDF)
 
 $(DIR):
 	mkdir $(DIR)
@@ -30,7 +29,7 @@ $(DIR):
 $(DIR)/%.pdf: %.dia
 	echo "$< ==> $@"
 	mkdir -p $(shell dirname $@)
-	dia -t svg -e "/dev/stdout" $< 2> /dev/null\
+	dia -t svg -e "/dev/stdout" $< | sed '$$ d'\
 		| rsvg-convert -f pdf > "$@"
 
 $(DIR)/%.pdf: %.svg
