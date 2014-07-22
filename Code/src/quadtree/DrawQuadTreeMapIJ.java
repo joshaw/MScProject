@@ -3,7 +3,7 @@
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
-package simplegrid;
+package quadtree;
 
 import ij.*;
 import ij.io.*;
@@ -28,25 +28,40 @@ public class DrawQuadTreeMapIJ {
 	private int gridY;
 	private double globalMaxX;
 	private double globalMaxY;
-	private final double scaleFactor = 0.01;
-	private float points[][];
+	private final double scaleVal;
+	private int points[][];
 	private int addedCount = 0;
 	private boolean incPoints;
 	private boolean incLines;
 
-	public DrawQuadTreeMapIJ(String filepath, QuadTreeMap qtm, int gridX, int gridY) {
+	public DrawQuadTreeMapIJ(String filepath, QuadTreeMap qtm, double maxX, double maxY, double scaleVal) {
 		this.filepath = filepath;
 		this.qtm = qtm;
-		this.gridX = gridX;
-		this.gridY = gridY;
+		this.scaleVal = scaleVal;
+		this.gridX = (int)(scaleVal * maxX);
+		this.gridY = (int)(scaleVal * maxY);
+		this.globalMaxX = qtm.getMaxX();
+		this.globalMaxY = qtm.getMaxY();
+		points = new int[gridX+1][gridY+1];
+
+		for (int i = 0; i < gridX+1; i++) {
+			for (int j = 0; j < gridY+1; j++) {
+				points[i][j] = toRGB(255, 255, 255);
+			}
+		}
 	}
 
-	public void draw() {
-		ImagePlus imp = NewImage.createFloatImage(filepath, gridX, gridY, 1,
+	public void draw(boolean incLines, boolean incPoints) {
+		this.incLines = incLines;
+		this.incPoints = incPoints;
+
+		ImagePlus imp = NewImage.createRGBImage(filepath, gridX, gridY, 1,
 				NewImage.FILL_WHITE);
 		ImageProcessor imgpro = imp.getProcessor();
 
-		float[] pixels = new float[gridX * gridY];
+		traverseMap();
+
+		int[] pixels = new int[gridX * gridY];
 		for (int j = 0; j < gridY; j++) {
 			for (int i = 0; i < gridX; i++) {
 				pixels[j*gridX + i] = points[i][j];
@@ -101,29 +116,51 @@ public class DrawQuadTreeMapIJ {
 				code = code.substring(2);
 			}
 
-			double x = scaleFactor*minX;
-			double X = scaleFactor*maxX;
-			double y = scaleFactor*minY;
-			double Y = scaleFactor*maxY;
+			int x = (int)(scaleVal*minX);
+			int X = (int)(scaleVal*maxX);
+			int y = (int)(scaleVal*minY);
+			int Y = (int)(scaleVal*maxY);
 
 			if (e.getValue().status() == 1) {
-			// 	g2.setPaint(Color.RED);
-			// 	g2.fill(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+				// g2.setPaint(Color.RED);
+				// g2.fill(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+				for (int i = x; i < X; i++) {
+					for (int j = y; j < Y; j++) {
+						points[i][j] = toRGB(239, 29, 29);
+					}
+				}
 			}
 			// g2.setPaint(Color.BLACK);
 
-			// if (incLines) {
-			// 	g2.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
-			// 	boxCount++;
-			// }
+			if (incLines) {
+				// g2.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+				for (int i = x; i < X; i++) {
+					points[i][y] = toRGB(0, 0, 0);
+				}
+				for (int i = x; i < X; i++) {
+					points[i][Y] = toRGB(0, 0, 0);
+				}
+				for (int i = y; i < Y; i++) {
+					points[x][i] = toRGB(0, 0, 0);
+				}
+				for (int i = y; i < Y; i++) {
+					points[X][i] = toRGB(0, 0, 0);
+				}
+				// boxCount++;
+			}
 
 			if (incPoints) {
 				for(Coordinate c: e.getValue().points()) {
-					points[(int)c.getX()][(int)c.getY()] = 0;
+					int xpoint = (int)(scaleVal * c.getX());
+					int ypoint = (int)(scaleVal * c.getY());
+					points[xpoint][ypoint] = toRGB(0, 0, 0);
 					// addedCount++;
 				}
 			}
 		}
 	}
 
+	private int toRGB(int r, int g, int b) {
+		return ((r & 0xff)<<16) + ((g & 0xff)<<8) + (b & 0xff);
+	}
 }

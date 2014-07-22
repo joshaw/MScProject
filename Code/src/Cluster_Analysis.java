@@ -17,6 +17,7 @@ import java.util.TimerTask;
 import java.util.HashMap;
 
 import quadtree.*;
+import quadtree.DrawQuadTreeMapIJ;
 import quadtree.propagation.QuadTreePropagate;
 import quadtree.QuadTreeMap;
 import simplegrid.*;
@@ -100,7 +101,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		linesBool = new Checkbox("Lines", true);
 		subpanel1.add(linesBool);
-		pointsBool = new Checkbox("Points", false);
+		pointsBool = new Checkbox("Points", true);
 		subpanel1.add(pointsBool);
 
 		subpanel2 = new Panel();
@@ -224,7 +225,6 @@ public class Cluster_Analysis extends PlugInFrame {
 							densityVal, filepath, colX, colY, separator);
 
 					QuadTree qt = (QuadTree)dataStructure;
-					System.out.println("Max Depth:" + qt.getDepth());
 
 					// qt.draw(linesBool.getState(), pointsBool.getState(),
 					// 	 	scaleVal);
@@ -233,8 +233,11 @@ public class Cluster_Analysis extends PlugInFrame {
 
 					QuadTreePropagate qtp = new QuadTreePropagate(hm);
 
-					DrawQuadTreeMap d = new DrawQuadTreeMap(hm, scaleVal);
-					d.draw(linesBool.getState(), pointsBool.getState());
+					// DrawQuadTreeMap d = new DrawQuadTreeMap(hm, scaleVal);
+					// d.draw(linesBool.getState(), pointsBool.getState());
+
+					DrawQuadTreeMapIJ dij = new DrawQuadTreeMapIJ(filepath, hm, maxXval, maxYval, scaleVal);
+					dij.draw(linesBool.getState(), pointsBool.getState());
 
 				} else if (label.equals("Grid")) {
 					dataStructure = new SimpleGrid(maxXval, maxYval,
