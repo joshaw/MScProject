@@ -123,15 +123,17 @@ public class DrawQuadTreeMap extends JPanel {
 			double y = scaleFactor*minY;
 			double Y = scaleFactor*maxY;
 
+			if (e.getValue().status() == 1) {
+				g2.setPaint(Color.RED);
+				g2.fill(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
+			}
+			g2.setPaint(Color.BLACK);
+
 			if (incLines) {
-				if (e.getValue().status() == 1) {
-					g2.setPaint(Color.RED);
-					g2.fill(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
-				}
-				g2.setPaint(Color.BLACK);
 				g2.draw(new Rectangle2D.Double(10+x, 10+y, X-x, Y-y));
 				boxCount++;
 			}
+
 			if (incPoints) {
 				for(Coordinate c: e.getValue().points()) {
 					// g.drawString(code, (float)(13+x), (float)(22+y));
