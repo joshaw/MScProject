@@ -266,8 +266,8 @@ As mentioned in Section~\ref{prt:data_structures}, this has the potential to
 have a very poor space usage if the image is not densely populated (in which
 case it is likely that few clusters would be identifiable anyway). Instead, an
 implementation is tested that makes use of the \emph{Hash Table} data
-% TODO Hash table citation
-structure\cite{}. This allows the data structure to increase in size
-dynamically as more space is needed, but also provides linear time complexity
-for access and modification. The quadtree code is used as the key for the hash
-table, and the data stored within the cell with that code is the value.
+structure\cite{cormen2001introduction}. This allows the data structure to
+increase in size dynamically as more space is needed, but also provides linear
+time complexity for access and modification. The quadtree code is used as the
+key for the hash table, and the data stored within the cell with that code is
+the value.
