@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Sun 13 Jul 2014 09:02 PM
+% Modified: Tue 22 Jul 2014 04:39 PM
 % @author Josh Wainwright
 % File name : quadtree.tex
 
@@ -120,8 +120,13 @@ calculation of neighbours becomes difficult.
         \includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
         \caption{}\label{fig:traverse-modgray-order.pdf}
     \end{subfigure}
-    % TODO caption
-    \caption{}\label{fig:order_traversals}
+    \caption{A selection of possible tree traversal orderings. Each of theses
+    is, more formally, a space filling curve which is a direct, unique mapping
+    from a 2D grid to a 1D array. \subref{fig:traverse-z-order.pdf} shows
+    Z-order, \subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
+    \subref{fig:traverse-gray-order.pdf} shows Gray code order and
+    \subref{fig:traverse-modgray-order.pdf} shows the modified Gray code order
+    developed for this project.} \label{fig:order_traversals}
 \end{figure}
 
 \subsection{Gray Codes}
@@ -164,8 +169,13 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
         \includegraphics[width=\textwidth]{modgray-2-levels-numbers.pdf}
         \caption{}\label{fig:modgray-2-levels-numbers.pdf}
     \end{subfigure}
-    % TODO caption
-    \caption{}\label{fig:modgray-traversal}
+    \caption{The tree traversal that was developed for this project is a
+    variation of the Gray code order discussed in Section~\ref{sub:gray_codes}.
+    Instead of all sub-quadrants having the same orientation, each is
+    reflected in either the x- or y-axis,
+    \subref{fig:modgray-2-levels-arrows.pdf}. This has the advantage that
+    neighbouring nodes have codes which differ by exactly one bit,
+    \subref{fig:modgray-2-levels-numbers.pdf}.} \label{fig:modgray-traversal}
 \end{figure}
 
 \begin{figure}[tbhp]

@@ -21,8 +21,11 @@ sound and west of the current node.
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=0.88\linewidth]{propogation.pdf}
-	% TODO caption
-	\caption{Propagation}
+	\caption{For a starting location, a), in an image, no information is known
+	and so the neighbours are checked. Some of these are found to be part of
+	the cluster, others are rejected. The ones that are included are then,
+	themselves, checked and so on. As the cluster grows, b), c) and d), the
+	number of checked nodes increases.}
 	\label{fig:propogation}
 \end{figure}
 
@@ -66,13 +69,7 @@ whereas a depth range of three would include both.
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=0.88\linewidth]{propogation-levels.pdf}
+	% TODO caption
 	\caption{propogation-Levels}
 	\label{fig:propogation-levels}
-\end{figure}
-
-\begin{figure}[tbhp]
-	\centering
-	\includegraphics[width=0.88\linewidth]{single-cluster.png}
-	\caption{single-Cluster}
-	\label{fig:single-cluster}
 \end{figure}
