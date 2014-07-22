@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Thu 10 Jul 2014 04:22 PM
+% Modified: Tue 22 Jul 2014 04:29 PM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -17,6 +17,31 @@ on spatial location and the proximity of neighbours to a given node being
 examined. The neighbours of interest, named \emph{rook's case} neighbours
 by~\cite{abel1990comparative}, are the four nodes that lie to the north, east,
 sound and west of the current node.
+
+The propogation algorithm is performed as follows:
+\begin{enumerate}
+	\item For a given starting position, the four neighbours are checked for
+	validity based on the conditions of the analysis.
+	\item If a node fails the check, then it is recorded as having done so and
+	shall not be checked again. If it passes, then it is itself propogated.
+	\item When there are no nodes left to be checked, the algorithm has
+	finished. This may be because either,
+	\begin{itemize}
+		\item every one of the nodes in the image have been checked and
+		included or ignored, or
+		\item the cluster has ended, so all the neighbours of all checked nodes
+		have failed the validity tests and no further starting locations were
+		found.
+	\end{itemize}
+\end{enumerate}
+
+This process is shown graphically in Figure~\ref{fig:propogation}. Here, and
+from now on, blue nodes are nodes that either need to be checked or are
+currently being checked; red are nodes that have been checked and have been
+included in the cluster; question marks ({\footnotesize?}) represent the
+neighbours of the blue nodes that will have to be checked to determine if it is
+included or not and crosses ({\footnotesize x}) represent neighbours that have
+been checked and excluded.
 
 \begin{figure}[tbhp]
 	\centering
@@ -40,8 +65,8 @@ is not sufficient. If the propagation is limited to a given node depth, even if
 this is not the same as the deepest node, the size of any clusters that are
 identified will be limited, as shown in Figure~\ref{fig:propogation-halting}.
 Since the depth to consider is not able to change, when the neighbours of the
-blue cell are checked, no correct neighbours are found and so the process
-terminates. When able to view the larger structure of the cells, however, it is
+blue node are checked, no correct neighbours are found and so the process
+terminates. When able to view the larger structure of the nodes, however, it is
 clear that the structure continues beyond the gap.
 
 \begin{figure}[tbhp]
