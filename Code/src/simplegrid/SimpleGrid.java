@@ -58,7 +58,6 @@ public class SimpleGrid implements ClusterStructure {
 		}
 	}
 
-	// TODO remove nessessity for parameters - required because of interface
 	public void draw() {
 		DrawSimpleGrid d = new DrawSimpleGrid(filepath, points, gridX, gridY);
 		d.draw();
