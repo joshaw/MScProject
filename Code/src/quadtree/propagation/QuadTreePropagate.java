@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Fri 11 Jul 2014 08:26 PM
+ * Modified: Tue 22 Jul 2014 11:07 AM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -16,8 +16,7 @@ public class QuadTreePropagate {
 
 	private HashMap<String, PropogationDatum> hashmap;
 	private final String start;
-	private final int depthRange = 0;
-	private int searches = 0;
+	private final int diff = 2*3;
 
 	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
 		this.hashmap = hashmap;
@@ -27,38 +26,39 @@ public class QuadTreePropagate {
 	}
 
 	private String getStart() {
-		boolean cont = true;
-		String s = "00";
-		while (cont) {
-			if (hashmap.containsKey(s)) {
-				cont = false;
-			} else {
-				s += "00";
+		// boolean cont = true;
+		// String s = "00";
+		// while (cont) {
+		// 	if (hashmap.containsKey(s)) {
+		// 		cont = false;
+		// 	} else {
+		// 		s += "00";
+		// 	}
+		// }
+
+		int lmax = 0;
+		String smax = "00";
+		for (String s : hashmap.keySet()) {
+			if (s.length() > lmax) {
+				lmax = s.length();
+				smax = s;
 			}
 		}
-		return s;
+
+		return smax;
 	}
 
 	public void propagate(String cell) {
 		ArrayList<String> neighbours = getNeighbours(cell);
-		int nulls = 0;
 
 		for (String c : neighbours) {
-			if (c != null &&
-					hashmap.get(c).status() == 0) {
 
-				searches++;
+			if (c != null && hashmap.get(c).status() == 0) {
+
 				System.out.println("Hit: " + c);
 				hashmap.get(c).setStatus((byte)1);
 				propagate(c);
-
-			} else {
-				nulls++;
 			}
-		}
-
-		if (nulls == 4) {
-			searches--;
 		}
 	}
 
@@ -95,7 +95,7 @@ public class QuadTreePropagate {
 			 * 1 in the y-axis, or are the same in the y-axis and differ by 1
 			 * in the x-axis, then they are adjacent. */
 			return ((qt1x == qt2x) && (Math.abs(qt1y-qt2y) == 1) ) ||
-				  ( (qt1y == qt2y) && (Math.abs(qt1x-qt2x) == 1));
+				( (qt1y == qt2y) && (Math.abs(qt1x-qt2x) == 1));
 		}
 
 		String sqt = Sutils.shortest(qt1,qt2);
@@ -106,7 +106,7 @@ public class QuadTreePropagate {
 	}
 
 	/** Returns true if the two nodes are adjacent.
-	 */
+	*/
 	public static boolean adjacent(String qt1, String qt2) {
 		return adjacent(qt1, qt2, 0);
 	}
@@ -181,19 +181,62 @@ public class QuadTreePropagate {
 		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()), cl));
 		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()+1), cl));
 
-		for (int i = 0; i < neighbours.size(); i++) {
+		for (int i = 0; i < 4; i++) {
+
 			String s = neighbours.get(i);
-			// TODO check if these have been checked
-			if (! hashmap.containsKey(s)) {
+			System.out.println("s: " + s);
+
+			if (s != null) {
+
+				// Check up the tree for valid neighbours
+				while (s != null &&
+						start.length()-s.length() < diff &&
+						s.length() >= 2) {
+
+					if (hashmap.containsKey(s)) {
+						System.out.println("Add: " + s);
+						neighbours.add(s);
+						break;
+					} else {
+						s = s.substring(0, s.length()-2);
+						System.out.println("Sub: " + s);
+					}
+						}
+
+				// Check down the tree for valid neighbours
+				s = neighbours.get(i);
+				neighbours.addAll(addSuffixes(s));
+			}
+
+			if (!hashmap.containsKey(neighbours.get(i))) {
 				neighbours.set(i, null);
-				// neighbours.add(s + "00");
-				// neighbours.add(s + "01");
-				// neighbours.add(s + "10");
-				// neighbours.add(s + "11");
 			}
 		}
 
 		return neighbours;
 	}
 
+	private ArrayList<String> addSuffixes(String code) {
+		String[] suffixes = {"00", "01", "10", "11"};
+		ArrayList<String> codesWithSuff = new ArrayList<String>();
+		ArrayList<String> codesWithSuffTmp = new ArrayList<String>();
+		codesWithSuff.add(code);
+
+		for (int i = 1; i < diff/2; i++) {
+			for (String s : codesWithSuff) {
+				for (int j = 0; j < 4; j++) {
+					if (hashmap.containsKey(s+suffixes[j])) {
+						codesWithSuffTmp.add(s+suffixes[j]);
+						System.out.println("Add: " + s+suffixes[j]);
+					}
+				}
+			}
+			codesWithSuff.addAll(codesWithSuffTmp);
+		}
+
+		if (!hashmap.containsKey(code)) {
+			codesWithSuff.remove(0);
+		}
+		return codesWithSuff;
+	}
 }

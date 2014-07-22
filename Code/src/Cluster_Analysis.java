@@ -87,7 +87,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		textpanel.add(maxY);
 
 		Label densityLab = new Label("Density");
-		density = new TextField("20", 10);
+		density = new TextField("200", 10);
 		density.addKeyListener(new NumberKeyListener());
 		textpanel.add(densityLab);
 		textpanel.add(density);
@@ -100,7 +100,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		linesBool = new Checkbox("Lines", true);
 		subpanel1.add(linesBool);
-		pointsBool = new Checkbox("Points", true);
+		pointsBool = new Checkbox("Points", false);
 		subpanel1.add(pointsBool);
 
 		subpanel2 = new Panel();
