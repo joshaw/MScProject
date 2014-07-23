@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Tue 22 Jul 2014 11:07 AM
+ * Modified: Wed 23 Jul 2014 03:55 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -16,7 +16,7 @@ public class QuadTreePropagate {
 
 	private HashMap<String, PropogationDatum> hashmap;
 	private String start;
-	private final int diff = 2*3;
+	private final int diff = 2*2;
 
 	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
 		this.hashmap = hashmap;
@@ -47,7 +47,7 @@ public class QuadTreePropagate {
 	}
 
 	private void propagate() {
-		for (int k = 1; k < 10; k++) {
+		for (int k = 1; k < 40; k++) {
 			this.start = getStart();
 			System.out.println("Start " + k + ": " + start);
 			if (start == "") {
