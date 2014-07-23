@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Wed 23 Jul 2014 09:57 AM
+ * Modified: Wed 23 Jul 2014 03:55 PM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -59,7 +59,7 @@ public class DrawQuadTreeMapIJ {
 		this.incLines = incLines;
 		this.incPoints = incPoints;
 
-		ImagePlus imp = NewImage.createRGBImage(filepath, gridX, gridY, 3,
+		ImagePlus imp = NewImage.createRGBImage(filepath, gridX, gridY, 2,
 				NewImage.FILL_WHITE);
 		// ImageProcessor imgpro = imp.getProcessor();
 		ImageStack ims = imp.getStack();
@@ -79,20 +79,19 @@ public class DrawQuadTreeMapIJ {
 				pixels2[j*gridX + i] = points2[i][j];
 			}
 		}
-		for (int j = 0; j < gridY; j++) {
-			for (int i = 0; i < gridX; i++) {
-				if (points1[i][j] == rgb(255, 255, 255)) {
-					pixels3[j*gridX + i] = points2[i][j];
-				} else {
-					pixels3[j*gridX + i] = points1[i][j];
-				}
-			}
-		}
+		// for (int j = 0; j < gridY; j++) {
+		// 	for (int i = 0; i < gridX; i++) {
+		// 		if (points1[i][j] == rgb(255, 255, 255)) {
+		// 			pixels3[j*gridX + i] = points2[i][j];
+		// 		} else {
+		// 			pixels3[j*gridX + i] = points1[i][j];
+		// 		}
+		// 	}
+		// }
 
-		// imgpro.setPixels(pixels);
 		ims.setPixels(pixels1, 1);
 		ims.setPixels(pixels2, 2);
-		ims.setPixels(pixels3, 3);
+		// ims.setPixels(pixels3, 3);
 		imp.setStack("Clusters", ims);
 		imp.show();
 	}
@@ -148,39 +147,39 @@ public class DrawQuadTreeMapIJ {
 
 			for (int i = x; i < X; i++) {
 				for (int j = y; j < Y; j++) {
-					if (e.getValue().status() == 1) {
+					if (e.getValue().status()%10 == 1) {
 						points1[i][j] = hexrgb("#fce94f");
 						points2[i][j] = hexrgb("#fce94f");
 					}
-					if (e.getValue().status() == 2) {
+					if (e.getValue().status()%10 == 2) {
 						points1[i][j] = hexrgb("#fcaf3e");
 						points2[i][j] = hexrgb("#fcaf3e");
 					}
-					if (e.getValue().status() == 3) {
+					if (e.getValue().status()%10 == 3) {
 						points1[i][j] = hexrgb("#e9b96e");
 						points2[i][j] = hexrgb("#e9b96e");
 					}
-					if (e.getValue().status() == 4) {
+					if (e.getValue().status()%10 == 4) {
 						points1[i][j] = hexrgb("#8ae234");
 						points2[i][j] = hexrgb("#8ae234");
 					}
-					if (e.getValue().status() == 5) {
+					if (e.getValue().status()%10 == 5) {
 						points1[i][j] = hexrgb("#729fcf");
 						points2[i][j] = hexrgb("#729fcf");
 					}
-					if (e.getValue().status() == 6) {
+					if (e.getValue().status()%10 == 6) {
 						points1[i][j] = hexrgb("#ad7fa8");
 						points2[i][j] = hexrgb("#ad7fa8");
 					}
-					if (e.getValue().status() == 7) {
+					if (e.getValue().status()%10 == 7) {
 						points1[i][j] = hexrgb("#ef2929");
 						points2[i][j] = hexrgb("#ef2929");
 					}
-					if (e.getValue().status() == 8) {
+					if (e.getValue().status()%10 == 8) {
 						points1[i][j] = hexrgb("#d3d7cf");
 						points2[i][j] = hexrgb("#d3d7cf");
 					}
-					if (e.getValue().status() == 9) {
+					if (e.getValue().status()%10 == 9) {
 						points1[i][j] = hexrgb("#888a85");
 						points2[i][j] = hexrgb("#888a85");
 					}
@@ -212,6 +211,12 @@ public class DrawQuadTreeMapIJ {
 		}
 	}
 
+	/** Convert a trio of 8 bit colour values to a single bit shifted colour
+	 * decimal.
+	 * @param r red component 0-255
+	 * @param b blue component 0-255
+	 * @param g green component 0-255
+	 */
 	private int rgb(int r, int g, int b) {
 		if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
 			throw new IllegalArgumentException(
