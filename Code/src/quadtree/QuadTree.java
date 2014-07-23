@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 02 Jul 2014 06:23 PM
+ * Modified: Wed 23 Jul 2014 05:45 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -112,7 +112,7 @@ public class QuadTree implements ClusterStructure {
 			/* If this leaf can still take more points, then simply add it to
 			 * the list of points, otherwise we need to split the list into new
 			 * subtrees. */
-			if (points.size() <= maxDensity) {
+			if (points.size() <= maxDensity || depth >= 9) {
 				points.add(c);
 				return true;
 			} else {
