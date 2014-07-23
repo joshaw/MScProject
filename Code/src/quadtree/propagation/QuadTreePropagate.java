@@ -15,14 +15,12 @@ import java.util.ArrayList;
 public class QuadTreePropagate {
 
 	private HashMap<String, PropogationDatum> hashmap;
-	private final String start;
+	private String start;
 	private final int diff = 2*3;
 
 	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
 		this.hashmap = hashmap;
-		this.start = getStart();
-		System.out.println("Start: " + start);
-		propagate(start);
+		propagate();
 	}
 
 	private String getStart() {
@@ -36,30 +34,41 @@ public class QuadTreePropagate {
 		// 	}
 		// }
 
-		int lmax = 0;
-		String smax = "00";
-		for (String s : hashmap.keySet()) {
-			if (s.length() > lmax) {
-				lmax = s.length();
-				smax = s;
+		int lmax = 4;
+		String smax = "";
+		for (String node : hashmap.keySet()) {
+			if (node.length() > lmax && hashmap.get(node).status() == 0) {
+				lmax = node.length();
+				smax = node;
 			}
 		}
 
 		return smax;
 	}
 
-	public void propagate(String cell) {
+	private void propagate() {
+		for (int k = 1; k < 10; k++) {
+			this.start = getStart();
+			System.out.println("Start " + k + ": " + start);
+			if (start == "") {
+				return;
+			}
+			propagate(start, k);
+		}
+	}
+
+	private void propagate(String cell, int k) {
 		ArrayList<String> neighbours = getNeighbours(cell);
 
 		for (String c : neighbours) {
 
 			if (c != null && hashmap.get(c).status() == 0) {
-
-				System.out.println("Hit: " + c);
-				hashmap.get(c).setStatus((byte)1);
-				propagate(c);
+				// System.out.println("Hit: " + c);
+				hashmap.get(c).setStatus((byte)k);
+				propagate(c, k);
 			}
 		}
+		// propagate();
 	}
 
 	/** Returns true if the two nodes are adjacent.
@@ -184,22 +193,22 @@ public class QuadTreePropagate {
 		for (int i = 0; i < 4; i++) {
 
 			String s = neighbours.get(i);
-			System.out.println("s: " + s);
+			// System.out.println("s: " + s);
 
 			if (s != null) {
 
 				// Check up the tree for valid neighbours
 				while (s != null &&
 						start.length()-s.length() < diff &&
-						s.length() >= 2) {
+						s.length() >= 4) {
 
 					if (hashmap.containsKey(s)) {
-						System.out.println("Add: " + s);
+						// System.out.println("Add: " + s);
 						neighbours.add(s);
 						break;
 					} else {
 						s = s.substring(0, s.length()-2);
-						System.out.println("Sub: " + s);
+						// System.out.println("Sub: " + s);
 					}
 						}
 
@@ -222,12 +231,11 @@ public class QuadTreePropagate {
 		ArrayList<String> codesWithSuffTmp = new ArrayList<String>();
 		codesWithSuff.add(code);
 
-		for (int i = 1; i < diff/2; i++) {
+		for (int i = 1; i < start.length()/2; i++) {
 			for (String s : codesWithSuff) {
-				for (int j = 0; j < 4; j++) {
-					if (hashmap.containsKey(s+suffixes[j])) {
-						codesWithSuffTmp.add(s+suffixes[j]);
-						System.out.println("Add: " + s+suffixes[j]);
+				for (String suff : suffixes) {
+					if (hashmap.containsKey(s+suff)) {
+						codesWithSuffTmp.add(s+suff);
 					}
 				}
 			}
