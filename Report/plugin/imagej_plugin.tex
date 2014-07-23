@@ -18,12 +18,23 @@ analysis.
 The analytical steps that are undertaken are descibed in more detail in later
 sections.
 
+The code used to generate this view of the data was modified to make use of the
+easy image generation functions present in ImageJ. Now, instead of many
+different objects being manipulated for each view of the data, a single array
+with a value for each pixel is needed. For the cases where the user wishes to
+view the clusters that have been found, but not have them affect the image, the
+image is created with a number of different \emph{slices} in the image
+\emph{stack}. Slices are ImageJ's representation of images with two or more
+layers, or alternative views, each of which resides in a stack of slices. Each
+slice in a stack must have the same dimensions.
+
+\begin{figure}[tbhp]
 \begin{figure*}[tbhp]
 	\centering
-	\includegraphics[angle=90,height=\textheight]{plugin_class_diagram.pdf}
-	\caption{Name}
-	\label{fig:name}
-\end{figure*}
+	\includegraphics[width=0.8\linewidth]{imagej-stacks.pdf}
+	\caption{imagej-Stacks}
+	\label{fig:imagej-stacks}
+\end{figure}
 
 \begin{figure}[tbhp]
     \centering
