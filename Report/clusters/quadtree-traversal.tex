@@ -18,20 +18,25 @@ examined. The neighbours of interest, named \emph{rook's case} neighbours
 by~\cite{abel1990comparative}, are the four nodes that lie to the north, east,
 sound and west of the current node.
 
-The propogation algorithm is performed as follows:
+The propagation algorithm is performed as follows:
 \begin{enumerate}
-	\item For a given starting position, the four neighbours are checked for
-	validity based on the conditions of the analysis.
+	\item Choose a starting location that has not yet been checked.
+	\item For this given starting location, the four neighbours are checked for
+		validity based on the conditions of the analysis.
 	\item If a node fails the check, then it is recorded as having done so and
-	shall not be checked again. If it passes, then it is itself propogated.
-	\item When there are no nodes left to be checked, the algorithm has
-	finished. This may be because either,
+		shall not be checked again. If it passes, then it is itself propagated.
+		\begin{itemize}
+			\item To be ``propagated'' means the perform this propagation
+				algorithm using that node as the starting location.
+		\end{itemize}
+	\item When all nodes have been checked, return to step 1.
+	\item The algorithm completes either when either;
 	\begin{itemize}
 		\item every one of the nodes in the image have been checked and
-		included or ignored, or
+			included or ignored, or
 		\item the cluster has ended, so all the neighbours of all checked nodes
-		have failed the validity tests and no further starting locations were
-		found.
+			have failed the validity tests and no further starting locations
+			were found or specified.
 	\end{itemize}
 \end{enumerate}
 
