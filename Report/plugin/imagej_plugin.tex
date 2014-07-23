@@ -8,15 +8,21 @@
 
 The first version of the plugin simply allowed the user to visualise the data,
 once it had been processed and entered into a quadtree. Though this provided
-little benefit to the researcher producing data, it can be useful to simply get
+little benefit to the researcher producing data, it can be a useful tool to get
 an insight into the process that a program is using to analyse one's data so
 that the results can be better interpretted. For this reason, this version
 served as a foundation for later versions of the plugin so that, when loading
 data, a user gets the opportunity to view the data before proceding with the
 analysis.
 
-The analytical steps that are undertaken are descibed in more detail in later
-sections.
+Again, earlier versions of the program displayed this data using the built-in
+GUI classes in the AWT and Swing libraries included in the standard Java
+distribution. This effectively prohibitted any further actions being performed
+on the image once it had been generated since what was displayed was only
+modifiable by the JVM via compiled code. It was also very memory intensive
+since, in many cases, many thousands of separate objects (data points
+represented by zero lenght lines, quadtree cells by boxes, etc) and so was slow
+to draw initially and redraw with any subsequent move or resize of the window.
 
 The code used to generate this view of the data was modified to make use of the
 easy image generation functions present in ImageJ. Now, instead of many
@@ -29,7 +35,6 @@ layers, or alternative views, each of which resides in a stack of slices. Each
 slice in a stack must have the same dimensions.
 
 \begin{figure}[tbhp]
-\begin{figure*}[tbhp]
 	\centering
 	\includegraphics[width=0.8\linewidth]{imagej-stacks.pdf}
 	\caption{imagej-Stacks}
@@ -37,16 +42,49 @@ slice in a stack must have the same dimensions.
 \end{figure}
 
 \begin{figure}[tbhp]
-    \centering
-    \begin{subfigure}[c]{0.48\linewidth}
-        \includegraphics[width=\textwidth]{single-cluster.png}
-        \caption{}\label{fig:single-cluster-points}
-    \end{subfigure}%
-    \quad
-    \begin{subfigure}[c]{0.48\linewidth}
-        \includegraphics[width=\textwidth]{single-cluster-lines.png}
-        \caption{}\label{fig:single-cluster-lines}
-    \end{subfigure}
+	\centering
+	\begin{subfigure}[c]{0.48\linewidth}
+		\includegraphics[width=\textwidth]{single-cluster.png}
+		\caption{}\label{fig:single-cluster-points}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[c]{0.48\linewidth}
+		\includegraphics[width=\textwidth]{single-cluster-lines.png}
+		\caption{}\label{fig:single-cluster-lines}
+	\end{subfigure}
 	% TODO caption
-    \caption{} \label{fig:single-cluster}
+	\caption{} \label{fig:single-cluster}
 \end{figure}
+
+\begin{figure}[tbhp]
+	\begin{minipage}[b]{0.85\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{multiple-clusters-colours.png}
+	\end{minipage}%
+	\begin{minipage}[b]{0.1\linewidth}
+		\centering
+		\begin{tabular}[b]{ l l }
+			\cellcolor[HTML]{FCE94F}1\\
+			\cellcolor[HTML]{FCAF3E}2\\
+			\cellcolor[HTML]{E9B96E}3\\
+			\cellcolor[HTML]{8AE234}4\\
+			\cellcolor[HTML]{729FCF}5\\
+			\cellcolor[HTML]{AD7FA8}6\\
+			\cellcolor[HTML]{EF2929}7\\
+			\cellcolor[HTML]{D3D7CF}8\\
+			\cellcolor[HTML]{888A85}9\\
+		\end{tabular}
+	\end{minipage}
+	\caption{Bla bla}
+	\label{fig:multiple-clusters-colours.png}
+\end{figure}
+
+% #fce94f
+% #fcaf3e
+% #e9b96e
+% #8ae234
+% #729fcf
+% #ad7fa8
+% #ef2929
+% #d3d7cf
+% #888a85
