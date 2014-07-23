@@ -6,6 +6,12 @@
 \section{ImageJ Plugin}
 \label{sec:imagej_plugin}
 
+% TODO section about the aims of the plugin etc.
+\cite{imagejapi}
+
+\subsection{Displaying the QuadTree}
+\label{sub:displaying_the_quadtree}
+
 The first version of the plugin simply allowed the user to visualise the data,
 once it had been processed and entered into a quadtree. Though this provided
 little benefit to the researcher producing data, it can be a useful tool to get
@@ -30,16 +36,9 @@ different objects being manipulated for each view of the data, a single array
 with a value for each pixel is needed. For the cases where the user wishes to
 view the clusters that have been found, but not have them affect the image, the
 image is created with a number of different \emph{slices} in the image
-\emph{stack}. Slices are ImageJ's representation of images with two or more
-layers, or alternative views, each of which resides in a stack of slices. Each
-slice in a stack must have the same dimensions.
-
-\begin{figure}[tbhp]
-	\centering
-	\includegraphics[width=0.8\linewidth]{imagej-stacks.pdf}
-	\caption{imagej-Stacks}
-	\label{fig:imagej-stacks}
-\end{figure}
+\emph{stack}, Figure~\ref{fig:imagej-stack}. Slices are ImageJ's representation
+of images with two or more layers, or alternative views, each of which resides
+in a stack of slices. Each slice in a stack must have the same dimensions.
 
 \begin{figure}[tbhp]
 	\centering
