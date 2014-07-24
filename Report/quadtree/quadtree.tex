@@ -22,6 +22,9 @@ quadtree, the image can be subdivided to any arbitrary depth. From this point,
 information about the image can be ``seen'' more easily by the computer and
 statistics calculated.
 
+\subsection{Code Orderings}
+\label{sub:code_orderings}
+
 In order to identify a node uniquely in the tree, each node is given a code
 that is built up from it's parent code plus some value that identifies it
 among it's siblings. The root node is usually chosen to have an empty code so
@@ -32,8 +35,8 @@ in which the nodes are placed is important. For spatial indexing, for example,
 each node represents a quadrant in two dimensional space, so being able to
 traverse the children in a sensible and predictable way is essential.
 
-\subsection[Morton Code]{Morton Code (Z-Order)}
-\label{sub:morton_code_z_order_}
+\subsubsection[Morton Code]{Morton Code (Z-Order)}
+\label{ssub:morton_code_z_order_}
 
 Perhaps the most natural order to give to the values in a spatial quadtree is
 to number them from 1 to 4, left to right, top to bottom. This can be made
@@ -78,8 +81,8 @@ when information about neighbouring cells is needed. The steps required to
 calculate the neighbours of any given cell are reasonably complex and so would
 add computational and time complexity to calculations performed on the tree.
 
-\subsection{Hilbert Order}
-\label{sub:hilbert_order}
+\subsubsection{Hilbert Order}
+\label{ssub:hilbert_order}
 
 One of the reasons the Z-order above becomes difficult to work with is that
 the resulting path from traversing the nodes in-order has to make large jumps
@@ -129,8 +132,8 @@ calculation of neighbours becomes difficult.
     developed for this project.} \label{fig:order_traversals}
 \end{figure}
 
-\subsection{Gray Codes}
-\label{sub:gray_codes}
+\subsubsection{Gray Codes}
+\label{ssub:gray_codes}
 
 The Gray Code\cite{gray1953pulse}, developed by Frank Gray in 1953, was
 originally designed to reduce the error rate produced by mechanical
