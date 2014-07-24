@@ -88,13 +88,13 @@ public class Cluster_Analysis extends PlugInFrame {
 		textpanel.add(maxY);
 
 		Label densityLab = new Label("Density");
-		density = new TextField("200", 10);
+		density = new TextField("20", 10);
 		density.addKeyListener(new NumberKeyListener());
 		textpanel.add(densityLab);
 		textpanel.add(density);
 
 		Label scaleLab = new Label("Scale");
-		scale = new TextField("0.012", 10);
+		scale = new TextField("0.03", 10);
 		scale.addKeyListener(new NumberKeyListener());
 		textpanel.add(scaleLab);
 		textpanel.add(scale);
@@ -196,7 +196,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 			maxX.setText(maxXval + "");
 			maxY.setText(maxYval + "");
-			scale.setText(scaleVal + "");
+			// scale.setText(scaleVal + "");
 		} else {
 			changeStatus("Please select a data file first.");
 		}
@@ -221,6 +221,9 @@ public class Cluster_Analysis extends PlugInFrame {
 				scaleVal = Double.parseDouble(scaleString);
 
 				if (label.equals("QuadTree")) {
+
+long start = System.currentTimeMillis();
+
 					dataStructure = new QuadTree(maxXval, maxYval,
 							densityVal, filepath, colX, colY, separator);
 
@@ -238,6 +241,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 					DrawQuadTreeMapIJ dij = new DrawQuadTreeMapIJ(filepath, hm, maxXval, maxYval, scaleVal);
 					dij.draw(linesBool.getState(), pointsBool.getState());
+System.out.println("Time: " + (System.currentTimeMillis()-start));
 
 				} else if (label.equals("Grid")) {
 					dataStructure = new SimpleGrid(maxXval, maxYval,
