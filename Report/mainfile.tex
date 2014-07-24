@@ -27,9 +27,11 @@
 %%% SECTION TITLE APPEARANCE ---------------------------------------------------
 % \usepackage{sectsty}
 % \allsectionsfont{\sffamily\mdseries\upshape}
-\makeatletter
-\@addtoreset{section}{part}
-\makeatother
+% \makeatletter
+% \@addtoreset{section}{part}
+% \makeatother
+\let\stdpart\part
+\renewcommand\part{\clearpage\stdpart}
 
 %%% PACKAGES -------------------------------------------------------------------
 \usepackage[hypcap=false,
@@ -111,7 +113,7 @@
 \begin{document}
 
 \graphicspath{{front/} {intro/} {grid/} {quadtree/} {clusters/} {plugin/}
-	{build/}}
+	{improvements/} {build/}}
 
 \input{front/titlepage.tex}
 
@@ -122,6 +124,8 @@
 \input{quadtree/quadtree.tex}
 \input{clusters/clusters.tex}
 \input{plugin/imagej.tex}
+
+\input{considerations/considerations.tex}
 
 \clearpage
 \input{appendix/appendix.tex}

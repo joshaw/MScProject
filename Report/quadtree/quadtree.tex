@@ -79,7 +79,7 @@ Figure~\ref{fig:traverse-z-order.pdf}. This has several useful features.
 
 	\item This has advantages since binary is very efficient for computers to
 	work with and allows certain tricks to be employed (see Morton order
-	coordinates.
+	coordinates).
 
 	\item Also, this numbering system is easily extendible to any depth of
 	tree that can be imagined.
@@ -189,12 +189,12 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
         \caption{}\label{fig:modgray-2-levels-numbers.pdf}
     \end{subfigure}
     \caption{The tree traversal that was developed for this project is a
-    variation of the Gray code order discussed in Section~\ref{sub:gray_codes}.
-    Instead of all sub-quadrants having the same orientation, each is
-    reflected in either the x- or y-axis,
-    \subref{fig:modgray-2-levels-arrows.pdf}. This has the advantage that
-    neighbouring nodes have codes which differ by exactly one bit,
-    \subref{fig:modgray-2-levels-numbers.pdf}.} \label{fig:modgray-traversal}
+    	variation of the Gray code order discussed in
+    	Section~\ref{ssub:gray_codes}.  Instead of all sub-quadrants having the
+    	same orientation, each is reflected in either the x- or y-axis,
+    	\subref{fig:modgray-2-levels-arrows.pdf}. This has the advantage that
+		neighbouring nodes have codes which differ by exactly one bit,
+		\subref{fig:modgray-2-levels-numbers.pdf}.} \label{fig:modgray-traversal}
 \end{figure}
 
 \begin{figure}[tbhp]
@@ -261,7 +261,6 @@ b_l = new Quadtree(100, 100, this.code + new_code[2]);
 b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \end{lstlisting}
 
-
 \subsection{Hash Table Implementation}
 \label{sub:hash_table_implementation}
 
@@ -271,14 +270,35 @@ The method discussed above, to number the cells in a logical fashion based on
 the code of the parent, can be viewed as a way to map the two dimensional image
 to a single unique binary code, and hence to a one dimensional format. Thus,
 the quadtree can be easily converted to an array structure by simply using the
-key code as the index array.
+key code as the array index.
 
-As mentioned in Section~\ref{prt:data_structures}, this has the potential to
+As mentioned in Part~\ref{prt:data_structures}, this has the potential to
 have a very poor space usage if the image is not densely populated (in which
 case it is likely that few clusters would be identifiable anyway). Instead, an
-implementation is tested that makes use of the \emph{Hash Table} data
+implementation is created that makes use of the \emph{Hash Table} data
 structure\cite{cormen2001introduction}. This allows the data structure to
 increase in size dynamically as more space is needed, but also provides linear
 time complexity for access and modification. The quadtree code is used as the
 key for the hash table, and the data stored within the cell with that code is
 the value.
+
+Using this data structure means that several operations are significantly sped
+up. For example, for the raw quadtree format, the steps required to check if a
+given code is present involve traversing every node in the tree, thus linear
+$O(n)$.  However, for a hash table, the hash function is used to get a hash of
+the code to be checked and the appropriate location checked. If the codes
+match, then the code does appear in the tree, a total of two operations,
+constant $O(1)$.
+
+Also, since the structure is defined recursively, it is not possible to
+directly access a given location of the data. Instead it must be arrived at by
+starting at the root, and, for every level, deciding which of the children the
+destination exists in. This would be a time consuming step for a number of
+operations, but the biggest effect would be when checking the neighbours of
+cells since for every neighbour of every node, the tree must be traversed. This
+is not an issue for the hash table since the single dimensional nature means
+that data can be accessed directly anywhere.
+
+Little spatial information should be lost during the conversion from quadtree
+to hash table since this is all contained in the quadtree code assigned to the
+node during the quadtree generation step.
