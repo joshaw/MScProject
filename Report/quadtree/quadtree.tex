@@ -22,6 +22,29 @@ quadtree, the image can be subdivided to any arbitrary depth. From this point,
 information about the image can be ``seen'' more easily by the computer and
 statistics calculated.
 
+\subsection{Quadtree Definitions}
+\label{sub:quadtree_definitions}
+
+It is useful to define a few terms that shall be used in the context of
+quadtrees. Many of these are identical to the definitions more commonly applied
+to binary trees.
+
+\begin{description}
+	\item[Node] (Cell) A leaf in the tree which holds a number of points.
+	\item[Root] The node at the topmost position in the tree.
+	\item[Child] One of the four nodes that are beneath a given node for which
+		there is a direct path of length 1 between this node and it.
+	\item[Height] The length of the longest path from the root node to one of
+		the leaf nodes.
+	\item[Depth] The length of the path from a given node up to the root.
+	\item[Completeness] A quadtree is `complete' when each of the root node's
+		four children have the same height. In this case, the number of leaves
+		in the tree is a maximum.
+	\item[Quadtree Code] (Code) The unique binary number assiged to a node by
+		adding its position with respect to its siblings to the code of its
+		parent.
+\end{description}
+
 \subsection{Code Orderings}
 \label{sub:code_orderings}
 
@@ -238,24 +261,6 @@ b_l = new Quadtree(100, 100, this.code + new_code[2]);
 b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \end{lstlisting}
 
-\subsection{Quadtree Definitions}
-\label{sub:quadtree_definitions}
-
-It is useful to define a few terms that shall be used in the context of
-quadtrees. Many of these are identical to the definitions more commonly applied
-to binary trees.
-
-\begin{description}
-	\item[Root] The node at the topmost position in the tree.
-	\item[Child] One of the four nodes that are beneath a given node for which
-	there is a direct path of length 1 between this node and it.
-	\item[Height] The length of the longest path from the root node to one of
-	the leaf nodes.
-	\item[Depth] The length of the path from a given node up to the root.
-	\item[Completeness] A quadtree is `complete' when each of the root node's
-	four children have the same height. In this case, the number of leaves in
-	the tree is a maximum.
-\end{description}
 
 \subsection{Hash Table Implementation}
 \label{sub:hash_table_implementation}
