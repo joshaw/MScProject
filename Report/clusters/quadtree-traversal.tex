@@ -18,6 +18,9 @@ examined. The neighbours of interest, named \emph{rook's case} neighbours
 by~\cite{abel1990comparative}, are the four nodes that lie to the north, east,
 sound and west of the current node.
 
+\subsection{Algorithm Description}
+\label{sub:algorithm_description}
+
 The propagation algorithm is performed as follows:
 \begin{enumerate}
 	\item Choose a starting location that has not yet been checked.
@@ -120,28 +123,23 @@ considered. A depth range of 1 would mean that the white square in
 Figure~\ref{fig:propogation-levels}\,i) would be included but not in~ii),
 whereas a depth range of three would include both and so on.
 
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
+\subsection{Clustering Start Locations}
+\label{sub:clustering_start_locations}
 
-\section{Clustering Algorithm}
-\label{sec:clustering_algorithm}
+In order for the algorithm to proceed coorectly, a good first node, a starting
+location, must be chosen. Since the clusters to be found are regions of high
+point density, it makes sense to start the clustering algorithm at the point in
+the image with the highest point density. This should ensure that the most
+defined cluster is always found with subsequent clusters being less dense, and
+so less well defined.
+
+When starting at the highest density node, i.e., the node which is at the
+deepest level in the tree, propagating this node and then terminating; the
+cluster shown in Figure~\ref{fig:single-cluster} is detected. The file
+\texttt{palm-1.txt} was used and generated this data in
+\SI{457}{\milli\second}. This shows that the algorithm works correctly.
+Altering the parameters that are used to generate the quadtree affects the size
+of the nodes that are included in the cluster and the depth that is searched.
 
 \begin{figure}[tbhp]
 	\centering
@@ -155,7 +153,7 @@ whereas a depth range of three would include both and so on.
 		\caption{}\label{fig:single-cluster-lines}
 	\end{subfigure}
 	% TODO caption
-	\caption{} \label{fig:single-cluster}
+	\caption{single-cluster} \label{fig:single-cluster}
 \end{figure}
 
 \begin{figure}[tbhp]
@@ -163,6 +161,7 @@ whereas a depth range of three would include both and so on.
 		\centering
 		\fbox{\includegraphics[width=\textwidth]{multiple-clusters-colours.png}}
 	\end{minipage}%
+	\quad
 	\begin{minipage}[c]{0.1\linewidth}
 		\centering
 		\begin{tabular}[b]{ l l }
