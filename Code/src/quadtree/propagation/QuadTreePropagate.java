@@ -16,7 +16,7 @@ public class QuadTreePropagate {
 
 	private HashMap<String, PropogationDatum> hashmap;
 	private String start;
-	private final int diff = 2*2;
+	private final int depthRange = 2*2;
 
 	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
 		this.hashmap = hashmap;
@@ -190,7 +190,14 @@ public class QuadTreePropagate {
 		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()), cl));
 		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()+1), cl));
 
-		for (int i = 0; i < 4; i++) {
+		neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()-1), cl));
+		neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()+1), cl));
+		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()-1), cl));
+		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()+1), cl));
+
+		int numNeighbours = neighbours.size();
+
+		for (int i = 0; i < numNeighbours; i++) {
 
 			String s = neighbours.get(i);
 			// System.out.println("s: " + s);
@@ -199,7 +206,7 @@ public class QuadTreePropagate {
 
 				// Check up the tree for valid neighbours
 				while (s != null &&
-						start.length()-s.length() < diff &&
+						start.length()-s.length() < depthRange &&
 						s.length() >= 4) {
 
 					if (hashmap.containsKey(s)) {
