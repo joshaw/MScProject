@@ -14,9 +14,7 @@ noise.
 
 The quadtree numbering system chosen lends itself very well to analysis based
 on spatial location and the proximity of neighbours to a given node being
-examined. The neighbours of interest, named \emph{rook's case} neighbours
-by~\cite{abel1990comparative}, are the four nodes that lie to the north, east,
-sound and west of the current node.
+examined.
 
 \subsection{Algorithm Description}
 \label{sub:algorithm_description}
@@ -24,8 +22,10 @@ sound and west of the current node.
 The propagation algorithm is performed as follows:
 \begin{enumerate}
 	\item Choose a starting location that has not yet been checked.
-	\item For this given starting location, the four neighbours are checked for
-		validity based on the conditions of the analysis.
+	\item For this given starting location, the $n$ neighbours are checked for
+		validity based on the conditions of the analysis (the way these
+		neighbours are selected is discused in
+		Section~\ref{sub:choosing_neighbours}).
 	\item If a node fails the check, then it is recorded as having done so and
 		shall not be checked again. If it passes, then it is itself propagated.
 		\begin{itemize}
@@ -184,5 +184,42 @@ of the nodes that are included in the cluster and the depth that is searched.
 \subsection{Choosing Neighbours}
 \label{sub:choosing_neighbours}
 
-% TODO writing on choosing neighbours
-% 4 neighbours vs 8
+Some care must be taken when decideding what constitutes a neighbour of a node
+and what does not. As mentioned above, when detecting clusters using
+propogation, the neighbours of a node are checked and, if they are valid, are
+themselves propagated. For this reason, a poor choice of neighbours means that
+either the propagation will
+\begin{itemize}
+	\item be cut short too early, and so not all of the clusters will be
+		located, or
+	\item include too many nodes, in which case the clusters will not represent
+		the actual data.
+\end{itemize}
+
+The first neighbours that must be considered, named \emph{rook's case}
+neighbours by~\cite{abel1990comparative}, are the four nodes that lie to the
+north, east, sound and west of the current node. These are the nodes that are
+directly incontact with the node and so, if they are valid, represent a direct
+continuation of the cluster.
+
+However, if the choice of neighbours is limited to these four, some major
+structures are missed. Figure~\ref{fig:kernel-rooks-case} shows how this
+arrangement misses a large portion of the cluster, simply because the
+propagation could not consider the nodes accross the boundary. If, in addition
+to the rook's case, the four \emph{diagonal} neighbours are included, giving a
+total of eight, the results are much better.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\textwidth]{clusters/kernel-rooks-case.png}
+        \caption{}\label{fig:kernel-rooks-case.png}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\textwidth]{clusters/kernel-all8.png}
+        \caption{}\label{fig:kernel-all8.png}
+    \end{subfigure}
+    % TODO caption
+    \caption{}\label{fig:kernel-options}
+\end{figure}
