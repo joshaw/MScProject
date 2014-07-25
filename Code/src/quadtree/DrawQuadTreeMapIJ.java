@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.awt.Window;
 
 public class DrawQuadTreeMapIJ {
 
@@ -44,6 +45,11 @@ public class DrawQuadTreeMapIJ {
 		this.gridY = (int)(scaleVal * maxY);
 		this.globalMaxX = qtm.getMaxX();
 		this.globalMaxY = qtm.getMaxY();
+
+		initPointsArrays();
+	}
+
+	private void initPointsArrays() {
 		points1 = new int[gridX+1][gridY+1];
 		points2 = new int[gridX+1][gridY+1];
 
@@ -58,11 +64,23 @@ public class DrawQuadTreeMapIJ {
 	public void draw(boolean incLines, boolean incPoints) {
 		this.incLines = incLines;
 		this.incPoints = incPoints;
+		ImageStack ims;
+		ImagePlus imp;
 
-		ImagePlus imp = NewImage.createRGBImage(filepath, gridX, gridY, 2,
-				NewImage.FILL_WHITE);
-		// ImageProcessor imgpro = imp.getProcessor();
-		ImageStack ims = imp.getStack();
+		Window wind = WindowManager.getWindow("Clusters");
+		if (wind == null) {
+
+			imp = NewImage.createRGBImage(filepath, gridX, gridY, 2,
+					NewImage.FILL_WHITE);
+			// ImageProcessor imgpro = imp.getProcessor();
+
+		} else {
+			ImageWindow imgwind = (ImageWindow)wind;
+			imp = imgwind.getImagePlus();
+			initPointsArrays();
+		}
+
+		ims = imp.getStack();
 
 		traverseMap();
 
