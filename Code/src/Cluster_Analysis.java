@@ -241,6 +241,7 @@ long start = System.currentTimeMillis();
 
 					DrawQuadTreeMapIJ dij = new DrawQuadTreeMapIJ(filepath, hm, maxXval, maxYval, scaleVal);
 					dij.draw(linesBool.getState(), pointsBool.getState());
+
 System.out.println("Time: " + (System.currentTimeMillis()-start));
 
 				} else if (label.equals("Grid")) {

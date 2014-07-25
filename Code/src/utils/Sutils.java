@@ -5,6 +5,8 @@
  */
 package utils;
 
+import java.util.StringTokenizer;
+
 public class Sutils {
 
 	public static String longest(String s1, String s2) {
@@ -42,6 +44,23 @@ public class Sutils {
 			}
 		}
 		return m;
+	}
+
+	/** Splits a string into substring using the characters contained in the
+	 * second argument as the delimiter set. */
+	public static String[] split(String str, String delim) {
+
+		StringTokenizer t = new StringTokenizer(str, delim);
+		int tokens = t.countTokens();
+		String[] strings;
+
+		if (tokens>0) {
+			strings = new String[tokens];
+			for(int i=0; i<tokens; i++)
+				strings[i] = t.nextToken();
+		} else
+			strings = new String[0];
+		return strings;
 	}
 
 }

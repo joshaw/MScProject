@@ -11,15 +11,21 @@ import utils.PropogationDatum;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class QuadTreePropagate {
 
 	private HashMap<String, PropogationDatum> hashmap;
 	private String start;
+	private byte[] kernel;
 	private final int depthRange = 2*2;
 
 	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
 		this.hashmap = hashmap;
+		readKernel();
 		propagate();
 	}
 
@@ -68,6 +74,7 @@ public class QuadTreePropagate {
 				propagate(c, k);
 			}
 		}
+
 		// propagate();
 	}
 
@@ -185,15 +192,46 @@ public class QuadTreePropagate {
 		ArrayList<String> neighbours = new ArrayList<String>();
 		int cl = code.length();
 
-		neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()), cl));
-		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()-1), cl));
-		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()), cl));
-		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()+1), cl));
+		// // Rook's Case Neighbours
+		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX(), c.getY()-1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX(), c.getY()+1), cl));
 
-		neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()-1), cl));
-		neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()+1), cl));
-		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()-1), cl));
-		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()+1), cl));
+		// // Diagonal Neighbours
+		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()-1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()+1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()-1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()+1), cl));
+
+		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()+2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()+1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()+0), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()-1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()-2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()-2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+0, c.getY()-2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()-2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()-2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()-1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()+0), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()+1), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()+2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()+2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+0, c.getY()+2), cl));
+		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()+2), cl));
+
+		int ks = (int)Math.sqrt(kernel.length);
+
+		for (int i = 0; i < ks; i++) {
+			for (int j = 0; j < ks; j++) {
+				int adj = (kernel.length-1)/2;
+				if (kernel[i*ks+j] == 1 && (i-adj != 0 && j-adj != 0)) {
+					neighbours.add(getCode(new Coordinate(c.getX()+i-ks/2, c.getY()+j-ks/2), cl));
+					// System.out.println("\t" + (i*ks+j) + ": " + (c.getX()+i-ks/2) + "," + (c.getY()+j-ks/2));
+				}
+			}
+		}
 
 		int numNeighbours = neighbours.size();
 
@@ -253,5 +291,42 @@ public class QuadTreePropagate {
 			codesWithSuff.remove(0);
 		}
 		return codesWithSuff;
+	}
+
+	private byte[] readKernel() {
+		String kernelPath = "/home/students/jaw097/work/Project/Code/sampledata/kernel";
+		kernel = new byte[0];
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(kernelPath));
+			String line = null;
+
+			String lines = "";
+			while ((line = reader.readLine()) != null) {
+				lines += line + " ";
+			}
+
+			String[] values = lines.split(" ");
+			int n = values.length;
+			int kw = (int)Math.sqrt(n);
+			int kh = kw;
+			n = kw*kh;
+			kernel = new byte[n];
+
+			for (int i=0; i<n; i++)
+				kernel[i] = (byte)Integer.parseInt(values[i]);
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.print("Kernel: ");
+		for (float f : kernel) {
+			System.out.print(f + " ");
+		}
+		System.out.println();
+		return kernel;
 	}
 }
