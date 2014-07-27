@@ -41,9 +41,11 @@ public class QuadTree implements ClusterStructure {
 	private ArrayList<Coordinate> points;
 	private boolean leaf;
 	private String pos;
-	private String code;
+	private String code = "";
 	private boolean drawing;
 	private int countFile = 0;
+
+	private QuadTreeMap hashmap;
 
 	/** Creates a new root node for a new quadtree.
 	 *
@@ -93,6 +95,10 @@ public class QuadTree implements ClusterStructure {
 		this.minY        = minY;
 		this.maxY        = maxY;
 		this.points      = new ArrayList<Coordinate>();
+	}
+
+	private QuadTree() {
+		this.leaf = true;
 	}
 
 	/** Decide if the given point should be placed in the current node, a
@@ -248,6 +254,14 @@ public class QuadTree implements ClusterStructure {
 		return qtm;
 	}
 
+	public void addQuadTreeMap() {
+		this.hashmap = toQuadTreeMap();
+	}
+
+	public QuadTreeMap getQuadTreeMap() {
+		return hashmap;
+	}
+
 	/** Returns the maximum depth of a child node in the quadtree.
 	 */
 	public int getDepth() {
@@ -306,6 +320,47 @@ public class QuadTree implements ClusterStructure {
 		}
 
 		return sb.toString();
+	}
+
+	public QuadTree getNode(String code) {
+		if (this.code == code) {
+			return this;
+		} else {
+			String nibble = code.substring(0,2);
+			if (nibble == "00") {
+				return tl.getNode(code.substring(2, code.length()-2));
+			} else if (nibble == "01") {
+				return tr.getNode(code.substring(2, code.length()-2));
+			} else if (nibble == "10") {
+				return bl.getNode(code.substring(2, code.length()-2));
+			} else if (nibble == "11"){
+				return br.getNode(code.substring(2, code.length()-2));
+			} else {
+				return new QuadTree();
+			}
+		}
+	}
+
+	/** Creates a list of the codes of the nodes that are children of the
+	 * current node.
+	 * @return arraylist of codes of the children of this node.
+	 */
+	public ArrayList<String> getAllChildrenCodes() {
+		ArrayList<String> childCodes = new ArrayList<String>();
+
+		if (leaf) {
+			if (code != "") {
+				childCodes.add(code);
+			}
+			return childCodes;
+		} else {
+			childCodes.addAll(tl.getAllChildrenCodes());
+			childCodes.addAll(tr.getAllChildrenCodes());
+			childCodes.addAll(bl.getAllChildrenCodes());
+			childCodes.addAll(br.getAllChildrenCodes());
+		}
+
+		return childCodes;
 	}
 
 	@Override

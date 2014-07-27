@@ -229,10 +229,12 @@ public class QuadTreePropagate {
 
 		for (int i = 0; i < ks; i++) {
 			for (int j = 0; j < ks; j++) {
+
 				int adj = (kernel.length-1)/2;
+
 				if (kernel[i*ks+j] == 1 && (i-adj != 0 && j-adj != 0)) {
-					neighbours.add(getCode(new Coordinate(c.getX()+i-ks/2, c.getY()+j-ks/2), cl));
-					// System.out.println("\t" + (i*ks+j) + ": " + (c.getX()+i-ks/2) + "," + (c.getY()+j-ks/2));
+					neighbours.add(getCode(new Coordinate(
+									c.getX()+i-ks/2, c.getY()+j-ks/2), cl));
 				}
 			}
 		}
@@ -242,7 +244,6 @@ public class QuadTreePropagate {
 		for (int i = 0; i < numNeighbours; i++) {
 
 			String s = neighbours.get(i);
-			// System.out.println("s: " + s);
 
 			if (s != null) {
 
@@ -252,18 +253,17 @@ public class QuadTreePropagate {
 						s.length() >= 4) {
 
 					if (hashmap.containsKey(s)) {
-						// System.out.println("Add: " + s);
 						neighbours.add(s);
 						break;
 					} else {
 						s = s.substring(0, s.length()-2);
-						// System.out.println("Sub: " + s);
 					}
-						}
+				}
 
 				// Check down the tree for valid neighbours
 				s = neighbours.get(i);
-				neighbours.addAll(addSuffixes(s));
+				// neighbours.addAll(addSuffixes(s));
+				neighbours.addAll(qt.getNode(s).getAllChildrenCodes());
 			}
 
 			if (!hashmap.containsKey(neighbours.get(i))) {
@@ -298,11 +298,13 @@ public class QuadTreePropagate {
 	}
 
 	private byte[] readKernel() {
-		String kernelPath = "/home/students/jaw097/work/Project/Code/sampledata/kernel";
+		// String kernelPath = "/home/students/jaw097/work/Project/Code/sampledata/kernel";
+		String kernelPath = "/home/josh/Documents/MScProject/Code/sampledata/kernel";
 		kernel = new byte[0];
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(kernelPath));
+			BufferedReader reader =
+				new BufferedReader(new FileReader(kernelPath));
 			String line = null;
 
 			String lines = "";
