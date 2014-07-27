@@ -232,14 +232,15 @@ long start = System.currentTimeMillis();
 					// qt.draw(linesBool.getState(), pointsBool.getState(),
 					// 	 	scaleVal);
 
-					QuadTreeMap hm = qt.toQuadTreeMap();
+					// QuadTreeMap hm = qt.toQuadTreeMap();
+					qt.addQuadTreeMap();
 
-					QuadTreePropagate qtp = new QuadTreePropagate(hm);
+					QuadTreePropagate qtp = new QuadTreePropagate(qt);
 
 					// DrawQuadTreeMap d = new DrawQuadTreeMap(hm, scaleVal);
 					// d.draw(linesBool.getState(), pointsBool.getState());
 
-					DrawQuadTreeMapIJ dij = new DrawQuadTreeMapIJ(filepath, hm, maxXval, maxYval, scaleVal);
+					DrawQuadTreeMapIJ dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
 					dij.draw(linesBool.getState(), pointsBool.getState());
 
 System.out.println("Time: " + (System.currentTimeMillis()-start));

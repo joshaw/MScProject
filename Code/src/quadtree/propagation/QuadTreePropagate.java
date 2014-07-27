@@ -5,6 +5,8 @@
  */
 package quadtree.propagation;
 
+import quadtree.QuadTree;
+import quadtree.QuadTreeMap;
 import utils.Coordinate;
 import utils.Sutils;
 import utils.PropogationDatum;
@@ -18,13 +20,15 @@ import java.io.IOException;
 
 public class QuadTreePropagate {
 
-	private HashMap<String, PropogationDatum> hashmap;
+	private QuadTree qt;
+	private QuadTreeMap hashmap;
 	private String start;
 	private byte[] kernel;
 	private final int depthRange = 2*2;
 
-	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
-		this.hashmap = hashmap;
+	public QuadTreePropagate(QuadTree qt){
+		this.qt = qt;
+		this.hashmap = qt.getQuadTreeMap();
 		readKernel();
 		propagate();
 	}

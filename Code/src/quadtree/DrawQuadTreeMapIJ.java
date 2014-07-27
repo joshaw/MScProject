@@ -36,10 +36,10 @@ public class DrawQuadTreeMapIJ {
 	private boolean incPoints;
 	private boolean incLines;
 
-	public DrawQuadTreeMapIJ(String filepath, QuadTreeMap qtm, double maxX,
+	public DrawQuadTreeMapIJ(String filepath, QuadTree qt, double maxX,
 			double maxY, double scaleVal) {
 		this.filepath = filepath;
-		this.qtm = qtm;
+		this.qtm = qt.getQuadTreeMap();
 		this.scaleVal = scaleVal;
 		this.gridX = (int)(scaleVal * maxX);
 		this.gridY = (int)(scaleVal * maxY);
