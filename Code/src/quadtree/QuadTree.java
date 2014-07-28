@@ -15,6 +15,8 @@ import utils.PropogationDatum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -38,12 +40,14 @@ public class QuadTree implements ClusterStructure {
 	private QuadTree tr;
 	private QuadTree bl;
 	private QuadTree br;
-	private ArrayList<Coordinate> points;
+	private Set<Coordinate> points;
 	private boolean leaf;
 	private String pos;
-	private String code;
+	private String code = "";
 	private boolean drawing;
 	private int countFile = 0;
+
+	private QuadTreeMap hashmap;
 
 	/** Creates a new root node for a new quadtree.
 	 *
@@ -92,7 +96,11 @@ public class QuadTree implements ClusterStructure {
 		this.maxX        = maxX;
 		this.minY        = minY;
 		this.maxY        = maxY;
-		this.points      = new ArrayList<Coordinate>();
+		this.points      = new HashSet<Coordinate>();
+	}
+
+	private QuadTree() {
+		this.leaf = true;
 	}
 
 	/** Decide if the given point should be placed in the current node, a
@@ -248,6 +256,14 @@ public class QuadTree implements ClusterStructure {
 		return qtm;
 	}
 
+	public void addQuadTreeMap() {
+		this.hashmap = toQuadTreeMap();
+	}
+
+	public QuadTreeMap getQuadTreeMap() {
+		return hashmap;
+	}
+
 	/** Returns the maximum depth of a child node in the quadtree.
 	 */
 	public int getDepth() {
@@ -282,7 +298,7 @@ public class QuadTree implements ClusterStructure {
 		return code;
 	}
 
-	public ArrayList<Coordinate> getPoints() { return points; }
+	public Set<Coordinate> getPoints() { return points; }
 	public boolean isLeaf()     { return leaf; }
 	public QuadTree getTL()     { return tl; }
 	public QuadTree getTR()     { return tr; }
@@ -306,6 +322,61 @@ public class QuadTree implements ClusterStructure {
 		}
 
 		return sb.toString();
+	}
+
+	public QuadTree getNode(String findCode) {
+		return getNode(findCode, findCode);
+	}
+
+	private QuadTree getNode(String findCode, String orig) {
+		if (leaf || findCode.equals(code)) {
+			return this;
+		} else {
+			try {
+				String nibble = findCode.substring(0,2);
+				if (nibble.equals("00")) {
+					return tl.getNode(findCode.substring(2), orig);
+
+				} else if (nibble.equals("01")) {
+					return tr.getNode(findCode.substring(2), orig);
+
+				} else if (nibble.equals("10")){
+					return bl.getNode(findCode.substring(2), orig);
+
+				} else if (nibble.equals("11")){
+					return br.getNode(findCode.substring(2), orig);
+
+				} else {
+					throw new IllegalArgumentException("Something went wrong.");
+				}
+			} catch(StringIndexOutOfBoundsException e){
+				return this;
+			} catch(NullPointerException e){
+				return new QuadTree();
+			}
+		}
+	}
+
+	/** Creates a list of the codes of the nodes that are children of the
+	 * current node.
+	 * @return arraylist of codes of the children of this node.
+	 */
+	public ArrayList<String> getAllChildrenCodes() {
+		ArrayList<String> childCodes = new ArrayList<String>();
+
+		if (leaf) {
+			if (code != "") {
+				childCodes.add(code);
+			}
+			return childCodes;
+		} else {
+			childCodes.addAll(tl.getAllChildrenCodes());
+			childCodes.addAll(tr.getAllChildrenCodes());
+			childCodes.addAll(bl.getAllChildrenCodes());
+			childCodes.addAll(br.getAllChildrenCodes());
+		}
+
+		return childCodes;
 	}
 
 	@Override

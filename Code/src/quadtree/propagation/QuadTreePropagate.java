@@ -5,6 +5,8 @@
  */
 package quadtree.propagation;
 
+import quadtree.QuadTree;
+import quadtree.QuadTreeMap;
 import utils.Coordinate;
 import utils.Sutils;
 import utils.PropogationDatum;
@@ -18,13 +20,15 @@ import java.io.IOException;
 
 public class QuadTreePropagate {
 
-	private HashMap<String, PropogationDatum> hashmap;
+	private QuadTree qt;
+	private QuadTreeMap hashmap;
 	private String start;
 	private byte[] kernel;
 	private final int depthRange = 2*2;
 
-	public QuadTreePropagate(HashMap<String, PropogationDatum> hashmap){
-		this.hashmap = hashmap;
+	public QuadTreePropagate(QuadTree qt){
+		this.qt = qt;
+		this.hashmap = qt.getQuadTreeMap();
 		readKernel();
 		propagate();
 	}
@@ -192,74 +196,49 @@ public class QuadTreePropagate {
 		ArrayList<String> neighbours = new ArrayList<String>();
 		int cl = code.length();
 
-		// // Rook's Case Neighbours
-		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX(), c.getY()-1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX(), c.getY()+1), cl));
-
-		// // Diagonal Neighbours
-		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()-1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()+1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()-1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()+1), cl));
-
-		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()+2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()+1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()+0), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()-1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+2, c.getY()-2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()-2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+0, c.getY()-2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()-2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()-2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()-1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()+0), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()+1), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-2, c.getY()+2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()+2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+0, c.getY()+2), cl));
-		// neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()+2), cl));
-
 		int ks = (int)Math.sqrt(kernel.length);
 
 		for (int i = 0; i < ks; i++) {
 			for (int j = 0; j < ks; j++) {
+
 				int adj = (kernel.length-1)/2;
+
 				if (kernel[i*ks+j] == 1 && (i-adj != 0 && j-adj != 0)) {
-					neighbours.add(getCode(new Coordinate(c.getX()+i-ks/2, c.getY()+j-ks/2), cl));
-					// System.out.println("\t" + (i*ks+j) + ": " + (c.getX()+i-ks/2) + "," + (c.getY()+j-ks/2));
+					neighbours.add(getCode(new Coordinate(
+									c.getX()+i-ks/2, c.getY()+j-ks/2), cl));
 				}
 			}
 		}
 
-		int numNeighbours = neighbours.size();
-
-		for (int i = 0; i < numNeighbours; i++) {
+		int neighboursSize = neighbours.size();
+		for (int i = 0; i < neighboursSize; i++) {
 
 			String s = neighbours.get(i);
-			// System.out.println("s: " + s);
 
 			if (s != null) {
 
 				// Check up the tree for valid neighbours
-				while (s != null &&
-						start.length()-s.length() < depthRange &&
+				while (start.length()-s.length() < depthRange &&
 						s.length() >= 4) {
 
 					if (hashmap.containsKey(s)) {
-						// System.out.println("Add: " + s);
 						neighbours.add(s);
 						break;
 					} else {
 						s = s.substring(0, s.length()-2);
-						// System.out.println("Sub: " + s);
 					}
-						}
+				}
 
 				// Check down the tree for valid neighbours
 				s = neighbours.get(i);
-				neighbours.addAll(addSuffixes(s));
+				// neighbours.addAll(addSuffixes(s));
+				QuadTree poss = qt.getNode(s);
+
+				if (start.length() - s.length() < depthRange &&
+						start.length() - poss.getCode().length() < depthRange) {
+
+					neighbours.addAll(poss.getAllChildrenCodes());
+				}
 			}
 
 			if (!hashmap.containsKey(neighbours.get(i))) {
@@ -295,10 +274,12 @@ public class QuadTreePropagate {
 
 	private byte[] readKernel() {
 		String kernelPath = "/home/students/jaw097/work/Project/Code/sampledata/kernel";
+		// String kernelPath = "/home/josh/Documents/MScProject/Code/sampledata/kernel";
 		kernel = new byte[0];
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(kernelPath));
+			BufferedReader reader =
+				new BufferedReader(new FileReader(kernelPath));
 			String line = null;
 
 			String lines = "";
@@ -322,11 +303,6 @@ public class QuadTreePropagate {
 			e.printStackTrace();
 		}
 
-		System.out.print("Kernel: ");
-		for (float f : kernel) {
-			System.out.print(f + " ");
-		}
-		System.out.println();
 		return kernel;
 	}
 }

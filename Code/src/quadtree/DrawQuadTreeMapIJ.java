@@ -10,15 +10,19 @@ import ij.io.*;
 import ij.gui.*;
 import ij.plugin.*;
 import ij.process.*;
+import ij.measure.ResultsTable;
 
 import utils.Coordinate;
 import quadtree.QuadTreeMap;
 import utils.PropogationDatum;
+import utils.ClusterStats;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.ArrayList;
 import java.awt.Window;
 
 public class DrawQuadTreeMapIJ {
@@ -35,11 +39,15 @@ public class DrawQuadTreeMapIJ {
 	private int addedCount = 0;
 	private boolean incPoints;
 	private boolean incLines;
+	private final String colours[] = {"#ffffff", "#fce94f", "#fcaf3e",
+									"#e9b96e", "#8ae234", "#729fcf", "#ad7fa8",
+									"#ef2929", "#d3d7cf", "#888a85"};
+	private ClusterStats clusters = new ClusterStats();
 
-	public DrawQuadTreeMapIJ(String filepath, QuadTreeMap qtm, double maxX,
+	public DrawQuadTreeMapIJ(String filepath, QuadTree qt, double maxX,
 			double maxY, double scaleVal) {
 		this.filepath = filepath;
-		this.qtm = qtm;
+		this.qtm = qt.getQuadTreeMap();
 		this.scaleVal = scaleVal;
 		this.gridX = (int)(scaleVal * maxX);
 		this.gridY = (int)(scaleVal * maxY);
@@ -112,12 +120,24 @@ public class DrawQuadTreeMapIJ {
 		// ims.setPixels(pixels3, 3);
 		imp.setStack("Clusters", ims);
 		imp.show();
+
+		ResultsTable rt = new ResultsTable();
+		clusters.sort("desc");
+		for (int i = 1; i < clusters.size(); i++) {
+			rt.incrementCounter();
+			rt.addValue("No. of Points", clusters.getClusterPoints(i));
+			rt.addValue("Cluster Area", clusters.getClusterArea(i));
+		}
+		rt.showRowNumbers(true);
+		rt.show("Clusters Results");
 	}
 
 	/** Recursivly go through the quadtree and draw sqare on screen based on
 	 * the minimum and maximum limits of the node are.
 	 */
 	private void traverseMap() {
+
+		clusters = new ClusterStats();
 
 		for (Entry<String, PropogationDatum> e : qtm.entrySet()) {
 
@@ -165,42 +185,13 @@ public class DrawQuadTreeMapIJ {
 
 			for (int i = x; i < X; i++) {
 				for (int j = y; j < Y; j++) {
-					if (e.getValue().status()%10 == 1) {
-						points1[i][j] = hexrgb("#fce94f");
-						points2[i][j] = hexrgb("#fce94f");
-					}
-					if (e.getValue().status()%10 == 2) {
-						points1[i][j] = hexrgb("#fcaf3e");
-						points2[i][j] = hexrgb("#fcaf3e");
-					}
-					if (e.getValue().status()%10 == 3) {
-						points1[i][j] = hexrgb("#e9b96e");
-						points2[i][j] = hexrgb("#e9b96e");
-					}
-					if (e.getValue().status()%10 == 4) {
-						points1[i][j] = hexrgb("#8ae234");
-						points2[i][j] = hexrgb("#8ae234");
-					}
-					if (e.getValue().status()%10 == 5) {
-						points1[i][j] = hexrgb("#729fcf");
-						points2[i][j] = hexrgb("#729fcf");
-					}
-					if (e.getValue().status()%10 == 6) {
-						points1[i][j] = hexrgb("#ad7fa8");
-						points2[i][j] = hexrgb("#ad7fa8");
-					}
-					if (e.getValue().status()%10 == 7) {
-						points1[i][j] = hexrgb("#ef2929");
-						points2[i][j] = hexrgb("#ef2929");
-					}
-					if (e.getValue().status()%10 == 8) {
-						points1[i][j] = hexrgb("#d3d7cf");
-						points2[i][j] = hexrgb("#d3d7cf");
-					}
-					if (e.getValue().status()%10 == 9) {
-						points1[i][j] = hexrgb("#888a85");
-						points2[i][j] = hexrgb("#888a85");
-					}
+
+					byte status = e.getValue().status();
+					points1[i][j] = hexrgb(colours[status%10]);
+					points2[i][j] = hexrgb(colours[status%10]);
+
+					clusters.addPointsNum(status, e.getValue().size());
+					clusters.addClusterArea(status, code);
 				}
 			}
 
