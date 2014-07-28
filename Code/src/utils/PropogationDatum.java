@@ -6,23 +6,23 @@
 package utils;
 
 import utils.Coordinate;
-import java.util.ArrayList;
+import java.util.Set;
 
 public class PropogationDatum {
 
-	private ArrayList<Coordinate> points;
+	private Set<Coordinate> points;
 	private byte status;
 
-	public PropogationDatum(ArrayList<Coordinate> points, byte status) {
+	public PropogationDatum(Set<Coordinate> points, byte status) {
 		this.points = points;
 		this.status = status;
 	}
 
-	public void setPoints(ArrayList<Coordinate> points) {
+	public void setPoints(Set<Coordinate> points) {
 		this.points = points;
 	}
 
-	public ArrayList<Coordinate> points() {
+	public Set<Coordinate> points() {
 		return points;
 	}
 

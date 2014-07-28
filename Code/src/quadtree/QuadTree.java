@@ -15,6 +15,8 @@ import utils.PropogationDatum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -38,7 +40,7 @@ public class QuadTree implements ClusterStructure {
 	private QuadTree tr;
 	private QuadTree bl;
 	private QuadTree br;
-	private ArrayList<Coordinate> points;
+	private Set<Coordinate> points;
 	private boolean leaf;
 	private String pos;
 	private String code = "";
@@ -94,7 +96,7 @@ public class QuadTree implements ClusterStructure {
 		this.maxX        = maxX;
 		this.minY        = minY;
 		this.maxY        = maxY;
-		this.points      = new ArrayList<Coordinate>();
+		this.points      = new HashSet<Coordinate>();
 	}
 
 	private QuadTree() {
@@ -296,7 +298,7 @@ public class QuadTree implements ClusterStructure {
 		return code;
 	}
 
-	public ArrayList<Coordinate> getPoints() { return points; }
+	public Set<Coordinate> getPoints() { return points; }
 	public boolean isLeaf()     { return leaf; }
 	public QuadTree getTL()     { return tl; }
 	public QuadTree getTR()     { return tr; }
