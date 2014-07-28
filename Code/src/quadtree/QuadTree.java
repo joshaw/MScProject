@@ -322,20 +322,36 @@ public class QuadTree implements ClusterStructure {
 		return sb.toString();
 	}
 
-	public QuadTree getNode(String code) {
-		if (this.code == code) {
+	public QuadTree getNode(String findCode) {
+		return getNode(findCode, findCode);
+	}
+
+	private QuadTree getNode(String findCode, String orig) {
+		if (leaf || findCode.equals(code)) {
 			return this;
 		} else {
-			String nibble = code.substring(0,2);
-			if (nibble == "00") {
-				return tl.getNode(code.substring(2, code.length()-2));
-			} else if (nibble == "01") {
-				return tr.getNode(code.substring(2, code.length()-2));
-			} else if (nibble == "10") {
-				return bl.getNode(code.substring(2, code.length()-2));
-			} else if (nibble == "11"){
-				return br.getNode(code.substring(2, code.length()-2));
-			} else {
+			try {
+				String nibble = findCode.substring(0,2);
+				if (nibble.equals("00")) {
+					return tl.getNode(findCode.substring(2), orig);
+
+				} else if (nibble.equals("01")) {
+					return tr.getNode(findCode.substring(2), orig);
+
+				} else if (nibble.equals("10")){
+					return bl.getNode(findCode.substring(2), orig);
+
+				} else if (nibble.equals("11")){
+					return br.getNode(findCode.substring(2), orig);
+
+				} else {
+					throw new IllegalArgumentException("Something went wrong.");
+				}
+			} catch(StringIndexOutOfBoundsException e){
+				System.out.println("StringIndexOutOfBoundsException");
+				return this;
+			} catch(NullPointerException e){
+				System.out.println("NullPointerException");
 				return new QuadTree();
 			}
 		}
