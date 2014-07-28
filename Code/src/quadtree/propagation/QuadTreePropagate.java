@@ -303,11 +303,6 @@ public class QuadTreePropagate {
 			e.printStackTrace();
 		}
 
-		System.out.print("Kernel: ");
-		for (float f : kernel) {
-			System.out.print(f + " ");
-		}
-		System.out.println();
 		return kernel;
 	}
 }

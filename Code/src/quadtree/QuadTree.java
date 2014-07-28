@@ -348,10 +348,8 @@ public class QuadTree implements ClusterStructure {
 					throw new IllegalArgumentException("Something went wrong.");
 				}
 			} catch(StringIndexOutOfBoundsException e){
-				System.out.println("StringIndexOutOfBoundsException");
 				return this;
 			} catch(NullPointerException e){
-				System.out.println("NullPointerException");
 				return new QuadTree();
 			}
 		}
