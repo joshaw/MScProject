@@ -125,7 +125,8 @@ public class DrawQuadTreeMapIJ {
 		clusters.sort("desc");
 		for (int i = 1; i < clusters.size(); i++) {
 			rt.incrementCounter();
-			rt.addValue("No. of Points", clusters.getNumPoints(i));
+			rt.addValue("No. of Points", clusters.getClusterPoints(i));
+			rt.addValue("Cluster Area", clusters.getClusterArea(i));
 		}
 		rt.showRowNumbers(true);
 		rt.show("Clusters Results");
@@ -190,7 +191,7 @@ public class DrawQuadTreeMapIJ {
 					points2[i][j] = hexrgb(colours[status%10]);
 
 					clusters.addPointsNum(status, e.getValue().size());
-					clusters.addNodeArea(status, code);
+					clusters.addClusterArea(status, code);
 				}
 			}
 

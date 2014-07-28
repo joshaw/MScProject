@@ -19,13 +19,14 @@ public class ClusterStats {
 	}
 
 	public void addPointsNum(byte status, int size) {
-		int s = (int) status;
 		checkSize(status);
-		stats.get(s).addPointsNum(size);
+		stats.get(status).addPointsNum(size);
 	}
 
-	public void addNodeArea(byte status, String code) {
-
+	public void addClusterArea(byte status, String code) {
+		checkSize(status);
+		double area = 1.0/Math.pow(4, code.length()/2);
+		stats.get(status).addClusterArea(area);
 	}
 
 	public void sort(String order) {
@@ -38,13 +39,17 @@ public class ClusterStats {
 	}
 
 	private void checkSize(byte status) {
-		while (status > stats.size()) {
+		while (status >= stats.size()) {
 			stats.add(new ClusterStatsDatum());
 		}
 	}
 
-	public int getNumPoints(int i) {
-		return stats.get(i).getNumPoints();
+	public int getClusterPoints(int i) {
+		return stats.get(i).getClusterPoints();
+	}
+
+	public double getClusterArea(int i) {
+		return stats.get(i).getClusterArea();
 	}
 
 }

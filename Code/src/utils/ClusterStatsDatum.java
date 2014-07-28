@@ -8,7 +8,7 @@ package utils;
 public class ClusterStatsDatum {
 
 	private int numPoints;
-	private int nodeArea;
+	private double nodeArea;
 
 	public ClusterStatsDatum() {
 
@@ -18,15 +18,15 @@ public class ClusterStatsDatum {
 		numPoints += size;
 	}
 
-	public void addNodeArea(int area) {
+	public void addClusterArea(double area) {
 		nodeArea += area;
 	}
 
-	public int getNumPoints() {
+	public int getClusterPoints() {
 		return numPoints;
 	}
 
-	public int getNodeArea() {
+	public double getClusterArea() {
 		return nodeArea;
 	}
 }
