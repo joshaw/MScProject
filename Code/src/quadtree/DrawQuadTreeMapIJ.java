@@ -15,6 +15,7 @@ import ij.measure.ResultsTable;
 import utils.Coordinate;
 import quadtree.QuadTreeMap;
 import utils.PropogationDatum;
+import utils.ClusterStats;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -41,8 +42,7 @@ public class DrawQuadTreeMapIJ {
 	private final String colours[] = {"#ffffff", "#fce94f", "#fcaf3e",
 									"#e9b96e", "#8ae234", "#729fcf", "#ad7fa8",
 									"#ef2929", "#d3d7cf", "#888a85"};
-	// private int clusters[] = new int[40];
-	private ArrayList<Integer> clusters = new ArrayList<Integer>(40);
+	private ClusterStats clusters = new ClusterStats();
 
 	public DrawQuadTreeMapIJ(String filepath, QuadTree qt, double maxX,
 			double maxY, double scaleVal) {
@@ -122,12 +122,10 @@ public class DrawQuadTreeMapIJ {
 		imp.show();
 
 		ResultsTable rt = new ResultsTable();
-		clusters.remove(0);
-		Collections.sort(clusters);
-		Collections.reverse(clusters);
+		clusters.sort("desc");
 		for (int i = 1; i < clusters.size(); i++) {
 			rt.incrementCounter();
-			rt.addValue("No. of Points", clusters.get(i));
+			rt.addValue("No. of Points", clusters.getNumPoints(i));
 		}
 		rt.showRowNumbers(true);
 		rt.show("Clusters Results");
@@ -138,9 +136,7 @@ public class DrawQuadTreeMapIJ {
 	 */
 	private void traverseMap() {
 
-		for (int i = 0; i < clusters.size(); i++) {
-    		clusters.set(i, 0);
-		}
+		clusters = new ClusterStats();
 
 		for (Entry<String, PropogationDatum> e : qtm.entrySet()) {
 
@@ -193,16 +189,8 @@ public class DrawQuadTreeMapIJ {
 					points1[i][j] = hexrgb(colours[status%10]);
 					points2[i][j] = hexrgb(colours[status%10]);
 
-					int numPoints = e.getValue().size();
-					try {
-						clusters.set(status, clusters.get(status)+ numPoints);
-					} catch(IndexOutOfBoundsException e1){
-						for (int c = clusters.size(); c <= status; c++) {
-							clusters.add(0);
-						}
-						clusters.set(status, clusters.get(status)+ numPoints);
-					}
-
+					clusters.addPointsNum(status, e.getValue().size());
+					clusters.addNodeArea(status, code);
 				}
 			}
 
