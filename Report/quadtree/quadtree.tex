@@ -58,7 +58,7 @@ in which the nodes are placed is important. For spatial indexing, for example,
 each node represents a quadrant in two dimensional space, so being able to
 traverse the children in a sensible and predictable way is essential.
 
-\subsubsection[Morton Code]{Morton Code (Z-Order)}
+\subsubsection[Morton Order]{Morton Order (Z-Order)}
 \label{ssub:morton_code_z_order_}
 
 Perhaps the most natural order to give to the values in a spatial quadtree is
@@ -103,6 +103,46 @@ quadtrees, but it was found to be difficult to work with in a spatial context
 when information about neighbouring cells is needed. The steps required to
 calculate the neighbours of any given cell are reasonably complex and so would
 add computational and time complexity to calculations performed on the tree.
+
+\subsubsection*{Morton Order Coordinates}
+\label{ssub:Morton Order Coordinates}
+
+Another useful feature of the Morton ordering is the simple conversion from
+quadtree code to Cartesian coordinate notation. The steps to convert to
+coordinate form are:
+
+\begin{enumerate}
+	\item Ensure the code is in binary format with two bits for each level of
+		the tree,
+	\item \emph{de-interleave} the bits of the code (starting with the first
+		being given to the $y$-axis, assign bits to the $y$ and $x$ axes
+		building up a binary value for each),
+	\item convert the resulting two binary value to decimal to give a standard
+		decimal $(x,y)$ coordinate.
+\end{enumerate}
+
+This method means that it is very easy to calculate an arbitrary number of
+nodes in any direction by simply converting the code for a node to coordinates,
+adding or subtracting the number of positions to move in the $x$ and $y$
+directions and then converting back to quadtree code representation by
+following the algorithm above in the reverse order.
+
+Of course, this method has no knowledge of the structure of the quadtree being
+used and so only provides the code of the node that would occupy the space at
+the given coordinate. That node might not exist---the tree might not extend
+deep enough, so the node in that position is larger than expected; or the tree
+might be deeper at that location meaning the node is smaller. In these cases,
+there are a number of options as to how to find the correct node for the code:
+
+\begin{itemize}
+	\item The code can be shortened and/or lengthened and the resulting adapted
+		code checked to see if it is in the tree. This trial and error method
+		can be fastest when there is a limit on the depth range allowed when
+		%TODO find correct reference
+		searching (see Section~\ref{sec:}).
+	\item The tree can be traversed to find the nearest node to the expected
+		code reference.
+\end{itemize}
 
 \subsubsection{Hilbert Order}
 \label{ssub:hilbert_order}
