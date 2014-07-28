@@ -24,7 +24,7 @@
 	<target name="compile" depends="init" >
 		<javac includeantruntime="false" destdir="${classes.dir}" debug="true" srcdir="src">
 			<classpath>
-				<pathelement location="/home/josh/Bin/ImageJ/ij.jar"/>
+				<pathelement location="${user.home}/Bin/ImageJ/ij.jar"/>
 			</classpath>
 		</javac>
 	</target>
