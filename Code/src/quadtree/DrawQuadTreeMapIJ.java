@@ -42,7 +42,7 @@ public class DrawQuadTreeMapIJ {
 									"#e9b96e", "#8ae234", "#729fcf", "#ad7fa8",
 									"#ef2929", "#d3d7cf", "#888a85"};
 	// private int clusters[] = new int[40];
-	private ArrayList<Integer> clusters = new ArrayList<Integer>();
+	private ArrayList<Integer> clusters = new ArrayList<Integer>(40);
 
 	public DrawQuadTreeMapIJ(String filepath, QuadTree qt, double maxX,
 			double maxY, double scaleVal) {
@@ -138,6 +138,10 @@ public class DrawQuadTreeMapIJ {
 	 */
 	private void traverseMap() {
 
+		for (int i = 0; i < clusters.size(); i++) {
+    		clusters.set(i, 0);
+		}
+
 		for (Entry<String, PropogationDatum> e : qtm.entrySet()) {
 
 			String code = e.getKey();
@@ -189,13 +193,14 @@ public class DrawQuadTreeMapIJ {
 					points1[i][j] = hexrgb(colours[status%10]);
 					points2[i][j] = hexrgb(colours[status%10]);
 
+					int numPoints = e.getValue().size();
 					try {
-						clusters.set(status, clusters.get(status)+1);
+						clusters.set(status, clusters.get(status)+ numPoints);
 					} catch(IndexOutOfBoundsException e1){
 						for (int c = clusters.size(); c <= status; c++) {
 							clusters.add(0);
 						}
-						clusters.set(status, clusters.get(status)+1);
+						clusters.set(status, clusters.get(status)+ numPoints);
 					}
 
 				}
