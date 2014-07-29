@@ -12,6 +12,7 @@ public class PropogationDatum {
 
 	private Set<Coordinate> points;
 	private byte status;
+	private byte perimeter = 4;
 
 	public PropogationDatum(Set<Coordinate> points, byte status) {
 		this.points = points;
@@ -36,6 +37,17 @@ public class PropogationDatum {
 
 	public int size() {
 		return points.size();
+	}
+
+	public void reducePerimeter() {
+		this.perimeter--;
+	}
+
+	/** Value from 1 to 4 representing how many of this cell's sides contribute
+	 * to the perimeter of the cluster.
+	 */
+	public byte perimeter() {
+		return perimeter;
 	}
 
 }

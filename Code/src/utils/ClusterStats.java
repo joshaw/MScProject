@@ -1,8 +1,8 @@
-// Created:  Mon 28 Jul 2014 04:43 PM
-// Modified: Mon 28 Jul 2014 04:43 PM
-// @author Josh Wainwright
-// filename: ClusterStats.java
-
+/** Created: Mon 28 Jul 2014 04:43 PM
+ * Modified: Tue 29 Jul 2014 10:02 AM
+ * @author Josh Wainwright
+ * filename: ClusterStats.java
+ */
 package utils;
 
 import utils.ClusterStatsDatum;
@@ -19,15 +19,25 @@ public class ClusterStats {
 		stats = new ArrayList<ClusterStatsDatum>(40);
 	}
 
-	public void addPointsNum(byte status, int size) {
+	public void addClusterPoints(byte status, int size) {
 		checkSize(status);
-		stats.get(status).addPointsNum(size);
+		stats.get(status).addClusterPoints(size);
+		stats.get(status).setStatus(status);
 	}
 
 	public void addClusterArea(byte status, String code) {
 		checkSize(status);
-		double area = 1.0/Math.pow(4, code.length()/2);
+		double area = Math.pow(4, -code.length()/2);
 		stats.get(status).addClusterArea(area);
+	}
+
+	public void addClusterPerimeter(byte status, String code, int sides) {
+		checkSize(status);
+		if (sides < 0 || sides > 4) {
+			throw new IllegalArgumentException("Sides is between 1 and 4");
+		}
+		double perimeter = sides * Math.pow(2, -code.length()/2);
+		stats.get(status).addClusterPerimeter(perimeter);
 	}
 
 	public void sort() {
@@ -50,6 +60,14 @@ public class ClusterStats {
 
 	public double getClusterArea(int i) {
 		return stats.get(i).getClusterArea();
+	}
+
+	public double getClusterPerimeter(int i) {
+		return stats.get(i).getClusterPerimeter();
+	}
+
+	public byte getStatus(int i) {
+		return stats.get(i).getStatus();
 	}
 
 }

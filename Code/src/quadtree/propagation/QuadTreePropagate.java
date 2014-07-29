@@ -12,6 +12,7 @@ import utils.Sutils;
 import utils.PropogationDatum;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -251,6 +252,26 @@ public class QuadTreePropagate {
 		return neighbours;
 	}
 
+	private ArrayList<String> getRooksNeighbours(String code) {
+		Coordinate c = getCoordinate(code);
+		ArrayList<String> neighbours = new ArrayList<String>();
+		int cl = code.length();
+
+		// Rook's Case Neighbours
+		neighbours.add(getCode(new Coordinate(c.getX()-1, c.getY()), cl));
+		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()-1), cl));
+		neighbours.add(getCode(new Coordinate(c.getX()+1, c.getY()), cl));
+		neighbours.add(getCode(new Coordinate(c.getX(), c.getY()+1), cl));
+
+		for (int i = 0; i < neighbours.size(); i++) {
+			String s = neighbours.get(i);
+			if (s != null && !hashmap.containsKey(s)) {
+				while (s.length() > 0) {
+					if (hashmap.containsKey(s)) {
+						neighbours.set(i, s);
+						break;
+					} else {
+						s = s.substring(0, s.length()-2);
 	private ArrayList<String> addSuffixes(String code) {
 		String[] suffixes = {"00", "01", "10", "11"};
 		ArrayList<String> codesWithSuff = new ArrayList<String>();
@@ -265,11 +286,14 @@ public class QuadTreePropagate {
 					}
 				}
 			}
-			codesWithSuff.addAll(codesWithSuffTmp);
+
+			if (!hashmap.containsKey(neighbours.get(i))) {
+				neighbours.set(i, null);
+			}
 		}
 
-		if (!hashmap.containsKey(code)) {
-			codesWithSuff.remove(0);
+		return neighbours;
+	}
 	private void generatePerimeter() {
 		for (Entry<String, PropogationDatum> e : hashmap.entrySet()) {
 			for (String n : getRooksNeighbours(e.getKey())) {

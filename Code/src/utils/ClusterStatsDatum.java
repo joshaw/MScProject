@@ -1,25 +1,38 @@
-// Created:  Mon 28 Jul 2014 05:07 PM
-// Modified: Mon 28 Jul 2014 05:07 PM
-// @author Josh Wainwright
-// filename: ClusterStatsDatum.java
+/** Created: Mon 28 Jul 2014 05:07 PM
+ * Modified: Tue 29 Jul 2014 10:02 AM
+ * @author Josh Wainwright
+ * filename: ClusterStatsDatum.java
+ */
 
 package utils;
 
 public class ClusterStatsDatum implements Comparable<ClusterStatsDatum>{
 
+	private byte status;
 	private int clusterPoints;
 	private double clusterArea;
+	private double clusterPerimeter;
 
-	public ClusterStatsDatum() {
+	public ClusterStatsDatum() { }
 
+	public void setStatus(byte status) {
+		this.status = status;
 	}
 
-	public void addPointsNum(int size) {
+	public byte getStatus() {
+		return status;
+	}
+
+	public void addClusterPoints(int size) {
 		clusterPoints += size;
 	}
 
 	public void addClusterArea(double area) {
 		clusterArea += area;
+	}
+
+	public void addClusterPerimeter(double perimeter) {
+		clusterPerimeter += perimeter;
 	}
 
 	public int getClusterPoints() {
@@ -28,6 +41,10 @@ public class ClusterStatsDatum implements Comparable<ClusterStatsDatum>{
 
 	public double getClusterArea() {
 		return clusterArea;
+	}
+
+	public double getClusterPerimeter() {
+		return clusterPerimeter;
 	}
 
 	public int compareTo(ClusterStatsDatum c) {
