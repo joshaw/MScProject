@@ -135,7 +135,7 @@ and so less well defined.
 
 When starting at the highest density node, i.e., the node which is at the
 deepest level in the tree, propagating this node and then terminating; the
-cluster shown in Figure~\ref{fig:single-cluster} is detected. The file
+cluster shown in Figure~\ref{fig:single-cluster} is found. The file
 \texttt{palm-1.txt} was used and generated this data in
 \SI{457}{\milli\second}. This shows that the algorithm works correctly.
 Altering the parameters that are used to generate the quadtree affects the size
@@ -155,6 +155,29 @@ of the nodes that are included in the cluster and the depth that is searched.
 	% TODO caption
 	\caption{single-cluster} \label{fig:single-cluster}
 \end{figure}
+
+In order to find other clusters, the algorithm must be restarted with a new
+starting location. This is chosen as the deepest node in the tree that is not
+already included in a cluster. There are a number of different way to terminate
+this process of finding new clusters:
+
+\begin{itemize}
+
+	\item Perform a set number of iterations. This performs well if the
+		clusters to be located can be easily counted, but in the general case,
+		this is not possible or desired. If the number of iterations is set to
+		a high value, of the order of 50, the algorithm will continue to locate
+		``clusters'' even if they do not exist and will eventually simply
+		report the background noise as a cluster. To prevent this, a limit can
+		be set on the depth a starting location must be in order to be valid.
+
+	\item Continue iterating until a depth limit is reached. This is a more
+		general form of the previous case, but for this case, the limit on the
+		depth of a starting location will always be reached.
+
+	\item
+
+\end{itemize}
 
 \begin{figure}[tbhp]
 	\begin{minipage}[c]{0.80\linewidth}
@@ -176,9 +199,11 @@ of the nodes that are included in the cluster and the depth that is searched.
 			\cellcolor{lgrey}9\\
 		\end{tabular}
 	\end{minipage}
-	% TODO caption
-	\caption{Bla bla}
-	\label{fig:multiple-clusters-colours.png}
+	\caption{Initial versions of the clustering algorithm included too many
+	nodes, making the clusters too large. This image shows how each node
+	cluster that is started is independent of the previous ones. The clusters
+	were identified in the order they are listed on the right.}
+	\label{fig:multiple-clusters-colours}
 \end{figure}
 
 \subsection{Choosing Neighbours}
