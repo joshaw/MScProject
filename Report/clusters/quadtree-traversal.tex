@@ -207,19 +207,23 @@ structures are missed. Figure~\ref{fig:kernel-rooks-case} shows how this
 arrangement misses a large portion of the cluster, simply because the
 propagation could not consider the nodes across the boundary. If, in addition
 to the rook's case, the four \emph{diagonal} neighbours are included, giving a
-total of eight, the results are much better.
+total of eight, the results are much more complete, as shown in
+Figure~\ref{fig:kernel-all8}.
 
 \begin{figure}[ht]
-    \centering
-    \begin{subfigure}[b]{0.48\linewidth}
-        \includegraphics[width=\textwidth]{clusters/kernel-rooks-case.png}
-        \caption{}\label{fig:kernel-rooks-case.png}
-    \end{subfigure}%
-    \quad
-    \begin{subfigure}[b]{0.48\linewidth}
-        \includegraphics[width=\textwidth]{clusters/kernel-all8.png}
-        \caption{}\label{fig:kernel-all8.png}
-    \end{subfigure}
-    % TODO caption
-    \caption{}\label{fig:kernel-options}
+	\centering
+	\begin{subfigure}[b]{0.48\linewidth}
+		\includegraphics[width=\textwidth]{clusters/kernel-rooks-case.png}
+		\caption{}\label{fig:kernel-rooks-case}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{0.48\linewidth}
+		\includegraphics[width=\textwidth]{clusters/kernel-all8.png}
+		\caption{}\label{fig:kernel-all8}
+	\end{subfigure}
+	\caption{A comparison between different neighbour sets.
+		Figure~\subref{fig:kernel-rooks-case} shows how some of the cluster is
+		lost when using just the rook's case neighbours, whereas, using all
+		eight neighbours, Figure~\subref{fig:kernel-all8} more of the cluster
+		is included.}\label{fig:kernel-options}
 \end{figure}
