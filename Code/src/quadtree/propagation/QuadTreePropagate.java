@@ -31,6 +31,8 @@ public class QuadTreePropagate {
 		this.hashmap = qt.getQuadTreeMap();
 		readKernel();
 		propagate();
+		generatePerimeter();
+		hashmap.generateClusterStats();
 	}
 
 	private String getStart() {
@@ -268,8 +270,16 @@ public class QuadTreePropagate {
 
 		if (!hashmap.containsKey(code)) {
 			codesWithSuff.remove(0);
+	private void generatePerimeter() {
+		for (Entry<String, PropogationDatum> e : hashmap.entrySet()) {
+			for (String n : getRooksNeighbours(e.getKey())) {
+
+				if (n != null &&
+						e.getValue().status() == hashmap.get(n).status()) {
+					e.getValue().reducePerimeter();
+				}
+			}
 		}
-		return codesWithSuff;
 	}
 
 	private byte[] readKernel() {

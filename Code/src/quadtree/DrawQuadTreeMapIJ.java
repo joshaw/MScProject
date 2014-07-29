@@ -121,6 +121,7 @@ public class DrawQuadTreeMapIJ {
 		imp.setStack("Clusters", ims);
 		imp.show();
 
+		this.clusters = qtm.getClusterStats();
 		ResultsTable rt = new ResultsTable();
 		clusters.sort();
 		for (int i = 1; i < clusters.size(); i++) {
