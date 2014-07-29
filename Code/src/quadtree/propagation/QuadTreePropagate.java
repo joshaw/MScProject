@@ -37,16 +37,6 @@ public class QuadTreePropagate {
 	}
 
 	private String getStart() {
-		// boolean cont = true;
-		// String s = "00";
-		// while (cont) {
-		// 	if (hashmap.containsKey(s)) {
-		// 		cont = false;
-		// 	} else {
-		// 		s += "00";
-		// 	}
-		// }
-
 		int lmax = 4;
 		String smax = "";
 		for (String node : hashmap.keySet()) {
@@ -272,17 +262,6 @@ public class QuadTreePropagate {
 						break;
 					} else {
 						s = s.substring(0, s.length()-2);
-	private ArrayList<String> addSuffixes(String code) {
-		String[] suffixes = {"00", "01", "10", "11"};
-		ArrayList<String> codesWithSuff = new ArrayList<String>();
-		ArrayList<String> codesWithSuffTmp = new ArrayList<String>();
-		codesWithSuff.add(code);
-
-		for (int i = 1; i < start.length()/2; i++) {
-			for (String s : codesWithSuff) {
-				for (String suff : suffixes) {
-					if (hashmap.containsKey(s+suff)) {
-						codesWithSuffTmp.add(s+suff);
 					}
 				}
 			}
@@ -294,6 +273,30 @@ public class QuadTreePropagate {
 
 		return neighbours;
 	}
+
+	// private ArrayList<String> addSuffixes(String code) {
+	// 	String[] suffixes = {"00", "01", "10", "11"};
+	// 	ArrayList<String> codesWithSuff = new ArrayList<String>();
+	// 	ArrayList<String> codesWithSuffTmp = new ArrayList<String>();
+	// 	codesWithSuff.add(code);
+
+	// 	for (int i = 1; i < start.length()/2; i++) {
+	// 		for (String s : codesWithSuff) {
+	// 			for (String suff : suffixes) {
+	// 				if (hashmap.containsKey(s+suff)) {
+	// 					codesWithSuffTmp.add(s+suff);
+	// 				}
+	// 			}
+	// 		}
+	// 		codesWithSuff.addAll(codesWithSuffTmp);
+	// 	}
+
+	// 	if (!hashmap.containsKey(code)) {
+	// 		codesWithSuff.remove(0);
+	// 	}
+	// 	return codesWithSuff;
+	// }
+
 	private void generatePerimeter() {
 		for (Entry<String, PropogationDatum> e : hashmap.entrySet()) {
 			for (String n : getRooksNeighbours(e.getKey())) {
