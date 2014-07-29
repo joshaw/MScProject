@@ -22,13 +22,14 @@ data, a user gets the opportunity to view the data before proceeding with the
 analysis.
 
 Again, earlier versions of the program displayed this data using the built-in
-GUI classes in the AWT and Swing libraries included in the standard Java
-distribution. This effectively prohibitted any further actions being performed
-on the image once it had been generated since what was displayed was only
-modifiable by the JVM via compiled code. It was also very memory intensive
-since, in many cases, many thousands of separate objects (data points
-represented by zero lenght lines, quadtree cells by boxes, etc) and so was slow
-to draw initially and redraw with any subsequent move or resize of the window.
+GUI classes in the AWT\cite{zukowski1997java} and Swing\cite{loy2002java}
+libraries included in the standard Java distribution. This effectively
+prohibited any further actions being performed on the image once it had been
+generated since what was displayed was only modifiable by the JVM via compiled
+code. It was also very memory intensive since, in many cases, many thousands of
+separate objects (data points represented by zero length lines, quadtree cells
+by boxes, etc.) and so was slow to draw initially and redraw with any
+subsequent move or resize of the window.
 
 The code used to generate this view of the data was modified to make use of the
 easy image generation functions present in ImageJ. Now, instead of many
