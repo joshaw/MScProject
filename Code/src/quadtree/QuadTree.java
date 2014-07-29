@@ -235,6 +235,7 @@ public class QuadTree implements ClusterStructure {
 	 *
 	 * The key is the code for the leaf node, the value is the arraylist of the
 	 * points that were added to the quadtree.
+	 * @return HashMap representation of this quadtree.
 	 */
 	public QuadTreeMap toQuadTreeMap() {
 		int maxLeaves = (int) getMaxNumberOfLeaves();
@@ -324,10 +325,16 @@ public class QuadTree implements ClusterStructure {
 		return sb.toString();
 	}
 
+	/** Returns the quadtree with the code given. If a leaf node exists with a
+	 * code which is a prefix of the given code, then that is returned. If the
+	 * code cannot be found, then a new, empty tree is returned.
+	 *
+	 * @param findCode Code string to locate in the current tree
+	 * @return the child node with the code given.
+	 */
 	public QuadTree getNode(String findCode) {
 		return getNode(findCode, findCode);
 	}
-
 	private QuadTree getNode(String findCode, String orig) {
 		if (leaf || findCode.equals(code)) {
 			return this;
@@ -389,6 +396,8 @@ public class QuadTree implements ClusterStructure {
 		}
 	}
 
+	/** Draw the current tree to the screen.
+	 */
 	public void draw(boolean incLines, boolean incPoints, double scaleFactor) {
 		System.out.println(filepath);
 		DrawQuadTree d = new DrawQuadTree(this, scaleFactor);
@@ -397,6 +406,8 @@ public class QuadTree implements ClusterStructure {
 
 	/** Reads the given data file and interprets the contents as coordinates.
 	 * Each coordinate is added to the quadtree.
+	 *
+	 * @return true if file was read succssfully.
 	 */
 	public boolean readDataFile() {
 		if (!filepath.equals("")) {
