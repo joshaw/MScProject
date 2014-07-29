@@ -24,7 +24,7 @@ The propagation algorithm is performed as follows:
 	\item Choose a starting location that has not yet been checked.
 	\item For this given starting location, the $n$ neighbours are checked for
 		validity based on the conditions of the analysis (the way these
-		neighbours are selected is discused in
+		neighbours are selected is discussed in
 		Section~\ref{sub:choosing_neighbours}).
 	\item If a node fails the check, then it is recorded as having done so and
 		shall not be checked again. If it passes, then it is itself propagated.
@@ -126,12 +126,12 @@ whereas a depth range of three would include both and so on.
 \subsection{Clustering Start Locations}
 \label{sub:clustering_start_locations}
 
-In order for the algorithm to proceed coorectly, a good first node, a starting
-location, must be chosen. Since the clusters to be found are regions of high
-point density, it makes sense to start the clustering algorithm at the point in
-the image with the highest point density. This should ensure that the most
-defined cluster is always found with subsequent clusters being less dense, and
-so less well defined.
+In order for the algorithm to proceed correctly, a good initial node, a
+starting location, must be chosen. Since the clusters to be found are regions
+of high point density, it makes sense to start the clustering algorithm at the
+point in the image with the highest point density. This should ensure that the
+most defined cluster is always found with subsequent clusters being less dense,
+and so less well defined.
 
 When starting at the highest density node, i.e., the node which is at the
 deepest level in the tree, propagating this node and then terminating; the
@@ -184,9 +184,9 @@ of the nodes that are included in the cluster and the depth that is searched.
 \subsection{Choosing Neighbours}
 \label{sub:choosing_neighbours}
 
-Some care must be taken when decideding what constitutes a neighbour of a node
+Some care must be taken when deciding what constitutes a neighbour of a node
 and what does not. As mentioned above, when detecting clusters using
-propogation, the neighbours of a node are checked and, if they are valid, are
+propagation, the neighbours of a node are checked and, if they are valid, are
 themselves propagated. For this reason, a poor choice of neighbours means that
 either the propagation will
 \begin{itemize}
@@ -199,13 +199,13 @@ either the propagation will
 The first neighbours that must be considered, named \emph{rook's case}
 neighbours by~\cite{abel1990comparative}, are the four nodes that lie to the
 north, east, sound and west of the current node. These are the nodes that are
-directly incontact with the node and so, if they are valid, represent a direct
+directly in contact with the node and so, if they are valid, represent a direct
 continuation of the cluster.
 
 However, if the choice of neighbours is limited to these four, some major
 structures are missed. Figure~\ref{fig:kernel-rooks-case} shows how this
 arrangement misses a large portion of the cluster, simply because the
-propagation could not consider the nodes accross the boundary. If, in addition
+propagation could not consider the nodes across the boundary. If, in addition
 to the rook's case, the four \emph{diagonal} neighbours are included, giving a
 total of eight, the results are much better.
 
