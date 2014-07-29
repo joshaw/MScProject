@@ -7,6 +7,7 @@ package utils;
 
 import utils.ClusterStatsDatum;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -29,9 +30,8 @@ public class ClusterStats {
 		stats.get(status).addClusterArea(area);
 	}
 
-	public void sort(String order) {
-		if (order.equals("desc")) {
-		}
+	public void sort() {
+		Collections.sort(stats);
 	}
 
 	public int size() {

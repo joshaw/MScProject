@@ -122,7 +122,7 @@ public class DrawQuadTreeMapIJ {
 		imp.show();
 
 		ResultsTable rt = new ResultsTable();
-		clusters.sort("desc");
+		clusters.sort();
 		for (int i = 1; i < clusters.size(); i++) {
 			rt.incrementCounter();
 			rt.addValue("No. of Points", clusters.getClusterPoints(i));
@@ -191,7 +191,7 @@ public class DrawQuadTreeMapIJ {
 					points2[i][j] = hexrgb(colours[status%10]);
 
 					clusters.addPointsNum(status, e.getValue().size());
-					clusters.addClusterArea(status, code);
+					clusters.addClusterArea(status, e.getKey());
 				}
 			}
 

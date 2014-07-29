@@ -5,28 +5,33 @@
 
 package utils;
 
-public class ClusterStatsDatum {
+public class ClusterStatsDatum implements Comparable<ClusterStatsDatum>{
 
-	private int numPoints;
-	private double nodeArea;
+	private int clusterPoints;
+	private double clusterArea;
 
 	public ClusterStatsDatum() {
 
 	}
 
 	public void addPointsNum(int size) {
-		numPoints += size;
+		clusterPoints += size;
 	}
 
 	public void addClusterArea(double area) {
-		nodeArea += area;
+		clusterArea += area;
 	}
 
 	public int getClusterPoints() {
-		return numPoints;
+		return clusterPoints;
 	}
 
 	public double getClusterArea() {
-		return nodeArea;
+		return clusterArea;
+	}
+
+	public int compareTo(ClusterStatsDatum c) {
+		// return this.clusterPoints - c.getClusterPoints();
+		return c.getClusterPoints() - this.clusterPoints;
 	}
 }
