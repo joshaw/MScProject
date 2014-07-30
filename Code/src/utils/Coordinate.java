@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Sat 21 Jun 2014 07:35 AM
+ * Modified: Wed 30 Jul 2014 12:51 PM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */
@@ -42,6 +42,12 @@ public class Coordinate {
 		}
 		return c;
 	}
+	public Coordinate checkCoord() {
+		if (x < 0 || y < 0) {
+			return null;
+		}
+		return this;
+	}
 
 	/** Checks that a coordinate is valid, ie exists in the quadtree-space of
 	 * the current quadtree.
@@ -61,6 +67,9 @@ public class Coordinate {
 			return false;
 		}
 		return true;
+	}
+	public boolean checkValid(double maxX, double maxY) {
+		return checkValid(this, maxX, maxY);
 	}
 
 	@Override

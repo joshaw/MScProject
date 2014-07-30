@@ -1,5 +1,5 @@
 /** Created: Tue 01 Jul 2014 03:39 PM
- * Modified: Wed 30 Jul 2014 11:00 AM
+ * Modified: Wed 30 Jul 2014 12:50 PM
  * @author Josh Wainwright
  * File name : SimpleGrid.java
  */
@@ -64,7 +64,7 @@ public class SimpleGrid implements ClusterStructure {
 	}
 
 	public boolean addPoint(Coordinate c) {
-		if (!Coordinate.checkValid(c, maxX, maxY)) {
+		if (!c.checkValid(maxX, maxY)) {
 			return false;
 		}
 

@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 30 Jul 2014 11:03 AM
+ * Modified: Wed 30 Jul 2014 12:50 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -109,7 +109,7 @@ public class QuadTree implements ClusterStructure {
 	 * @param c coordinate to be added to the quadtree.
 	 */
 	public boolean addPoint(Coordinate c) {
-		if (!Coordinate.checkValid(c, maxX, maxY)) {
+		if (!c.checkValid(maxX, maxY)) {
 			return false;
 		}
 

@@ -1,5 +1,5 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Fri 27 Jun 2014 10:34 AM
+ * Modified: Wed 30 Jul 2014 12:48 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
@@ -273,7 +273,7 @@ public class QuadTree {
 		neighbours[3] = new Coordinate(coord.getX(), coord.getY()+1);
 
 		for (int i = 0; i < 4; i++) {
-			neighbours[i] = Coordinate.checkCoord(neighbours[i]);
+			neighbours[i] = neighbours[i].checkCoord();
 		}
 
 		return neighbours;
