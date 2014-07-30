@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Wed 23 Jul 2014 05:30 PM
+% Modified: Wed 30 Jul 2014 05:05 PM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -55,11 +55,10 @@ been checked and excluded.
 	\centering
 	\includegraphics[width=0.88\linewidth]{propogation.pdf}
 	\caption{For a starting location, a), in an image, no information is known
-	and so the neighbours are checked. Some of these are found to be part of
-	the cluster, others are rejected. The ones that are included are then,
-	themselves, checked and so on. As the cluster grows, b), c) and d), the
-	number of checked nodes increases.}
-	\label{fig:propogation}
+		and so the neighbours are checked. Some of these are found to be part
+		of the cluster, others are rejected. The ones that are included are
+		then, themselves, checked and so on. As the cluster grows, b), c) and
+		d), the number of checked nodes increases.} \label{fig:propogation}
 \end{figure}
 
 When discovering clusters via this propagation technique, care must be taken to
@@ -77,22 +76,6 @@ blue node are checked, no correct neighbours are found and so the process
 terminates. When able to view the larger structure of the nodes, however, it is
 clear that the structure continues beyond the gap.
 
-% \begin{figure}[tbhp]
-% 	\centering
-% 	\includegraphics[width=0.7\linewidth]{propogation-halting.pdf}
-% 	% TODO caption
-% 	\caption{propogation-Halting}
-% 	\label{fig:propogation-halting}
-% \end{figure}
-
-% \begin{figure}[tbhp]
-% 	\centering
-% 	\includegraphics[width=0.88\linewidth]{propogation-levels.pdf}
-% 	% TODO caption
-% 	\caption{propogation-Levels}
-% 	\label{fig:propogation-levels}
-% \end{figure}
-
 \begin{figure}[ht]
 	\centering
 	\begin{subfigure}[c]{0.6\linewidth}
@@ -105,7 +88,7 @@ clear that the structure continues beyond the gap.
 		\caption{} \label{fig:propogation-levels}
 	\end{subfigure}
 		% TODO caption
-	\caption{}\label{fig:prop-levels-halting}
+	\caption{propagation-Levels}\label{fig:prop-levels-halting}
 \end{figure}
 
 To avoid this, a certain amount of leniency must be given when deciding what
@@ -199,11 +182,13 @@ this process of finding new clusters:
 			\cellcolor{lgrey}9 \\
 		\end{tabular}
 	\end{minipage}
+
 	\caption{Initial versions of the clustering algorithm included too many
 	nodes, making the clusters too large. This image shows how each node
 	cluster that is started is independent of the previous ones. The clusters
 	were identified in the order they are listed on the right.}
 	\label{fig:multiple-clusters-colours}
+
 \end{figure}
 
 \subsection{Choosing Neighbours}
@@ -214,6 +199,7 @@ and what does not. As mentioned above, when detecting clusters using
 propagation, the neighbours of a node are checked and, if they are valid, are
 themselves propagated. For this reason, a poor choice of neighbours means that
 either the propagation will
+
 \begin{itemize}
 	\item be cut short too early, and so not all of the clusters will be
 		located, or
@@ -246,9 +232,11 @@ Figure~\ref{fig:kernel-all8}.
 		\includegraphics[width=\textwidth]{clusters/kernel-all8.png}
 		\caption{}\label{fig:kernel-all8}
 	\end{subfigure}
+
 	\caption{A comparison between different neighbour sets.
 		Figure~\subref{fig:kernel-rooks-case} shows how some of the cluster is
 		lost when using just the rook's case neighbours, whereas, using all
 		eight neighbours, Figure~\subref{fig:kernel-all8} more of the cluster
 		is included.}\label{fig:kernel-options}
+
 \end{figure}
