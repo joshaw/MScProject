@@ -1,9 +1,9 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Tue 29 Jul 2014 12:58 PM
+ * Modified: Wed 30 Jul 2014 11:02 AM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
-package quadtree;
+package clusterstructure.quadtree;
 
 import ij.*;
 import ij.io.*;
@@ -13,9 +13,9 @@ import ij.process.*;
 import ij.measure.ResultsTable;
 
 import utils.Coordinate;
-import quadtree.QuadTreeMap;
+import clusterstructure.quadtree.QuadTreeMap;
 import utils.PropogationDatum;
-import utils.ClusterStats;
+import clusterstructure.ClusterStats;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

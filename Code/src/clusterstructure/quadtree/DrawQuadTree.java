@@ -1,10 +1,10 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Wed 02 Jul 2014 04:55 PM
+ * Modified: Wed 30 Jul 2014 11:01 AM
  */
-package quadtree;
+package clusterstructure.quadtree;
 
 import utils.Coordinate;
-import quadtree.*;
+import clusterstructure.quadtree.*;
 
 import java.awt.Graphics;
 import javax.swing.JFrame;

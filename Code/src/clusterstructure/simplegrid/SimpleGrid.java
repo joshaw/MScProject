@@ -1,13 +1,13 @@
 /** Created: Tue 01 Jul 2014 03:39 PM
- * Modified: Mon 07 Jul 2014 05:36 PM
+ * Modified: Wed 30 Jul 2014 11:00 AM
  * @author Josh Wainwright
  * File name : SimpleGrid.java
  */
-package simplegrid;
+package clusterstructure.simplegrid;
 
 import utils.Coordinate;
-import utils.ClusterStructure;
 import utils.FileDescriptor;
+import clusterstructure.ClusterStructure;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

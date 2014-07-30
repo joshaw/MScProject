@@ -1,12 +1,13 @@
 /** Created: Mon 28 Jul 2014 05:07 PM
- * Modified: Tue 29 Jul 2014 10:02 AM
+ * Modified: Wed 30 Jul 2014 10:59 AM
  * @author Josh Wainwright
  * filename: ClusterStatsDatum.java
  */
 
-package utils;
+package clusterstructure;
 
-public class ClusterStatsDatum implements Comparable<ClusterStatsDatum>{
+public class ClusterStatsDatum extends ClusterStats
+	implements Comparable<ClusterStatsDatum> {
 
 	private byte status;
 	private int clusterPoints;

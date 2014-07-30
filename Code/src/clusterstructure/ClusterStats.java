@@ -1,11 +1,11 @@
 /** Created: Mon 28 Jul 2014 04:43 PM
- * Modified: Tue 29 Jul 2014 10:02 AM
+ * Modified: Wed 30 Jul 2014 10:59 AM
  * @author Josh Wainwright
  * filename: ClusterStats.java
  */
-package utils;
+package clusterstructure;
 
-import utils.ClusterStatsDatum;
+import clusterstructure.ClusterStatsDatum;
 
 import java.util.Collections;
 import java.util.List;

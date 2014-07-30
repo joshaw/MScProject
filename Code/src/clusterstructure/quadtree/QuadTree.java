@@ -1,14 +1,14 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Wed 23 Jul 2014 05:45 PM
+ * Modified: Wed 30 Jul 2014 11:03 AM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */
-package quadtree;
+package clusterstructure.quadtree;
 
-import quadtree.DrawQuadTree;
-import quadtree.QuadTreeMap;
+import clusterstructure.quadtree.DrawQuadTree;
+import clusterstructure.quadtree.QuadTreeMap;
 import utils.Coordinate;
-import utils.ClusterStructure;
+import clusterstructure.ClusterStructure;
 import utils.FileDescriptor;
 import utils.Sutils;
 import utils.PropogationDatum;

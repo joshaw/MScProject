@@ -1,12 +1,12 @@
 /** Created: Tue 29 Jul 2014 10:14 AM
- * Modified: Tue 29 Jul 2014 10:14 AM
+ * Modified: Wed 30 Jul 2014 11:03 AM
  * @author Josh Wainwright
  * File name : QuadTreeMap.java
  */
-package quadtree;
+package clusterstructure.quadtree;
 
 import utils.PropogationDatum;
-import utils.ClusterStats;
+import clusterstructure.ClusterStats;
 
 import java.util.HashMap;
 import java.util.Map.Entry;

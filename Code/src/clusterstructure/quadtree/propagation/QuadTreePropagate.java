@@ -1,12 +1,12 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Wed 23 Jul 2014 03:55 PM
+ * Modified: Wed 30 Jul 2014 11:05 AM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
-package quadtree.propagation;
+package clusterstructure.quadtree.propagation;
 
-import quadtree.QuadTree;
-import quadtree.QuadTreeMap;
+import clusterstructure.quadtree.QuadTree;
+import clusterstructure.quadtree.QuadTreeMap;
 import utils.Coordinate;
 import utils.Sutils;
 import utils.PropogationDatum;

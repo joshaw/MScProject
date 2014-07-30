@@ -1,9 +1,9 @@
 /** Created: Tue 08 Jul 2014 02:55 PM
- * Modified: Wed 09 Jul 2014 02:55 PM
+ * Modified: Wed 30 Jul 2014 11:00 AM
  * @author Josh Wainwright
  * File name : DrawSimpleGrid.java
  */
-package simplegrid;
+package clusterstructure.simplegrid;
 
 import ij.*;
 import ij.io.*;

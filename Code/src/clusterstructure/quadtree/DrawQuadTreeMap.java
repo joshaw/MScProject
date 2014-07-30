@@ -3,7 +3,7 @@
  * @author Josh Wainwright
  * filename : DrawQuadTreeMap.java
  */
-package quadtree;
+package clusterstructure.quadtree;
 
 import utils.Coordinate;
 import utils.PropogationDatum;
