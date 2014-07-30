@@ -1,12 +1,15 @@
 /** Created: Wed 09 Jul 2014 02:57 PM
- * Modified: Wed 30 Jul 2014 11:03 AM
+ * Modified: Wed 30 Jul 2014 12:56 PM
  * @author Josh Wainwright
- * File name : ClusterStructure.java
+ * File name: ClusterStructure.java
  */
 package clusterstructure;
 
 import utils.Coordinate;
 
+/** Defines a number of methods that a cluster structure must implement.
+ * Currently cluster structures are either SimpleGrid's or QuadTree's.
+ */
 public interface ClusterStructure {
 
 	public int getCountFile();

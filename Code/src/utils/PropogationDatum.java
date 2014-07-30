@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 10:05 AM
- * Modified: Fri 11 Jul 2014 10:05 AM
+ * Modified: Wed 30 Jul 2014 12:21 PM
  * @author Josh Wainwright
  * File name : PropogationDatum.java
  */
@@ -8,6 +8,9 @@ package utils;
 import utils.Coordinate;
 import java.util.Set;
 
+/** Represents a single piece of data to hold information about the nodes that
+ * are analysed when propagaing a quadtree to find clusters.
+ */
 public class PropogationDatum {
 
 	private Set<Coordinate> points;
@@ -39,10 +42,6 @@ public class PropogationDatum {
 		return points.size();
 	}
 
-	public void reducePerimeter() {
-		this.perimeter--;
-	}
-
 	/** Value from 1 to 4 representing how many of this cell's sides contribute
 	 * to the perimeter of the cluster.
 	 */
@@ -50,4 +49,7 @@ public class PropogationDatum {
 		return perimeter;
 	}
 
+	public void reducePerimeter() {
+		this.perimeter--;
+	}
 }

@@ -1,10 +1,13 @@
 /** Created: Thu 10 Jul 2014 10:55 am
- * Modified: Thu 10 Jul 2014 10:55 am
+ * Modified: Wed 30 Jul 2014 12:45 PM
  * @author Josh Wainwright
  * File name : FileDescriptor.java
  */
 package utils;
 
+/** Class to describe a data file. Holds information about the columns, which
+ * are relevant for which attribute, and what characters delimit columns.
+ */
 public class FileDescriptor {
 
 	private int colX;

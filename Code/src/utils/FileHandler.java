@@ -1,5 +1,5 @@
 /** Created: Tue 08 Jul 2014 12:41 PM
-/* Modified: Tue 08 Jul 2014 12:43 PM
+/* Modified: Wed 30 Jul 2014 12:42 PM
  * @author Josh Wainwright
  * File name : FileHandler.java
  */
@@ -13,6 +13,15 @@ import java.io.IOException;
 
 public class FileHandler {
 
+	/** Read the given file, with the given column numbers and find the largest
+	 * coordinate value found in the file.
+	 * @param filepath path to the file to be read
+	 * @param colX column number of the x-coordinate in the file
+	 * @param colY column number of the y-coordinate in the file
+	 * @param separator character(s) that delimit columns (tab, comma, etc.)
+	 * @return a new Coordinate object holding the largest x value and largest
+	 * y value found in the file. This combination might not exist in the file.
+	 */
 	public static Coordinate getMaxCoord(String filepath, FileDescriptor fd) {
 
 		int colX = fd.getColX();
@@ -56,6 +65,10 @@ public class FileHandler {
 		return maxCoord;
 	}
 
+	/** Get the number of lines in the given file.
+	 * @param filepath file to count lines in
+	 * @return number of lines in filepath
+	 */
 	public static int getNumberOfLines(String filepath) {
 		int lines = 0;
 

@@ -5,6 +5,9 @@
  */
 package utils;
 
+/** Represnts a two dimensional cartesian coordinate. Provides some methods to
+ * manipulate coordinates.
+ */
 public class Coordinate {
 
 	private double x;
@@ -65,6 +68,9 @@ public class Coordinate {
 		return "[" + x + ", " + y + "]";
 	}
 
+	/** A coordinate is equal to another coordinate if both the x and the y
+	 * coordinates are equal.
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Coordinate) {

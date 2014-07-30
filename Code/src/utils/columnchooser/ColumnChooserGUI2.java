@@ -1,3 +1,9 @@
+/** Created: Wed 4 Jul 2014 12:52 PM
+ * Modified: Wed 30 Jul 2014 12:55 PM
+ * @author Josh Wainwright
+ * filename: ColumnChooserGUI2.java
+ */
+
 package utils.columnchooser;
 
 import java.awt.Dimension;
@@ -24,6 +30,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/** Class to disply a dialog window to choose which columns from a file should
+ * be used.
+ * Majority of code generated with NetBeans.
+ */
 public class ColumnChooserGUI2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
