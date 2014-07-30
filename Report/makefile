@@ -1,5 +1,5 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Fri 11 Jul 2014 08:36 PM
+# Modified: Wed 30 Jul 2014 11:12 AM
 # @author Josh Wainwright
 # File name : makefile
 
@@ -29,7 +29,7 @@ $(DIR):
 $(DIR)/%.pdf: %.dia
 	echo "$< ==> $@"
 	mkdir -p $(shell dirname $@)
-	dia -t svg -e "/dev/stdout" $< 2> /dev/null\
+	dia -t svg -e "/dev/stdout" $< 2> /dev/null | sed '$$ d'\
 		| rsvg-convert -f pdf > "$@"
 
 $(DIR)/%.pdf: %.svg
