@@ -13,40 +13,43 @@ import java.io.IOException;
 
 public class FileHandler {
 
-	public static Coordinate getMaxCoord(String filepath, int colX, int colY, String separator) {
+	public static Coordinate getMaxCoord(String filepath, FileDescriptor fd) {
+
+		int colX = fd.getColX();
+		int colY = fd.getColY();
+		String separator = fd.getSeparator();
 		Coordinate maxCoord = new Coordinate(0,0);
-		if (!filepath.equals("")) {
-			BufferedReader reader = null;
 
-			try {
-				reader = new BufferedReader(new FileReader(filepath));
-				String line = null;
+		BufferedReader reader = null;
 
-				reader.readLine();
-				while ((line = reader.readLine()) != null) {
+		try {
+			reader = new BufferedReader(new FileReader(filepath));
+			String line = null;
 
-					String[] entries = line.split(separator);
-					double[] xyDouble = new double[2];
-					xyDouble[0] = Double.parseDouble(entries[colX]);
-					xyDouble[1] = Double.parseDouble(entries[colY]);
+			reader.readLine();
+			while ((line = reader.readLine()) != null) {
 
-					if (xyDouble[0] > maxCoord.getX()) {
-						maxCoord.setX(xyDouble[0]);
-					}
-					if (xyDouble[1] > maxCoord.getY()) {
-						maxCoord.setY(xyDouble[1]);
-					}
+				String[] entries = line.split(separator);
+				double[] xyDouble = new double[2];
+				xyDouble[0] = Double.parseDouble(entries[colX]);
+				xyDouble[1] = Double.parseDouble(entries[colY]);
 
+				if (xyDouble[0] > maxCoord.getX()) {
+					maxCoord.setX(xyDouble[0]);
 				}
-			} catch (IOException e) {
-				System.err.println("Error: Could not open file " + filepath);
-			} finally {
-				if (reader != null) {
-					try {
-						reader.close();
-					} catch(IOException e){
-						e.printStackTrace();
-					}
+				if (xyDouble[1] > maxCoord.getY()) {
+					maxCoord.setY(xyDouble[1]);
+				}
+			}
+
+		} catch (IOException e) {
+			System.err.println("Error: Could not open file " + filepath);
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch(IOException e){
+					e.printStackTrace();
 				}
 			}
 		}
@@ -57,9 +60,9 @@ public class FileHandler {
 		int lines = 0;
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(filepath));
-			while (reader.readLine() != null) lines++;
-			reader.close();
+			BufferedReader r = new BufferedReader(new FileReader(filepath));
+			while (r.readLine() != null) lines++;
+			r.close();
 
 		} catch(Exception e){
 			e.printStackTrace();

@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Thu 10 Jul 2014 10:38 am
+ * Modified: Wed 30 Jul 2014 12:40 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -176,8 +176,8 @@ public class Cluster_Analysis extends PlugInFrame {
 
 				/* This is here to allow the "auto" button to be able to
 				 * get the max and min values. */
-				maxCoord = FileHandler.getMaxCoord(
-						filepath, colX, colY, separator);
+				maxCoord = FileHandler.getMaxCoord( filepath,
+						new FileDescriptor(colX, colY, separator));
 				autoButton.setVisible(true);
 
 				int numPoints = FileHandler.getNumberOfLines(filepath);
