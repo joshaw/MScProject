@@ -16,14 +16,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.HashMap;
 
-import quadtree.*;
-import quadtree.DrawQuadTreeMapIJ;
-import quadtree.propagation.QuadTreePropagate;
-import quadtree.QuadTreeMap;
-import simplegrid.*;
+import clusterstructure.quadtree.*;
+import clusterstructure.quadtree.DrawQuadTreeMapIJ;
+import clusterstructure.quadtree.propagation.QuadTreePropagate;
+import clusterstructure.quadtree.QuadTreeMap;
+import clusterstructure.ClusterStructure;
+import clusterstructure.simplegrid.*;
 import utils.columnchooser.ColumnChooserGUI2;
-import utils.ClusterStructure;
 import utils.FileHandler;
+import utils.FileDescriptor;
 import utils.Coordinate;
 
 public class Cluster_Analysis extends PlugInFrame {

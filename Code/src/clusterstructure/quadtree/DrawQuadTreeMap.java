@@ -7,8 +7,8 @@ package clusterstructure.quadtree;
 
 import utils.Coordinate;
 import utils.PropogationDatum;
-import quadtree.*;
-import quadtree.QuadTreeMap;
+import clusterstructure.quadtree.*;
+import clusterstructure.quadtree.QuadTreeMap;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
