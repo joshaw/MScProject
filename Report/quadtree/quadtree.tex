@@ -138,8 +138,7 @@ there are a number of options as to how to find the correct node for the code:
 	\item The code can be shortened and/or lengthened and the resulting adapted
 		code checked to see if it is in the tree. This trial and error method
 		can be fastest when there is a limit on the depth range allowed when
-		%TODO find correct reference
-		searching (see Section~\ref{sec:}).
+		searching (see Section~\ref{sub:algorithm_description}).
 	\item The tree can be traversed to find the nearest node to the expected
 		code reference.
 \end{itemize}
@@ -240,6 +239,7 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=\linewidth]{modgray-steps.pdf}
+	% TODO caption
 	\caption{modgray-Steps}
 	\label{fig:modgray-steps}
 \end{figure}
@@ -342,3 +342,6 @@ that data can be accessed directly anywhere.
 Little spatial information should be lost during the conversion from quadtree
 to hash table since this is all contained in the quadtree code assigned to the
 node during the quadtree generation step.
+
+% TODO add writing about structure of data stored in hashmap
+% key, value specs etc.
