@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Thu 31 Jul 2014 10:31 AM
+% Modified: Thu 31 Jul 2014 11:31 AM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -163,9 +163,17 @@ this process of finding new clusters:
 		general form of the previous case, but for this case, the limit on the
 		depth of a starting location will always be reached.
 
-	\item % TODO user input - roi's
+	\item Allow the user to make a number of starting point location selections
+		manually. Since ImageJ allows multi-point region of interest (ROI)
+		selections, the user could be asked to place a new ROI at the places
+		they consider a reasonable place to find a cluster. The algorithm would
+		then convert the locations of each of these ROI points into the
+		relevant quadtree code and begin propagating from that node and
+		terminate when all of the ROI's had been used.
 
 \end{itemize}
+
+% TODO why have we chosen what we have.
 
 \begin{figure}[tbhp]
 	\centering
