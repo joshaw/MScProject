@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Thu 31 Jul 2014 11:31 AM
+% Modified: Thu 31 Jul 2014 12:05 PM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -76,7 +76,7 @@ blue node are checked, no correct neighbours are found and so the process
 terminates. When able to view the larger structure of the nodes, however, it is
 clear that the structure continues beyond the gap.
 
-\begin{figure}[ht]
+\begin{figure}[tbhp]
 	\centering
 	\begin{subfigure}[c]{5.2cm}
 		\includegraphics[width=\linewidth]{propogation-halting.pdf}
@@ -87,7 +87,6 @@ clear that the structure continues beyond the gap.
 		\includegraphics[width=\linewidth]{propogation-levels.pdf}
 		\caption{} \label{fig:propogation-levels}
 	\end{subfigure}
-		% TODO caption
 	\caption{Considerations regarding quadtree levels that will be accepted
 		when propagating a node in a quadtree. \subref{fig:propogation-halting}
 		If the depth range that specifies how far up the tree to look for valid
@@ -140,8 +139,14 @@ of the nodes that are included in the cluster and the depth that is searched.
 		\includegraphics[width=\textwidth]{single-cluster-lines.png}
 		\caption{}\label{fig:single-cluster-lines}
 	\end{subfigure}
-	% TODO caption
-	\caption{single-cluster} \label{fig:single-cluster}
+	\caption{Inital versions of the clustering algorithm terminated immediately
+		after finishing propagating the first cluster. This gives a useful test
+		as to the correctness of the algorithm since there are no other
+		clusters for this to collide with. It is useful to be able to check
+		both \subref{fig:single-cluster-points} the points that were considered
+		to be in the cluster and \subref{fig:single-cluster-lines} the nodes in
+		the quadtree that were included and where the propagating algorithm
+		stopped.} \label{fig:single-cluster}
 \end{figure}
 
 In order to find other clusters, the algorithm must be restarted with a new
@@ -234,7 +239,7 @@ to the rook's case, the four \emph{diagonal} neighbours are included, giving a
 total of eight, the results are much more complete, as shown in
 Figure~\ref{fig:kernel-all8}.
 
-\begin{figure}[ht]
+\begin{figure}[tbhp]
 	\centering
 	\begin{subfigure}[b]{4.2cm}
 		\includegraphics[width=\textwidth]{clusters/kernel-rooks-case.png}
@@ -247,9 +252,9 @@ Figure~\ref{fig:kernel-all8}.
 	\end{subfigure}
 
 	\caption{A comparison between different neighbour sets.
-		Figure~\subref{fig:kernel-rooks-case} shows how some of the cluster is
-		lost when using just the rook's case neighbours, whereas, using all
-		eight neighbours, Figure~\subref{fig:kernel-all8} more of the cluster
-		is included.}\label{fig:kernel-options}
+		\subref{fig:kernel-rooks-case} shows how some of the cluster is lost
+		when using just the rook's case neighbours, whereas, using all eight
+		neighbours, Figure~\subref{fig:kernel-all8} more of the cluster is
+		included.}\label{fig:kernel-options}
 
 \end{figure}
