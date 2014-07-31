@@ -1,11 +1,12 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Wed 30 Jul 2014 11:05 AM
+ * Modified: Thu 31 Jul 2014 03:06 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
 package clusterstructure.quadtree.propagation;
 
 import clusterstructure.quadtree.QuadTree;
+import clusterstructure.quadtree.QuadTreeNode;
 import clusterstructure.quadtree.QuadTreeMap;
 import utils.Coordinate;
 import utils.Sutils;
@@ -225,10 +226,10 @@ public class QuadTreePropagate {
 				// Check down the tree for valid neighbours
 				s = neighbours.get(i);
 				// neighbours.addAll(addSuffixes(s));
-				QuadTree poss = qt.getNode(s);
+				QuadTreeNode poss = qt.getNode(s);
 
 				if (start.length() - s.length() < depthRange &&
-						start.length() - poss.getCode().length() < depthRange) {
+						start.length()-poss.getCode().length() < depthRange) {
 
 					neighbours.addAll(poss.getAllChildrenCodes());
 				}

@@ -1,5 +1,5 @@
 /** Created: Thu 31 Jul 2014 12:33 PM
- * Modified: Thu 31 Jul 2014 01:47 PM
+ * Modified: Thu 31 Jul 2014 03:04 PM
  * @author Josh Wainwright
  * filename: QuadTree.java
  */
@@ -7,6 +7,7 @@
 package clusterstructure.quadtree;
 
 import clusterstructure.quadtree.QuadTreeNode;
+import clusterstructure.ClusterStructure;
 import utils.FileDescriptor;
 import utils.PropogationDatum;
 import utils.Coordinate;
@@ -18,7 +19,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class QuadTree {
+public class QuadTree implements ClusterStructure {
 
 	private String filepath;
 	private FileDescriptor fileDesc;
@@ -85,8 +86,15 @@ public class QuadTree {
 		return sb.toString();
 	}
 
-	public int getCountFile()   { return countFile; }
-	public String getFilepath() { return filepath; }
+	public int getCountFile()     { return countFile; }
+	public String getFilepath()   { return filepath; }
+	public double getMaxX()       { return maxX; }
+	public double getMaxY()       { return maxY; }
+	public QuadTreeNode getRoot() { return root; }
+
+	public boolean addPoint(Coordinate c) {
+		return root.addPoint(c);
+	}
 
 	/** Draw the current tree to the screen.
 	 */
