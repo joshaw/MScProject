@@ -88,7 +88,12 @@ clear that the structure continues beyond the gap.
 		\caption{} \label{fig:propogation-levels}
 	\end{subfigure}
 		% TODO caption
-	\caption{propagation-Levels}\label{fig:prop-levels-halting}
+	\caption{Considerations regarding quadtree levels that will be accepted
+		when propagating a node in a quadtree. \subref{fig:propogation-halting}
+		If the depth range that specifies how far up the tree to look for valid
+		neighbours is too small then a cluster might be terminated too soon.
+		\subref{fig:propogation-levels}(i) a depth range of two and, (ii) a
+		depth range of three.} \label{fig:prop-levels-halting}
 \end{figure}
 
 To avoid this, a certain amount of leniency must be given when deciding what
