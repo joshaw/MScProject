@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Wed 30 Jul 2014 12:40 PM
+ * Modified: Thu 31 Jul 2014 03:55 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -31,22 +31,23 @@ public class Cluster_Analysis extends PlugInFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private String filepath;
-	private double maxXval;
-	private double maxYval;
-	private int densityVal;
-	private double scaleVal;
-	private int colX;
-	private int colY;
-	private String separator;
+	private String     filepath;
+	private double     maxXval;
+	private double     maxYval;
+	private int        densityVal;
+	private int        depthVal;
+	private double     scaleVal;
+	private int        colX;
+	private int        colY;
+	private String     separator;
 	private Coordinate maxCoord;
 
 	private ClusterStructure dataStructure;
 
+	private static Frame instance;
 	private Panel panel;
 	private Panel subpanel1;
 	private Panel subpanel2;
-	private static Frame instance;
 	private Label statusMessage;
 	private Label fileStatus;
 
@@ -54,9 +55,10 @@ public class Cluster_Analysis extends PlugInFrame {
 	private TextField maxY;
 	private TextField density;
 	private TextField scale;
-	private Checkbox linesBool;
-	private Checkbox pointsBool;
-	private Button autoButton;
+	private TextField depth;
+	private Checkbox  linesBool;
+	private Checkbox  pointsBool;
+	private Button    autoButton;
 
 	public Cluster_Analysis() {
 		super("Cluster Analysis");
@@ -72,7 +74,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel1.setLayout(new GridLayout(2, 1, 3, 3));
 
 		Panel textpanel = new Panel();
-		textpanel.setLayout(new GridLayout(4,2));
+		textpanel.setLayout(new GridLayout(5,2));
 		textpanel.setComponentOrientation(
 				ComponentOrientation.LEFT_TO_RIGHT);
 
@@ -99,6 +101,12 @@ public class Cluster_Analysis extends PlugInFrame {
 		scale.addKeyListener(new NumberKeyListener());
 		textpanel.add(scaleLab);
 		textpanel.add(scale);
+
+		Label depthLab = new Label("Depth Range");
+		depth = new TextField("4", 10);
+		depth.addKeyListener(new NumberKeyListener());
+		textpanel.add(depthLab);
+		textpanel.add(depth);
 
 		linesBool = new Checkbox("Lines", true);
 		subpanel1.add(linesBool);
@@ -198,6 +206,7 @@ public class Cluster_Analysis extends PlugInFrame {
 			maxX.setText(maxXval + "");
 			maxY.setText(maxYval + "");
 			// scale.setText(scaleVal + "");
+			// depth.setText(scaleVal + "");
 		} else {
 			changeStatus("Please select a data file first.");
 		}
@@ -205,21 +214,27 @@ public class Cluster_Analysis extends PlugInFrame {
 
 	private void drawStructureActionPerformed(ActionEvent evt) {
 		String label = evt.getActionCommand();
-		String maxXstring = removeSpaces(maxX.getText());
-		String maxYstring = removeSpaces(maxY.getText());
+
+		String maxXstring    = removeSpaces(maxX.getText());
+		String maxYstring    = removeSpaces(maxY.getText());
 		String densityString = removeSpaces(density.getText());
-		String scaleString = removeSpaces(scale.getText());
+		String scaleString   = removeSpaces(scale.getText());
+		String depthString   = removeSpaces(depth.getText());
 
 		if (filepath != null) {
 
-			if (!maxXstring.equals("") && !maxYstring.equals("")
-					&& !densityString.equals("") && !scaleString.equals("")
+			if (!maxXstring.equals("")    &&
+				!maxYstring.equals("")    &&
+				!densityString.equals("") &&
+				!scaleString.equals("")   &&
+				!depthString.equals("")
 			   ) {
 
-				maxXval = Double.parseDouble(maxXstring);
-				maxYval = Double.parseDouble(maxYstring);
-				densityVal = Integer.parseInt(densityString);
-				scaleVal = Double.parseDouble(scaleString);
+				maxXval    = Double.parseDouble(maxXstring);
+				maxYval    = Double.parseDouble(maxYstring);
+				densityVal = Integer.parseInt  (densityString);
+				scaleVal   = Double.parseDouble(scaleString);
+				depthVal   = Integer.parseInt  (depthString);
 
 				if (label.equals("QuadTree")) {
 
@@ -236,7 +251,7 @@ long start = System.currentTimeMillis();
 					// QuadTreeMap hm = qt.toQuadTreeMap();
 					qt.addQuadTreeMap();
 
-					QuadTreePropagate qtp = new QuadTreePropagate(qt);
+					QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal);
 
 					// DrawQuadTreeMap d = new DrawQuadTreeMap(hm, scaleVal);
 					// d.draw(linesBool.getState(), pointsBool.getState());
