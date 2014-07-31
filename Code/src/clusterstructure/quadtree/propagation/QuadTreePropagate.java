@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Thu 31 Jul 2014 03:06 PM
+ * Modified: Thu 31 Jul 2014 05:30 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -24,13 +24,16 @@ public class QuadTreePropagate {
 
 	private QuadTree qt;
 	private QuadTreeMap hashmap;
-	private String start;
-	private byte[] kernel;
-	private final int depthRange = 2*2;
 
-	public QuadTreePropagate(QuadTree qt){
+	private String start;
+	private String firstStart;
+	private byte[] kernel;
+	private int    depthRange;
+
+	public QuadTreePropagate(QuadTree qt, int depthRange){
 		this.qt = qt;
 		this.hashmap = qt.getQuadTreeMap();
+		this.depthRange = depthRange;
 		readKernel();
 		propagate();
 		generatePerimeter();
@@ -51,12 +54,18 @@ public class QuadTreePropagate {
 	}
 
 	private void propagate() {
-		for (int k = 1; k < 40; k++) {
+		for (int k = 1; k < 28; k++) {
 			this.start = getStart();
-			System.out.println("Start " + k + ": " + start);
-			if (start == "") {
-				return;
+			if (k == 1) {
+				firstStart = start;
 			}
+
+			int depthDiff = firstStart.length() - start.length();
+			System.out.println("Start " + k + ": " + start + " " + depthDiff);
+			if (start == "" || depthDiff > depthRange-2) {
+				continue;
+			}
+
 			propagate(start, k);
 		}
 	}
