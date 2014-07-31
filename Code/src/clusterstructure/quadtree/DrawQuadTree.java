@@ -1,5 +1,5 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Wed 30 Jul 2014 11:01 AM
+ * Modified: Thu 31 Jul 2014 03:00 PM
  */
 package clusterstructure.quadtree;
 
@@ -57,14 +57,14 @@ public class DrawQuadTree extends JPanel {
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
 		Graphics2D g2 = (Graphics2D) g;
-		recurseTree(quadtree, g2);
+		recurseTree(quadtree.getRoot(), g2);
 		System.out.println("Total added to tree: " + addedCount);
 	}
 
 	/** Recursivly go through the quadtree and draw sqare on screen based on
 	 * the minimum and maximum limits of the node are.
 	 */
-	private boolean recurseTree(QuadTree q, Graphics2D g) {
+	private boolean recurseTree(QuadTreeNode q, Graphics2D g) {
 		String code = q.getCode();
 		double x = scaleFactor*q.getMinX();
 		double X = scaleFactor*q.getMaxX();
