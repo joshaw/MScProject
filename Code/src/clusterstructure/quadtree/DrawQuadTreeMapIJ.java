@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Wed 30 Jul 2014 11:02 AM
+ * Modified: Thu 31 Jul 2014 06:23 PM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -39,9 +39,43 @@ public class DrawQuadTreeMapIJ {
 	private int addedCount = 0;
 	private boolean incPoints;
 	private boolean incLines;
-	private final String colours[] = {"#ffffff", "#fce94f", "#fcaf3e",
-									"#e9b96e", "#8ae234", "#729fcf", "#ad7fa8",
-									"#ef2929", "#d3d7cf", "#888a85"};
+	private final String colours[] = {  "#ffffff",
+										"#c4a000",
+										"#ce5c00",
+										"#8f5902",
+										"#4e9a06",
+										"#204a87",
+										"#5c3566",
+										"#a40000",
+										"#babdb6",
+										"#2e3436",
+										"#edd400",
+										"#f57900",
+										"#c17d11",
+										"#73d216",
+										"#3465a4",
+										"#75507b",
+										"#cc0000",
+										"#d3d7cf",
+										"#555753",
+										"#fce94f",
+										"#fcaf3e",
+										"#e9b96e",
+										"#8ae234",
+										"#729fcf",
+										"#ad7fa8",
+										"#ef2929",
+										"#eeeeec",
+										"#888a85"};
+										// "#fce94f",
+										// "#fcaf3e",
+										// "#e9b96e"
+										// "#8ae234"
+										// "#729fcf"
+										// "#ad7fa8"
+										// "#ef2929"
+										// "#d3d7cf"
+										// "#888a85"};
 	private ClusterStats clusters = new ClusterStats();
 
 	public DrawQuadTreeMapIJ(String filepath, QuadTree qt, double maxX,
@@ -190,8 +224,9 @@ public class DrawQuadTreeMapIJ {
 				for (int j = y; j < Y; j++) {
 
 					byte status = e.getValue().status();
-					points1[i][j] = hexrgb(colours[status%10]);
-					points2[i][j] = hexrgb(colours[status%10]);
+					int cn = colours.length;
+					points1[i][j] = hexrgb(colours[status%cn]);
+					points2[i][j] = hexrgb(colours[status%cn]);
 
 					// clusters.addClusterPoints(status, e.getValue().size());
 					// clusters.addClusterArea(status, e.getKey());
