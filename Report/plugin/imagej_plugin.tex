@@ -1,5 +1,5 @@
 % Created:  Fri 04 Jul 2014 04:47 PM
-% Modified: Thu 31 Jul 2014 10:09 AM
+% Modified: Thu 31 Jul 2014 11:53 AM
 % @author Josh Wainwright
 % File name : imagej_plugin.tex
 
@@ -118,13 +118,25 @@ into account in case b).
 
 \begin{figure}[tbhp]
 	\centering
-	\includegraphics[width=7cm]{perimeter-edges.pdf}
+	\begin{subfigure}[c]{3.5cm}
+		\includegraphics[width=\textwidth]{perimeter-edges-grid.pdf}
+		\caption{}\label{fig:perimeter-edges-grid.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[c]{3.5cm}
+		\includegraphics[width=\textwidth]{perimeter-edges-quadtree.pdf}
+		\caption{}\label{fig:perimeter-edges-quadtree.pdf}
+	\end{subfigure}
+
 	\caption{When calculating the perimeter of a cluster using the nodes that
-		contribute, the size of each node must be taken into account. In case
-		a), the process is simple since all nodes are the same size and a
-		fractional value of 3.5 is calculated. For case b), the steps are 25
-		lengths of size $\rfrac{1}{8}$ and 6 lengths of size $\rfrac{1}{16}$
-		which gives the same result, 3.5.} \label{fig:perimeter-edges}
+		contribute, the size of each node must be taken into account. In
+		case~\subref{fig:perimeter-edges-grid.pdf}, the process is simple since
+		all nodes are the same size and a fractional value of 3.5 is
+		calculated. For case~\subref{fig:perimeter-edges-quadtree.pdf}, the
+		steps are 25 lengths of size $\rfrac{1}{8}$ and 6 lengths of size
+		$\rfrac{1}{16}$ which gives the same result, 3.5.}
+	\label{fig:perimeter-edges}
+
 \end{figure}
 
 Within the cluster, \emph{holes} occur where a node, or number of nodes, is
