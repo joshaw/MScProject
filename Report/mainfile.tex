@@ -1,12 +1,14 @@
 % Created:  Sun 15 Jun 2014 04:15 pm
-% Modified: Wed 09 Jul 2014 03:02 PM
+% Modified: Thu 31 Jul 2014 10:51 AM
 % @author Josh Wainwright
 % File name : mainfile.tex
 
 \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
+% \documentclass[a4paper,9pt]{extarticle}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
+% \usepackage{geometry}
 \usepackage[top=3cm,
 	bottom=2cm,
 	left=1.5cm,
@@ -39,7 +41,7 @@
 	labelfont=bf,
 	textfont=it]{caption}
 \usepackage{subcaption}
-\captionsetup{subrefformat=parens}
+\captionsetup{subrefformat=parens,width=8.8cm}
 
 \usepackage[pdftex]{graphicx}
 \usepackage{booktabs}
@@ -80,21 +82,22 @@
 \definecolor{lgrey}{HTML}{888A85}
 
 \lstset{frame=tb,
-  language=Java,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  captionpos=b,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
-  numbers=none,
-  numberstyle=\tiny\color{grey},
-  keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{purple},
-  breaklines=true,
-  breakatwhitespace=true
-  tabsize=3
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	captionpos=b,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{grey},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{purple},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+	linewidth=8.8cm,
 }
 
 %% BIBIOGRAPHY -----------------------------------------------------------------
