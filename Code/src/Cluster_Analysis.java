@@ -43,6 +43,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	private Coordinate maxCoord;
 
 	private ClusterStructure dataStructure;
+	private DrawQuadTreeMapIJ dij = null;
 
 	private static Frame instance;
 	private Panel panel;
@@ -233,16 +234,43 @@ public class Cluster_Analysis extends PlugInFrame {
 				!depthString.equals("")
 			   ) {
 
-				maxXval    = Double.parseDouble(maxXstring);
-				maxYval    = Double.parseDouble(maxYstring);
-				densityVal = Integer.parseInt  (densityString);
-				scaleVal   = Double.parseDouble(scaleString);
-				depthVal   = Integer.parseInt  (depthString);
+				boolean changed = false;
+
+				double maxXvalT = Double.parseDouble(maxXstring);
+				if (maxXvalT != maxXval) {
+					changed = true;
+					maxXval = maxXvalT;
+				}
+
+				double maxYvalT = Double.parseDouble(maxYstring);
+				if (maxYvalT != maxYval) {
+					changed = true;
+					maxYval = maxYvalT;
+				}
+
+				int densityValT = Integer.parseInt(densityString);
+				if (densityValT != densityVal) {
+					changed = true;
+					densityVal = densityValT;
+				}
+
+				double scaleValT = Double.parseDouble(scaleString);
+				if (scaleValT != scaleVal) {
+					changed = true;
+					scaleVal = scaleValT;
+				}
+
+				int depthValT = Integer.parseInt(depthString);
+				if (depthValT != depthVal) {
+					changed = true;
+					depthVal = depthValT;
+				}
 
 				if (label.equals("QuadTree")) {
 
 long start = System.currentTimeMillis();
 
+					if (changed || dij == null) {
 					dataStructure = new QuadTree(maxXval, maxYval,
 							densityVal, filepath, colX, colY, separator);
 
