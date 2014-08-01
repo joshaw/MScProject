@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Fri 01 Aug 2014 11:00 AM
+ * Modified: Fri 01 Aug 2014 03:00 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -362,3 +362,21 @@ System.out.println("Time: " + (System.currentTimeMillis()-start));
 	// ------------------------------------------------------------
 
 }
+
+// count = 0;
+// count1 = 0;
+// pixel = getPixel(150,50);
+// for (i = 0; i < getWidth(); i++) {
+// 	width = getWidth() - i;
+// 	for (j = 0; j < getHeight(); j++) {
+// 		height = getHeight() - j;
+// 		pixel = getPixel(i,j);
+// 		if (pixel > 0) {
+// 			count++;
+// 		} else {
+// 			count1++;
+// 		}
+// 	}
+// }
+// message = toString(count) + "\n" + toString(count1);
+// showMessage(message)
