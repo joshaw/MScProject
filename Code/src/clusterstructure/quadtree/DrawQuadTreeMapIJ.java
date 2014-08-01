@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Thu 31 Jul 2014 06:23 PM
+ * Modified: Fri 01 Aug 2014 10:42 AM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -12,11 +12,11 @@ import ij.plugin.*;
 import ij.process.*;
 import ij.measure.ResultsTable;
 
-import utils.Coordinate;
 import clusterstructure.quadtree.QuadTreeMap;
-import utils.PropogationDatum;
 import clusterstructure.ClusterStats;
+import utils.Coordinate;
 import utils.FileHandler;
+import utils.PropogationDatum;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -28,18 +28,19 @@ import java.awt.Window;
 
 public class DrawQuadTreeMapIJ {
 
-	private String filepath;
+	private String      filepath;
 	private QuadTreeMap qtm;
-	private int gridX;
-	private int gridY;
-	private double globalMaxX;
-	private double globalMaxY;
-	private final double scaleVal;
-	private int points1[][];
-	private int points2[][];
-	private int addedCount = 0;
-	private boolean incPoints;
-	private boolean incLines;
+	private int         gridX;
+	private int         gridY;
+	private double      globalMaxX;
+	private double      globalMaxY;
+	private final       double scaleVal;
+	private int         points1[][];
+	private int         points2[][];
+	private int         addedCount = 0;
+	private boolean     incPoints;
+	private boolean     incLines;
+	private boolean     colourize;
 	private final String colours[] = {  "#ffffff",
 										"#c4a000",
 										"#ce5c00",
@@ -167,7 +168,6 @@ public class DrawQuadTreeMapIJ {
 			rt.addValue("Cluster Area", clusters.getClusterArea(i));
 			// rt.addValue("A of circle", clusters.)
 			rt.addValue("Perimeter", clusters.getClusterPerimeter(i));
-			rt.addValue("A/P", clusters.getClusterArea(i)/ clusters.getClusterPerimeter(i));
 			rt.addValue("A/P^2", 4*Math.PI*clusters.getClusterArea(i)/ Math.pow(clusters.getClusterPerimeter(i), 2));
 		}
 		rt.showRowNumbers(true);

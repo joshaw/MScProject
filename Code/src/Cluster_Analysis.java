@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Thu 31 Jul 2014 03:55 PM
+ * Modified: Fri 01 Aug 2014 11:00 AM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -271,24 +271,23 @@ public class Cluster_Analysis extends PlugInFrame {
 long start = System.currentTimeMillis();
 
 					if (changed || dij == null) {
-					dataStructure = new QuadTree(maxXval, maxYval,
-							densityVal, filepath, colX, colY, separator);
+						System.out.println("Generating quadtree...");
+						dataStructure = new QuadTree(maxXval, maxYval,
+								densityVal, filepath, colX, colY, separator);
 
-					QuadTree qt = (QuadTree)dataStructure;
+						QuadTree qt = (QuadTree)dataStructure;
 
-					// qt.draw(linesBool.getState(), pointsBool.getState(),
-					// 	 	scaleVal);
+						System.out.println("Converting to hashmap...");
+						qt.addQuadTreeMap();
 
-					// QuadTreeMap hm = qt.toQuadTreeMap();
-					qt.addQuadTreeMap();
+						System.out.println("Propagating...");
+						QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal);
 
-					QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal);
+						System.out.println("Calculating pixels...");
+						dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
+					}
 
-					// DrawQuadTreeMap d = new DrawQuadTreeMap(hm, scaleVal);
-					// d.draw(linesBool.getState(), pointsBool.getState());
-
-					DrawQuadTreeMapIJ dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
-					dij.draw(linesBool.getState(), pointsBool.getState());
+					System.out.println("Drawing...");
 					dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState());
 
 System.out.println("Time: " + (System.currentTimeMillis()-start));
