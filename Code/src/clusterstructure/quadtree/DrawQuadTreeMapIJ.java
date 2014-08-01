@@ -103,9 +103,10 @@ public class DrawQuadTreeMapIJ {
 		}
 	}
 
-	public void draw(boolean incLines, boolean incPoints) {
-		this.incLines = incLines;
+	public void draw(boolean incLines, boolean incPoints, boolean colourize) {
+		this.incLines  = incLines;
 		this.incPoints = incPoints;
+		this.colourize = colourize;
 		ImageStack ims;
 		ImagePlus imp;
 
@@ -227,9 +228,15 @@ public class DrawQuadTreeMapIJ {
 				for (int j = y; j < Y; j++) {
 
 					byte status = e.getValue().status();
-					int cn = colours.length;
-					points1[i][j] = hexrgb(colours[status%cn]);
-					points2[i][j] = hexrgb(colours[status%cn]);
+					if (colourize) {
+						int cn = colours.length;
+						points1[i][j] = hexrgb(colours[status%cn]);
+						points2[i][j] = hexrgb(colours[status%cn]);
+					} else {
+						int c = (status == 0) ? 0 : 27;
+						points1[i][j] = hexrgb(colours[c]);
+						points2[i][j] = hexrgb(colours[c]);
+					}
 
 					// clusters.addClusterPoints(status, e.getValue().size());
 					// clusters.addClusterArea(status, e.getKey());

@@ -58,6 +58,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	private TextField depth;
 	private Checkbox  linesBool;
 	private Checkbox  pointsBool;
+	private Checkbox  coloursBool;
 	private Button    autoButton;
 
 	public Cluster_Analysis() {
@@ -71,7 +72,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		setLayout(new BorderLayout());
 		subpanel1 = new Panel();
-		subpanel1.setLayout(new GridLayout(2, 1, 3, 3));
+		subpanel1.setLayout(new GridLayout(3, 1, 3, 3));
 
 		Panel textpanel = new Panel();
 		textpanel.setLayout(new GridLayout(5,2));
@@ -112,6 +113,8 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel1.add(linesBool);
 		pointsBool = new Checkbox("Points", true);
 		subpanel1.add(pointsBool);
+		coloursBool = new Checkbox("Colourize", true);
+		subpanel1.add(coloursBool);
 
 		subpanel2 = new Panel();
 		subpanel2.setLayout(new GridLayout(4, 1, 3, 3));
@@ -258,6 +261,7 @@ long start = System.currentTimeMillis();
 
 					DrawQuadTreeMapIJ dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
 					dij.draw(linesBool.getState(), pointsBool.getState());
+					dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState());
 
 System.out.println("Time: " + (System.currentTimeMillis()-start));
 
