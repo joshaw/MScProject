@@ -61,7 +61,6 @@ public class QuadTreePropagate {
 			}
 
 			int depthDiff = firstStart.length() - start.length();
-			System.out.println("Start " + k + ": " + start + " " + depthDiff);
 			if (start == "" || depthDiff > depthRange-2) {
 				continue;
 			}
@@ -76,7 +75,6 @@ public class QuadTreePropagate {
 		for (String c : neighbours) {
 
 			if (c != null && hashmap.get(c).status() == 0) {
-				// System.out.println("Hit: " + c);
 				hashmap.get(c).setStatus((byte)k);
 				propagate(c, k);
 			}
@@ -94,7 +92,6 @@ public class QuadTreePropagate {
 	 * neighbours.
 	 */
 	public static boolean adjacent(String qt1, String qt2, int dRange) {
-		System.out.println("1: " + qt1 + ", 2: " + qt2 + ",  R: " + dRange);
 
 		// These are the same node.
 		if (qt1.equals(qt2)) {

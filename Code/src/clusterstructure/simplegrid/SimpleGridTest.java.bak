@@ -23,7 +23,6 @@ public class SimpleGridTest {
 			main = new SimpleGrid(41000.0, 41000.0, 200, "sampledata/palm_1.txt");
 		}
 
-		// System.out.println(s.toString());
 		if (main.writeToFile("analysis.pnm")) {
 			System.out.println("Written data to file.");
 		}

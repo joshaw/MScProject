@@ -99,7 +99,6 @@ public class QuadTree implements ClusterStructure {
 	/** Draw the current tree to the screen.
 	 */
 	public void draw(boolean incLines, boolean incPoints, double scaleFactor) {
-		System.out.println(filepath);
 		DrawQuadTree d = new DrawQuadTree(this, scaleFactor);
 		d.draw(incLines, incPoints);
 	}
@@ -132,7 +131,6 @@ public class QuadTree implements ClusterStructure {
 
 					countFile++;
 				}
-				System.out.println("Total read from file: " + countFile);
 			} catch (IOException e) {
 				System.err.println("Error: Could not open file " + filepath);
 			} finally {

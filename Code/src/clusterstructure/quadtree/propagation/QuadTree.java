@@ -19,7 +19,6 @@ public class QuadTree {
 	 * neighbours.
 	 */
 	public static boolean adjacent(String qt1, String qt2, int dRange) {
-		System.out.println("1: " + qt1 + ", 2: " + qt2 + ",  R: " + dRange);
 
 		// These are the same node.
 		if (qt1.equals(qt2)) {

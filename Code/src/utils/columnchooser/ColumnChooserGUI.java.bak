@@ -29,7 +29,6 @@ public class ColumnChooserGUI extends JPanel implements ActionListener {
 
 	public static void showChooser(String[] columnNames, String[][] fileHead) {
 		new ColumnChooserGUI(columnNames, fileHead);
-		System.out.println("Starting gui2");
 		new ColumnChooserGUI2();
 	}
 

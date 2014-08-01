@@ -81,7 +81,6 @@ public class ColumnChooserGUI2 extends JPanel {
 			okButton.setEnabled(false);
 		}
 
-		System.out.println("GUI 2");
 		frame2.setModal(true);
 		frame2.setPreferredSize(new Dimension(800, 410));
 		frame2.pack();
@@ -120,7 +119,7 @@ public class ColumnChooserGUI2 extends JPanel {
 						try {
 							entries[countFile][i] = lineArray[i];
 						} catch(ArrayIndexOutOfBoundsException e){
-							System.out.println("File is not formatted correctly");
+							System.err.println("File is not formatted correctly");
 							break;
 						}
 					}
@@ -156,7 +155,6 @@ public class ColumnChooserGUI2 extends JPanel {
 			separator = otherSepField.getText();
 		}
 
-		System.out.println("Re-reading file");
 		readFile();
 		jTable1.setModel(new DefaultTableModel(entries, columnNumbers));
 

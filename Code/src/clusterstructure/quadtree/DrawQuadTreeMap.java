@@ -71,7 +71,6 @@ public class DrawQuadTreeMap extends JPanel {
 		Graphics2D g2 = (Graphics2D) g;
 
 		traverseMap(g2);
-		System.out.println("Total added to tree: " + addedCount);
 	}
 
 	/** Recursivly go through the quadtree and draw sqare on screen based on

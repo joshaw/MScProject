@@ -52,9 +52,6 @@ public class ColumnChooser {
 					countFile++;
 				}
 
-				// ColumnChooserGUI2.showChooser(columnNames, entries);
-				System.out.println("ColumnChooser");
-
 			} catch (IOException e) {
 				System.err.println("Error: Could not open file " + filepath);
 			} finally {

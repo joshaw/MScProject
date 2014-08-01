@@ -39,8 +39,6 @@ public class QuadTreeTest {
 
 	@Test
 	public void testAdjacncy5() {
-		System.out.println(QuadTree.getCoordinate("01101010"));
-		System.out.println(QuadTree.getCoordinate("1100"));
 		assertTrue(QuadTree.adjacent("01100101","0111", 2));
 	}
 

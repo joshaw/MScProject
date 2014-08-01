@@ -58,7 +58,6 @@ public class DrawQuadTree extends JPanel {
 		this.setBackground(Color.WHITE);
 		Graphics2D g2 = (Graphics2D) g;
 		recurseTree(quadtree.getRoot(), g2);
-		System.out.println("Total added to tree: " + addedCount);
 	}
 
 	/** Recursivly go through the quadtree and draw sqare on screen based on

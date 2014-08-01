@@ -181,9 +181,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 			if (cc.getSuccess()) {
 				colX = cc.getXCol();
-				System.out.println("ColX: " + colX);
 				colY = cc.getYCol();
-				System.out.println("ColY: " + colY);
 				separator = cc.getSeparator();
 
 				/* This is here to allow the "auto" button to be able to
