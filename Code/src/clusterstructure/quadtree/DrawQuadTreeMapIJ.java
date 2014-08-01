@@ -16,6 +16,7 @@ import utils.Coordinate;
 import clusterstructure.quadtree.QuadTreeMap;
 import utils.PropogationDatum;
 import clusterstructure.ClusterStats;
+import utils.FileHandler;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -110,7 +111,7 @@ public class DrawQuadTreeMapIJ {
 		ImageStack ims;
 		ImagePlus imp;
 
-		Window wind = WindowManager.getWindow("Clusters");
+		Window wind = WindowManager.getWindow(FileHandler.removeExt(filepath));
 		if (wind == null) {
 
 			imp = NewImage.createRGBImage(filepath, gridX, gridY, 2,
@@ -153,7 +154,7 @@ public class DrawQuadTreeMapIJ {
 		ims.setPixels(pixels1, 1);
 		ims.setPixels(pixels2, 2);
 		// ims.setPixels(pixels3, 3);
-		imp.setStack("Clusters", ims);
+		imp.setStack(FileHandler.removeExt(filepath), ims);
 		imp.show();
 
 		this.clusters = qtm.getClusterStats();

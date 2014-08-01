@@ -1,5 +1,5 @@
 /** Created: Tue 08 Jul 2014 12:41 PM
-/* Modified: Wed 30 Jul 2014 12:42 PM
+/* Modified: Fri 01 Aug 2014 10:25 AM
  * @author Josh Wainwright
  * File name : FileHandler.java
  */
@@ -81,6 +81,10 @@ public class FileHandler {
 			e.printStackTrace();
 		}
 		return lines;
+	}
+
+	public static String removeExt(String filepath) {
+		return filepath.substring(0, filepath.lastIndexOf('.'));
 	}
 
 }
