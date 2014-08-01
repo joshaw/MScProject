@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Fri 01 Aug 2014 03:00 PM
+ * Modified: Fri 01 Aug 2014 05:10 pm
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -167,6 +167,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		pack();
 		GUI.center(this);
+		setResizable (false);
 		setVisible(true);
 	}
 
