@@ -166,9 +166,9 @@ public class DrawQuadTreeMapIJ {
 			rt.addValue("Cluster", clusters.getStatus(i)+"");
 			rt.addValue("No. of Points", clusters.getClusterPoints(i));
 			rt.addValue("Cluster Area", clusters.getClusterArea(i));
-			// rt.addValue("A of circle", clusters.)
 			rt.addValue("Perimeter", clusters.getClusterPerimeter(i));
-			rt.addValue("A/P^2", 4*Math.PI*clusters.getClusterArea(i)/ Math.pow(clusters.getClusterPerimeter(i), 2));
+			rt.addValue("A/P^2", Math.sqrt(4*Math.PI*clusters.getClusterArea(i)/ 
+					Math.pow(clusters.getClusterPerimeter(i), 2)));
 		}
 		rt.showRowNumbers(true);
 		rt.show("Clusters Results");
