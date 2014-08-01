@@ -1,0 +1,122 @@
+% Created:  Fri 01 Aug 2014 02:02 PM
+% Modified: Fri 01 Aug 2014 02:11 PM
+% @author Josh Wainwright
+% filename: analysis.tex
+
+\section{Cluster Analysis}
+\label{sec:cluster_analysis}
+
+% TODO intro to cluster analysis section
+
+\subsection{Quadtree Node Analysis}
+\label{sub:quadtree_node_analysis}
+
+% TODO explain different between node alaysis and point analysis
+
+\subsubsection{Cluster Area}
+\label{ssub:Cluster Area}
+
+To calculate the area of the clusters, each node in each cluster is examined.
+Since the size of the node must be known, it is calculated from the quadtree
+code for that node. The formula is shown in Equation~\ref{eq:node-area},
+\begin{align}
+	a &= \frac{1}{4^{d}} \\
+	a_i &= 4^{-l_i/2}, \label{eq:node-area}
+\end{align}
+where $a_i$ is the area of the node $i$, $d$ is the depth in the quadtree and
+$l_i$ is the length of the quadtree code of that node. For every node in the
+cluster, where there are $n$ nodes, this value is summed to give the total
+cluster area, $A$:
+\begin{align}
+	A &= \sum_{i=0}^{n} a_i.
+\end{align}
+
+\subsubsection{Cluster Perimeter}
+\label{ssub:Cluster Perimeter}
+
+Similarly to the cluster area, the perimeter is given as a fractional value of
+the length of one side of the whole image, as calculated for each node from the
+quadtree code, as shown in Equation~\ref{eq:node-perimeter},
+\begin{align}
+	p &= \frac{1}{2^{d}} \\
+	p_i &= 2^{-l_i/2}, \label{eq:node-perimeter}
+\end{align}
+where the symbols have the same meaning as above.
+
+However, this simply gives the length of one side of the node for any node. In
+order to calculate the perimeter of the cluster, it is not enough to simply
+sum these values, as for the cluster area, since not all nodes contribute to
+the perimeter. Instead, for each node, it must be decided whether it
+contributes to the perimeter and how much (1, 2, 3 or 4 sides), and then
+increase the total perimeter by this many times the length of one side. The
+total perimeter, $P$, then is given by Equation~\ref{eq:total-perimeter},
+\begin{align}
+	P &= \sum_{i=0}^{n} s * p_i, \label{eq:total-perimeter}
+\end{align}
+where $s \in \{0..4\}$. This is demonstrated in
+Figure~\ref{fig:perimeter-edges} where the perimeter is simple to calculate in
+case a) as the nodes are all the same, but the size of each node must be taken
+into account in case b).
+
+\begin{figure}[tbhp]
+	\centering
+	\begin{subfigure}[c]{3.5cm}
+		\includegraphics[width=\textwidth]{perimeter-edges-grid.pdf}
+		\caption{}\label{fig:perimeter-edges-grid.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[c]{3.5cm}
+		\includegraphics[width=\textwidth]{perimeter-edges-quadtree.pdf}
+		\caption{}\label{fig:perimeter-edges-quadtree.pdf}
+	\end{subfigure}
+
+	\caption{When calculating the perimeter of a cluster using the nodes that
+		contribute, the size of each node must be taken into account. In
+		case~\subref{fig:perimeter-edges-grid.pdf}, the process is simple since
+		all nodes are the same size and a fractional value of 3.5 is
+		calculated. For case~\subref{fig:perimeter-edges-quadtree.pdf}, the
+		steps are 25 lengths of size $\rfrac{1}{8}$ and 6 lengths of size
+		$\rfrac{1}{16}$ which gives the same result, 3.5.}
+	\label{fig:perimeter-edges}
+
+\end{figure}
+
+Within the cluster, \emph{holes} occur where a node, or number of nodes, is
+surrounded on all sides by the same cluster. An example can be seen in
+Figure~\ref{fig:kernel-options}. Unfortunately, these are included in the
+calculation of the perimeter and so, where holes exist in a cluster, the actual
+perimeter is slightly smaller than that calculated.
+
+\subsubsection{Cluster Roundness}
+\label{ssub:Cluster Roundness}
+
+% TODO roundness writing
+\begin{figure}[tbhp]
+	\centering
+	\begin{subfigure}[b]{4.2cm}
+		\fbox{\includegraphics[width=\textwidth]{roundness-long.png}}
+		\caption{}\label{fig:roundness-long.png}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{4.2cm}
+		\fbox{\includegraphics[width=\textwidth]{roundness-round.png}}
+		\caption{}
+	\end{subfigure}
+	% TODO caption
+	\caption{}\label{fig:roundness-round.png}
+\end{figure}
+
+\subsection{Point Analysis}
+\label{sub:point_analysis}
+
+\subsubsection{Cluster Area}
+\label{ssub:Cluster Area}
+
+\subsubsection{Cluster Perimeter}
+\label{ssub:Cluster Perimeter}
+
+\cite{lee2002polygonization}
+
+\cite{estivill2000autoclust}
+
+\cite{xia2006border}
