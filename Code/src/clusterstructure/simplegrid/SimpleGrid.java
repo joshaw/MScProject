@@ -1,5 +1,5 @@
 /** Created: Tue 01 Jul 2014 03:39 PM
- * Modified: Wed 30 Jul 2014 12:50 PM
+ * Modified: Fri 01 Aug 2014 09:28 pm
  * @author Josh Wainwright
  * File name : SimpleGrid.java
  */
@@ -8,6 +8,8 @@ package clusterstructure.simplegrid;
 import utils.Coordinate;
 import utils.FileDescriptor;
 import clusterstructure.ClusterStructure;
+
+import ij.ImagePlus;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -23,6 +25,8 @@ public class SimpleGrid implements ClusterStructure {
 	private double maxY;
 	private int gridX;
 	private int gridY;
+
+	private DrawSimpleGrid dsg;
 
 	private int points[][];
 	private int cellSize;
@@ -52,15 +56,26 @@ public class SimpleGrid implements ClusterStructure {
 			}
 		}
 
-		if (!readDataFile()) {
+		if (!filepath.equals("") && !readDataFile()) {
 			System.err.println("Error: Could not read input file.");
 			System.exit(1);
 		}
 	}
 
+	public SimpleGrid(double maxX, double maxY, int cellSize) {
+		this(maxX, maxY, cellSize, "", 0, 0, "");
+	}
+
+	public ImagePlus draw(boolean draw) {
+		dsg = new DrawSimpleGrid(filepath, points, gridX, gridY);
+		if (draw) {
+			dsg.draw();
+		}
+		return dsg.getImagePlus();
+	}
+
 	public void draw() {
-		DrawSimpleGrid d = new DrawSimpleGrid(filepath, points, gridX, gridY);
-		d.draw();
+		draw(true);
 	}
 
 	public boolean addPoint(Coordinate c) {

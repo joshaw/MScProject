@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Fri 01 Aug 2014 10:42 AM
+ * Modified: Sat 02 Aug 2014 11:49 am
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -13,6 +13,7 @@ import ij.process.*;
 import ij.measure.ResultsTable;
 
 import clusterstructure.quadtree.QuadTreeMap;
+import clusterstructure.simplegrid.SimpleGrid;
 import clusterstructure.ClusterStats;
 import utils.Coordinate;
 import utils.FileHandler;
@@ -21,12 +22,15 @@ import utils.PropogationDatum;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Collections;
+import java.util.Set;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.ArrayList;
 import java.awt.Window;
 
 public class DrawQuadTreeMapIJ {
+
+	private final int GRID_SIZE = 20;
 
 	private String      filepath;
 	private QuadTreeMap qtm;
@@ -147,20 +151,23 @@ public class DrawQuadTreeMapIJ {
 		imp.setStack(FileHandler.removeExt(filepath), ims);
 		imp.show();
 
-		this.clusters = qtm.getClusterStats();
+		clusters = qtm.getClusterStats();
 		ResultsTable rt = new ResultsTable();
-		clusters.sort();
 		for (int i = 1; i < clusters.size(); i++) {
 			rt.incrementCounter();
 			rt.addValue("Cluster", clusters.getStatus(i)+"");
 			rt.addValue("No. of Points", clusters.getClusterPoints(i));
 			rt.addValue("Cluster Area", clusters.getClusterArea(i));
 			rt.addValue("Perimeter", clusters.getClusterPerimeter(i));
-			rt.addValue("A/P^2", Math.sqrt(4*Math.PI*clusters.getClusterArea(i)/ 
+			rt.addValue("A/P^2", Math.sqrt(4*Math.PI*clusters.getClusterArea(i)/
 					Math.pow(clusters.getClusterPerimeter(i), 2)));
+			calculateClusterArea(i);
+			rt.addValue("Area", clusters.getArea(i));
+			rt.addValue("Perm", clusters.getPerimeter(i));
 		}
 		rt.showRowNumbers(true);
 		rt.show("Clusters Results");
+
 	}
 
 	/** Recursivly go through the quadtree and draw sqare on screen based on
@@ -280,5 +287,80 @@ public class DrawQuadTreeMapIJ {
 		int g = Integer.valueOf(hex.substring(3, 5), 16);
 		int b = Integer.valueOf(hex.substring(5, 7), 16);
 		return rgb(r, g, b);
+	}
+
+	private void calculateClusterArea(int status) {
+		Set<Coordinate> cluster = clusters.getClusterCoords(status);
+		double maxX = 0;
+		double maxY = 0;
+		double minX = Double.MAX_VALUE;
+		double minY = Double.MAX_VALUE;
+		for (Coordinate c : cluster) {
+
+			if (c.getX() > maxX) {
+				maxX = c.getX();
+			} else if (c.getX() < minX) {
+				minX = c.getX();
+			}
+
+			if (c.getY() > maxY) {
+				maxY = c.getY();
+			} else if (c.getY() < minY) {
+				minY = c.getY();
+			}
+		}
+		SimpleGrid sg = new SimpleGrid(maxX-minX, maxY-minY, GRID_SIZE);
+
+		for (Coordinate c : cluster) {
+			double newX = c.getX() - minX;
+			double newY = c.getY() - minY;
+			sg.addPoint(new Coordinate(newX, newY));
+		}
+
+		ImagePlus sgimp = sg.draw(false);
+
+		Prefs.blackBackground = false;
+
+		int dilateTimes = 10;
+		IJ.run(sgimp, "Make Binary", "");
+		for (int i = 0; i < dilateTimes; i++) {
+			IJ.run(sgimp, "Dilate", "");
+		}
+		IJ.run(sgimp, "Fill Holes", "");
+		for (int i = 0; i < dilateTimes+1; i++) {
+			IJ.run(sgimp, "Erode", "");
+		}
+		IJ.run(sgimp, "Dilate", "");
+
+		double perimeter = countBlackPixels(sgimp);
+		IJ.run(sgimp, "Outline", "");
+		double area = countBlackPixels(sgimp);
+
+		// Take into account size of grid
+		// area = (int) (Math.pow(GRID_SIZE, 2)*area);
+		// perimeter = GRID_SIZE*perimeter;
+
+		// Scale so result is fraction of whole image
+		perimeter = perimeter / points1.length;
+		area = area / Math.pow(points1.length, 2);
+
+		clusters.setArea((byte)status, area);
+		clusters.setPerimeter((byte)status, perimeter);
+
+	}
+
+	private int countBlackPixels(ImagePlus imp) {
+		int xdim = imp.getWidth();
+		int ydim = imp.getHeight();
+		int count = 0;
+		for (int i = 0; i < xdim; i++) {
+			for (int j = 0; j < ydim; j++) {
+				int pix = imp.getPixel(i,j)[0];
+				if (pix > 0) {
+					count++;
+				}
+			}
+		}
+		return count;
 	}
 }
