@@ -1,5 +1,5 @@
 /** Created: Mon 28 Jul 2014 04:43 PM
- * Modified: Fri 01 Aug 2014 03:19 PM
+ * Modified: Fri 01 Aug 2014 10:06 pm
  * @author Josh Wainwright
  * filename: ClusterStats.java
  */
@@ -51,8 +51,16 @@ public class ClusterStats {
 		stats.get(status).addClusterArea(area);
 	}
 
-	public double getClusterArea(int i) {
-		return stats.get(i).getClusterArea();
+	public void setArea(byte status, double area) {
+		stats.get(status).setArea(area);
+	}
+
+	public double getArea(int status) {
+		return stats.get(status).getArea();
+	}
+
+	public double getClusterArea(int status) {
+		return stats.get(status).getClusterArea();
 	}
 
 	/** Increase the perimeter of the given cluster. The value added to the
@@ -73,12 +81,24 @@ public class ClusterStats {
 		stats.get(status).addClusterPerimeter(perimeter);
 	}
 
-	public double getClusterPerimeter(int i) {
-		return stats.get(i).getClusterPerimeter();
+	public void setPerimeter(byte status, double perimeter) {
+		stats.get(status).setPerimeter(perimeter);
+	}
+
+	public double getPerimeter(int status) {
+		return stats.get(status).getPerimeter();
+	}
+
+	public double getClusterPerimeter(int status) {
+		return stats.get(status).getClusterPerimeter();
 	}
 
 	public void addClusterCoords(byte status, Set<Coordinate> points) {
 		stats.get(status).addClusterCoords(points);
+	}
+
+	public Set<Coordinate> getClusterCoords(int status) {
+		return stats.get(status).getClusterCoords();
 	}
 
 	/** Sorts the list of cluster information objects.
