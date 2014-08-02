@@ -1,13 +1,15 @@
 /** Created: Mon 28 Jul 2014 04:43 PM
- * Modified: Wed 30 Jul 2014 01:03 PM
+ * Modified: Fri 01 Aug 2014 10:06 pm
  * @author Josh Wainwright
  * filename: ClusterStats.java
  */
 package clusterstructure;
 
 import clusterstructure.ClusterStatsDatum;
+import utils.Coordinate;
 
 import java.util.Collections;
+import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -34,6 +36,10 @@ public class ClusterStats {
 		stats.get(status).setStatus(status);
 	}
 
+	public int getClusterPoints(int i) {
+		return stats.get(i).getClusterPoints();
+	}
+
 	/** Increase the area of the given cluster.
 	 * @param status cluster to alter infomation for
 	 * @param code code of the node that represents the increase in area. From
@@ -43,6 +49,18 @@ public class ClusterStats {
 		checkSize(status);
 		double area = Math.pow(4, -code.length()/2);
 		stats.get(status).addClusterArea(area);
+	}
+
+	public void setArea(byte status, double area) {
+		stats.get(status).setArea(area);
+	}
+
+	public double getArea(int status) {
+		return stats.get(status).getArea();
+	}
+
+	public double getClusterArea(int status) {
+		return stats.get(status).getClusterArea();
 	}
 
 	/** Increase the perimeter of the given cluster. The value added to the
@@ -63,6 +81,26 @@ public class ClusterStats {
 		stats.get(status).addClusterPerimeter(perimeter);
 	}
 
+	public void setPerimeter(byte status, double perimeter) {
+		stats.get(status).setPerimeter(perimeter);
+	}
+
+	public double getPerimeter(int status) {
+		return stats.get(status).getPerimeter();
+	}
+
+	public double getClusterPerimeter(int status) {
+		return stats.get(status).getClusterPerimeter();
+	}
+
+	public void addClusterCoords(byte status, Set<Coordinate> points) {
+		stats.get(status).addClusterCoords(points);
+	}
+
+	public Set<Coordinate> getClusterCoords(int status) {
+		return stats.get(status).getClusterCoords();
+	}
+
 	/** Sorts the list of cluster information objects.
 	 */
 	public void sort() {
@@ -79,18 +117,6 @@ public class ClusterStats {
 		while (status >= stats.size()) {
 			stats.add(new ClusterStatsDatum());
 		}
-	}
-
-	public int getClusterPoints(int i) {
-		return stats.get(i).getClusterPoints();
-	}
-
-	public double getClusterArea(int i) {
-		return stats.get(i).getClusterArea();
-	}
-
-	public double getClusterPerimeter(int i) {
-		return stats.get(i).getClusterPerimeter();
 	}
 
 	public byte getStatus(int i) {

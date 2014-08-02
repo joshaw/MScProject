@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Thu 31 Jul 2014 05:30 PM
+ * Modified: Sat 02 Aug 2014 12:47 pm
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -27,14 +27,14 @@ public class QuadTreePropagate {
 
 	private String start;
 	private String firstStart;
-	private byte[] kernel;
+	private int[]  kernel;
 	private int    depthRange;
 
-	public QuadTreePropagate(QuadTree qt, int depthRange){
+	public QuadTreePropagate(QuadTree qt, int depthRange, String kernelString){
 		this.qt = qt;
 		this.hashmap = qt.getQuadTreeMap();
 		this.depthRange = depthRange;
-		readKernel();
+		this.kernel = parseKernelString(kernelString);
 		propagate();
 		generatePerimeter();
 		hashmap.generateClusterStats();
@@ -281,29 +281,6 @@ public class QuadTreePropagate {
 		return neighbours;
 	}
 
-	// private ArrayList<String> addSuffixes(String code) {
-	// 	String[] suffixes = {"00", "01", "10", "11"};
-	// 	ArrayList<String> codesWithSuff = new ArrayList<String>();
-	// 	ArrayList<String> codesWithSuffTmp = new ArrayList<String>();
-	// 	codesWithSuff.add(code);
-
-	// 	for (int i = 1; i < start.length()/2; i++) {
-	// 		for (String s : codesWithSuff) {
-	// 			for (String suff : suffixes) {
-	// 				if (hashmap.containsKey(s+suff)) {
-	// 					codesWithSuffTmp.add(s+suff);
-	// 				}
-	// 			}
-	// 		}
-	// 		codesWithSuff.addAll(codesWithSuffTmp);
-	// 	}
-
-	// 	if (!hashmap.containsKey(code)) {
-	// 		codesWithSuff.remove(0);
-	// 	}
-	// 	return codesWithSuff;
-	// }
-
 	private void generatePerimeter() {
 		for (Entry<String, PropogationDatum> e : hashmap.entrySet()) {
 			for (String n : getRooksNeighbours(e.getKey())) {
@@ -316,35 +293,18 @@ public class QuadTreePropagate {
 		}
 	}
 
-	private byte[] readKernel() {
-		String kernelPath = "/home/students/jaw097/work/Project/Code/sampledata/kernel";
-		// String kernelPath = "/home/josh/Documents/MScProject/Code/sampledata/kernel";
-		kernel = new byte[0];
+	private int[] parseKernelString(String kernelString) {
 
-		try {
-			BufferedReader reader =
-				new BufferedReader(new FileReader(kernelPath));
-			String line = null;
+		kernelString = kernelString.replace('\n', ' ');
+		String[] values = kernelString.split(" ");
+		int n = values.length;
+		int kw = (int)Math.sqrt(n);
+		int kh = kw;
+		n = kw*kh;
+		kernel = new int[n];
 
-			String lines = "";
-			while ((line = reader.readLine()) != null) {
-				lines += line + " ";
-			}
-
-			String[] values = lines.split(" ");
-			int n = values.length;
-			int kw = (int)Math.sqrt(n);
-			int kh = kw;
-			n = kw*kh;
-			kernel = new byte[n];
-
-			for (int i=0; i<n; i++)
-				kernel[i] = (byte)Integer.parseInt(values[i]);
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		for (int i=0; i<n; i++) {
+			kernel[i] = Integer.parseInt(values[i]);
 		}
 
 		return kernel;

@@ -1,5 +1,5 @@
 /** Created: Thu 31 Jul 2014 12:33 PM
- * Modified: Thu 31 Jul 2014 03:04 PM
+ * Modified: Fri 01 Aug 2014 03:24 PM
  * @author Josh Wainwright
  * filename: QuadTree.java
  */
@@ -60,7 +60,7 @@ public class QuadTree implements ClusterStructure {
 	public QuadTreeMap toQuadTreeMap() {
 		int maxLeaves = (int) root.getMaxNumberOfLeaves();
 
-		QuadTreeMap qtm = new QuadTreeMap(maxX, maxY);
+		QuadTreeMap qtm = new QuadTreeMap(maxX, maxY, this);
 
 		return root.toQuadTreeMap(qtm);
 	}

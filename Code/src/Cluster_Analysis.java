@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Fri 01 Aug 2014 11:00 AM
+ * Modified: Sat 02 Aug 2014 12:43 pm
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -41,6 +41,8 @@ public class Cluster_Analysis extends PlugInFrame {
 	private int        colY;
 	private String     separator;
 	private Coordinate maxCoord;
+	private String kernel = "1 1 1\n1 1 1\n1 1 1";
+	private boolean kernelChanged = false;
 
 	private ClusterStructure dataStructure;
 	private DrawQuadTreeMapIJ dij = null;
@@ -118,7 +120,15 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel1.add(coloursBool);
 
 		subpanel2 = new Panel();
-		subpanel2.setLayout(new GridLayout(4, 1, 3, 3));
+		subpanel2.setLayout(new GridLayout(5, 1, 3, 3));
+
+		Button kernelButton = new Button("Kernel");
+		kernelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				kernelButtonActionPerformed(evt);
+			}
+		});
+		subpanel2.add(kernelButton);
 
 		autoButton = new Button("Auto");
 		autoButton.addActionListener(new ActionListener() {
@@ -167,7 +177,19 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		pack();
 		GUI.center(this);
+		setResizable (false);
 		setVisible(true);
+	}
+
+	public void kernelButtonActionPerformed(ActionEvent evt) {
+		GenericDialog gd = new GenericDialog("Neighbours Kernel", IJ.getInstance());
+		gd.addTextAreas(kernel, null, 10, 30);
+		gd.showDialog();
+		String kernelText = gd.getNextText();
+		if (!kernelText.equals("") && !kernelText.equals(kernel)) {
+			kernel = kernelText;
+			kernelChanged = true;
+		}
 	}
 
 	private void dataFileButtonActionPerformed(ActionEvent evt) {
@@ -264,6 +286,8 @@ public class Cluster_Analysis extends PlugInFrame {
 					depthVal = depthValT;
 				}
 
+				changed = changed | kernelChanged;
+
 				if (label.equals("QuadTree")) {
 
 long start = System.currentTimeMillis();
@@ -279,7 +303,7 @@ long start = System.currentTimeMillis();
 						qt.addQuadTreeMap();
 
 						System.out.println("Propagating...");
-						QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal);
+						QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal, kernel);
 
 						System.out.println("Calculating pixels...");
 						dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
@@ -362,3 +386,21 @@ System.out.println("Time: " + (System.currentTimeMillis()-start));
 	// ------------------------------------------------------------
 
 }
+
+// count = 0;
+// count1 = 0;
+// pixel = getPixel(150,50);
+// for (i = 0; i < getWidth(); i++) {
+// 	width = getWidth() - i;
+// 	for (j = 0; j < getHeight(); j++) {
+// 		height = getHeight() - j;
+// 		pixel = getPixel(i,j);
+// 		if (pixel > 0) {
+// 			count++;
+// 		} else {
+// 			count1++;
+// 		}
+// 	}
+// }
+// message = toString(count) + "\n" + toString(count1);
+// showMessage(message)

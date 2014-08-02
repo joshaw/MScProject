@@ -1,5 +1,5 @@
 /** Created: Tue 08 Jul 2014 02:55 PM
- * Modified: Wed 30 Jul 2014 11:00 AM
+ * Modified: Fri 01 Aug 2014 08:59 pm
  * @author Josh Wainwright
  * File name : DrawSimpleGrid.java
  */
@@ -21,15 +21,14 @@ public class DrawSimpleGrid {
 	private int gridX;
 	private int gridY;
 
+	private ImagePlus imp;
+
 	public DrawSimpleGrid(String filepath, int[][] points, int gridX, int gridY) {
 		this.filepath = filepath;
 		this.points = points;
 		this.gridX = gridX;
 		this.gridY = gridY;
-	}
-
-	public void draw() {
-		ImagePlus imp = NewImage.createFloatImage(filepath, gridX, gridY, 1,
+		imp = NewImage.createFloatImage(filepath, gridX, gridY, 1,
 				NewImage.FILL_BLACK);
 		ImageProcessor imgpro = imp.getProcessor();
 
@@ -42,8 +41,14 @@ public class DrawSimpleGrid {
 
 		imgpro.setPixels(pixels);
 		IJ.run(imp, "Enhance Contrast", "saturated=0.35");
-		imp.show();
+	}
 
+	public void draw() {
+		imp.show();
+	}
+
+	public ImagePlus getImagePlus() {
+		return imp;
 	}
 
 }
