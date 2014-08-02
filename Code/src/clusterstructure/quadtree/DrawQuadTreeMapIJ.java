@@ -131,7 +131,6 @@ public class DrawQuadTreeMapIJ {
 
 		int[] pixels1 = new int[gridX * gridY];
 		int[] pixels2 = new int[gridX * gridY];
-		int[] pixels3 = new int[gridX * gridY];
 		for (int j = 0; j < gridY; j++) {
 			for (int i = 0; i < gridX; i++) {
 				pixels1[j*gridX + i] = points1[i][j];
@@ -142,19 +141,9 @@ public class DrawQuadTreeMapIJ {
 				pixels2[j*gridX + i] = points2[i][j];
 			}
 		}
-		// for (int j = 0; j < gridY; j++) {
-		// 	for (int i = 0; i < gridX; i++) {
-		// 		if (points1[i][j] == rgb(255, 255, 255)) {
-		// 			pixels3[j*gridX + i] = points2[i][j];
-		// 		} else {
-		// 			pixels3[j*gridX + i] = points1[i][j];
-		// 		}
-		// 	}
-		// }
 
 		ims.setPixels(pixels1, 1);
 		ims.setPixels(pixels2, 2);
-		// ims.setPixels(pixels3, 3);
 		imp.setStack(FileHandler.removeExt(filepath), ims);
 		imp.show();
 
@@ -239,8 +228,6 @@ public class DrawQuadTreeMapIJ {
 						points2[i][j] = hexrgb(colours[c]);
 					}
 
-					// clusters.addClusterPoints(status, e.getValue().size());
-					// clusters.addClusterArea(status, e.getKey());
 				}
 			}
 
