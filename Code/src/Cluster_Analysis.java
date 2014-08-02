@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Sat 02 Aug 2014 12:43 pm
+ * Modified: Sat 02 Aug 2014 06:25 pm
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -181,7 +181,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		setVisible(true);
 	}
 
-	public void kernelButtonActionPerformed(ActionEvent evt) {
+	private void kernelButtonActionPerformed(ActionEvent evt) {
 		GenericDialog gd = new GenericDialog("Neighbours Kernel", IJ.getInstance());
 		gd.addTextAreas(kernel, null, 10, 30);
 		gd.showDialog();
