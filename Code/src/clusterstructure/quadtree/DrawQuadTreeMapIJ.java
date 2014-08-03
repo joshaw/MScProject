@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Sat 02 Aug 2014 11:49 am
+ * Modified: Sat 02 Aug 2014 11:21 pm
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -335,6 +335,8 @@ public class DrawQuadTreeMapIJ {
 		double perimeter = countBlackPixels(sgimp);
 		IJ.run(sgimp, "Outline", "");
 		double area = countBlackPixels(sgimp);
+
+		area = area - perimeter;
 
 		// Take into account size of grid
 		// area = (int) (Math.pow(GRID_SIZE, 2)*area);
