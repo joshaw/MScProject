@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Mon 04 Aug 2014 11:18 AM
+ * Modified: Mon 04 Aug 2014 04:30 PM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -167,10 +167,10 @@ public class DrawQuadTreeMapIJ {
 				rt.addValue("No. of Points", clusters.getClusterPoints(i));
 				rt.addValue("Cluster Area", clusters.getClusterArea(i));
 				rt.addValue("Perimeter", clusters.getClusterPerimeter(i));
-				// rt.addValue("A/P^2", Math.sqrt(4*Math.PI*clusters.getClusterArea(i)/
-				// 		Math.pow(clusters.getClusterPerimeter(i), 2)));
 				rt.addValue("Area", clusters.getArea(i));
 				rt.addValue("Perm", clusters.getPerimeter(i));
+				rt.addValue("Roundness", Math.sqrt(4*Math.PI*clusters.getArea(i)/
+						Math.pow(clusters.getPerimeter(i), 2)));
 			}
 		}
 		rt.showRowNumbers(true);
