@@ -105,7 +105,6 @@ public class ColumnChooserGUI extends JPanel implements ActionListener {
 					break;
 				}
 			}
-			System.out.println(trues +"");
 		}
 	}
 }
