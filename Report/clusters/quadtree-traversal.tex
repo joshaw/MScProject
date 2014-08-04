@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Thu 31 Jul 2014 03:39 PM
+% Modified: Mon 04 Aug 2014 06:06 PM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -51,7 +51,27 @@ neighbours of the blue nodes that will have to be checked to determine if it is
 included or not and crosses ({\footnotesize x}) represent neighbours that have
 been checked and excluded.
 
-% TODO pseudo code of clustering algorithm
+\begin{lstlisting}
+	public void propagate(node) {
+
+		node[] start_locations = get_start_locations() (*@\label{eql:a}@*)
+		for each node in start_locations {
+
+			if (not node.inCluster()) { (*@\label{eql:b}@*)
+				node[] neighbours = get_node_neighbours(node)
+
+				for each neighbour in neighbours { (*@\label{eql:c}@*)
+					propagate(neighbour)
+				}
+			}
+		}
+	}
+\end{lstlisting}
+
+% TODO pseudo code comments
+Line \ref{eql:a} Nodes are only propagated if they h \\
+Line \ref{eql:b} Nodes are only propagated if they h \\
+Line \ref{eql:c} Nodes are only propagated if they h \\
 
 \begin{figure}[tbhp]
 	\centering
