@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Thu 31 Jul 2014 11:46 AM
+% Modified: Mon 04 Aug 2014 06:06 PM
 % @author Josh Wainwright
 % File name : quadtree.tex
 
@@ -281,51 +281,52 @@ order and the modified Gray code order is shown in Listing
 
 \begin{lstlisting}[caption={Code to generate children of the current quadtree
 while maintaining the correct ordering.},label=code:child_construction]
-// Constructor
-Quadtree(max_x, max_y, code)
+	// Constructor
+	Quadtree(max_x, max_y, code)
 
-// Child creation,  Z-Order
-t_l = new Quadtree(100, 100, this.code + "00");
-t_r = new Quadtree(100, 100, this.code + "01");
-b_l = new Quadtree(100, 100, this.code + "11");
-b_r = new Quadtree(100, 100, this.code + "10");
+	// Child creation,  Z-Order
+	t_l = new Quadtree(100, 100, this.code + "00");
+	t_r = new Quadtree(100, 100, this.code + "01");
+	b_l = new Quadtree(100, 100, this.code + "11");
+	b_r = new Quadtree(100, 100, this.code + "10");
 
-// Child creation,  Gray Code
-t_l = new Quadtree(100, 100, this.code + "00");
-t_r = new Quadtree(100, 100, this.code + "01");
-b_l = new Quadtree(100, 100, this.code + "10");
-b_r = new Quadtree(100, 100, this.code + "11");
+	// Child creation,  Gray Code
+	t_l = new Quadtree(100, 100, this.code + "00");
+	t_r = new Quadtree(100, 100, this.code + "01");
+	b_l = new Quadtree(100, 100, this.code + "10");
+	b_r = new Quadtree(100, 100, this.code + "11");
 
-// Child creation, Modified Gray Code
-if (pos == "tl") ) {
-	new_code[0] = code + "00";
-	new_code[1] = code + "01";
-	new_code[2] = code + "10";
-	new_code[3] = code + "11";
+	// Child creation, Modified Gray Code
+	if (pos == "tl") ) {
+		new_code[0] = code + "00";
+		new_code[1] = code + "01";
+		new_code[2] = code + "10";
+		new_code[3] = code + "11";
 
-} else if (pos == "tr")) {
-	new_code[0] = code + "01";
-	new_code[1] = code + "00";
-	new_code[2] = code + "11";
-	new_code[3] = code + "10";
+	} else if (pos == "tr")) {
+		new_code[0] = code + "01";
+		new_code[1] = code + "00";
+		new_code[2] = code + "11";
+		new_code[3] = code + "10";
 
-} else if (pos == "bl")) {
-	new_code[0] = code + "10";
-	new_code[1] = code + "11";
-	new_code[2] = code + "00";
-	new_code[3] = code + "01";
+	} else if (pos == "bl")) {
+		new_code[0] = code + "10";
+		new_code[1] = code + "11";
+		new_code[2] = code + "00";
+		new_code[3] = code + "01";
 
-} else if (pos == "br")){
-	new_code[0] = code + "11";
-	new_code[1] = code + "10";
-	new_code[2] = code + "01";
-	new_code[3] = code + "00";
-}
-t_l = new Quadtree(100, 100, this.code + new_code[0]);
-t_r = new Quadtree(100, 100, this.code + new_code[1]);
-b_l = new Quadtree(100, 100, this.code + new_code[2]);
-b_r = new Quadtree(100, 100, this.code + new_code[3]);
+	} else if (pos == "br")){
+		new_code[0] = code + "11";
+		new_code[1] = code + "10";
+		new_code[2] = code + "01";
+		new_code[3] = code + "00";
+	}
+	t_l = new Quadtree(100, 100, this.code + new_code[0]);
+	t_r = new Quadtree(100, 100, this.code + new_code[1]);
+	b_l = new Quadtree(100, 100, this.code + new_code[2]);
+	b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \end{lstlisting}
+% TODO pseudo code comments
 
 \subsection{Hash Table Implementation}
 \label{sub:hash_table_implementation}
