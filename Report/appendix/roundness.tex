@@ -1,0 +1,62 @@
+% Created:  Sat 02 Aug 2014 06:48 pm
+% Modified: Mon 04 Aug 2014 04:09 PM
+% @author Josh Wainwright
+% File name : roundness.tex
+
+\section{Roundness Derivation}
+\label{app:roundness_derivation}
+
+Derivation of the equation for roundness, $R$, of a cluster given the area,
+$A$, and perimeter, $p$, of the cluster.
+
+A circle is defined to have a roundness of 1.
+
+\begin{align}
+	R_\textrm{circle} = 1 \\
+\intertext{The value must be unitless, so divide area by perimeter squared,}
+	A &= \pi r^2 \\
+	p &= 2\pi r \\
+	\frac{A}{p} &= \frac{\pi r^2}{4\pi^2 r^2} \\
+\intertext{Remove constants to give formula,}
+	R &= 4\pi\frac{\pi r^2}{4\pi^2 r^2} \\
+		&= 4\pi \frac{A}{p}
+\end{align}
+
+Test for regular shapes.
+
+\paragraph{Circle}
+\label{par:circle}
+
+\begin{align}
+	A &= \pi r^2 \\
+	p &= 2\pi r \\
+	R &= 4\pi \times \frac{\pi r^2}{(2\pi r)^2} = 1
+\end{align}
+
+\paragraph{Square}
+\label{par:square}
+
+\begin{align}
+	A &= h^2 \\
+	p &= 4h \\
+	R &= 4\pi \times \frac{h^2}{(4h)^2} = \frac{\pi}{4} \approx 0.785
+\end{align}
+
+\paragraph{Equalateral Triangle}
+\label{par:equalateral_triangle}
+
+\begin{align}
+	A &= \frac{\sqrt{3}}{4}a^2 \\
+	p &= 3h \\
+	R &= 4\pi \times \frac{\frac{\sqrt{3}}{4}a^2}{(3a)^2} = \frac{\sqrt{3}\pi}{9} \approx 0.605
+\end{align}
+
+\paragraph{Elipse ($\textrm{Eccentricity} = 0.5$)}
+\label{par:elipse}
+
+For ellipse, $\epsilon = 0.5$, let minor axis, $a = 1$ and major axis, $b = 2$.
+\begin{align}
+	A &= 6.28 \\
+	p &= 9.69 \\
+	R &= \frac{6.28}{9.69} \approx 0.648
+\end{align}
