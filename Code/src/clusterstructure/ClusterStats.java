@@ -1,5 +1,5 @@
 /** Created: Mon 28 Jul 2014 04:43 PM
- * Modified: Mon 04 Aug 2014 10:38 AM
+ * Modified: Mon 04 Aug 2014 05:19 PM
  * @author Josh Wainwright
  * filename: ClusterStats.java
  */
@@ -124,7 +124,10 @@ public class ClusterStats {
 	}
 
 	public byte getStatus(int i) {
-		return stats.get(i).getStatus();
+		if (stats.size() > 0) {
+			return stats.get(i).getStatus();
+		}
+		return 0;
 	}
 
 }
