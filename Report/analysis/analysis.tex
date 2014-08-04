@@ -1,5 +1,5 @@
 % Created:  Fri 01 Aug 2014 02:02 PM
-% Modified: Fri 01 Aug 2014 02:11 PM
+% Modified: Mon 04 Aug 2014 05:14 PM
 % @author Josh Wainwright
 % filename: analysis.tex
 
@@ -90,7 +90,25 @@ perimeter is slightly smaller than that calculated.
 \subsubsection{Cluster Roundness}
 \label{ssub:Cluster Roundness}
 
-% TODO roundness writing
+A potentially useful measure of a cluster is its \emph{roundness}. This
+describes the extent to which the area and perimeter of the cluster resemble a
+circle. The avialible values of roundness are from 0, meaning a perfect line
+with no area but finite perimeter, to 1, being a perfect circle. The equation
+to determine roundness, Equation~\ref{eq:roundness} is defined such that it is
+a unitless ratio of area and perimeter, such that a circle has roundness 1. The
+derivation of Equation~\ref{eq:roundness} is found in
+Appendix~\ref{app:roundness_derivation}.
+
+\begin{align}
+	R &= \sqrt{\frac{4\pi A}{p^2}} \label{eq:roundness}
+\end{align}
+
+The clusters that are found for data sets \texttt{palm-1.txt} and
+\texttt{palm-2.txt} are shown in Figure~\ref{fig:roundness}. The roundness
+values for the clusters for these data are very different,
+Figure~\ref{fig:roundness-long.png} has an average $R=0.350$ whereas
+Figure~\ref{fig:roundness-round.png} has an average $R=0.446$.
+
 \begin{figure}[tbhp]
 	\centering
 	\begin{subfigure}[b]{4.2cm}
@@ -100,10 +118,12 @@ perimeter is slightly smaller than that calculated.
 	\quad
 	\begin{subfigure}[b]{4.2cm}
 		\fbox{\includegraphics[width=\textwidth]{roundness-round.png}}
-		\caption{}
+		\caption{}\label{fig:roundness-round.png}
 	\end{subfigure}
-	% TODO caption
-	\caption{}\label{fig:roundness-round.png}
+	\caption{The general shape of the clusters found can be described using the
+		roundness measure. A value closer to 0 means longer and thinner
+		clusters, whereas values closer to 1 mean clusters that are more
+		circular.} \label{fig:roundness}
 \end{figure}
 
 \subsection{Point Analysis}
