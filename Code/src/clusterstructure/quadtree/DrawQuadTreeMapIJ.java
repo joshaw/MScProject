@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Mon 04 Aug 2014 11:08 AM
+ * Modified: Mon 04 Aug 2014 11:18 AM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -42,9 +42,12 @@ public class DrawQuadTreeMapIJ {
 	private int         points1[][];
 	private int         points2[][];
 	private int         addedCount = 0;
-	private boolean     incPoints;
-	private boolean     incLines;
-	private boolean     colourize;
+
+	private boolean incPoints;
+	private boolean incLines;
+	private boolean colourize;
+	private double  minClusterSize;
+
 	private final String colours[] = {  "#ffffff",
 										"#c4a000",
 										"#ce5c00",
@@ -109,10 +112,11 @@ public class DrawQuadTreeMapIJ {
 		}
 	}
 
-	public void draw(boolean incLines, boolean incPoints, boolean colourize) {
-		this.incLines  = incLines;
-		this.incPoints = incPoints;
-		this.colourize = colourize;
+	public void draw(boolean incLines, boolean incPoints, boolean colourize, double minClusterSize) {
+		this.incLines       = incLines;
+		this.incPoints      = incPoints;
+		this.colourize      = colourize;
+		this.minClusterSize = minClusterSize;
 		ImageStack ims;
 		ImagePlus imp;
 
@@ -353,7 +357,7 @@ public class DrawQuadTreeMapIJ {
 
 		clusters.setArea((byte)status, area);
 		clusters.setPerimeter((byte)status, perimeter);
-		if (area <= 5e-4) {
+		if (area <= minClusterSize) {
 			clusters.excludeCluster((byte)status);
 		}
 

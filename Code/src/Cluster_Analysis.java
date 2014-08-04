@@ -59,6 +59,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	private TextField density;
 	private TextField scale;
 	private TextField depth;
+	private TextField minCluster;
 	private Checkbox  linesBool;
 	private Checkbox  pointsBool;
 	private Checkbox  coloursBool;
@@ -111,6 +112,12 @@ public class Cluster_Analysis extends PlugInFrame {
 		depth.addKeyListener(new NumberKeyListener());
 		textpanel.add(depthLab);
 		textpanel.add(depth);
+
+		Label minClusterLab = new Label("Min Cluster Size");
+		minCluster = new TextField("0.0005", 10);
+		minCluster.addKeyListener(new NumberKeyListener());
+		textpanel.add(minClusterLab);
+		textpanel.add(minCluster);
 
 		linesBool = new Checkbox("Lines", true);
 		subpanel1.add(linesBool);
@@ -244,6 +251,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		String densityString = removeSpaces(density.getText());
 		String scaleString   = removeSpaces(scale.getText());
 		String depthString   = removeSpaces(depth.getText());
+		String minClusterString = removeSpaces(minCluster.getText());
 
 		if (filepath != null) {
 
@@ -286,6 +294,7 @@ public class Cluster_Analysis extends PlugInFrame {
 					depthVal = depthValT;
 				}
 
+				double minClusterVal = Double.parseDouble(minClusterString);
 				changed = changed | kernelChanged;
 
 				if (label.equals("QuadTree")) {
@@ -310,7 +319,7 @@ long start = System.currentTimeMillis();
 					}
 
 					System.out.println("Drawing...");
-					dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState());
+					dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState(), minClusterVal);
 
 System.out.println("Time: " + (System.currentTimeMillis()-start));
 
