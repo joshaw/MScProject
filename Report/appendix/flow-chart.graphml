@@ -20,7 +20,7 @@
           <y:Geometry height="50.0" width="161.0" x="653.0" y="175.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="48.783203125" x="56.1083984375" y="16.015625">Main UI<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="48.3043212890625" x="56.34783935546875" y="15.889950275421143">Main UI<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -39,7 +39,7 @@
           <y:Geometry height="50.0" width="161.0" x="653.0" y="95.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="98.166015625" x="31.4169921875" y="16.015625">Display main UI<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="90.82061767578125" x="35.089691162109375" y="15.889950275421143">Display main UI<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -58,7 +58,7 @@
           <y:Geometry height="50.0" width="161.0" x="653.0" y="0.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="132.9765625" x="14.01171875" y="16.015625">Start Cluster Analysis<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="120.79682922363281" x="20.101585388183594" y="15.889950275421143">Start Cluster Analysis<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -77,7 +77,7 @@
           <y:Geometry height="40.0" width="161.0" x="939.5" y="401.95858170606374"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="135.619140625" x="12.6904296875" y="11.015625">Create new QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="119.96882629394531" x="20.515586853027344" y="10.889950275421143">Create new QuadTree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -96,7 +96,7 @@
           <y:Geometry height="40.0" width="161.0" x="939.5" y="299.7292908530319"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="109.24609375" x="25.876953125" y="4.03125">"Draw QuadTree"
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="101.16470336914062" x="29.917648315429688" y="3.779900550842285">"Draw QuadTree"
 button<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -116,7 +116,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="925.8002890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="126.68359375" x="17.158203125" y="11.015625">Convert to HashMap<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="115.0128173828125" x="22.99359130859375" y="10.889950275421143">Convert to HashMap<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -135,7 +135,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="995.8002890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="128.40625" x="16.296875" y="11.015625">Propagate QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="114.1488037109375" x="23.42559814453125" y="10.889950275421143">Propagate QuadTree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -154,7 +154,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1233.7690390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="98.20703125" x="31.396484375" y="11.015625">Draw QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="89.16461181640625" x="35.917694091796875" y="10.889950275421143">Draw QuadTree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -173,7 +173,7 @@ button<y:LabelModel>
           <y:Geometry height="50.0" width="161.0" x="939.5" y="487.4273317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="85.791015625" x="37.6044921875" y="16.015625">File selected?<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="74.14047241210938" x="43.42976379394531" y="15.889950275421143">File selected?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -192,7 +192,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="1050.0" y="1233.7690390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="99.302734375" x="30.8486328125" y="11.015625">Propagate node<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="86.14060974121094" x="37.42969512939453" y="10.889950275421143">Propagate node<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -211,7 +211,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="1050.0" y="1303.7690390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="96.49609375" x="32.251953125" y="11.015625">Get neighbours<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="84.10057067871094" x="38.44971466064453" y="10.889950275421143">Get neighbours<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -230,7 +230,7 @@ button<y:LabelModel>
           <y:Geometry height="50.0" width="161.0" x="1050.0" y="1388.7690390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="104.353515625" x="28.3232421875" y="16.015625">Neighbours &gt; 0?<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="92.04463195800781" x="34.477684020996094" y="15.889950275421143">Neighbours &gt; 0?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -249,7 +249,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1065.8002890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="108.578125" x="26.2109375" y="11.015625">Get start location<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="97.40867614746094" x="31.79566192626953" y="10.889950275421143">Get start location<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -268,7 +268,7 @@ button<y:LabelModel>
           <y:Geometry height="50.0" width="161.0" x="653.0" y="1135.8002890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="93.642578125" x="33.6787109375" y="16.015625">Start availible?<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="83.93258666992188" x="38.53370666503906" y="15.889950275421143">Start availible?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -287,7 +287,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1486.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="109.12890625" x="25.935546875" y="11.015625">Draw Simple Grid<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="99.88067626953125" x="30.559661865234375" y="10.889950275421143">Draw Simple Grid<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -306,7 +306,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1556.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="78.25" x="41.375" y="11.015625">Dilate/Erode<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="72.62849426269531" x="44.185752868652344" y="10.889950275421143">Dilate/Erode<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -325,7 +325,7 @@ button<y:LabelModel>
           <y:Geometry height="50.0" width="161.0" x="653.0" y="1388.7690390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="76.421875" x="42.2890625" y="16.015625">Cluster left?<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="68.68045043945312" x="46.15977478027344" y="15.889950275421143">Cluster left?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -344,7 +344,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1626.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="145.791015625" x="7.6044921875" y="11.015625">Get perimeter and area<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="126.72486877441406" x="17.13756561279297" y="10.889950275421143">Get perimeter and area<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -363,7 +363,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="844.0" y="1556.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="111.09765625" x="24.951171875" y="11.015625">Display QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="100.16868591308594" x="30.41565704345703" y="10.889950275421143">Display QuadTree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -382,7 +382,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="844.0" y="1626.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="130.123046875" x="15.4384765625" y="11.015625">Display Results table<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="115.7327880859375" x="22.63360595703125" y="10.889950275421143">Display Results table<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -401,7 +401,7 @@ button<y:LabelModel>
           <y:Geometry height="20.0" width="20.0" x="914.5" y="1711.7377890544708"/>
           <y:Fill color="#FFFFFFE6" transparent="false"/>
           <y:BorderStyle color="#B11F1F" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="8.0" y="8.0">
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="8.0" y="8.0">
             <y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -425,7 +425,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="939.5" y="585.3960817060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="56.78125" x="52.109375" y="11.015625">Read file<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="50.45231628417969" x="55.273841857910156" y="10.889950275421143">Read file<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -444,7 +444,7 @@ button<y:LabelModel>
           <y:Geometry height="50.0" width="161.0" x="939.5" y="760.8325603802673"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="106.076171875" x="27.4619140625" y="16.015625">Coordinates left?<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="93.34063720703125" x="33.829681396484375" y="15.889950275421143">Coordinates left?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -463,7 +463,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="939.5" y="855.8002890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="136.134765625" x="12.4326171875" y="11.015625">Add point to quadtree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="121.91287231445312" x="19.543563842773438" y="10.889950275421143">Add point to quadtree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -482,7 +482,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="299.7292908530319"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="123.982421875" x="18.5087890625" y="4.03125">"Draw Simple Grid" 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="115.87680053710938" x="22.561599731445312" y="3.779900550842285">"Draw Simple Grid" 
 button<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -502,7 +502,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="449.5" y="765.8325603802673"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="122.01953125" x="19.490234375" y="11.015625">Display Simple Grid<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="110.88475036621094" x="25.05762481689453" y="10.889950275421143">Display Simple Grid<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -521,7 +521,7 @@ button<y:LabelModel>
           <y:Geometry height="20.0" width="20.0" x="520.0" y="865.8002890544708"/>
           <y:Fill color="#FFFFFFE6" transparent="false"/>
           <y:BorderStyle color="#B11F1F" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="8.0" y="8.0">
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="8.0" y="8.0">
             <y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -545,7 +545,7 @@ button<y:LabelModel>
           <y:Geometry height="50.0" width="161.0" x="653.0" y="580.3960817060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="106.076171875" x="27.4619140625" y="16.015625">Coordinates left?<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="93.34063720703125" x="33.829681396484375" y="15.889950275421143">Coordinates left?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -564,7 +564,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="675.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="105.0390625" x="27.98046875" y="11.015625">Add point to grid<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="96.94068908691406" x="32.02965545654297" y="10.889950275421143">Add point to grid<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -583,7 +583,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="401.95858170606374"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="56.78125" x="52.109375" y="11.015625">Read file<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="50.45231628417969" x="55.273841857910156" y="10.889950275421143">Read file<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -602,7 +602,7 @@ button<y:LabelModel>
           <y:Geometry height="79.935457348407" width="186.0" x="5.0" y="745.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="154.515625" x="15.7421875" y="23.9989786742035">Set values for X column, 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="137.63294982910156" x="24.18352508544922" y="23.747629225045785">Set values for X column, 
 Y column and separator.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -622,7 +622,7 @@ Y column and separator.<y:LabelModel>
           <y:Geometry height="79.935457348407" width="186.0" x="221.0" y="745.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="136.486328125" x="24.7568359375" y="23.9989786742035">Set values for max X, 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="121.98484802246094" x="32.00757598876953" y="23.747629225045785">Set values for max X, 
 max Y and scale.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -642,7 +642,7 @@ max Y and scale.<y:LabelModel>
           <y:Geometry height="45.0" width="161.0" x="233.5" y="582.8960817060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="103.005859375" x="28.9970703125" y="13.515625">Column Chooser<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="91.37261962890625" x="34.813690185546875" y="13.389950275421143">Column Chooser<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -661,7 +661,7 @@ max Y and scale.<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="233.5" y="492.4273317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="147.490234375" x="6.7548828125" y="11.015625">Display column chooser<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="128.21287536621094" x="16.39356231689453" y="10.889950275421143">Display column chooser<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -680,7 +680,7 @@ max Y and scale.<y:LabelModel>
           <y:Geometry height="45.0" width="161.0" x="233.5" y="399.45858170606374"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="78.00390625" x="41.498046875" y="13.515625">File Chooser<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="69.86845397949219" x="45.565773010253906" y="13.389950275421143">File Chooser<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -699,7 +699,7 @@ max Y and scale.<y:LabelModel>
           <y:Geometry height="50.0" width="186.0" x="221.0" y="294.7292908530319"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="163.10546875" x="11.447265625" y="16.015625">"Data File" button pressed<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="147.01702880859375" x="19.491485595703125" y="15.889950275421143">"Data File" button pressed<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -718,7 +718,7 @@ max Y and scale.<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="233.5" y="675.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="56.78125" x="52.109375" y="11.015625">Read file<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="50.45231628417969" x="55.273841857910156" y="10.889950275421143">Read file<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -737,7 +737,7 @@ max Y and scale.<y:LabelModel>
           <y:Geometry height="99.45858170606374" width="186.0" x="437.0" y="270.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="142.3046875" x="21.84765625" y="26.776165853031955">Set values for density, 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.660298347473145" modelName="custom" textColor="#000000" visible="true" width="124.34886169433594" x="30.82556915283203" y="26.399141679295383">Set values for density, 
 depth range lines, 
 points and colourize.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -758,7 +758,7 @@ points and colourize.<y:LabelModel>
           <y:Geometry height="50.0" width="161.0" x="653.0" y="1696.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="85.515625" x="37.7421875" y="16.015625">Cluster valid?<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="77.34452819824219" x="41.827735900878906" y="15.889950275421143">Cluster valid?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -777,7 +777,7 @@ points and colourize.<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="449.5" y="1794.7065390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="92.306640625" x="34.3466796875" y="11.015625">Include cluster<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="81.00453186035156" x="39.99773406982422" y="10.889950275421143">Include cluster<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -796,7 +796,7 @@ points and colourize.<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1794.7065390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="95.845703125" x="32.5771484375" y="11.015625">Exclude cluster<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="84.49656677246094" x="38.25171661376953" y="10.889950275421143">Exclude cluster<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -810,13 +810,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n41">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimit">
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1303.7690390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="100.556640625" x="30.2216796875" y="11.015625">For each cluster<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="88.54058837890625" x="36.229705810546875" y="10.889950275421143">For each cluster<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -827,13 +826,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n42">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimitEnd">
           <y:Geometry height="40.0" width="161.0" x="844.0" y="1486.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="104.91015625" x="28.044921875" y="11.015625">Finished clusters<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="91.94859313964844" x="34.52570343017578" y="10.889950275421143">Finished clusters<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -844,13 +842,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n43">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimit">
           <y:Geometry height="40.0" width="161.0" x="1050.0" y="1486.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="120.7890625" x="20.10546875" y="11.015625">For each neighbour<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="105.80873107910156" x="27.59563446044922" y="10.889950275421143">For each neighbour<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -861,13 +858,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n44">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimitEnd">
           <y:Geometry height="40.0" width="161.0" x="1241.0" y="1486.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="125.142578125" x="17.9287109375" y="11.015625">Finished neighbours<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="109.21673583984375" x="25.891632080078125" y="10.889950275421143">Finished neighbours<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -878,13 +874,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n45">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimit">
           <y:Geometry height="40.0" width="161.0" x="939.5" y="675.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="123.958984375" x="18.5205078125" y="11.015625">For each coordinate<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="108.47274780273438" x="26.263626098632812" y="10.889950275421143">For each coordinate<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -895,13 +890,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n46">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimitEnd">
           <y:Geometry height="40.0" width="161.0" x="653.0" y="855.8002890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="128.3125" x="16.34375" y="11.015625">Finished coordinates<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="111.88075256347656" x="24.55962371826172" y="10.889950275421143">Finished coordinates<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -912,13 +906,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n47">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimit">
           <y:Geometry height="40.0" width="161.0" x="653.0" y="492.4273317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="123.958984375" x="18.5205078125" y="11.015625">For each coordinate<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="108.47274780273438" x="26.263626098632812" y="10.889950275421143">For each coordinate<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -929,13 +922,12 @@ points and colourize.<y:LabelModel>
       </data>
     </node>
     <node id="n48">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.loopLimitEnd">
           <y:Geometry height="40.0" width="161.0" x="449.5" y="675.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="128.3125" x="16.34375" y="11.015625">Finished coordinates<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="111.88075256347656" x="24.55962371826172" y="10.889950275421143">Finished coordinates<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -975,7 +967,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="44.65234375" x="-54.77734375" y="-19.968725422842454">Cancel<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="39.30424499511719" x="-49.55593463249926" y="-20.22007487200017">Cancel<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1003,7 +995,7 @@ points and colourize.<y:LabelModel>
           <y:Path sx="0.0" sy="22.5" tx="0.0" ty="-20.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="21.314453125" x="-23.314453125" y="10.07814957715749">OK<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="22.64813232421875" x="-24.64813232421875" y="10.013741280810848">OK<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1025,7 +1017,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="44.65234375" x="-54.77734375" y="1.9999940595793646">Cancel<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="39.30424499511719" x="-49.55593463249926" y="1.9999940595793646">Cancel<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1127,7 +1119,7 @@ points and colourize.<y:LabelModel>
           <y:Path sx="0.0" sy="25.0" tx="0.0" ty="-20.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.96484375" x="-26.96484375" y="10.125024577157546">Yes<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="23.056121826171875" x="-25.056121826171875" y="10.060616280810905">Yes<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1150,7 +1142,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.318359375" x="-30.443359375" y="-19.968725422842454">No<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.000106811523438" x="-29.16053782819438" y="-20.22007487200017">No<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1191,7 +1183,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.318359375" x="1.9033203125" y="-19.968753914279205">No<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.000106811523438" x="2.5624465942382812" y="-20.22010336343692">No<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1221,7 +1213,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.96484375" x="10.125" y="-19.968753914279205">Yes<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="23.056121826171875" x="10.141357232108135" y="-20.22010336343692">Yes<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1239,7 +1231,7 @@ points and colourize.<y:LabelModel>
           <y:Path sx="0.0" sy="25.0" tx="0.0" ty="-20.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.318359375" x="-22.318359375" y="10.078121085720795">No<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.000106811523438" x="-21.000106811523438" y="10.01371278937404">No<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1257,7 +1249,7 @@ points and colourize.<y:LabelModel>
           <y:Path sx="0.0" sy="25.0" tx="0.0" ty="-20.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.96484375" x="-26.96484375" y="10.078121085720795">Yes<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="23.056121826171875" x="-25.056121826171875" y="10.013712789374267">Yes<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1298,7 +1290,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.318359375" x="-22.31837972005212" y="19.734371085720795">No<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.000106811523438" x="-21.00012715657556" y="19.608696361141938">No<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1336,7 +1328,7 @@ points and colourize.<y:LabelModel>
           <y:Path sx="0.0" sy="22.5" tx="0.0" ty="-20.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="21.314453125" x="-23.314453125" y="10.125024577157546">OK<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="22.64813232421875" x="-24.64813232421875" y="10.060616280810905">OK<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1389,7 +1381,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.96484375" x="-0.419921875" y="-19.968770186138954">Yes<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="23.056121826171875" x="0.5344390869140625" y="-20.22011963529667">Yes<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1429,7 +1421,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.318359375" x="-30.443359374999886" y="-19.968770186138954">No<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.000106811523438" x="-29.1428075434128" y="-20.22011963529667">No<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1483,7 +1475,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.96484375" x="-0.419921875" y="-19.968725422842454">Yes<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="23.056121826171875" x="0.5344390869140625" y="-20.22007487200017">Yes<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1503,7 +1495,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.318359375" x="-30.443359375" y="-19.968725422842454">No<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.000106811523438" x="-29.156430963028583" y="-20.22007487200017">No<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1531,7 +1523,7 @@ points and colourize.<y:LabelModel>
           <y:Path sx="0.0" sy="25.0" tx="0.0" ty="-20.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.96484375" x="-26.96484375" y="10.078121085720795">Yes<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="23.056121826171875" x="-25.056121826171875" y="10.013712789374267">Yes<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1574,7 +1566,7 @@ points and colourize.<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.96484375" x="-35.08984375" y="-19.968753914279205">Yes<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="23.056121826171875" x="-33.227475239666774" y="-20.22010336343692">Yes<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1592,7 +1584,7 @@ points and colourize.<y:LabelModel>
           <y:Path sx="0.0" sy="25.0" tx="0.0" ty="-20.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.318359375" x="-22.318359375" y="10.078121085720795">No<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.000106811523438" x="-21.000106811523438" y="10.013712789374267">No<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1639,7 +1631,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e49" source="n7" target="n41">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
@@ -1650,7 +1641,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e50" source="n41" target="n16">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-25.0"/>
@@ -1661,7 +1651,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e51" source="n42" target="n18">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
@@ -1672,7 +1661,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e52" source="n44" target="n12">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-20.0" tx="80.5" ty="0.0">
@@ -1685,7 +1673,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e53" source="n46" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
@@ -1696,7 +1683,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e54" source="n29" target="n47">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
@@ -1707,7 +1693,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e55" source="n47" target="n27">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-25.0"/>
@@ -1718,7 +1703,6 @@ points and colourize.<y:LabelModel>
       </data>
     </edge>
     <edge id="e56" source="n48" target="n25">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
