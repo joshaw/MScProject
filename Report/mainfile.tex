@@ -1,5 +1,5 @@
 % Created:  Sun 15 Jun 2014 04:15 pm
-% Modified: Mon 04 Aug 2014 06:07 PM
+% Modified: Mon 04 Aug 2014 09:44 pm
 % @author Josh Wainwright
 % File name : mainfile.tex
 
@@ -12,7 +12,8 @@
 \usepackage[top=3cm,
 	bottom=2cm,
 	left=1.5cm,
-	right=1.5cm]{geometry}
+	right=1.5cm,
+	showframe]{geometry}
 \usepackage[parfill]{parskip}
 \setlength{\columnsep}{1.5em}
 
@@ -146,15 +147,17 @@
 
 \input{considerations/considerations.tex}
 
-\clearpage
-\input{appendix/appendix.tex}
-
 % \clearpage
-\newgeometry{onecolumn,top=2in,left=1.5in,right=1.5in}
+% \newgeometry{onecolumn,top=2in,left=1.5in,right=1.5in}
+\onecolumn
 \thispagestyle{empty}
 \nocite{*}
 \bibliographystyle{apalike}
 \bibliography{references}
+
+\clearpage
+\input{appendix/appendix.tex}
+
 \restoregeometry
 
 \end{document}
