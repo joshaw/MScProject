@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Sat 02 Aug 2014 12:43 pm
+ * Modified: Mon 04 Aug 2014 11:26 AM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -59,10 +59,13 @@ public class Cluster_Analysis extends PlugInFrame {
 	private TextField density;
 	private TextField scale;
 	private TextField depth;
+	private TextField minCluster;
 	private Checkbox  linesBool;
 	private Checkbox  pointsBool;
 	private Checkbox  coloursBool;
 	private Button    autoButton;
+	private Button    quadtreeButton;
+	private Button    gridButton;
 
 	public Cluster_Analysis() {
 		super("Cluster Analysis");
@@ -78,21 +81,21 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel1.setLayout(new GridLayout(3, 1, 3, 3));
 
 		Panel textpanel = new Panel();
-		textpanel.setLayout(new GridLayout(5,2));
+		textpanel.setLayout(new GridLayout(4,2));
 		textpanel.setComponentOrientation(
 				ComponentOrientation.LEFT_TO_RIGHT);
 
 		Label maxXLab = new Label("Max X");
 		maxX = new TextField("", 10);
 		maxX.addKeyListener(new NumberKeyListener());
-		textpanel.add(maxXLab);
-		textpanel.add(maxX);
+		// textpanel.add(maxXLab);
+		// textpanel.add(maxX);
 
 		Label maxYLab = new Label("Max Y");
 		maxY = new TextField("", 10);
 		maxY.addKeyListener(new NumberKeyListener());
-		textpanel.add(maxYLab);
-		textpanel.add(maxY);
+		// textpanel.add(maxYLab);
+		// textpanel.add(maxY);
 
 		Label densityLab = new Label("Density");
 		density = new TextField("20", 10);
@@ -112,6 +115,12 @@ public class Cluster_Analysis extends PlugInFrame {
 		textpanel.add(depthLab);
 		textpanel.add(depth);
 
+		Label minClusterLab = new Label("Min Cluster Size");
+		minCluster = new TextField("0.0005", 10);
+		minCluster.addKeyListener(new NumberKeyListener());
+		textpanel.add(minClusterLab);
+		textpanel.add(minCluster);
+
 		linesBool = new Checkbox("Lines", true);
 		subpanel1.add(linesBool);
 		pointsBool = new Checkbox("Points", true);
@@ -130,6 +139,14 @@ public class Cluster_Analysis extends PlugInFrame {
 		});
 		subpanel2.add(kernelButton);
 
+		Button dataFileButton = new Button("Data file");
+		dataFileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				dataFileButtonActionPerformed(evt);
+			}
+		});
+		subpanel2.add(dataFileButton);
+
 		autoButton = new Button("Auto");
 		autoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -139,29 +156,23 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel2.add(autoButton);
 		autoButton.setVisible(false);
 
-		Button dataFileButton = new Button("Data file");
-		dataFileButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				dataFileButtonActionPerformed(evt);
-			}
-		});
-		subpanel2.add(dataFileButton);
-
-		Button quadtreeButton = new Button("QuadTree");
+		quadtreeButton = new Button("QuadTree");
 		quadtreeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				drawStructureActionPerformed(evt);
 			}
 		});
 		subpanel2.add(quadtreeButton);
+		quadtreeButton.setVisible(false);
 
-		Button gridButton = new Button("Grid");
+		gridButton = new Button("Grid");
 		gridButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				drawStructureActionPerformed(evt);
 			}
 		});
 		subpanel2.add(gridButton);
+		gridButton.setVisible(false);
 
 		panel = new Panel();
 		panel.setLayout(new FlowLayout());
@@ -181,7 +192,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		setVisible(true);
 	}
 
-	public void kernelButtonActionPerformed(ActionEvent evt) {
+	private void kernelButtonActionPerformed(ActionEvent evt) {
 		GenericDialog gd = new GenericDialog("Neighbours Kernel", IJ.getInstance());
 		gd.addTextAreas(kernel, null, 10, 30);
 		gd.showDialog();
@@ -210,7 +221,8 @@ public class Cluster_Analysis extends PlugInFrame {
 				 * get the max and min values. */
 				maxCoord = FileHandler.getMaxCoord( filepath,
 						new FileDescriptor(colX, colY, separator));
-				autoButton.setVisible(true);
+				quadtreeButton.setVisible(true);
+				gridButton.setVisible(true);
 
 				int numPoints = FileHandler.getNumberOfLines(filepath);
 				fileStatus.setText("File: "+file+",  Points: "+numPoints);
@@ -224,13 +236,9 @@ public class Cluster_Analysis extends PlugInFrame {
 		if (filepath != null) {
 			maxXval = maxCoord.getX();
 			maxYval = maxCoord.getY();
-			scaleVal = ((int) (700/Math.max(maxXval, maxYval) * 1000) / 1)
-				/ 1000.0;
 
 			maxX.setText(maxXval + "");
 			maxY.setText(maxYval + "");
-			// scale.setText(scaleVal + "");
-			// depth.setText(scaleVal + "");
 		} else {
 			changeStatus("Please select a data file first.");
 		}
@@ -244,6 +252,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		String densityString = removeSpaces(density.getText());
 		String scaleString   = removeSpaces(scale.getText());
 		String depthString   = removeSpaces(depth.getText());
+		String minClusterString = removeSpaces(minCluster.getText());
 
 		if (filepath != null) {
 
@@ -286,6 +295,7 @@ public class Cluster_Analysis extends PlugInFrame {
 					depthVal = depthValT;
 				}
 
+				double minClusterVal = Double.parseDouble(minClusterString);
 				changed = changed | kernelChanged;
 
 				if (label.equals("QuadTree")) {
@@ -310,7 +320,7 @@ long start = System.currentTimeMillis();
 					}
 
 					System.out.println("Drawing...");
-					dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState());
+					dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState(), minClusterVal);
 
 System.out.println("Time: " + (System.currentTimeMillis()-start));
 

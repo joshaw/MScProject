@@ -1,5 +1,5 @@
 /** Created: Mon 28 Jul 2014 05:07 PM
- * Modified: Fri 01 Aug 2014 10:06 pm
+ * Modified: Mon 04 Aug 2014 10:26 AM
  * @author Josh Wainwright
  * filename: ClusterStatsDatum.java
  */
@@ -19,15 +19,17 @@ public class ClusterStatsDatum extends ClusterStats
 	private double clusterArea;
 	private double clusterPerimeter;
 	private int    numPoints;
-	private double    area;
-	private double    perimeter;
+	private double area;
+	private double perimeter;
 	private Set<Coordinate> points;
 
 	public ClusterStatsDatum() {
-		status = 0;
-		clusterPoints = 0;
-		clusterArea = 0;
+		status           = 0;
+		clusterPoints    = 0;
+		clusterArea      = 0;
 		clusterPerimeter = 0;
+		area             = -1;
+		perimeter        = 0;
 		points = new HashSet<Coordinate>(50);
 	}
 

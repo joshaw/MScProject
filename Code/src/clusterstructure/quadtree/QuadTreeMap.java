@@ -1,5 +1,5 @@
 /** Created: Tue 29 Jul 2014 10:14 AM
- * Modified: Fri 01 Aug 2014 03:24 PM
+ * Modified: Mon 04 Aug 2014 10:21 AM
  * @author Josh Wainwright
  * File name : QuadTreeMap.java
  */
@@ -43,6 +43,7 @@ public class QuadTreeMap extends HashMap<String, PropogationDatum> {
 	}
 
 	public ClusterStats getClusterStats() {
+		generateClusterStats();
 		return clusters;
 	}
 }

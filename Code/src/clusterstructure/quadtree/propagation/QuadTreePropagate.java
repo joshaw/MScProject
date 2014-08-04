@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Sat 02 Aug 2014 12:47 pm
+ * Modified: Mon 04 Aug 2014 11:07 AM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -37,7 +37,7 @@ public class QuadTreePropagate {
 		this.kernel = parseKernelString(kernelString);
 		propagate();
 		generatePerimeter();
-		hashmap.generateClusterStats();
+		// hashmap.generateClusterStats();
 	}
 
 	private String getStart() {
@@ -54,7 +54,7 @@ public class QuadTreePropagate {
 	}
 
 	private void propagate() {
-		for (int k = 1; k < 28; k++) {
+		for (int k = 1; k < 40; k++) {
 			this.start = getStart();
 			if (k == 1) {
 				firstStart = start;

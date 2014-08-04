@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Sat 02 Aug 2014 11:49 am
+ * Modified: Mon 04 Aug 2014 11:18 AM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -42,9 +42,12 @@ public class DrawQuadTreeMapIJ {
 	private int         points1[][];
 	private int         points2[][];
 	private int         addedCount = 0;
-	private boolean     incPoints;
-	private boolean     incLines;
-	private boolean     colourize;
+
+	private boolean incPoints;
+	private boolean incLines;
+	private boolean colourize;
+	private double  minClusterSize;
+
 	private final String colours[] = {  "#ffffff",
 										"#c4a000",
 										"#ce5c00",
@@ -109,10 +112,11 @@ public class DrawQuadTreeMapIJ {
 		}
 	}
 
-	public void draw(boolean incLines, boolean incPoints, boolean colourize) {
-		this.incLines  = incLines;
-		this.incPoints = incPoints;
-		this.colourize = colourize;
+	public void draw(boolean incLines, boolean incPoints, boolean colourize, double minClusterSize) {
+		this.incLines       = incLines;
+		this.incPoints      = incPoints;
+		this.colourize      = colourize;
+		this.minClusterSize = minClusterSize;
 		ImageStack ims;
 		ImagePlus imp;
 
@@ -131,6 +135,10 @@ public class DrawQuadTreeMapIJ {
 
 		ims = imp.getStack();
 
+		clusters = qtm.getClusterStats();
+		for (int i = 1; i < clusters.size(); i++) {
+			calculateClusterArea(i);
+		}
 		traverseMap();
 
 		int[] pixels1 = new int[gridX * gridY];
@@ -151,19 +159,19 @@ public class DrawQuadTreeMapIJ {
 		imp.setStack(FileHandler.removeExt(filepath), ims);
 		imp.show();
 
-		clusters = qtm.getClusterStats();
 		ResultsTable rt = new ResultsTable();
-		for (int i = 1; i < clusters.size(); i++) {
-			rt.incrementCounter();
-			rt.addValue("Cluster", clusters.getStatus(i)+"");
-			rt.addValue("No. of Points", clusters.getClusterPoints(i));
-			rt.addValue("Cluster Area", clusters.getClusterArea(i));
-			rt.addValue("Perimeter", clusters.getClusterPerimeter(i));
-			rt.addValue("A/P^2", Math.sqrt(4*Math.PI*clusters.getClusterArea(i)/
-					Math.pow(clusters.getClusterPerimeter(i), 2)));
-			calculateClusterArea(i);
-			rt.addValue("Area", clusters.getArea(i));
-			rt.addValue("Perm", clusters.getPerimeter(i));
+		for (int i = 0; i < clusters.size(); i++) {
+			if (clusters.getStatus(i) > 0) {
+				rt.incrementCounter();
+				rt.addValue("Cluster", clusters.getStatus(i));
+				rt.addValue("No. of Points", clusters.getClusterPoints(i));
+				rt.addValue("Cluster Area", clusters.getClusterArea(i));
+				rt.addValue("Perimeter", clusters.getClusterPerimeter(i));
+				// rt.addValue("A/P^2", Math.sqrt(4*Math.PI*clusters.getClusterArea(i)/
+				// 		Math.pow(clusters.getClusterPerimeter(i), 2)));
+				rt.addValue("Area", clusters.getArea(i));
+				rt.addValue("Perm", clusters.getPerimeter(i));
+			}
 		}
 		rt.showRowNumbers(true);
 		rt.show("Clusters Results");
@@ -174,8 +182,6 @@ public class DrawQuadTreeMapIJ {
 	 * the minimum and maximum limits of the node are.
 	 */
 	private void traverseMap() {
-
-		clusters = new ClusterStats();
 
 		for (Entry<String, PropogationDatum> e : qtm.entrySet()) {
 
@@ -225,6 +231,9 @@ public class DrawQuadTreeMapIJ {
 				for (int j = y; j < Y; j++) {
 
 					byte status = e.getValue().status();
+					if (clusters.getStatus(status) == 0) {
+						status = 0;
+					}
 					if (colourize) {
 						int cn = colours.length;
 						points1[i][j] = hexrgb(colours[status%cn]);
@@ -234,7 +243,6 @@ public class DrawQuadTreeMapIJ {
 						points1[i][j] = hexrgb(colours[c]);
 						points2[i][j] = hexrgb(colours[c]);
 					}
-
 				}
 			}
 
@@ -332,9 +340,12 @@ public class DrawQuadTreeMapIJ {
 		}
 		IJ.run(sgimp, "Dilate", "");
 
-		double perimeter = countBlackPixels(sgimp);
-		IJ.run(sgimp, "Outline", "");
 		double area = countBlackPixels(sgimp);
+		IJ.run(sgimp, "Outline", "");
+		double perimeter = countBlackPixels(sgimp);
+
+		System.out.println("Count: " + perimeter + " " + area);
+		area = area - perimeter;
 
 		// Take into account size of grid
 		// area = (int) (Math.pow(GRID_SIZE, 2)*area);
@@ -346,6 +357,9 @@ public class DrawQuadTreeMapIJ {
 
 		clusters.setArea((byte)status, area);
 		clusters.setPerimeter((byte)status, perimeter);
+		if (area <= minClusterSize) {
+			clusters.excludeCluster((byte)status);
+		}
 
 	}
 

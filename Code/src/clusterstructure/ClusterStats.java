@@ -1,5 +1,5 @@
 /** Created: Mon 28 Jul 2014 04:43 PM
- * Modified: Fri 01 Aug 2014 10:06 pm
+ * Modified: Mon 04 Aug 2014 10:38 AM
  * @author Josh Wainwright
  * filename: ClusterStats.java
  */
@@ -24,6 +24,10 @@ public class ClusterStats {
 
 	public ClusterStats() {
 		stats = new ArrayList<ClusterStatsDatum>(40);
+	}
+
+	public void excludeCluster(byte status) {
+		stats.get(status).setStatus((byte)0);
 	}
 
 	/** Increase the count of points for the given cluster.
