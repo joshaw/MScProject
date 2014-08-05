@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Mon 04 Aug 2014 04:30 PM
+ * Modified: Tue 05 Aug 2014 10:45 AM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -307,13 +307,15 @@ public class DrawQuadTreeMapIJ {
 
 			if (c.getX() > maxX) {
 				maxX = c.getX();
-			} else if (c.getX() < minX) {
+			}
+			if (c.getX() < minX) {
 				minX = c.getX();
 			}
 
 			if (c.getY() > maxY) {
 				maxY = c.getY();
-			} else if (c.getY() < minY) {
+			}
+			if (c.getY() < minY) {
 				minY = c.getY();
 			}
 		}
@@ -344,7 +346,6 @@ public class DrawQuadTreeMapIJ {
 		IJ.run(sgimp, "Outline", "");
 		double perimeter = countBlackPixels(sgimp);
 
-		System.out.println("Count: " + perimeter + " " + area);
 		area = area - perimeter;
 
 		// Take into account size of grid
