@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Mon 04 Aug 2014 11:26 AM
+ * Modified: Tue 05 Aug 2014 01:08 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -43,6 +43,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	private Coordinate maxCoord;
 	private String kernel = "1 1 1\n1 1 1\n1 1 1";
 	private boolean kernelChanged = false;
+	private boolean changed = false;
 
 	private ClusterStructure dataStructure;
 	private DrawQuadTreeMapIJ dij = null;
@@ -110,7 +111,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		textpanel.add(scale);
 
 		Label depthLab = new Label("Depth Range");
-		depth = new TextField("4", 10);
+		depth = new TextField("2", 10);
 		depth.addKeyListener(new NumberKeyListener());
 		textpanel.add(depthLab);
 		textpanel.add(depth);
@@ -228,6 +229,7 @@ public class Cluster_Analysis extends PlugInFrame {
 				fileStatus.setText("File: "+file+",  Points: "+numPoints);
 
 				autoButtonActionPerformed();
+				changed = true;
 			}
 		}
 	}
@@ -263,8 +265,6 @@ public class Cluster_Analysis extends PlugInFrame {
 				!depthString.equals("")
 			   ) {
 
-				boolean changed = false;
-
 				double maxXvalT = Double.parseDouble(maxXstring);
 				if (maxXvalT != maxXval) {
 					changed = true;
@@ -289,7 +289,7 @@ public class Cluster_Analysis extends PlugInFrame {
 					scaleVal = scaleValT;
 				}
 
-				int depthValT = Integer.parseInt(depthString);
+				int depthValT = 2*Integer.parseInt(depthString);
 				if (depthValT != depthVal) {
 					changed = true;
 					depthVal = depthValT;
