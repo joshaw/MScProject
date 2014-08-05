@@ -1,21 +1,8 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Tue 05 Aug 2014 01:08 PM
+ * Modified: Tue 05 Aug 2014 03:39 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import ij.plugin.frame.*;
-import ij.*;
-import ij.process.*;
-import ij.io.*;
-import ij.gui.*;
-
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.HashMap;
-
 import clusterstructure.quadtree.*;
 import clusterstructure.quadtree.DrawQuadTreeMapIJ;
 import clusterstructure.quadtree.propagation.QuadTreePropagate;
@@ -26,6 +13,22 @@ import utils.columnchooser.ColumnChooserGUI2;
 import utils.FileHandler;
 import utils.FileDescriptor;
 import utils.Coordinate;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+import javax.swing.JSlider;
+import java.io.*;
+import ij.plugin.frame.*;
+import ij.*;
+import ij.process.*;
+import ij.io.*;
+import ij.gui.*;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.HashMap;
 
 public class Cluster_Analysis extends PlugInFrame {
 
@@ -58,9 +61,17 @@ public class Cluster_Analysis extends PlugInFrame {
 	private TextField maxX;
 	private TextField maxY;
 	private TextField density;
+	private Label     densityLab;
+	private JSlider   densitySlider;
 	private TextField scale;
+	private Label     scaleLab;
+	private JSlider   scaleSlider;
 	private TextField depth;
+	private Label     depthLab;
+	private JSlider   depthSlider;
 	private TextField minCluster;
+	private Label     minClusterLab;
+	private JSlider   minClusterSlider;
 	private Checkbox  linesBool;
 	private Checkbox  pointsBool;
 	private Checkbox  coloursBool;
@@ -82,45 +93,78 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel1.setLayout(new GridLayout(3, 1, 3, 3));
 
 		Panel textpanel = new Panel();
-		textpanel.setLayout(new GridLayout(4,2));
-		textpanel.setComponentOrientation(
-				ComponentOrientation.LEFT_TO_RIGHT);
+		textpanel.setLayout(new GridLayout(4,1));
+		textpanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
-		Label maxXLab = new Label("Max X");
-		maxX = new TextField("", 10);
-		maxX.addKeyListener(new NumberKeyListener());
-		// textpanel.add(maxXLab);
-		// textpanel.add(maxX);
-
-		Label maxYLab = new Label("Max Y");
-		maxY = new TextField("", 10);
-		maxY.addKeyListener(new NumberKeyListener());
-		// textpanel.add(maxYLab);
-		// textpanel.add(maxY);
-
-		Label densityLab = new Label("Density");
+		densityLab = new Label("Density: 20    ");
 		density = new TextField("20", 10);
 		density.addKeyListener(new NumberKeyListener());
-		textpanel.add(densityLab);
-		textpanel.add(density);
+		densitySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 20);
+		densitySlider.setMajorTickSpacing(10);
+		densitySlider.setSnapToTicks(true);
+		densitySlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+                int val = ((JSlider)evt.getSource()).getValue();
+                densityLab.setText("Density: " + val);
+                changed = true;
+			}
+		});
+		Panel densityPanel = new Panel();
+		densityPanel.add(densityLab);
+		densityPanel.add(densitySlider);
+		textpanel.add(densityPanel);
 
-		Label scaleLab = new Label("Scale");
+		scaleLab = new Label("Scale: 0.03");
 		scale = new TextField("0.03", 10);
 		scale.addKeyListener(new NumberKeyListener());
-		textpanel.add(scaleLab);
-		textpanel.add(scale);
+		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 30); //*1000
+		scaleSlider.setMajorTickSpacing(10);
+		scaleSlider.setSnapToTicks(true);
+		scaleSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+                int val = ((JSlider)evt.getSource()).getValue();
+                scaleLab.setText("Scale: " + (val/1000.0));
+                changed = true;
+			}
+		});
+		Panel scalePanel = new Panel();
+		scalePanel.add(scaleLab);
+		scalePanel.add(scaleSlider);
+		textpanel.add(scalePanel);
 
-		Label depthLab = new Label("Depth Range");
-		depth = new TextField("2", 10);
-		depth.addKeyListener(new NumberKeyListener());
-		textpanel.add(depthLab);
-		textpanel.add(depth);
+		depthLab = new Label("Depth Range: 2    ");
+		depthSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, 2);
+		depthSlider.setMajorTickSpacing(1);
+		depthSlider.setSnapToTicks(true);
+		depthSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+                int val = ((JSlider)evt.getSource()).getValue();
+                depthLab.setText("Depth Range: " + val);
+                changed = true;
+			}
+		});
+		Panel depthPanel = new Panel();
+		depthPanel.add(depthLab);
+		depthPanel.add(depthSlider);
+		textpanel.add(depthPanel);
 
-		Label minClusterLab = new Label("Min Cluster Size");
+		minClusterLab = new Label("Cluster Size: 0.0005");
 		minCluster = new TextField("0.0005", 10);
 		minCluster.addKeyListener(new NumberKeyListener());
-		textpanel.add(minClusterLab);
-		textpanel.add(minCluster);
+		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50); //*10000
+		minClusterSlider.setMajorTickSpacing(10);
+		minClusterSlider.setSnapToTicks(true);
+		minClusterSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+                int val = ((JSlider)evt.getSource()).getValue();
+                minClusterLab.setText("Cluster Size: " + (val/100000.0));
+                changed = true;
+			}
+		});
+		Panel minClusterPanel = new Panel();
+		minClusterPanel.add(minClusterLab);
+		minClusterPanel.add(minClusterSlider);
+		textpanel.add(minClusterPanel);
 
 		linesBool = new Checkbox("Lines", true);
 		subpanel1.add(linesBool);
@@ -147,15 +191,6 @@ public class Cluster_Analysis extends PlugInFrame {
 			}
 		});
 		subpanel2.add(dataFileButton);
-
-		autoButton = new Button("Auto");
-		autoButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				autoButtonActionPerformed();
-			}
-		});
-		subpanel2.add(autoButton);
-		autoButton.setVisible(false);
 
 		quadtreeButton = new Button("QuadTree");
 		quadtreeButton.addActionListener(new ActionListener() {
@@ -239,8 +274,8 @@ public class Cluster_Analysis extends PlugInFrame {
 			maxXval = maxCoord.getX();
 			maxYval = maxCoord.getY();
 
-			maxX.setText(maxXval + "");
-			maxY.setText(maxYval + "");
+			// maxX.setText(maxXval + "");
+			// maxY.setText(maxYval + "");
 		} else {
 			changeStatus("Please select a data file first.");
 		}
@@ -249,92 +284,74 @@ public class Cluster_Analysis extends PlugInFrame {
 	private void drawStructureActionPerformed(ActionEvent evt) {
 		String label = evt.getActionCommand();
 
-		String maxXstring    = removeSpaces(maxX.getText());
-		String maxYstring    = removeSpaces(maxY.getText());
-		String densityString = removeSpaces(density.getText());
-		String scaleString   = removeSpaces(scale.getText());
-		String depthString   = removeSpaces(depth.getText());
-		String minClusterString = removeSpaces(minCluster.getText());
+		int densityVal       = densitySlider.getValue();
+		densityVal = (densityVal == 0) ? 1 : densityVal;
+		double scaleVal      = scaleSlider.getValue()/1000.0;
+		int depthVal         = depthSlider.getValue()*2;
+		double minClusterVal = minClusterSlider.getValue()/100000.0;
 
 		if (filepath != null) {
 
-			if (!maxXstring.equals("")    &&
-				!maxYstring.equals("")    &&
-				!densityString.equals("") &&
-				!scaleString.equals("")   &&
-				!depthString.equals("")
-			   ) {
+			// int densityValT = densitySlider.getValue();
+			// densityValT = (densityValT == 0) ? 1 : densityValT;
+			// if (densityValT != densityVal) {
+			// 	changed = true;
+			// 	densityVal = densityValT;
+			// }
 
-				double maxXvalT = Double.parseDouble(maxXstring);
-				if (maxXvalT != maxXval) {
-					changed = true;
-					maxXval = maxXvalT;
-				}
+			// double scaleValT = scaleSlider.getValue()/1000.0;
+			// if (scaleValT != scaleVal) {
+			// 	changed = true;
+			// 	scaleVal = scaleValT;
+			// }
 
-				double maxYvalT = Double.parseDouble(maxYstring);
-				if (maxYvalT != maxYval) {
-					changed = true;
-					maxYval = maxYvalT;
-				}
+			// int depthValT = 2*depthSlider.getValue();
+			// if (depthValT != depthVal) {
+			// 	changed = true;
+			// 	depthVal = depthValT;
+			// }
 
-				int densityValT = Integer.parseInt(densityString);
-				if (densityValT != densityVal) {
-					changed = true;
-					densityVal = densityValT;
-				}
+			// double minClusterVal = Double.parseDouble(minClusterString);
+			changed = changed | kernelChanged;
+			System.out.println("Changed? " + changed);
 
-				double scaleValT = Double.parseDouble(scaleString);
-				if (scaleValT != scaleVal) {
-					changed = true;
-					scaleVal = scaleValT;
-				}
+			if (label.equals("QuadTree")) {
 
-				int depthValT = 2*Integer.parseInt(depthString);
-				if (depthValT != depthVal) {
-					changed = true;
-					depthVal = depthValT;
-				}
+				System.out.println("###################\nDensity: " + densityVal + "\nScale: " + scaleVal + "\nDepth: " + depthVal + "\nCluser Size: " + minClusterVal + "\n#######################");
 
-				double minClusterVal = Double.parseDouble(minClusterString);
-				changed = changed | kernelChanged;
+				long start = System.currentTimeMillis();
 
-				if (label.equals("QuadTree")) {
-
-long start = System.currentTimeMillis();
-
-					if (changed || dij == null) {
-						System.out.println("Generating quadtree...");
-						dataStructure = new QuadTree(maxXval, maxYval,
-								densityVal, filepath, colX, colY, separator);
-
-						QuadTree qt = (QuadTree)dataStructure;
-
-						System.out.println("Converting to hashmap...");
-						qt.addQuadTreeMap();
-
-						System.out.println("Propagating...");
-						QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal, kernel);
-
-						System.out.println("Calculating pixels...");
-						dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
-					}
-
-					System.out.println("Drawing...");
-					dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState(), minClusterVal);
-
-System.out.println("Time: " + (System.currentTimeMillis()-start));
-
-				} else if (label.equals("Grid")) {
-					dataStructure = new SimpleGrid(maxXval, maxYval,
+				if (changed || dij == null) {
+					System.out.println("Generating quadtree...");
+					dataStructure = new QuadTree(maxXval, maxYval,
 							densityVal, filepath, colX, colY, separator);
 
-					SimpleGrid sg = (SimpleGrid)dataStructure;
-					sg.draw();
+					QuadTree qt = (QuadTree)dataStructure;
+
+					System.out.println("Converting to hashmap...");
+					qt.addQuadTreeMap();
+
+					System.out.println("Propagating...");
+					QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal, kernel);
+
+					System.out.println("Calculating pixels...");
+					dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
 				}
 
-			} else {
-				changeStatus("Please enter value for required parameter.");
+				System.out.println("Drawing...");
+				dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState(), minClusterVal);
+
+				System.out.println("Time: " + (System.currentTimeMillis()-start));
+				changed = false;
+
+			} else if (label.equals("Grid")) {
+				dataStructure = new SimpleGrid(maxXval, maxYval,
+						densityVal, filepath, colX, colY, separator);
+
+				SimpleGrid sg = (SimpleGrid)dataStructure;
+				sg.draw();
 			}
+
 		} else {
 			changeStatus("Please select a data file first.");
 		}
