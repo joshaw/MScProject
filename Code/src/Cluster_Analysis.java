@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Tue 05 Aug 2014 03:39 PM
+ * Modified: Wed 06 Aug 2014 09:53 am
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -58,18 +58,12 @@ public class Cluster_Analysis extends PlugInFrame {
 	private Label statusMessage;
 	private Label fileStatus;
 
-	private TextField maxX;
-	private TextField maxY;
-	private TextField density;
 	private Label     densityLab;
 	private JSlider   densitySlider;
-	private TextField scale;
 	private Label     scaleLab;
 	private JSlider   scaleSlider;
-	private TextField depth;
 	private Label     depthLab;
 	private JSlider   depthSlider;
-	private TextField minCluster;
 	private Label     minClusterLab;
 	private JSlider   minClusterSlider;
 	private Checkbox  linesBool;
@@ -86,7 +80,6 @@ public class Cluster_Analysis extends PlugInFrame {
 			return;
 		}
 		instance = this;
-		addKeyListener(IJ.getInstance());
 
 		setLayout(new BorderLayout());
 		subpanel1 = new Panel();
@@ -97,16 +90,15 @@ public class Cluster_Analysis extends PlugInFrame {
 		textpanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
 		densityLab = new Label("Density: 20    ");
-		density = new TextField("20", 10);
-		density.addKeyListener(new NumberKeyListener());
 		densitySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 20);
 		densitySlider.setMajorTickSpacing(10);
 		densitySlider.setSnapToTicks(true);
 		densitySlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent evt) {
-                int val = ((JSlider)evt.getSource()).getValue();
-                densityLab.setText("Density: " + val);
-                changed = true;
+				int val = ((JSlider)evt.getSource()).getValue();
+				val = (val == 0) ? 1: val;
+				densityLab.setText("Density: " + val);
+				changed = true;
 			}
 		});
 		Panel densityPanel = new Panel();
@@ -115,16 +107,14 @@ public class Cluster_Analysis extends PlugInFrame {
 		textpanel.add(densityPanel);
 
 		scaleLab = new Label("Scale: 0.03");
-		scale = new TextField("0.03", 10);
-		scale.addKeyListener(new NumberKeyListener());
 		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 30); //*1000
 		scaleSlider.setMajorTickSpacing(10);
 		scaleSlider.setSnapToTicks(true);
 		scaleSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent evt) {
-                int val = ((JSlider)evt.getSource()).getValue();
-                scaleLab.setText("Scale: " + (val/1000.0));
-                changed = true;
+				int val = ((JSlider)evt.getSource()).getValue();
+				scaleLab.setText("Scale: " + (val/1000.0));
+				changed = true;
 			}
 		});
 		Panel scalePanel = new Panel();
@@ -138,9 +128,9 @@ public class Cluster_Analysis extends PlugInFrame {
 		depthSlider.setSnapToTicks(true);
 		depthSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent evt) {
-                int val = ((JSlider)evt.getSource()).getValue();
-                depthLab.setText("Depth Range: " + val);
-                changed = true;
+				int val = ((JSlider)evt.getSource()).getValue();
+				depthLab.setText("Depth Range: " + val);
+				changed = true;
 			}
 		});
 		Panel depthPanel = new Panel();
@@ -148,17 +138,15 @@ public class Cluster_Analysis extends PlugInFrame {
 		depthPanel.add(depthSlider);
 		textpanel.add(depthPanel);
 
-		minClusterLab = new Label("Cluster Size: 0.0005");
-		minCluster = new TextField("0.0005", 10);
-		minCluster.addKeyListener(new NumberKeyListener());
-		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50); //*10000
+		minClusterLab = new Label("Cluster Size: 5.0E-4");
+		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 50); //*10000
 		minClusterSlider.setMajorTickSpacing(10);
 		minClusterSlider.setSnapToTicks(true);
 		minClusterSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent evt) {
-                int val = ((JSlider)evt.getSource()).getValue();
-                minClusterLab.setText("Cluster Size: " + (val/100000.0));
-                changed = true;
+				int val = ((JSlider)evt.getSource()).getValue();
+				minClusterLab.setText("Cluster Size: " + (val/100000.0));
+				changed = true;
 			}
 		});
 		Panel minClusterPanel = new Panel();
@@ -292,32 +280,24 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		if (filepath != null) {
 
-			// int densityValT = densitySlider.getValue();
-			// densityValT = (densityValT == 0) ? 1 : densityValT;
-			// if (densityValT != densityVal) {
-			// 	changed = true;
-			// 	densityVal = densityValT;
-			// }
-
-			// double scaleValT = scaleSlider.getValue()/1000.0;
-			// if (scaleValT != scaleVal) {
-			// 	changed = true;
-			// 	scaleVal = scaleValT;
-			// }
-
-			// int depthValT = 2*depthSlider.getValue();
-			// if (depthValT != depthVal) {
-			// 	changed = true;
-			// 	depthVal = depthValT;
-			// }
-
-			// double minClusterVal = Double.parseDouble(minClusterString);
 			changed = changed | kernelChanged;
-			System.out.println("Changed? " + changed);
 
 			if (label.equals("QuadTree")) {
 
-				System.out.println("###################\nDensity: " + densityVal + "\nScale: " + scaleVal + "\nDepth: " + depthVal + "\nCluser Size: " + minClusterVal + "\n#######################");
+				boolean lines = linesBool.getState();
+				boolean points = pointsBool.getState();
+				boolean colours = coloursBool.getState();
+
+				System.out.println("#######################" +
+						"\nChanged?   : " + changed +
+						"\nDensity    : " + densityVal +
+						"\nScale      : " + scaleVal +
+						"\nDepth      : " + depthVal +
+						"\nCluser Size: " + minClusterVal +
+						"\nLines      : " + lines +
+						"\nPoints     : " + points +
+						"\nColourize  : " + colours +
+						"\n#######################");
 
 				long start = System.currentTimeMillis();
 
@@ -332,14 +312,16 @@ public class Cluster_Analysis extends PlugInFrame {
 					qt.addQuadTreeMap();
 
 					System.out.println("Propagating...");
-					QuadTreePropagate qtp = new QuadTreePropagate(qt, depthVal, kernel);
+					QuadTreePropagate qtp =
+						new QuadTreePropagate(qt, depthVal, kernel);
 
 					System.out.println("Calculating pixels...");
-					dij = new DrawQuadTreeMapIJ(filepath, qt, maxXval, maxYval, scaleVal);
+					dij = new DrawQuadTreeMapIJ(
+							filepath, qt, maxXval, maxYval, scaleVal);
 				}
 
 				System.out.println("Drawing...");
-				dij.draw(linesBool.getState(), pointsBool.getState(), coloursBool.getState(), minClusterVal);
+				dij.draw(lines, points, colours, minClusterVal);
 
 				System.out.println("Time: " + (System.currentTimeMillis()-start));
 				changed = false;
@@ -357,38 +339,6 @@ public class Cluster_Analysis extends PlugInFrame {
 		}
 
 	}
-
-	/** ------------------------------------------------------------
-	 * KEY LISTENER
-	 * ----------------------------------------------------------- */
-	class NumberKeyListener implements KeyListener{
-		public void keyTyped(KeyEvent e) { }
-
-		public void keyPressed(KeyEvent e) {
-			char k = e.getKeyChar();
-			int c = e.getKeyCode();
-			if (Character.isDigit(k)            ||
-					c == KeyEvent.VK_SHIFT      ||
-					c == KeyEvent.VK_BACK_SPACE ||
-					c == KeyEvent.VK_ENTER      ||
-					c == KeyEvent.VK_SPACE      ||
-					c == KeyEvent.VK_DELETE     ||
-					c == KeyEvent.VK_CONTROL    ||
-					c == KeyEvent.VK_ALT        ||
-					c == KeyEvent.VK_ALT_GRAPH  ||
-					c == KeyEvent.VK_CAPS_LOCK  ||
-					c == KeyEvent.VK_HOME       ||
-					c == KeyEvent.VK_END        ||
-					c == KeyEvent.VK_META) {
-				statusMessage.setText("");
-			} else {
-				changeStatus(k + ": Please enter a number.");
-			}
-		}
-
-		public void keyReleased(KeyEvent e) { }
-	}
-	// ------------------------------------------------------------
 
 	private String removeSpaces(String string) {
 		return string.replaceAll("\\s","");
