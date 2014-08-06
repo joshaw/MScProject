@@ -1,5 +1,5 @@
 % Created:  Sun 15 Jun 2014 04:29 pm
-% Modified: Tue 01 Jul 2014 12:19 PM
+% Modified: Wed 06 Aug 2014 12:19 pm
 % @author Josh Wainwright
 % File name : titlepage.tex
 
@@ -37,7 +37,7 @@
 \restoregeometry%
 
 % \onecolumn
-\newgeometry{onecolumn,top=2in,left=1.5in,right=1.5in}
+\newgeometry{onecolumn}
 \thispagestyle{empty}
 
 \pagenumbering{roman}
@@ -68,8 +68,12 @@ depth of surveys by up to 3 magnitudes.
 \thispagestyle{empty}
 \tableofcontents
 \addcontentsline{toc}{section}{Table of Contents}
+\thispagestyle{empty}
+\listoffigures
+\addcontentsline{toc}{section}{List of Figures}
+\thispagestyle{empty}
 
 \restoregeometry
-% \twocolumn
-
+\clearpage
 \pagenumbering{arabic}
+% \twocolumn

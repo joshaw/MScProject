@@ -1,14 +1,18 @@
 % Created:  Sun 15 Jun 2014 04:15 pm
-% Modified: Tue 05 Aug 2014 12:53 PM
+% Modified: Wed 06 Aug 2014 12:24 pm
 % @author Josh Wainwright
 % File name : mainfile.tex
 
 \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
-% \documentclass[a4paper,9pt]{extarticle}
+% \documentclass[a4paper,9pt,twoside]{extarticle}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
-% \usepackage{geometry}
+% \usepackage[
+% 	top=4cm,
+% 	right=3cm,
+% 	left=4cm,
+% 	bottom=4cm]{geometry}
 \usepackage[top=3cm,
 	bottom=2cm,
 	left=1.5cm,
@@ -29,9 +33,6 @@
 %%% SECTION TITLE APPEARANCE ---------------------------------------------------
 % \usepackage{sectsty}
 % \allsectionsfont{\sffamily\mdseries\upshape}
-% \makeatletter
-% \@addtoreset{section}{part}
-% \makeatother
 \let\stdpart\part
 \renewcommand\part{\clearpage\stdpart}
 
@@ -66,10 +67,12 @@
 % \microtypecontext{spacing=nonfrench}
 
 %% CODE STYLING ----------------------------------------------------------------
-\definecolor{dkgreen}{HTML}{4e9a06}
 \definecolor{grey}{HTML}{555753}
 \definecolor{purple}{HTML}{75507b}
 \definecolor{blue}{HTML}{3465a4}
+
+\definecolor{dkgreen}{HTML}{4e9a06}
+\definecolor{dkorange}{HTML}{8F5902}
 
 \definecolor{lyellow}{HTML}{FCE94F}
 \definecolor{lorange}{HTML}{FCAF3E}
@@ -94,14 +97,15 @@
 	numberstyle=\tiny\color{grey},
 	stepnumber=2,
 	keywordstyle=\color{blue},
-	commentstyle=\color{dkgreen},
+	commentstyle=\color{dkorange},
 	stringstyle=\color{purple},
 	breaklines=true,
 	breakatwhitespace=true,
 	tabsize=3,
 	linewidth=8.8cm,
 	morekeywords={each,in},
-	escapeinside={(*@}{@*)}
+	escapeinside={(*@}{@*)},
+	moredelim=[is][\color{dkgreen}]{|}{|}
 }
 
 %% BIBIOGRAPHY -----------------------------------------------------------------
@@ -135,6 +139,7 @@
 
 \input{front/titlepage.tex}
 
+\setcounter{page}{1}
 \input{intro/introduction.tex}
 \input{benchmarking/benchmarking.tex}
 \input{datastructures/datastructures.tex}
@@ -149,7 +154,7 @@
 % \clearpage
 % \newgeometry{onecolumn,top=2in,left=1.5in,right=1.5in}
 \onecolumn
-\thispagestyle{empty}
+% \thispagestyle{empty}
 \nocite{*}
 \bibliographystyle{apalike}
 \bibliography{references}
