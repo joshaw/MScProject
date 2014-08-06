@@ -1,13 +1,14 @@
 % Created:  Fri 04 Jul 2014 04:47 PM
-% Modified: Fri 01 Aug 2014 02:05 PM
+% Modified: Wed 06 Aug 2014 12:24 pm
 % @author Josh Wainwright
 % File name : imagej_plugin.tex
 
 \section{ImageJ Plugin}
 \label{sec:imagej_plugin}
 
-% TODO section about the aims of the plugin etc.
-\cite{imagejapi}
+The main deliverable for this project is a plugin for extracting clusters of
+points from large data sets, for the image processing program ImageJ. This
+plugin is written in Java and makes use of the ImageJ Java API\cite{imagejapi}.
 
 \subsection{Displaying the QuadTree}
 \label{sub:displaying_the_quadtree}
@@ -54,7 +55,12 @@ in a stack of slices. Each slice in a stack must have the same dimensions.
 \subsection{Column Picker}
 \label{sub:column_picker}
 
-% TODO writing about column picker
+To make the plugin more general purpose than being limited to only data
+formatted in precisely the same way as the data in the sample files used during
+development, the ability to specify some formatting features of the data file
+used are availible. The user can specify the delimiter used in the file (how
+the columns are separated; comma, space tab etc.), and which column represents
+the x- and y-coordinates. These are chosen through a separate GUI.
 
 \subsection{Results Table}
 \label{sub:results_table}
