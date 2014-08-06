@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Mon 04 Aug 2014 06:06 PM
+% Modified: Wed 06 Aug 2014 12:35 pm
 % @author Josh Wainwright
 % File name : quadtree.tex
 
@@ -244,6 +244,25 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
 	\label{fig:modgray-steps}
 \end{figure}
 
+\subsubsection{Other Orderings}
+\label{ssub:other_orderings}
+
+As well as the orderings discussed above, there are also a number of other
+space filling curves and dis-joint orderings that were also discounted.
+Figure~\ref{fig:modgray-2-alternatives} shows some of these.
+
+\begin{itemize}
+
+	\item Figure~\ref{fig:modgray-alt-order.pdf} shows \emph{in-order}
+		traversal of the grid. This extremely simple to implement for a simple
+		grid-like arrangement, but is very awkward and looses much of the
+		information when using quadtrees.
+
+	\item Figure~\ref{fig:modgray-alt-prime.pdf} shows \emph{prime-order}
+		traversal. This is a slight modification of in-order, but provides 
+
+\end{itemize}
+
 \begin{figure}[tbhp]
     \centering
     \begin{subfigure}[b]{3.5cm}
@@ -266,7 +285,11 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
         \caption{}\label{fig:modgray-alt-pinwheel.pdf}
     \end{subfigure}
 	% TODO caption
-	\caption{modgray-2-Alternatives}
+	\caption{There are a number of different space filling curves that can be
+	used to map a two dimensional grid to a single dimensional array. To be
+	considered for use in the quadtree ordering, the new ordering must provide
+	some improvement of efficiency of some operations. Here are shown some
+	orderings which were discounted.}
 	\label{fig:modgray-2-alternatives}
 \end{figure}
 
