@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Mon 04 Aug 2014 06:06 PM
+% Modified: Wed 06 Aug 2014 10:57 am
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -52,26 +52,37 @@ included or not and crosses ({\footnotesize x}) represent neighbours that have
 been checked and excluded.
 
 \begin{lstlisting}
-	public void propagate(node) {
+	public |propagate()| {
 
 		node[] start_locations = get_start_locations() (*@\label{eql:a}@*)
 		for each node in start_locations {
+			propagate(node)
+		}
+	}
 
-			if (not node.inCluster()) { (*@\label{eql:b}@*)
-				node[] neighbours = get_node_neighbours(node)
+	private |propagate(node)| {
 
-				for each neighbour in neighbours { (*@\label{eql:c}@*)
-					propagate(neighbour)
-				}
+		if (not node.inCluster()) { (*@\label{eql:b}@*)
+			node[] neighbours = get_node_neighbours(node)
+
+			for each neighbour in neighbours { (*@\label{eql:c}@*)
+				propagate(neighbour)
 			}
 		}
 	}
 \end{lstlisting}
 
-% TODO pseudo code comments
-Line \ref{eql:a} Nodes are only propagated if they h \\
-Line \ref{eql:b} Nodes are only propagated if they h \\
-Line \ref{eql:c} Nodes are only propagated if they h \\
+\paragraph{Line \ref{eql:a}} A set of starting locations is selected based on
+some heuristic that determines if a node is deep enough in the tree to be used
+as a starting location.
+
+\paragraph{Line \ref{eql:b}} Nodes are only propagated if they have not already
+been included in a cluster. If this were not the case, then clusters would
+overlap.
+
+\paragraph{Line \ref{eql:c}} Each of the neighbours of the current node is
+propagated. The method of choosing neighbours determines how far the cluster
+can spread, and is separated from the clustering algorithm.
 
 \begin{figure}[tbhp]
 	\centering
