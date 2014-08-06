@@ -1,17 +1,45 @@
 % Created:  Fri 01 Aug 2014 02:02 PM
-% Modified: Mon 04 Aug 2014 05:14 PM
+% Modified: Wed 06 Aug 2014 10:26 am
 % @author Josh Wainwright
 % filename: analysis.tex
 
 \section{Cluster Analysis}
 \label{sec:cluster_analysis}
 
-% TODO intro to cluster analysis section
+Once the data has been processed and a number of clusters have been identified,
+they can be displayed on screen in an image to verify what was found and
+perform further analysis. However, since the data that was used to find the
+clusteres is still held in memory at this point, it is useful to take advantage
+of this and perform some imediate analysis and provide some statistics
+regarding the clusters that were found.
+
+There are two ways of conceptually viewing the clusters which will lead to
+slightly different results when analysing them.
+
+\begin{itemize}
+
+	\item The first is to consider the boundary of the nodes of the quadtree
+		that were considered to be part of a cluster to be the boundary of the
+		cluster. This will mean that the actual cluster is likely to be
+		slightly larger than the actual data points that it is comprised of,
+		but is computationally simple to acheive, so fast, and can take into
+		account any holes in the cluster.
+
+	\item The second way is to, once the cluster has been located, disgard the
+		information about the nodes themselves, and simply use them to select
+		the appropriate points. This results in a set of points that are all
+		considered to be spatially grouped into the same cluster. From this
+		set, calculations can be performed on the real data. This method is
+		garanteed to provide information that more closely represents the
+		original data, though is more computationally intensive.
+
+\end{itemize}
 
 \subsection{Quadtree Node Analysis}
 \label{sub:quadtree_node_analysis}
 
-% TODO explain different between node alaysis and point analysis
+Here, the nodes of the quadtree that were considered part of the cluster are
+considered, rather than the points that they contain.
 
 \subsubsection{Cluster Area}
 \label{ssub:Cluster Area}
@@ -129,11 +157,19 @@ Figure~\ref{fig:roundness-round.png} has an average $R=0.446$.
 \subsection{Point Analysis}
 \label{sub:point_analysis}
 
+Here, the points contained in the nodes of quadtree that were considered part
+of the cluster are considered; the nodes are only used to select the correct
+points.
+
 \subsubsection{Cluster Area}
 \label{ssub:Cluster Area}
 
+% TODO cluster area with points
+
 \subsubsection{Cluster Perimeter}
 \label{ssub:Cluster Perimeter}
+
+% TODO cluster perimeter with points
 
 \cite{lee2002polygonization}
 
