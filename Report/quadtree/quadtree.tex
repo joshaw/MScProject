@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Wed 06 Aug 2014 12:35 pm
+% Modified: Wed 06 Aug 2014 04:02 PM
 % @author Josh Wainwright
 % File name : quadtree.tex
 
@@ -165,33 +165,33 @@ Figure~\ref{fig:traverse-hilbert-order.pdf}. This means, again, that the
 calculation of neighbours becomes difficult.
 
 \begin{figure}[tbhp]
-    \centering
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{traverse-z-order.pdf}
-        \caption{} \label{fig:traverse-z-order.pdf}
-    \end{subfigure}%
-    \quad
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{traverse-hilbert-order.pdf}
-        \caption{} \label{fig:traverse-hilbert-order.pdf}
-    \end{subfigure}
-    \\[0.2cm]
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{traverse-gray-order.pdf}
-        \caption{} \label{fig:traverse-gray-order.pdf}
-    \end{subfigure}%
-    \quad
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
-        \caption{}\label{fig:traverse-modgray-order.pdf}
-    \end{subfigure}
-    \caption{A selection of possible tree traversal orderings. Each of theses
-    is, more formally, a space filling curve which is a direct, unique mapping
-    from a 2D grid to a 1D array. \subref{fig:traverse-z-order.pdf} shows
-    Z-order, \subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
-    \subref{fig:traverse-gray-order.pdf} shows Gray code order and
-    \subref{fig:traverse-modgray-order.pdf} shows the modified Gray code order
-    developed for this project.} \label{fig:order_traversals}
+	\centering
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-z-order.pdf}
+		\caption{} \label{fig:traverse-z-order.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-hilbert-order.pdf}
+		\caption{} \label{fig:traverse-hilbert-order.pdf}
+	\end{subfigure}
+	\\[0.2cm]
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-gray-order.pdf}
+		\caption{} \label{fig:traverse-gray-order.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
+		\caption{}\label{fig:traverse-modgray-order.pdf}
+	\end{subfigure}
+	\caption{A selection of possible tree traversal orderings. Each of theses
+	is, more formally, a space filling curve which is a direct, unique mapping
+	from a 2D grid to a 1D array. \subref{fig:traverse-z-order.pdf} shows
+	Z-order, \subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
+	\subref{fig:traverse-gray-order.pdf} shows Gray code order and
+	\subref{fig:traverse-modgray-order.pdf} shows the modified Gray code order
+	developed for this project.} \label{fig:order_traversals}
 \end{figure}
 
 \subsubsection{Gray Codes}
@@ -217,21 +217,21 @@ fashion. When arranged as in Figure~\ref{fig:traverse-modgray-order.pdf}
 and~\ref{fig:modgray-traversal}, each cell is arranged such that
 
 \begin{figure}[tbhp]
-    \centering
-    \begin{subfigure}[c]{3.4cm}
-        \includegraphics[width=\textwidth]{modgray-2-levels-arrows.pdf}
-        \caption{}\label{fig:modgray-2-levels-arrows.pdf}
-    \end{subfigure}%
-    \quad
-    \begin{subfigure}[c]{4.6cm}
-        \includegraphics[width=\textwidth]{modgray-2-levels-numbers.pdf}
-        \caption{}\label{fig:modgray-2-levels-numbers.pdf}
-    \end{subfigure}
-    \caption{The tree traversal that was developed for this project is a
-    	variation of the Gray code order discussed in
-    	Section~\ref{ssub:gray_codes}.  Instead of all sub-quadrants having the
-    	same orientation, each is reflected in either the x- or y-axis,
-    	\subref{fig:modgray-2-levels-arrows.pdf}. This has the advantage that
+	\centering
+	\begin{subfigure}[c]{3.4cm}
+		\includegraphics[width=\textwidth]{modgray-2-levels-arrows.pdf}
+		\caption{}\label{fig:modgray-2-levels-arrows.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[c]{4.6cm}
+		\includegraphics[width=\textwidth]{modgray-2-levels-numbers.pdf}
+		\caption{}\label{fig:modgray-2-levels-numbers.pdf}
+	\end{subfigure}
+	\caption{The tree traversal that was developed for this project is a
+		variation of the Gray code order discussed in
+		Section~\ref{ssub:gray_codes}.  Instead of all sub-quadrants having the
+		same orientation, each is reflected in either the x- or y-axis,
+		\subref{fig:modgray-2-levels-arrows.pdf}. This has the advantage that
 		neighbouring nodes have codes which differ by exactly one bit,
 		\subref{fig:modgray-2-levels-numbers.pdf}.} \label{fig:modgray-traversal}
 \end{figure}
@@ -253,38 +253,54 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 
 \begin{itemize}
 
-	\item Figure~\ref{fig:modgray-alt-order.pdf} shows \emph{in-order}
+	\item Figure~\ref{fig:modgray-alt-order.pdf} shows \emph{row order}
 		traversal of the grid. This extremely simple to implement for a simple
 		grid-like arrangement, but is very awkward and looses much of the
 		information when using quadtrees.
 
-	\item Figure~\ref{fig:modgray-alt-prime.pdf} shows \emph{prime-order}
-		traversal. This is a slight modification of in-order, but provides 
+	\item Figure~\ref{fig:modgray-alt-prime.pdf} shows \emph{row-prime order},
+		also known as snake-order\cite{goodchild1983optimizing}, traversal.
+		This is a slight modification of row order which is continuous, again,
+		is not recursive so not suitable for use with quadtrees.
+
+	\item Figure~\ref{fig:modgray-alt-rotated.pdf} is identical to them
+		modified Gray order above, but with a single \SI{90}{\degree} rotation.
+		Since the orientation of an image has no effect on the clusters found,
+		all rotations and reflections provide the same functionality as the
+		original. The particular form chosen is simply due to asthetic
+		preference.
+
+	\item Figure~\ref{fig:modgray-alt-pinwheel.pdf} shows an alteration to the
+		modified Gray code order, named \emph{pinwheel order}, where, instead of
+		reflecting the quadrants, each is rotated about it's center
+		\SI{90}{\degree} so that the whole image is rotational symetric,
+		something the modified Gray code lacks.  This form turns out not to
+		provide any additional features and makes conversion from quadtree code
+		to coordinate representation substantially more difficult.
 
 \end{itemize}
 
 \begin{figure}[tbhp]
-    \centering
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{modgray-alt-order.pdf}
-        \caption{} \label{fig:modgray-alt-order.pdf}
-    \end{subfigure}%
-    \quad
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{modgray-alt-prime.pdf}
-        \caption{} \label{fig:modgray-alt-prime.pdf}
-    \end{subfigure}
-    \\[0.2cm]
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{modgray-alt-rotated.pdf}
-        \caption{} \label{fig:modgray-alt-rotated.pdf}
-    \end{subfigure}%
-    \quad
-    \begin{subfigure}[b]{3.5cm}
-        \includegraphics[width=\textwidth]{modgray-alt-pinwheel.pdf}
-        \caption{}\label{fig:modgray-alt-pinwheel.pdf}
-    \end{subfigure}
-	% TODO caption
+	\centering
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{modgray-alt-order.pdf}
+		\caption{} \label{fig:modgray-alt-order.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{modgray-alt-prime.pdf}
+		\caption{} \label{fig:modgray-alt-prime.pdf}
+	\end{subfigure}
+	\\[0.2cm]
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{modgray-alt-rotated.pdf}
+		\caption{} \label{fig:modgray-alt-rotated.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{modgray-alt-pinwheel.pdf}
+		\caption{}\label{fig:modgray-alt-pinwheel.pdf}
+	\end{subfigure}
 	\caption{There are a number of different space filling curves that can be
 	used to map a two dimensional grid to a single dimensional array. To be
 	considered for use in the quadtree ordering, the new ordering must provide
@@ -293,17 +309,18 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 	\label{fig:modgray-2-alternatives}
 \end{figure}
 
-Since the quadtree is a recursive data structure, it is necessary to be able
-to maintain the correct orientation of child trees with respect to their
-parents at the construction stage. It turns out that this is easy to achieve
-and thus adapting it for each of the arrangements discussed above is simply a
-matter of adjusting the next part of the code that is added for each of the
-four children when creating them. Pseudo code to achieve this for the Morton
-order and the modified Gray code order is shown in Listing
-~\ref{code:child_construction}.
+Since the quadtree is a recursive data structure, it is necessary to be able to
+maintain the correct orientation of child trees with respect to their parents
+at the construction stage. It turns out that this is easy to achieve and thus
+adapting it for each of the arrangements discussed above is simply a matter of
+adjusting the next part of the code that is added for each of the four children
+when creating them. Pseudo code to achieve this for the Morton order and the
+modified Gray code order is shown in Listings~\ref{code:child_construction}
+and~\ref{code:child_construction_mgc}.
 
 \begin{lstlisting}[caption={Code to generate children of the current quadtree
-while maintaining the correct ordering.},label=code:child_construction]
+while maintaining the correct ordering. Z- and Gray ordering.},
+label=code:child_construction]
 	// Constructor
 	Quadtree(max_x, max_y, code)
 
@@ -318,8 +335,15 @@ while maintaining the correct ordering.},label=code:child_construction]
 	t_r = new Quadtree(100, 100, this.code + "01");
 	b_l = new Quadtree(100, 100, this.code + "10");
 	b_r = new Quadtree(100, 100, this.code + "11");
+\end{lstlisting}
 
+\begin{lstlisting}[caption={Code to generate children of the current quadtree
+while maintaining the correct ordering. Modified Gray code order. Since the
+ordering is different for each quadrant, the ordering is changed depending on
+the position of the current node.},
+label=code:child_construction_mgc]
 	// Child creation, Modified Gray Code
+	this.position = pos;
 	if (pos == "tl") ) {
 		new_code[0] = code + "00";
 		new_code[1] = code + "01";
@@ -344,41 +368,43 @@ while maintaining the correct ordering.},label=code:child_construction]
 		new_code[2] = code + "01";
 		new_code[3] = code + "00";
 	}
+
 	t_l = new Quadtree(100, 100, this.code + new_code[0]);
 	t_r = new Quadtree(100, 100, this.code + new_code[1]);
 	b_l = new Quadtree(100, 100, this.code + new_code[2]);
 	b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \end{lstlisting}
-% TODO pseudo code comments
 
 \subsection{Hash Table Implementation}
 \label{sub:hash_table_implementation}
 
 In order to speed up the subsequent operations applied to the quadtree
-structure, it can be converted to a simpler, one dimensional data structure.
-The method discussed above, to number the cells in a logical fashion based on
-the code of the parent, can be viewed as a way to map the two dimensional image
-to a single unique binary code, and hence to a one dimensional format. Thus,
-the quadtree can be easily converted to an array structure by simply using the
-key code as the array index.
+structure, it is converted to a simpler, one dimensional data structure. The
+method discussed above, to number the cells in a logical fashion based on the
+code of the parent, can be viewed as a way to map the two dimensional image to
+a single unique binary code, and hence to a one dimensional format. Thus, the
+quadtree can be easily converted to an array structure by simply using the key
+code as the array index. Once this is performed the access complexity is
+significantly reduced. This operation is only performed once after the quadtree
+has been generated meaning the amortized complexity is reduced.
 
-As mentioned in Part~\ref{prt:data_structures}, this has the potential to
-have a very poor space usage if the image is not densely populated (in which
-case it is likely that few clusters would be identifiable anyway). Instead, an
-implementation is created that makes use of the \emph{Hash Table} data
-structure\cite{cormen2001introduction}. This allows the data structure to
-increase in size dynamically as more space is needed, but also provides linear
-time complexity for access and modification. The quadtree code is used as the
-key for the hash table, and the data stored within the cell with that code is
-the value.
+As mentioned in Part~\ref{prt:data_structures}, using a na\"ive implementation
+has the potential to have a very poor space usage if the image is not densely
+populated (in which case it is likely that few clusters would be identifiable
+anyway). Instead, an implementation is created that makes use of the \emph{Hash
+Table} data structure\cite{cormen2001introduction}. This allows the data
+structure to increase in size dynamically as more space is needed, but also
+provides linear time complexity for access, modification and search. The
+quadtree code is used as the key for the hash table, and the data stored within
+the cell with that code is the hash table value.
 
 Using this data structure means that several operations are significantly sped
-up. For example, for the raw quadtree format, the steps required to check if a
-given code is present involve traversing every node in the tree, thus linear
-$O(n)$.  However, for a hash table, the hash function is used to get a hash of
-the code to be checked and the appropriate location checked. If the codes
-match, then the code does appear in the tree, a total of two operations,
-constant $O(1)$.
+up. For example, for the quadtree format, the steps required to check if a
+given code is present involves traversing the tree as specified by the code to
+check and waiting to see if a node with that code is found, thus $O(\log n)$.
+However, for a hash table, the hash function is used to get a hash of the code
+to be checked and the appropriate location checked. If the codes match, then
+the code does appear in the tree, a total of two operations, constant $O(1)$.
 
 Also, since the structure is defined recursively, it is not possible to
 directly access a given location of the data. Instead it must be arrived at by
@@ -387,11 +413,41 @@ destination exists in. This would be a time consuming step for a number of
 operations, but the biggest effect would be when checking the neighbours of
 cells since for every neighbour of every node, the tree must be traversed. This
 is not an issue for the hash table since the single dimensional nature means
-that data can be accessed directly anywhere.
+that data can be accessed anywhere directly.
 
 Little spatial information should be lost during the conversion from quadtree
 to hash table since this is all contained in the quadtree code assigned to the
-node during the quadtree generation step.
+node during the quadtree generation step. However, the quadtree representation
+can be kept in memory for some processes. For example, to get all of the leaf
+nodes of a given node, it is enough to start at that node and traverse the tree
+in post- or pre-order and return the nodes that are arrived at, $O(\log n)$,
+whereas, for the hash table, each node must be checked to decide if it is a
+child, $O(n)$.
 
-% TODO add writing about structure of data stored in hashmap
-% key, value specs etc.
+A hash table requires two peices of information for each entry: a \emph{key}
+and a \emph{value}. The key is what is used to locate items, its hash is used
+as the index of the array used internally. The value is the information that
+should be accessible when using the key. For this application, since more than
+a single piece of information should be accessible for each quadtree code, an
+object is stored against each key. This has the format shown in
+Table~\ref{tab:hashmap-columns}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabu}{l X}
+		\toprule
+		Key  & Value \\
+		\midrule
+		Quadtree Code & $\bullet$ Set of points in this node \\
+					&	$\bullet$ Cluster these points exist in \\
+					&	$\bullet$ Size of this node \\
+					&	$\bullet$ Number of edges this node contributes to
+		the perimeter of the cluster\\
+		\bottomrule
+	\end{tabu}
+
+	\caption{}\label{tab:hashmap-columns}
+\end{table}
+
+% TODO add writing about structure of data stored in hashmap key, value specs
+% etc.
