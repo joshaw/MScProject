@@ -58,18 +58,21 @@ public class QuadTreePropagate {
 	}
 
 	private void propagate() {
-		for (int k = 1; k < 40; k++) {
-			this.start = getStart();
+		// for (int k = 1; k < 40; k++) {
+		this.start = getStart();
+		int k = 1;
+		while (start != "") {
 			if (k == 1) {
 				firstStart = start;
 			}
 
 			int depthDiff = firstStart.length() - start.length();
-			if (start == "" || depthDiff > depthRange-2) {
-				continue;
+			if (depthDiff <= depthRange) {
+				propagate(start, k);
 			}
 
-			propagate(start, k);
+			this.start = getStart();
+			k++;
 		}
 	}
 
