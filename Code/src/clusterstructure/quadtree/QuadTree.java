@@ -1,5 +1,5 @@
 /** Created: Thu 31 Jul 2014 12:33 PM
- * Modified: Fri 01 Aug 2014 03:24 PM
+ * Modified: Thu 07 Aug 2014 12:25 PM
  * @author Josh Wainwright
  * filename: QuadTree.java
  */
@@ -47,7 +47,7 @@ public class QuadTree implements ClusterStructure {
 	}
 
 	public QuadTreeNode getNode(String findCode) {
-		return root.getNode(findCode, findCode);
+		return root.getNode(findCode);
 	}
 
 	/** Returns a HashMap representation of the current quadtree. This can

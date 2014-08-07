@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Thu 31 Jul 2014 01:41 PM
+ * Modified: Thu 07 Aug 2014 12:24 PM
  * @author Josh Wainwright
  * File name : QuadTreeNode.java
  */
@@ -278,23 +278,23 @@ public class QuadTreeNode {
 	 * @param findCode Code string to locate in the current tree
 	 * @return the child node with the code given.
 	 */
-	protected QuadTreeNode getNode(String findCode, String orig) {
+	protected QuadTreeNode getNode(String findCode) {
 		if (leaf || findCode.equals(code)) {
 			return this;
 		} else {
 			try {
 				String nibble = findCode.substring(0,2);
 				if (nibble.equals("00")) {
-					return tl.getNode(findCode.substring(2), orig);
+					return tl.getNode(findCode.substring(2));
 
 				} else if (nibble.equals("01")) {
-					return tr.getNode(findCode.substring(2), orig);
+					return tr.getNode(findCode.substring(2));
 
 				} else if (nibble.equals("10")){
-					return bl.getNode(findCode.substring(2), orig);
+					return bl.getNode(findCode.substring(2));
 
 				} else if (nibble.equals("11")){
-					return br.getNode(findCode.substring(2), orig);
+					return br.getNode(findCode.substring(2));
 
 				} else {
 					throw new IllegalArgumentException("Something went wrong.");
