@@ -292,7 +292,7 @@ public class Cluster_Analysis extends PlugInFrame {
 						"\nChanged?   : " + changed +
 						"\nDensity    : " + densityVal +
 						"\nScale      : " + scaleVal +
-						"\nDepth      : " + depthVal +
+						"\nDepth Range: " + depthVal +
 						"\nCluser Size: " + minClusterVal +
 						"\nLines      : " + lines +
 						"\nPoints     : " + points +
@@ -310,6 +310,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 					System.out.println("Converting to hashmap...");
 					qt.addQuadTreeMap();
+					System.out.println("Nodes: " + qt.getQuadTreeMap().size());
 
 					System.out.println("Propagating...");
 					QuadTreePropagate qtp =
@@ -322,6 +323,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 				System.out.println("Drawing...");
 				dij.draw(lines, points, colours, minClusterVal);
+
 
 				System.out.println("Time: " + (System.currentTimeMillis()-start));
 				changed = false;
