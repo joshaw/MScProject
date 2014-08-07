@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Thu 07 Aug 2014 02:26 PM
+ * Modified: Thu 07 Aug 2014 03:32 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -46,7 +46,7 @@ public class QuadTreePropagate {
 		for (String node : hashmap.keySet()) {
 
 			if (node.length() > lmax &&
-					node.length() >= firstStart.length()-depthRange &&
+					node.length() >= firstStart.length()-(depthRange/2) &&
 					hashmap.get(node).status() == 0) {
 
 				lmax = node.length();
@@ -58,22 +58,35 @@ public class QuadTreePropagate {
 	}
 
 	private void propagate() {
-		// for (int k = 1; k < 40; k++) {
-		this.start = getStart();
-		int k = 1;
-		while (start != "") {
+		for (int k = 1; k < 40; k++) {
+			this.start = getStart();
 			if (k == 1) {
 				firstStart = start;
 			}
 
 			int depthDiff = firstStart.length() - start.length();
-			if (depthDiff <= depthRange) {
-				propagate(start, k);
+			if (start == "" || depthDiff > depthRange-2) {
+				continue;
 			}
 
-			this.start = getStart();
-			k++;
+			propagate(start, k);
 		}
+
+		// int k = 0;
+		// while (start != "") {
+		// 	k++;
+		// 	start = getStart();
+		// 	if (k == 1) {
+		// 		firstStart = start;
+		// 	}
+
+		// 	int depthDiff = firstStart.length() - start.length();
+		// 	if (depthDiff > depthRange-2) {
+		// 		continue;
+		// 	}
+
+		// 	propagate(start, k);
+		// }
 	}
 
 	private void propagate(String cell, int k) {
