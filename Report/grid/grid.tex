@@ -1,5 +1,5 @@
 % Created:  Mon 23 Jun 2014 13:15 PM
-% Modified: Thu 31 Jul 2014 10:13 AM
+% Modified: Thu 07 Aug 2014 11:42 AM
 % @author Josh Wainwright
 % File name : grid.tex
 
@@ -47,17 +47,22 @@ $y$ axes, thus the images are 205 by 205 pixels. This data took
 There are steps that can be taken to improve the approach of this simple grid
 when handling outlying points caused by noise.
 \begin{enumerate}
+
 	\item First the algorithm is modified to include a thresholding step before
-	writing the data to a file. This means that the pixels can be adjusted with
-	greater accuracy and any arbitrary level can be chosen to threshold at.
+		writing the data to a file. This means that the pixels can be adjusted
+		with greater accuracy and any arbitrary level can be chosen to
+		threshold at.
+
 	\item Next, once an image has been generated, the number of points that
-	contributed to each pixel is no longer of interest and so the image can be
-	converted to a binary image. This is an image with just two possible
-	values, the first represents white space, where there are no points, the
-	seconds is black where there were points and so is of interest.
+		contributed to each pixel is no longer of interest and so the image can
+		be converted to a binary image. This is an image with just two possible
+		values, the first represents white space, where there are no points,
+		the seconds is black where there were points and so is of interest.
+
 	\item Once a binary image has been generated, erode and dilate filters can
-	be applied to remove remaining outliers and to try to close the gaps in the
-	structures that have been identified so that they are more solid.
+		be applied to remove remaining outliers and to try to close the gaps in
+		the structures that have been identified so that they are more solid.
+
 \end{enumerate}
 
 \begin{figure}[tbhp]
