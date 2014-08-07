@@ -34,10 +34,10 @@ public class QuadTree implements ClusterStructure {
 
 	/** Create a new root node
 	 */
-	public QuadTree(double maxX, double maxY, int maxDensity,
+	public QuadTree(double maxX, double maxY, int maxDensity, int maxDepth,
 			String filepath, int colX, int colY, String separator) {
 
-		this.root     = new QuadTreeNode(maxX, maxY, maxDensity);
+		this.root     = new QuadTreeNode(maxX, maxY, maxDensity, maxDepth);
 		this.maxX     = maxX;
 		this.maxY     = maxY;
 		this.filepath = filepath;

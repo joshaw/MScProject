@@ -18,7 +18,7 @@ import java.util.HashSet;
 public class QuadTreeNode {
 
 	private final String ORDER     = "morton";
-	private final int    MAX_DEPTH = 9;
+	private int    MAX_DEPTH = 12;
 
 	private boolean root = false;
 	private int     depth;
@@ -44,7 +44,7 @@ public class QuadTreeNode {
 	 * @param maxDensity maximum number of points that are allowed in a leaf
 	 * node before it is split into 4 subtrees.
 	 */
-	public QuadTreeNode(double maxX, double maxY, int maxDensity) {
+	public QuadTreeNode(double maxX, double maxY, int maxDensity, int MAX_DEPTH) {
 		this.root  = true;
 		this.pos   = "tl";
 		this.code  = "";
@@ -54,6 +54,7 @@ public class QuadTreeNode {
 		this.minY  = 0;
 		this.maxY  = maxY;
 		this.depth = 0;
+		this.MAX_DEPTH = MAX_DEPTH;
 
 		if (maxDensity > 0) {
 			this.maxDensity = maxDensity;

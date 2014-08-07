@@ -66,6 +66,8 @@ public class Cluster_Analysis extends PlugInFrame {
 	private JSlider   depthSlider;
 	private Label     minClusterLab;
 	private JSlider   minClusterSlider;
+	private Label     maxDepthLab;
+	private JSlider   maxDepthSlider;
 	private Checkbox  linesBool;
 	private Checkbox  pointsBool;
 	private Checkbox  coloursBool;
@@ -138,6 +140,21 @@ public class Cluster_Analysis extends PlugInFrame {
 		depthPanel.add(depthSlider);
 		textpanel.add(depthPanel);
 
+		maxDepthLab = new Label("Max Depth: 10    ");
+		maxDepthSlider = new JSlider(JSlider.HORIZONTAL, 5, 25, 10);
+		maxDepthSlider.setMajorTickSpacing(1);
+		maxDepthSlider.setSnapToTicks(true);
+		maxDepthSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+				int val = ((JSlider)evt.getSource()).getValue();
+				maxDepthLab.setText("Max Depth: " + val);
+				changed = true;
+			}
+		});
+		Panel maxDepthPanel = new Panel();
+		maxDepthPanel.add(maxDepthLab);
+		maxDepthPanel.add(maxDepthSlider);
+		textpanel.add(maxDepthPanel);
 		minClusterLab = new Label("Cluster Size: 5.0E-4");
 		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 50); //*10000
 		minClusterSlider.setMajorTickSpacing(10);
@@ -303,8 +320,8 @@ public class Cluster_Analysis extends PlugInFrame {
 
 				if (changed || dij == null) {
 					System.out.println("Generating quadtree...");
-					dataStructure = new QuadTree(maxXval, maxYval,
-							densityVal, filepath, colX, colY, separator);
+					dataStructure = new QuadTree(maxXval, maxYval, densityVal,
+							depthVal, filepath, colX, colY, separator);
 
 					QuadTree qt = (QuadTree)dataStructure;
 
