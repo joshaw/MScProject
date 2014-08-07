@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Thu 07 Aug 2014 10:31 AM
+% Modified: Thu 07 Aug 2014 05:38 PM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -249,7 +249,7 @@ Some care must be taken when deciding what constitutes a neighbour of a node
 and what does not. As mentioned above, when detecting clusters using
 propagation, the neighbours of a node are checked and, if they are valid, are
 themselves propagated. For this reason, a poor choice of neighbours means that
-either the propagation will
+either the propagation will either:
 
 \begin{itemize}
 	\item be cut short too early, and so not all of the clusters will be
@@ -291,6 +291,61 @@ Figure~\ref{fig:kernel-all8}.
 		included.}\label{fig:kernel-options}
 
 \end{figure}
+
+The requirement to include a total of eight neighbours for each node suggests
+that it might be of value to be able to specify an arbitrary number of
+neighbours around the given cell.
+
+In many applications in image processing, the concept of an image \emph{kernel}
+is commonplace. This is a square, odd-sided matrix that is used to apply
+filters and other effects to an image. The kernel is placed over each of the
+pixels in the image in turn so that the central element in the matrix is over
+the current pixel and each of the other elements is over another pixel. The
+value of the element in the kernel is then used to manipulate the pixels in the
+image below it. For example, to blur an image, a $3\times 3$ kernel composed of
+all $\rfrac{1}{9}$'s can be used. When applied, this would mean that the
+current pixel is given a value which is the sum of each of matrix elements
+multiplied by the pixel value beneath it.
+
+A similar technique is used to choose neighbours from the quadtree. The image
+kernel that is used is a binary matrix, meaning that all of the elements are
+restricted to 0 or 1, but, in all other respects, is the same as a regular
+image kernel. The kernel is placed over a node of interest. Any nodes that lie
+under an element with a value of 1 is included as a neighbour and 0 elements
+are ignored so that no neighbours are chosen. The value of the central element
+in the kernel does not matter, but the convention shall be to set this to 1.
+
+Thus, the simpest kernel, and of least use, is the identity kernel which has an
+element with value 1 in the center and all other elements 0. This would result
+in no neighbours being selected, and so no clusters located. The rook's case
+neighbours are now represented with the kernel in
+% TODO kernel explanation
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		0 & 1 & 0 \\
+		\hline
+		1 & \cellcolor{lblue}1 & 1 \\
+		\hline
+		0 & 1 & 0 \\
+		\hline
+	\end{tabular}
+	\qquad
+	\begin{tabular}{|l|l|l|}
+		\hline
+		0 & 1 & 0 \\
+		\hline
+		1 & \cellcolor{lblue}1 & 1 \\
+		\hline
+		0 & 1 & 0 \\
+		\hline
+	\end{tabular}
+	\captionof{figure}{}
+\end{table}
+
+%TODO move kernel diagrams here
 
 % TODO searching up the tree
 % TODO searching down the tree
