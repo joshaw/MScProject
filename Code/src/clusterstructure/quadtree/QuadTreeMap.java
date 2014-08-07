@@ -32,7 +32,7 @@ public class QuadTreeMap extends HashMap<String, PropogationDatum> {
 
 	public void generateClusterStats() {
 		for (Entry<String, PropogationDatum> e : super.entrySet()) {
-			byte status = e.getValue().status();
+			int status = e.getValue().status();
 			if (status > 0) {
 				clusters.addClusterPoints(status, e.getValue().size());
 				clusters.addClusterArea(status, e.getKey());

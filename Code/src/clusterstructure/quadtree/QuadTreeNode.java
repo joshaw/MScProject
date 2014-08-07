@@ -261,7 +261,7 @@ public class QuadTreeNode {
 	protected QuadTreeMap toQuadTreeMap(QuadTreeMap qtm) {
 
 		if (leaf) {
-			qtm.put(this.code, new PropogationDatum(this.points, (byte)0));
+			qtm.put(this.code, new PropogationDatum(this.points, 0));
 		} else {
 			tl.toQuadTreeMap(qtm);
 			tr.toQuadTreeMap(qtm);

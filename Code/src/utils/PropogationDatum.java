@@ -14,10 +14,10 @@ import java.util.Set;
 public class PropogationDatum {
 
 	private Set<Coordinate> points;
-	private byte status;
-	private byte perimeter = 4;
+	private int status;
+	private int perimeter = 4;
 
-	public PropogationDatum(Set<Coordinate> points, byte status) {
+	public PropogationDatum(Set<Coordinate> points, int status) {
 		this.points = points;
 		this.status = status;
 	}
@@ -30,11 +30,11 @@ public class PropogationDatum {
 		return points;
 	}
 
-	public void setStatus(byte status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	public byte status() {
+	public int status() {
 		return status;
 	}
 
@@ -45,7 +45,7 @@ public class PropogationDatum {
 	/** Value from 1 to 4 representing how many of this cell's sides contribute
 	 * to the perimeter of the cluster.
 	 */
-	public byte perimeter() {
+	public int perimeter() {
 		return perimeter;
 	}
 

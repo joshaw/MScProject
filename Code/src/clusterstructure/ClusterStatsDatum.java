@@ -14,7 +14,7 @@ import java.util.HashSet;
 public class ClusterStatsDatum extends ClusterStats
 	implements Comparable<ClusterStatsDatum> {
 
-	private byte   status;
+	private int    status;
 	private int    clusterPoints;
 	private double clusterArea;
 	private double clusterPerimeter;
@@ -33,11 +33,11 @@ public class ClusterStatsDatum extends ClusterStats
 		points = new HashSet<Coordinate>(50);
 	}
 
-	public void setStatus(byte status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	public byte getStatus() {
+	public int getStatus() {
 		return status;
 	}
 

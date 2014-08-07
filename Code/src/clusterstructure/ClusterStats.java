@@ -26,15 +26,15 @@ public class ClusterStats {
 		stats = new ArrayList<ClusterStatsDatum>(40);
 	}
 
-	public void excludeCluster(byte status) {
-		stats.get(status).setStatus((byte)0);
+	public void excludeCluster(int status) {
+		stats.get(status).setStatus(0);
 	}
 
 	/** Increase the count of points for the given cluster.
 	 * @param status cluster to alter infomation for
 	 * @param size number to increase information by
 	 */
-	public void addClusterPoints(byte status, int size) {
+	public void addClusterPoints(int status, int size) {
 		checkSize(status);
 		stats.get(status).addClusterPoints(size);
 		stats.get(status).setStatus(status);
@@ -49,13 +49,13 @@ public class ClusterStats {
 	 * @param code code of the node that represents the increase in area. From
 	 * this, the size of area that should be added is calculated.
 	 */
-	public void addClusterArea(byte status, String code) {
+	public void addClusterArea(int status, String code) {
 		checkSize(status);
 		double area = Math.pow(4, -code.length()/2);
 		stats.get(status).addClusterArea(area);
 	}
 
-	public void setArea(byte status, double area) {
+	public void setArea(int status, double area) {
 		stats.get(status).setArea(area);
 	}
 
@@ -76,7 +76,7 @@ public class ClusterStats {
 	 * @param sides number of sides of the node that contribute to the
 	 * perimeter.
 	 */
-	public void addClusterPerimeter(byte status, String code, int sides) {
+	public void addClusterPerimeter(int status, String code, int sides) {
 		checkSize(status);
 		if (sides < 0 || sides > 4) {
 			throw new IllegalArgumentException("Sides is between 1 and 4");
@@ -85,7 +85,7 @@ public class ClusterStats {
 		stats.get(status).addClusterPerimeter(perimeter);
 	}
 
-	public void setPerimeter(byte status, double perimeter) {
+	public void setPerimeter(int status, double perimeter) {
 		stats.get(status).setPerimeter(perimeter);
 	}
 
@@ -97,7 +97,7 @@ public class ClusterStats {
 		return stats.get(status).getClusterPerimeter();
 	}
 
-	public void addClusterCoords(byte status, Set<Coordinate> points) {
+	public void addClusterCoords(int status, Set<Coordinate> points) {
 		stats.get(status).addClusterCoords(points);
 	}
 
@@ -117,13 +117,13 @@ public class ClusterStats {
 
 	/** Ensures there are enough objects in the list of clusters.
 	 */
-	private void checkSize(byte status) {
+	private void checkSize(int status) {
 		while (status >= stats.size()) {
 			stats.add(new ClusterStatsDatum());
 		}
 	}
 
-	public byte getStatus(int i) {
+	public int getStatus(int i) {
 		if (stats.size() > 0) {
 			return stats.get(i).getStatus();
 		}

@@ -230,7 +230,7 @@ public class DrawQuadTreeMapIJ {
 			for (int i = x; i < X; i++) {
 				for (int j = y; j < Y; j++) {
 
-					byte status = e.getValue().status();
+					int status = e.getValue().status();
 					if (clusters.getStatus(status) == 0) {
 						status = 0;
 					}
@@ -356,10 +356,10 @@ public class DrawQuadTreeMapIJ {
 		perimeter = perimeter / points1.length;
 		area = area / Math.pow(points1.length, 2);
 
-		clusters.setArea((byte)status, area);
-		clusters.setPerimeter((byte)status, perimeter);
+		clusters.setArea(status, area);
+		clusters.setPerimeter(status, perimeter);
 		if (area <= minClusterSize) {
-			clusters.excludeCluster((byte)status);
+			clusters.excludeCluster(status);
 		}
 
 	}
