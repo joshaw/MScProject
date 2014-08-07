@@ -26,7 +26,7 @@ public class QuadTreePropagate {
 	private QuadTreeMap hashmap;
 
 	private String start;
-	private String firstStart;
+	private String firstStart = "";
 	private int[]  kernel;
 	private int    depthRange;
 
@@ -44,7 +44,11 @@ public class QuadTreePropagate {
 		int lmax = 4;
 		String smax = "";
 		for (String node : hashmap.keySet()) {
-			if (node.length() > lmax && hashmap.get(node).status() == 0) {
+
+			if (node.length() > lmax &&
+					node.length() >= firstStart.length()-depthRange &&
+					hashmap.get(node).status() == 0) {
+
 				lmax = node.length();
 				smax = node;
 			}
