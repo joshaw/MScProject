@@ -1,5 +1,5 @@
 # Created:  Sun 15 Jun 2014 04:30 pm
-# Modified: Wed 30 Jul 2014 11:12 AM
+# Modified: Thu 07 Aug 2014 06:40 PM
 # @author Josh Wainwright
 # File name : makefile
 
@@ -14,9 +14,7 @@ DIR=build
 BUILDTEX=latexmk -pdf -pdflatex="$(TEX)" $(OPTIONS) $(PROJECT).tex
 
 TEXFILES=$(wildcard **/*.tex)
-# SVGSRC=$(wildcard **/*.svg)
 SVGPDF=$(addprefix $(DIR)/,$(subst .svg,.pdf,$(wildcard **/*.svg)))
-# DIASRC=$(wildcard **/*.dia)
 DIAPDF=$(addprefix $(DIR)/,$(subst .dia,.pdf,$(wildcard **/*.dia)))
 
 all: $(DIR) $(DIR)/$(PROJECT).pdf $(SVGPDF) $(DIAPDF)
@@ -47,9 +45,9 @@ once: $(PROJECT).tex
 open: all
 	rifle $(DIR)/$(PROJECT).pdf
 
-clean-all:
+clean:
 	rm -r $(DIR)
 
-clean:
+keep-pdf:
 	find ${DIR}/ -type f ! -name "*.pdf" -delete
 # vim:ft=make
