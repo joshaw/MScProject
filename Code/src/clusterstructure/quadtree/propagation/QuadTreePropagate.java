@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Mon 04 Aug 2014 11:07 AM
+ * Modified: Thu 07 Aug 2014 02:26 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -82,8 +82,11 @@ public class QuadTreePropagate {
 		for (String c : neighbours) {
 
 			if (c != null && hashmap.get(c).status() == 0) {
-				hashmap.get(c).setStatus((byte)k);
-				propagate(c, k);
+
+				hashmap.get(c).setStatus(k);
+				if (!c.equals(cell)) {
+					propagate(c, k);
+				}
 			}
 		}
 
@@ -238,7 +241,6 @@ public class QuadTreePropagate {
 
 				// Check down the tree for valid neighbours
 				s = neighbours.get(i);
-				// neighbours.addAll(addSuffixes(s));
 				QuadTreeNode poss = qt.getNode(s);
 
 				if (start.length() - s.length() < depthRange &&
