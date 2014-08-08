@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Thu 07 Aug 2014 08:47 am
+% Modified: Fri 08 Aug 2014 03:51 PM
 % @author Josh Wainwright
 % File name : quadtree.tex
 
@@ -57,6 +57,36 @@ The choice of what order to label the children is important if the order
 in which the nodes are placed is important. For spatial indexing, for example,
 each node represents a quadrant in two dimensional space, so being able to
 traverse the children in a sensible and predictable way is essential.
+
+\begin{figure}[tbhp]
+	\centering
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-z-order.pdf}
+		\caption{} \label{fig:traverse-z-order.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-hilbert-order.pdf}
+		\caption{} \label{fig:traverse-hilbert-order.pdf}
+	\end{subfigure}
+	\\[0.2cm]
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-gray-order.pdf}
+		\caption{} \label{fig:traverse-gray-order.pdf}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{3.5cm}
+		\includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
+		\caption{}\label{fig:traverse-modgray-order.pdf}
+	\end{subfigure}
+	\caption{A selection of possible tree traversal orderings. Each of theses
+	is, more formally, a space filling curve which is a direct, unique mapping
+	from a 2D grid to a 1D array. \subref{fig:traverse-z-order.pdf} shows
+	Z-order, \subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
+	\subref{fig:traverse-gray-order.pdf} shows Gray code order and
+	\subref{fig:traverse-modgray-order.pdf} shows the modified Gray code order
+	developed for this project.} \label{fig:order_traversals}
+\end{figure}
 
 \subsubsection[Morton Order]{Morton Order (Z-Order)}
 \label{ssub:morton_code_z_order_}
@@ -163,36 +193,6 @@ each quadrant of that first square---exactly as the quadtree does.
 The path that the traversal of points follows becomes fairly complicated,
 Figure~\ref{fig:traverse-hilbert-order.pdf}. This means, again, that the
 calculation of neighbours becomes difficult.
-
-\begin{figure}[tbhp]
-	\centering
-	\begin{subfigure}[b]{3.5cm}
-		\includegraphics[width=\textwidth]{traverse-z-order.pdf}
-		\caption{} \label{fig:traverse-z-order.pdf}
-	\end{subfigure}%
-	\quad
-	\begin{subfigure}[b]{3.5cm}
-		\includegraphics[width=\textwidth]{traverse-hilbert-order.pdf}
-		\caption{} \label{fig:traverse-hilbert-order.pdf}
-	\end{subfigure}
-	\\[0.2cm]
-	\begin{subfigure}[b]{3.5cm}
-		\includegraphics[width=\textwidth]{traverse-gray-order.pdf}
-		\caption{} \label{fig:traverse-gray-order.pdf}
-	\end{subfigure}%
-	\quad
-	\begin{subfigure}[b]{3.5cm}
-		\includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
-		\caption{}\label{fig:traverse-modgray-order.pdf}
-	\end{subfigure}
-	\caption{A selection of possible tree traversal orderings. Each of theses
-	is, more formally, a space filling curve which is a direct, unique mapping
-	from a 2D grid to a 1D array. \subref{fig:traverse-z-order.pdf} shows
-	Z-order, \subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
-	\subref{fig:traverse-gray-order.pdf} shows Gray code order and
-	\subref{fig:traverse-modgray-order.pdf} shows the modified Gray code order
-	developed for this project.} \label{fig:order_traversals}
-\end{figure}
 
 \subsubsection{Gray Codes}
 \label{ssub:gray_codes}
