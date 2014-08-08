@@ -1,5 +1,5 @@
 /** Created: Tue 17 Jun 2014 12:02 PM
- * Modified: Thu 07 Aug 2014 12:24 PM
+ * Modified: Fri 08 Aug 2014 01:13 PM
  * @author Josh Wainwright
  * File name : QuadTreeNode.java
  */
@@ -69,11 +69,12 @@ public class QuadTreeNode {
 	/** Create a new leaf node.
 	 */
 	private QuadTreeNode(double minX, double minY, double maxX, double maxY,
-			String code, int maxDensity, int depth, String pos) {
+			int maxDepth, String code, int maxDensity, int depth, String pos) {
 		this.root        = false;
 		this.leaf        = true;
 		this.code        = code;
 		this.maxDensity  = maxDensity;
+		this.maxDepth    = maxDepth;
 		this.depth       = depth + 1;
 		this.pos         = pos;
 		this.minX        = minX;
@@ -104,7 +105,7 @@ public class QuadTreeNode {
 			/* If this leaf can still take more points, then simply add it to
 			 * the list of points, otherwise we need to split the list into new
 			 * subtrees. */
-			if (points.size() <= maxDensity || depth >= MAX_DEPTH) {
+			if (points.size() <= maxDensity || depth >= maxDepth) {
 				points.add(c);
 				return true;
 			} else {
@@ -201,16 +202,16 @@ public class QuadTreeNode {
 
 		}
 		this.tl=new QuadTreeNode(
-				minX, minY, maxX/2+minX/2, maxY/2+minY/2, newCode[0],
+				minX, minY, maxX/2+minX/2, maxY/2+minY/2, maxDepth, newCode[0],
 				maxDensity, depth, "tl");
 		this.tr=new QuadTreeNode(
-				maxX/2+minX/2, minY, maxX, maxY/2+minY/2, newCode[1],
+				maxX/2+minX/2, minY, maxX, maxY/2+minY/2, maxDepth, newCode[1],
 				maxDensity, depth, "tr");
 		this.bl=new QuadTreeNode(
-				minX, maxY/2+minY/2, maxX/2+minX/2, maxY, newCode[2],
+				minX, maxY/2+minY/2, maxX/2+minX/2, maxY, maxDepth, newCode[2],
 				maxDensity, depth, "bl");
 		this.br=new QuadTreeNode(
-				maxX/2+minX/2, maxY/2+minY/2, maxX, maxY, newCode[3],
+				maxX/2+minX/2, maxY/2+minY/2, maxX, maxY, maxDepth, newCode[3],
 				maxDensity, depth, "br");
 	}
 

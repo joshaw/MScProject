@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Thu 07 Aug 2014 04:22 PM
+ * Modified: Fri 08 Aug 2014 01:21 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -311,6 +311,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		double scaleVal      = scaleSlider.getValue()/1000.0;
 		int depthVal         = depthSlider.getValue()*2;
 		double minClusterVal = minClusterSlider.getValue()/100000.0;
+		int maxDepthVal      = maxDepthSlider.getValue();
 
 		if (filepath != null) {
 
@@ -325,8 +326,9 @@ public class Cluster_Analysis extends PlugInFrame {
 				System.out.println("#######################" +
 						"\nChanged?   : " + changed +
 						"\nDensity    : " + densityVal +
-						"\nScale      : " + scaleVal +
 						"\nDepth Range: " + depthVal +
+						"\nMax Depth  : " + maxDepthVal +
+						"\nScale      : " + scaleVal +
 						"\nCluser Size: " + minClusterVal +
 						"\nLines      : " + lines +
 						"\nPoints     : " + points +
@@ -338,7 +340,7 @@ public class Cluster_Analysis extends PlugInFrame {
 				if (changed || dij == null) {
 					System.out.println("Generating quadtree...");
 					dataStructure = new QuadTree(maxXval, maxYval, densityVal,
-							depthVal, filepath, colX, colY, separator);
+							maxDepthVal, filepath, colX, colY, separator);
 
 					QuadTree qt = (QuadTree)dataStructure;
 

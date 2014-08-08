@@ -46,7 +46,7 @@ public class QuadTreePropagate {
 		for (String node : hashmap.keySet()) {
 
 			if (node.length() > lmax &&
-					node.length() >= firstStart.length()-(depthRange/2) &&
+					node.length() >= firstStart.length()-depthRange &&
 					hashmap.get(node).status() == 0) {
 
 				lmax = node.length();
