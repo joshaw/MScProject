@@ -9,6 +9,22 @@
 The main deliverable for this project is a plugin for extracting clusters of
 points from large data sets, for the image processing program ImageJ. This
 plugin is written in Java and makes use of the ImageJ Java API\cite{imagejapi}.
+Each of the following sections describes a part of the plugin. The general flow
+of activities from opening the plugin is:
+
+\begin{enumerate}
+	\item click the \texttt{Data File} button,
+	\item choose the data file to analyse,
+	\item If the default separator is incorrect, input the correct one and
+		click the \texttt{Read File} button to re-read with the new separator,
+	\item select the values for the x- and y-columns,
+	\item adjust the sliders to select the parameters that are used to build
+		the quadtrees,
+	\item adjust the checkboxes to change the way the final image is displayed,
+	\item click the \texttt{Quadtree} button to start the process of reading
+		and analysing the selected file.
+\end{enumerate}
+
 \subsection{Column Picker}
 \label{sub:column_picker}
 
