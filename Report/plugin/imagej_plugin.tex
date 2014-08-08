@@ -1,5 +1,5 @@
 % Created:  Fri 04 Jul 2014 04:47 PM
-% Modified: Wed 06 Aug 2014 12:24 pm
+% Modified: Fri 08 Aug 2014 05:13 PM
 % @author Josh Wainwright
 % File name : imagej_plugin.tex
 
@@ -35,6 +35,113 @@ used are available. The user can specify the delimiter used in the file (how
 the columns are separated; comma, space tab etc.), and which column represents
 the x- and y-coordinates. These are chosen through a separate GUI.
 
+\subsection{Option Sliders}
+\label{sub:option_sliders}
+
+The creation of the quadtrees is subject to a number of parameters that affect
+the way points are added, and how it manages the propagation once all points
+are added. A summary of the options available and what effect they have is
+given below.
+
+\begin{description}
+
+	\item[Density] As points are added to a leaf in the quadtree, the capacity
+		of the leaf is checked against this value. If the number of points in
+		that leaf exceeds this value, the points are removed from the leaf,
+		four new quadtrees are created, and each of the points added in to the
+		appropriate new leaf, this is known as \emph{de-leafing}.
+
+		An extremely large value for the denisty, greater than
+		$\rfrac{1}{4}$~times the number of points in the data file, would
+		result in only the first level of nodes being populated (since the root
+		does not hold points) and the final quadtree having only 4 leaves. A
+		value of 1 would mean that there would be the same number of leaf nodes
+		as points in the file. This can lead to out of memory errors in some
+		cases where the file is large and a large value for depth range is set.
+
+		A value of the order of 20 is recommended as this reduces the number of
+		quadtrees created by 10, but still provides enough resolution for
+		propagation. The default value is 20.
+
+	\item[Depth Range] This controls how far up the quadtree will be searched
+		when looking for neighbours as described in
+		Section~\ref{sub:choosing_neighbours}. All neighbours that are deeper
+		in the tree that the node being propagated are included irrespective of
+		this setting. A large value for the depth range will mean that the
+		propagation will go too far up the tree and, ultimately, will reach the
+		root, thus automatically including the whole tree in the located
+		cluster. A value of 0 means that only nodes that are in the same level
+		as the current node, or deeper, are included.
+
+		The depth range should always be considerably less than the max depth.
+		The default value is 3.
+
+	\item[Max Depth] As well as being controlled by the number of points in the
+		leaf, adding points to the quadtree is also limited by the maximum
+		depth. If the depth of a node reaches the maximum depth, then it is not
+		de-leafed even if the number of points in the node exceeds the density.
+		This allows a high value to be set for the denisty so that where the
+		points are relatively clustered, the tree is created deep enough to
+		distinguish them, but to prevent the depth getting very high for
+		regions of localised, abnormal high clustering that might skew the
+		results.
+
+		A small value for max depth means that the tree will never get very
+		deep. If there is noise in the points, this can cause the depth of the
+		noise and the depth of the clusters to be too similar and so mean
+		clustering is not effective. Setting it to a high value can effectively
+		remove the constraint.
+
+		Since the number of nodes in the quadtree increases exponentially with
+		the depth, a large value for the maximum depth can lead to memory
+		errors, though for typical data sets, it is unusual to exceed a depth
+		of around 16. As long as this depth is localised to small areas, this
+		should not be a problem. A depth of 16 provides a maximum of
+		\num{4.29e9} leaf nodes, so even extremely large files can be
+		represented to a high degree of accuracy.
+
+\end{description}
+
+The following are settings that affect the way the clusters are displayed once
+they are found.
+
+\begin{description}
+	\item[Cluster Size] Once the clustering algorithm has completed, the value
+		places a limit on the minimum size of a cluster. Any clusters that are
+		smaller than this will not be drawn in the image and will not have an
+		entry in the results table. This can be useful for a noisy data set
+		that contains many small clusters which make the interesting clusters
+		less easy to see. The value is given as a fraction of the overall size
+		of the image, so a value for the cluster size of 0.05 means that only
+		cluster which are larger than~$\rfrac{1}{20}$ of the size of the whole
+		image are displayed.
+
+		A value of 0 means that no clusters are hidden.
+
+	\item[Scale] Internally, the points read from the file are stored exactly
+		as they are read. The pixel grid for the image is then generated based
+		on these values. If the maximum x- and y-coordinate are both
+		\num{10000}, with a scale value of 1, the image would be \num{10000}
+		pixels by \num{10000} pixels. Since each pixel requires a number of
+		type \emph{float} to hold the RGB colour information, this would be far
+		too large to draw (giving an image with a size of
+		\SI{10}{\giga\byte}). Instead, the size of each coordinate is
+		multiplied by the scale value to reduce the overall size of the image.
+		Because this uses integer devision, there is a certain degree of error
+		that is introduced by this process. This can be seen when viewing the
+		quadtree structure of a deep node where the size of neighbouring nodes
+		at the same level do not appear to be the same size. This alteration is
+		performed only on the pixel information, the original data is
+		maintained and used for all subsequent operations.
+
+		A default value of \num{5e-4} is used. This gives an uncompressed image
+		size of \SI{11}{\mega\byte} for a data set with maximum x- and
+		y-coordinates of around \num{50000}.
+
+	\item[Lines] % TODO lines explanation
+	\item[Points] % TODO points explanation
+	\item[Colourize] % TODO colourize explanation
+\end{description}
 
 \subsection{Displaying the QuadTree}
 \label{sub:displaying_the_quadtree}
