@@ -9,6 +9,16 @@
 The main deliverable for this project is a plugin for extracting clusters of
 points from large data sets, for the image processing program ImageJ. This
 plugin is written in Java and makes use of the ImageJ Java API\cite{imagejapi}.
+\subsection{Column Picker}
+\label{sub:column_picker}
+
+To make the plugin more general purpose than being limited to only data
+formatted in precisely the same way as the data in the sample files used during
+development, the ability to specify some formatting features of the data file
+used are available. The user can specify the delimiter used in the file (how
+the columns are separated; comma, space tab etc.), and which column represents
+the x- and y-coordinates. These are chosen through a separate GUI.
+
 
 \subsection{Displaying the QuadTree}
 \label{sub:displaying_the_quadtree}
@@ -51,16 +61,6 @@ in a stack of slices. Each slice in a stack must have the same dimensions.
 		points, located clusters, quadtree structure, etc.}
 	\label{fig:imagej-stack}
 \end{figure}
-
-\subsection{Column Picker}
-\label{sub:column_picker}
-
-To make the plugin more general purpose than being limited to only data
-formatted in precisely the same way as the data in the sample files used during
-development, the ability to specify some formatting features of the data file
-used are availible. The user can specify the delimiter used in the file (how
-the columns are separated; comma, space tab etc.), and which column represents
-the x- and y-coordinates. These are chosen through a separate GUI.
 
 \subsection{Results Table}
 \label{sub:results_table}
