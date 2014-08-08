@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Fri 08 Aug 2014 03:05 PM
+ * Modified: Fri 08 Aug 2014 05:07 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -118,7 +118,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		// }}}
 		// Depth Slider {{{
 		depthLab = new Label("Depth Range: "+DEPTH_INIT+"    ");
-		depthSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, DEPTH_INIT);
+		depthSlider = new JSlider(JSlider.HORIZONTAL, 0, 25, DEPTH_INIT);
 		depthSlider.setMajorTickSpacing(1);
 		depthSlider.setSnapToTicks(true);
 		depthSlider.addChangeListener(new ChangeListener() {
@@ -333,6 +333,7 @@ public class Cluster_Analysis extends PlugInFrame {
 						"\nLines      : " + lines +
 						"\nPoints     : " + points +
 						"\nColourize  : " + colours +
+						"\nMax X/Max Y: " + maxCoord.getX() + "/" + maxCoord.getY() +
 						"\n#######################");
 
 				long start = System.currentTimeMillis();
