@@ -34,6 +34,12 @@ public class Cluster_Analysis extends PlugInFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	private final int DENSITY_INIT = 20;
+	private final int DEPTH_INIT   = 3;
+	private final int MAXD_INIT    = 10;
+	private final int MINC_INIT    = 50;
+	private final int SCALE_INIT   = 30;
+
 	private String     filepath;
 	private double     maxXval;
 	private double     maxYval;
@@ -92,8 +98,8 @@ public class Cluster_Analysis extends PlugInFrame {
 		textpanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
 		// Density Slider {{{
-		densityLab = new Label("Density: 30    ");
-		densitySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 30);
+		densityLab = new Label("Density: "+DENSITY_INIT+"    ");
+		densitySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, DENSITY_INIT);
 		densitySlider.setMajorTickSpacing(1);
 		densitySlider.setSnapToTicks(true);
 		densitySlider.addChangeListener(new ChangeListener() {
@@ -111,8 +117,8 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		// }}}
 		// Depth Slider {{{
-		depthLab = new Label("Depth Range: 3    ");
-		depthSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, 3);
+		depthLab = new Label("Depth Range: "+DEPTH_INIT+"    ");
+		depthSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, DEPTH_INIT);
 		depthSlider.setMajorTickSpacing(1);
 		depthSlider.setSnapToTicks(true);
 		depthSlider.addChangeListener(new ChangeListener() {
@@ -129,8 +135,8 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		// }}}
 		// Max Depth Slider {{{
-		maxDepthLab = new Label("Max Depth: 10    ");
-		maxDepthSlider = new JSlider(JSlider.HORIZONTAL, 5, 25, 10);
+		maxDepthLab = new Label("Max Depth: "+MAXD_INIT+"    ");
+		maxDepthSlider = new JSlider(JSlider.HORIZONTAL, 5, 25, MAXD_INIT);
 		maxDepthSlider.setMajorTickSpacing(1);
 		maxDepthSlider.setSnapToTicks(true);
 		maxDepthSlider.addChangeListener(new ChangeListener() {
@@ -147,8 +153,8 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		// }}}
 		// Cluster Size Slider {{{
-		minClusterLab = new Label("Cluster Size: 5.0E-4");
-		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 50); //*10000
+		minClusterLab = new Label("Cluster Size: "+(MINC_INIT/100000.0)+" ");
+		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, MINC_INIT); //*10000
 		minClusterSlider.setMajorTickSpacing(10);
 		minClusterSlider.setSnapToTicks(true);
 		minClusterSlider.addChangeListener(new ChangeListener() {
@@ -165,8 +171,8 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		// }}}
 		// Scale Slider {{{
-		scaleLab = new Label("Scale: 0.03");
-		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 30); //*1000
+		scaleLab = new Label("Scale: "+(SCALE_INIT/1000.0)+" ");
+		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, SCALE_INIT); //*1000
 		scaleSlider.setMajorTickSpacing(10);
 		scaleSlider.setSnapToTicks(true);
 		scaleSlider.addChangeListener(new ChangeListener() {
@@ -386,7 +392,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	class StatusTask extends TimerTask {
 		public void run() {
 			statusMessage.setText("");
-			timer.cancel(); 
+			timer.cancel();
 		}
 	}
 	// ------------------------------------------------------------
