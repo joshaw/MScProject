@@ -1,5 +1,5 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Mon 04 Aug 2014 11:07 AM
+ * Modified: Thu 07 Aug 2014 03:32 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
@@ -26,7 +26,7 @@ public class QuadTreePropagate {
 	private QuadTreeMap hashmap;
 
 	private String start;
-	private String firstStart;
+	private String firstStart = "";
 	private int[]  kernel;
 	private int    depthRange;
 
@@ -44,7 +44,11 @@ public class QuadTreePropagate {
 		int lmax = 4;
 		String smax = "";
 		for (String node : hashmap.keySet()) {
-			if (node.length() > lmax && hashmap.get(node).status() == 0) {
+
+			if (node.length() > lmax &&
+					node.length() >= firstStart.length()-depthRange &&
+					hashmap.get(node).status() == 0) {
+
 				lmax = node.length();
 				smax = node;
 			}
@@ -67,6 +71,22 @@ public class QuadTreePropagate {
 
 			propagate(start, k);
 		}
+
+		// int k = 0;
+		// while (start != "") {
+		// 	k++;
+		// 	start = getStart();
+		// 	if (k == 1) {
+		// 		firstStart = start;
+		// 	}
+
+		// 	int depthDiff = firstStart.length() - start.length();
+		// 	if (depthDiff > depthRange-2) {
+		// 		continue;
+		// 	}
+
+		// 	propagate(start, k);
+		// }
 	}
 
 	private void propagate(String cell, int k) {
@@ -75,8 +95,11 @@ public class QuadTreePropagate {
 		for (String c : neighbours) {
 
 			if (c != null && hashmap.get(c).status() == 0) {
-				hashmap.get(c).setStatus((byte)k);
-				propagate(c, k);
+
+				hashmap.get(c).setStatus(k);
+				if (!c.equals(cell)) {
+					propagate(c, k);
+				}
 			}
 		}
 
@@ -231,7 +254,6 @@ public class QuadTreePropagate {
 
 				// Check down the tree for valid neighbours
 				s = neighbours.get(i);
-				// neighbours.addAll(addSuffixes(s));
 				QuadTreeNode poss = qt.getNode(s);
 
 				if (start.length() - s.length() < depthRange &&

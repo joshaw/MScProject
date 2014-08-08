@@ -1,5 +1,5 @@
 /** Created: Wed 09 Jul 2014 12:50 PM
- * Modified: Wed 30 Jul 2014 12:20 PM
+ * Modified: Thu 07 Aug 2014 12:15 PM
  * @author Josh Wainwright
  * File name : DrawSimpleGrid.java
  */
@@ -39,7 +39,7 @@ public class Sutils {
 	 * @param s2 second string to interleave
 	 * @return interleaved result of s1 and s2
 	 */
-	public static String interleave(String s1, String s2) {
+	public static String interleave2(String s1, String s2) {
 		if (s1.length() == 0) {
 			return s2;
 		}
@@ -48,6 +48,22 @@ public class Sutils {
 		}
 		return "" + s1.charAt(0) + s2.charAt(0) +
 			interleave(s1.substring(1), s2.substring(1));
+	}
+
+	public static String interleave(String s1, String s2) {
+		StringBuilder is = new StringBuilder();
+		while (s1.length() > 0 && s1.length() >0) {
+			if (s1.length() == 0) {
+				return is.append(s2).toString();
+			}
+			if (s2.length() == 0) {
+				return is.append(s1).toString();
+			}
+			is.append(s1.charAt(0)).append(s2.charAt(0)) ;
+			s1 = s1.substring(1);
+			s2 = s2.substring(1);
+		}
+		return is.toString();
 	}
 
 	/** Returns the maximum value from a arbitrary number of integers.

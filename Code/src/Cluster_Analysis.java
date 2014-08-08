@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Fri 08 Aug 2014 12:47 PM
+ * Modified: Fri 08 Aug 2014 03:05 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -34,6 +34,12 @@ public class Cluster_Analysis extends PlugInFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	private final int DENSITY_INIT = 20;
+	private final int DEPTH_INIT   = 3;
+	private final int MAXD_INIT    = 10;
+	private final int MINC_INIT    = 50;
+	private final int SCALE_INIT   = 30;
+
 	private String     filepath;
 	private double     maxXval;
 	private double     maxYval;
@@ -66,6 +72,8 @@ public class Cluster_Analysis extends PlugInFrame {
 	private JSlider   depthSlider;
 	private Label     minClusterLab;
 	private JSlider   minClusterSlider;
+	private Label     maxDepthLab;
+	private JSlider   maxDepthSlider;
 	private Checkbox  linesBool;
 	private Checkbox  pointsBool;
 	private Checkbox  coloursBool;
@@ -86,12 +94,13 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel1.setLayout(new GridLayout(3, 1, 3, 3));
 
 		Panel textpanel = new Panel();
-		textpanel.setLayout(new GridLayout(4,1));
+		textpanel.setLayout(new GridLayout(5,1));
 		textpanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
-		densityLab = new Label("Density: 20    ");
-		densitySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 20);
-		densitySlider.setMajorTickSpacing(10);
+		// Density Slider {{{
+		densityLab = new Label("Density: "+DENSITY_INIT+"    ");
+		densitySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, DENSITY_INIT);
+		densitySlider.setMajorTickSpacing(1);
 		densitySlider.setSnapToTicks(true);
 		densitySlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent evt) {
@@ -106,24 +115,10 @@ public class Cluster_Analysis extends PlugInFrame {
 		densityPanel.add(densitySlider);
 		textpanel.add(densityPanel);
 
-		scaleLab = new Label("Scale: 0.03");
-		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 30); //*1000
-		scaleSlider.setMajorTickSpacing(10);
-		scaleSlider.setSnapToTicks(true);
-		scaleSlider.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent evt) {
-				int val = ((JSlider)evt.getSource()).getValue();
-				scaleLab.setText("Scale: " + (val/1000.0));
-				changed = true;
-			}
-		});
-		Panel scalePanel = new Panel();
-		scalePanel.add(scaleLab);
-		scalePanel.add(scaleSlider);
-		textpanel.add(scalePanel);
-
-		depthLab = new Label("Depth Range: 2    ");
-		depthSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, 2);
+		// }}}
+		// Depth Slider {{{
+		depthLab = new Label("Depth Range: "+DEPTH_INIT+"    ");
+		depthSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, DEPTH_INIT);
 		depthSlider.setMajorTickSpacing(1);
 		depthSlider.setSnapToTicks(true);
 		depthSlider.addChangeListener(new ChangeListener() {
@@ -138,8 +133,28 @@ public class Cluster_Analysis extends PlugInFrame {
 		depthPanel.add(depthSlider);
 		textpanel.add(depthPanel);
 
-		minClusterLab = new Label("Cluster Size: 5.0E-4");
-		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 50); //*10000
+		// }}}
+		// Max Depth Slider {{{
+		maxDepthLab = new Label("Max Depth: "+MAXD_INIT+"    ");
+		maxDepthSlider = new JSlider(JSlider.HORIZONTAL, 5, 25, MAXD_INIT);
+		maxDepthSlider.setMajorTickSpacing(1);
+		maxDepthSlider.setSnapToTicks(true);
+		maxDepthSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+				int val = ((JSlider)evt.getSource()).getValue();
+				maxDepthLab.setText("Max Depth: " + val);
+				changed = true;
+			}
+		});
+		Panel maxDepthPanel = new Panel();
+		maxDepthPanel.add(maxDepthLab);
+		maxDepthPanel.add(maxDepthSlider);
+		textpanel.add(maxDepthPanel);
+
+		// }}}
+		// Cluster Size Slider {{{
+		minClusterLab = new Label("Cluster Size: "+(MINC_INIT/100000.0)+" ");
+		minClusterSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, MINC_INIT); //*10000
 		minClusterSlider.setMajorTickSpacing(10);
 		minClusterSlider.setSnapToTicks(true);
 		minClusterSlider.addChangeListener(new ChangeListener() {
@@ -154,6 +169,25 @@ public class Cluster_Analysis extends PlugInFrame {
 		minClusterPanel.add(minClusterSlider);
 		textpanel.add(minClusterPanel);
 
+		// }}}
+		// Scale Slider {{{
+		scaleLab = new Label("Scale: "+(SCALE_INIT/1000.0)+" ");
+		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, SCALE_INIT); //*1000
+		scaleSlider.setMajorTickSpacing(10);
+		scaleSlider.setSnapToTicks(true);
+		scaleSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+				int val = ((JSlider)evt.getSource()).getValue();
+				scaleLab.setText("Scale: " + (val/1000.0));
+				changed = true;
+			}
+		});
+		Panel scalePanel = new Panel();
+		scalePanel.add(scaleLab);
+		scalePanel.add(scaleSlider);
+		textpanel.add(scalePanel);
+
+		// }}}
 		linesBool = new Checkbox("Lines", true);
 		subpanel1.add(linesBool);
 		pointsBool = new Checkbox("Points", true);
@@ -277,6 +311,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		double scaleVal      = scaleSlider.getValue()/1000.0;
 		int depthVal         = depthSlider.getValue()*2;
 		double minClusterVal = minClusterSlider.getValue()/100000.0;
+		int maxDepthVal      = maxDepthSlider.getValue();
 
 		if (filepath != null) {
 
@@ -291,8 +326,9 @@ public class Cluster_Analysis extends PlugInFrame {
 				System.out.println("#######################" +
 						"\nChanged?   : " + changed +
 						"\nDensity    : " + densityVal +
-						"\nScale      : " + scaleVal +
 						"\nDepth Range: " + depthVal +
+						"\nMax Depth  : " + maxDepthVal +
+						"\nScale      : " + scaleVal +
 						"\nCluser Size: " + minClusterVal +
 						"\nLines      : " + lines +
 						"\nPoints     : " + points +
@@ -303,8 +339,8 @@ public class Cluster_Analysis extends PlugInFrame {
 
 				if (changed || dij == null) {
 					System.out.println("Generating quadtree...");
-					dataStructure = new QuadTree(maxXval, maxYval,
-							densityVal, filepath, colX, colY, separator);
+					dataStructure = new QuadTree(maxXval, maxYval, densityVal,
+							maxDepthVal, filepath, colX, colY, separator);
 
 					QuadTree qt = (QuadTree)dataStructure;
 
@@ -358,7 +394,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	class StatusTask extends TimerTask {
 		public void run() {
 			statusMessage.setText("");
-			timer.cancel(); //Not necessary because we call System.exit
+			timer.cancel();
 		}
 	}
 	// ------------------------------------------------------------
