@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Thu 07 Aug 2014 05:38 PM
+% Modified: Sun 10 Aug 2014 11:50 am
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -72,26 +72,26 @@ been checked and excluded.
 	}
 \end{lstlisting}
 
-\paragraph{Line \ref{eql:a}} A set of starting locations is selected based on
+\paragraph{Line~\ref{eql:a}} A set of starting locations is selected based on
 some heuristic that determines if a node is deep enough in the tree to be used
 as a starting location.
 
-\paragraph{Line \ref{eql:b}} Nodes are only propagated if they have not already
+\paragraph{Line~\ref{eql:b}} Nodes are only propagated if they have not already
 been included in a cluster. If this were not the case, then clusters would
 overlap.
 
-\paragraph{Line \ref{eql:c}} Each of the neighbours of the current node is
+\paragraph{Line~\ref{eql:c}} Each of the neighbours of the current node is
 propagated. The method of choosing neighbours determines how far the cluster
 can spread, and is separated from the clustering algorithm.
 
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=7cm]{propogation.pdf}
-	\caption{For a starting location, a), in an image, no information is known
+	\caption{For a starting location, (a), in an image, no information is known
 		and so the neighbours are checked. Some of these are found to be part
 		of the cluster, others are rejected. The ones that are included are
-		then, themselves, checked and so on. As the cluster grows, b), c) and
-		d), the number of checked nodes increases.} \label{fig:propogation}
+		then, themselves, checked and so on. As the cluster grows, (b), (c) and
+		(d), the number of checked nodes increases.}\label{fig:propogation}
 \end{figure}
 
 When discovering clusters via this propagation technique, care must be taken to
@@ -113,19 +113,19 @@ clear that the structure continues beyond the gap.
 	\centering
 	\begin{subfigure}[c]{5.2cm}
 		\includegraphics[width=\linewidth]{propogation-halting.pdf}
-		\caption{} \label{fig:propogation-halting}
+		\caption{}\label{fig:propogation-halting}
 	\end{subfigure}%
 	\quad
 	\begin{subfigure}[c]{3.2cm}
 		\includegraphics[width=\linewidth]{propogation-levels.pdf}
-		\caption{} \label{fig:propogation-levels}
+		\caption{}\label{fig:propogation-levels}
 	\end{subfigure}
 	\caption{Considerations regarding quadtree levels that will be accepted
 		when propagating a node in a quadtree. \subref{fig:propogation-halting}
 		If the depth range that specifies how far up the tree to look for valid
 		neighbours is too small then a cluster might be terminated too soon.
-		\subref{fig:propogation-levels}(i) a depth range of two and, (ii) a
-		depth range of three.} \label{fig:prop-levels-halting}
+		\subref{fig:propogation-levels}~(i) a depth range of two and, (ii) a
+		depth range of three.}\label{fig:prop-levels-halting}
 \end{figure}
 
 To avoid this, a certain amount of leniency must be given when deciding what
@@ -179,7 +179,7 @@ of the nodes that are included in the cluster and the depth that is searched.
 		both \subref{fig:single-cluster-points} the points that were considered
 		to be in the cluster and \subref{fig:single-cluster-lines} the nodes in
 		the quadtree that were included and where the propagating algorithm
-		stopped.} \label{fig:single-cluster}
+		stopped.}\label{fig:single-cluster}
 \end{figure}
 
 In order to find other clusters, the algorithm must be restarted with a new
@@ -221,7 +221,7 @@ this process of finding new clusters:
 	\,
 	\begin{minipage}[c]{1cm}
 		\centering
-		\begin{tabular}[b]{ l }
+		\begin{tabular}[b]{l}
 			\cellcolor{lyellow}1 \\
 			\cellcolor{lorange}2 \\
 			\cellcolor{lbrown}3 \\
@@ -237,8 +237,7 @@ this process of finding new clusters:
 	\caption{Initial versions of the clustering algorithm included too many
 	nodes, making the clusters too large. This image shows how each node
 	cluster that is started is independent of the previous ones. The clusters
-	were identified in the order they are listed on the right.}
-	\label{fig:multiple-clusters-colours}
+	were identified in the order they are listed on the right.}\label{fig:multiple-clusters-colours}
 
 \end{figure}
 
@@ -315,35 +314,44 @@ under an element with a value of 1 is included as a neighbour and 0 elements
 are ignored so that no neighbours are chosen. The value of the central element
 in the kernel does not matter, but the convention shall be to set this to 1.
 
-Thus, the simpest kernel, and of least use, is the identity kernel which has an
-element with value 1 in the center and all other elements 0. This would result
-in no neighbours being selected, and so no clusters located. The rook's case
-neighbours are now represented with the kernel in
+Thus, the simpest kernel, though of least use, is the identity kernel which has
+an element with value 1 in the center and all other elements 0. This would
+result in no neighbours being selected, and so no clusters located. The rook's
+case neighbours are now represented with the first kernel in
+Figure~\ref{fig:kernel-neighbours}.
 % TODO kernel explanation
 
-\begin{table}[h!]
+\begin{figure}[tbhp]
 	\centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		0 & 1 & 0 \\
-		\hline
-		1 & \cellcolor{lblue}1 & 1 \\
-		\hline
-		0 & 1 & 0 \\
-		\hline
-	\end{tabular}
-	\qquad
-	\begin{tabular}{|l|l|l|}
-		\hline
-		0 & 1 & 0 \\
-		\hline
-		1 & \cellcolor{lblue}1 & 1 \\
-		\hline
-		0 & 1 & 0 \\
-		\hline
-	\end{tabular}
-	\captionof{figure}{}
-\end{table}
+	\begin{subtable}[b]{0.2\textwidth}
+	\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			0 & 1 & 0 \\
+			\hline
+			1 & \cellcolor{lblue}1 & 1 \\
+			\hline
+			0 & 1 & 0 \\
+			\hline
+		\end{tabular}
+		\caption{}\label{fig:}
+	\end{subtable}%
+	\quad
+	\begin{subtable}[b]{0.2\textwidth}
+	\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			1 & 1 & 1 \\
+			\hline
+			1 & \cellcolor{lblue}1 & 1 \\
+			\hline
+			1 & 1 & 1 \\
+			\hline
+		\end{tabular}
+		\caption{}
+	\end{subtable}
+	\caption{}\label{fig:}
+\end{figure}
 
 %TODO move kernel diagrams here
 

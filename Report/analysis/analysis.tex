@@ -1,5 +1,5 @@
 % Created:  Fri 01 Aug 2014 02:02 PM
-% Modified: Thu 07 Aug 2014 11:47 AM
+% Modified: Sun 10 Aug 2014 11:12 am
 % @author Josh Wainwright
 % filename: analysis.tex
 
@@ -42,7 +42,7 @@ Here, the nodes of the quadtree that were considered part of the cluster are
 considered, rather than the points that they contain.
 
 \subsubsection{Cluster Area}
-\label{ssub:Cluster Area}
+\label{ssub:cluster_area}
 
 To calculate the area of the clusters, each node in each cluster is examined.
 Since the size of the node must be known, it is calculated from the quadtree
@@ -60,7 +60,7 @@ cluster area, $A$:
 \end{align}
 
 \subsubsection{Cluster Perimeter}
-\label{ssub:Cluster Perimeter}
+\label{ssub:cluster_perimeter}
 
 Similarly to the cluster area, the perimeter is given as a fractional value of
 the length of one side of the whole image, as calculated for each node from the
@@ -83,8 +83,8 @@ total perimeter, $P$, then is given by Equation~\ref{eq:total-perimeter},
 \end{align}
 where $s \in \{0..4\}$. This is demonstrated in
 Figure~\ref{fig:perimeter-edges} where the perimeter is simple to calculate in
-case a) as the nodes are all the same, but the size of each node must be taken
-into account in case b).
+case (a) as the nodes are all the same, but the size of each node must be taken
+into account in case (b).
 
 \begin{figure}[tbhp]
 	\centering
@@ -104,8 +104,7 @@ into account in case b).
 		all nodes are the same size and a fractional value of 3.5 is
 		calculated. For case~\subref{fig:perimeter-edges-quadtree.pdf}, the
 		steps are 25 lengths of size $\rfrac{1}{8}$ and 6 lengths of size
-		$\rfrac{1}{16}$ which gives the same result, 3.5.}
-	\label{fig:perimeter-edges}
+		$\rfrac{1}{16}$ which gives the same result, 3.5.}\label{fig:perimeter-edges}
 
 \end{figure}
 
@@ -116,7 +115,7 @@ calculation of the perimeter and so, where holes exist in a cluster, the actual
 perimeter is slightly smaller than that calculated.
 
 \subsubsection{Cluster Roundness}
-\label{ssub:Cluster Roundness}
+\label{ssub:Cluster_Roundness}
 
 A potentially useful measure of a cluster is its \emph{roundness}. This
 describes the extent to which the area and perimeter of the cluster resemble a
@@ -151,7 +150,7 @@ Figure~\ref{fig:roundness-round.png} has an average $R=0.446$.
 	\caption{The general shape of the clusters found can be described using the
 		roundness measure. A value closer to 0 means longer and thinner
 		clusters, whereas values closer to 1 mean clusters that are more
-		circular.} \label{fig:roundness}
+		circular.}\label{fig:roundness}
 \end{figure}
 
 \subsection{Point Analysis}
@@ -162,12 +161,12 @@ of the cluster are considered; the nodes are only used to select the correct
 points.
 
 \subsubsection{Cluster Area}
-\label{ssub:Cluster Area}
+\label{ssub:cluster_area}
 
 % TODO cluster area with points
 
 \subsubsection{Cluster Perimeter}
-\label{ssub:Cluster Perimeter}
+\label{ssub:cluster_perimeter}
 
 % TODO cluster perimeter with points
 

@@ -1,12 +1,12 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Fri 08 Aug 2014 03:51 PM
+% Modified: Sun 10 Aug 2014 11:33 am
 % @author Josh Wainwright
 % File name : quadtree.tex
 
 \section{Quadtrees}
 \label{sec:quadtrees}
 
-Since the simple grid method described in section~\ref{sec:simple_grid_method}
+Since the simple grid method described in Section~\ref{sec:simple_grid_method}
 performs slowly and does not offer good cluster analysis, a different approach
 is needed. The chosen method is to use a quadtree data structure.
 
@@ -62,17 +62,17 @@ traverse the children in a sensible and predictable way is essential.
 	\centering
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{traverse-z-order.pdf}
-		\caption{} \label{fig:traverse-z-order.pdf}
+		\caption{}\label{fig:traverse-z-order.pdf}
 	\end{subfigure}%
 	\quad
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{traverse-hilbert-order.pdf}
-		\caption{} \label{fig:traverse-hilbert-order.pdf}
+		\caption{}\label{fig:traverse-hilbert-order.pdf}
 	\end{subfigure}
 	\\[0.2cm]
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{traverse-gray-order.pdf}
-		\caption{} \label{fig:traverse-gray-order.pdf}
+		\caption{}\label{fig:traverse-gray-order.pdf}
 	\end{subfigure}%
 	\quad
 	\begin{subfigure}[b]{3.5cm}
@@ -85,7 +85,7 @@ traverse the children in a sensible and predictable way is essential.
 	Z-order, \subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
 	\subref{fig:traverse-gray-order.pdf} shows Gray code order and
 	\subref{fig:traverse-modgray-order.pdf} shows the modified Gray code order
-	developed for this project.} \label{fig:order_traversals}
+	developed for this project.}\label{fig:order_traversals}
 \end{figure}
 
 \subsubsection[Morton Order]{Morton Order (Z-Order)}
@@ -135,7 +135,7 @@ calculate the neighbours of any given cell are reasonably complex and so would
 add computational and time complexity to calculations performed on the tree.
 
 \subsubsection*{Morton Order Coordinates}
-\label{ssub:Morton Order Coordinates}
+\label{ssub:morton_order_coordinates}
 
 Another useful feature of the Morton ordering is the simple conversion from
 quadtree code to Cartesian coordinate notation. The steps to convert to
@@ -233,15 +233,14 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
 		same orientation, each is reflected in either the x- or y-axis,
 		\subref{fig:modgray-2-levels-arrows.pdf}. This has the advantage that
 		neighbouring nodes have codes which differ by exactly one bit,
-		\subref{fig:modgray-2-levels-numbers.pdf}.} \label{fig:modgray-traversal}
+		\subref{fig:modgray-2-levels-numbers.pdf}.}\label{fig:modgray-traversal}
 \end{figure}
 
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=7.4cm]{modgray-steps.pdf}
 	% TODO caption
-	\caption{modgray-Steps}
-	\label{fig:modgray-steps}
+	\caption{modgray-Steps}\label{fig:modgray-steps}
 \end{figure}
 
 \subsubsection{Other Orderings}
@@ -284,17 +283,17 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 	\centering
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{modgray-alt-order.pdf}
-		\caption{} \label{fig:modgray-alt-order.pdf}
+		\caption{}\label{fig:modgray-alt-order.pdf}
 	\end{subfigure}%
 	\quad
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{modgray-alt-prime.pdf}
-		\caption{} \label{fig:modgray-alt-prime.pdf}
+		\caption{}\label{fig:modgray-alt-prime.pdf}
 	\end{subfigure}
 	\\[0.2cm]
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{modgray-alt-rotated.pdf}
-		\caption{} \label{fig:modgray-alt-rotated.pdf}
+		\caption{}\label{fig:modgray-alt-rotated.pdf}
 	\end{subfigure}%
 	\quad
 	\begin{subfigure}[b]{3.5cm}
@@ -305,8 +304,7 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 	used to map a two dimensional grid to a single dimensional array. To be
 	considered for use in the quadtree ordering, the new ordering must provide
 	some improvement of efficiency of some operations. Here are shown some
-	orderings which were discounted.}
-	\label{fig:modgray-2-alternatives}
+	orderings which were discounted.}\label{fig:modgray-2-alternatives}
 \end{figure}
 
 Since the quadtree is a recursive data structure, it is necessary to be able to
@@ -344,25 +342,25 @@ the position of the current node.},
 label=code:child_construction_mgc]
 	// Child creation, Modified Gray Code
 	this.position = pos;
-	if (pos == "tl") ) {
+	if (pos == "tl") {
 		new_code[0] = code + "00";
 		new_code[1] = code + "01";
 		new_code[2] = code + "10";
 		new_code[3] = code + "11";
 
-	} else if (pos == "tr")) {
+	} else if (pos == "tr") {
 		new_code[0] = code + "01";
 		new_code[1] = code + "00";
 		new_code[2] = code + "11";
 		new_code[3] = code + "10";
 
-	} else if (pos == "bl")) {
+	} else if (pos == "bl") {
 		new_code[0] = code + "10";
 		new_code[1] = code + "11";
 		new_code[2] = code + "00";
 		new_code[3] = code + "01";
 
-	} else if (pos == "br")){
+	} else if (pos == "br") {
 		new_code[0] = code + "11";
 		new_code[1] = code + "10";
 		new_code[2] = code + "01";
@@ -388,13 +386,13 @@ code as the array index. Once this is performed the access complexity is
 significantly reduced. This operation is only performed once after the quadtree
 has been generated meaning the amortized complexity is reduced.
 
-As mentioned in Part~\ref{prt:data_structures}, using a na\"ive implementation
-has the potential to have a very poor space usage if the image is not densely
-populated (in which case it is likely that few clusters would be identifiable
-anyway). Instead, an implementation is created that makes use of the \emph{Hash
-Table} data structure\cite{cormen2001introduction}. This allows the data
-structure to increase in size dynamically as more space is needed, but also
-provides linear time complexity for access, modification and search. The
+As mentioned in Part~\ref{prt:data_structures}, using a na\"{\i}ve
+implementation has the potential to have a very poor space usage if the image
+is not densely populated (in which case it is likely that few clusters would be
+identifiable anyway). Instead, an implementation is created that makes use of
+the \emph{Hash Table} data structure\cite{cormen2001introduction}. This allows
+the data structure to increase in size dynamically as more space is needed, but
+also provides linear time complexity for access, modification and search. The
 quadtree code is used as the key for the hash table, and the data stored within
 the cell with that code is the hash table value.
 
