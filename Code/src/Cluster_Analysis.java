@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Fri 08 Aug 2014 05:07 PM
+ * Modified: Mon 11 Aug 2014 12:12 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -40,19 +40,21 @@ public class Cluster_Analysis extends PlugInFrame {
 	private final int MINC_INIT    = 50;
 	private final int SCALE_INIT   = 30;
 
-	private String     filepath;
+	private String     filepath = "";
 	private double     maxXval;
 	private double     maxYval;
 	private int        densityVal;
 	private int        depthVal;
 	private double     scaleVal;
-	private int        colX;
-	private int        colY;
-	private String     separator;
+	private int        colX = 3;
+	private int        colY = 4;
+	private String     separator = "\t";
 	private Coordinate maxCoord;
 	private String kernel = "1 1 1\n1 1 1\n1 1 1";
 	private boolean kernelChanged = false;
 	private boolean changed = false;
+	private boolean drawQuadTreeImediately = false;
+	private boolean drawGridTreeImediately = false;
 
 	private ClusterStructure dataStructure;
 	private DrawQuadTreeMapIJ dij = null;
@@ -62,7 +64,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	private Panel subpanel1;
 	private Panel subpanel2;
 	private Label statusMessage;
-	private Label fileStatus;
+	private Label fileStatus = new Label("");
 
 	private Label     densityLab;
 	private JSlider   densitySlider;
@@ -77,7 +79,7 @@ public class Cluster_Analysis extends PlugInFrame {
 	private Checkbox  linesBool;
 	private Checkbox  pointsBool;
 	private Checkbox  coloursBool;
-	private Button    autoButton;
+	private Button    defaultsButton;
 	private Button    quadtreeButton;
 	private Button    gridButton;
 
@@ -89,12 +91,14 @@ public class Cluster_Analysis extends PlugInFrame {
 		}
 		instance = this;
 
+		handleOptions();
+
 		setLayout(new BorderLayout());
 		subpanel1 = new Panel();
-		subpanel1.setLayout(new GridLayout(3, 1, 3, 3));
+		subpanel1.setLayout(new GridLayout(0, 1, 3, 3));
 
 		Panel textpanel = new Panel();
-		textpanel.setLayout(new GridLayout(5,1));
+		textpanel.setLayout(new GridLayout(0,1, 0, 0));
 		textpanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
 		// Density Slider {{{
@@ -196,8 +200,21 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel1.add(coloursBool);
 
 		subpanel2 = new Panel();
-		subpanel2.setLayout(new GridLayout(5, 1, 3, 3));
+		subpanel2.setLayout(new GridLayout(0, 1, 0, 0));
 
+		// Data File Button {{{
+		Button dataFileButton = new Button("Data file");
+		dataFileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				dataFileButtonActionPerformed();
+			}
+		});
+		subpanel2.add(dataFileButton);
+
+		// }}}
+		subpanel2.add(new Label(""));
+
+		// Kernel Button {{{
 		Button kernelButton = new Button("Kernel");
 		kernelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -206,14 +223,20 @@ public class Cluster_Analysis extends PlugInFrame {
 		});
 		subpanel2.add(kernelButton);
 
-		Button dataFileButton = new Button("Data file");
-		dataFileButton.addActionListener(new ActionListener() {
+		// }}}
+		// Defaults Button {{{
+		defaultsButton = new Button("Defaults");
+		defaultsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				dataFileButtonActionPerformed(evt);
+				defaultsButtonActionPerformed();
 			}
 		});
-		subpanel2.add(dataFileButton);
+		subpanel2.add(defaultsButton);
 
+		// }}}
+		subpanel2.add(new Label(""));
+
+		// QuadTree Button {{{
 		quadtreeButton = new Button("QuadTree");
 		quadtreeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -221,8 +244,12 @@ public class Cluster_Analysis extends PlugInFrame {
 			}
 		});
 		subpanel2.add(quadtreeButton);
-		quadtreeButton.setVisible(false);
+		if (filepath.equals("")) {
+			quadtreeButton.setVisible(false);
+		}
 
+		// }}}
+		// Grid Button {{{
 		gridButton = new Button("Grid");
 		gridButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -230,7 +257,10 @@ public class Cluster_Analysis extends PlugInFrame {
 			}
 		});
 		subpanel2.add(gridButton);
-		gridButton.setVisible(false);
+		if (filepath.equals("")) {
+			gridButton.setVisible(false);
+		}
+		// }}}
 
 		panel = new Panel();
 		panel.setLayout(new FlowLayout());
@@ -241,8 +271,16 @@ public class Cluster_Analysis extends PlugInFrame {
 		this.add(panel, BorderLayout.CENTER);
 		statusMessage = new Label("");
 		this.add(statusMessage, BorderLayout.NORTH);
-		fileStatus = new Label("No data file chosen.");
 		this.add(fileStatus, BorderLayout.SOUTH);
+
+		if (drawQuadTreeImediately) {
+			ActionEvent evt = new ActionEvent(new Object(), 100, "QuadTree");
+			drawStructureActionPerformed(evt);
+		}
+		if (drawGridTreeImediately) {
+			ActionEvent evt = new ActionEvent(new Object(), 100, "Grid");
+			drawStructureActionPerformed(evt);
+		}
 
 		pack();
 		GUI.center(this);
@@ -261,7 +299,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		}
 	}
 
-	private void dataFileButtonActionPerformed(ActionEvent evt) {
+	private void dataFileButtonActionPerformed() {
 		OpenDialog od    = new OpenDialog("Open data file ...");
 
 		if (od.getPath() != null) {
@@ -275,20 +313,34 @@ public class Cluster_Analysis extends PlugInFrame {
 				colY = cc.getYCol();
 				separator = cc.getSeparator();
 
-				/* This is here to allow the "auto" button to be able to
-				 * get the max and min values. */
-				maxCoord = FileHandler.getMaxCoord( filepath,
-						new FileDescriptor(colX, colY, separator));
+				performAutoActions(file);
+
 				quadtreeButton.setVisible(true);
 				gridButton.setVisible(true);
-
-				int numPoints = FileHandler.getNumberOfLines(filepath);
-				fileStatus.setText("File: "+file+",  Points: "+numPoints);
-
-				autoButtonActionPerformed();
-				changed = true;
 			}
 		}
+	}
+
+	private void performAutoActions(String file) {
+		/* This is here to allow the "auto" button to be able to
+		 * get the max and min values. */
+		maxCoord = FileHandler.getMaxCoord( filepath,
+				new FileDescriptor(colX, colY, separator));
+
+		int numPoints = FileHandler.getNumberOfLines(filepath);
+		String filename = FileHandler.getFileName(file);
+		fileStatus.setText("File: "+filename+",  Points: "+numPoints);
+
+		autoButtonActionPerformed();
+		changed = true;
+	}
+
+	private void defaultsButtonActionPerformed() {
+		densitySlider.setValue(DENSITY_INIT);
+		depthSlider.setValue(DEPTH_INIT);
+		maxDepthSlider.setValue(MAXD_INIT);
+		minClusterSlider.setValue(MINC_INIT);
+		scaleSlider.setValue(SCALE_INIT);
 	}
 
 	private void autoButtonActionPerformed() {
@@ -387,6 +439,41 @@ public class Cluster_Analysis extends PlugInFrame {
 		statusMessage.setText(message);
 		timer = new Timer();
 		timer.schedule(new StatusTask(), 3 * 1000);
+	}
+
+	private void handleOptions() {
+		String options = Macro.getOptions();
+		if (options != null) {
+			if (options.indexOf("sep=") != -1) {
+				options = options.toLowerCase();
+				int sepp = options.indexOf("sep=");
+				int comma = options.indexOf(",", sepp);
+				comma = (comma == -1)? Integer.MAX_VALUE: comma;
+				int end = Math.min(comma , options.length()-1);
+				String seps = options.substring(sepp, end);
+				seps = seps.replaceAll("sep=", "");
+				this.separator = seps;
+			}
+			if (options.indexOf("filepath=") != -1) {
+				int fp = options.indexOf("filepath=");
+				int comma = options.indexOf(",", fp);
+				comma = (comma == -1)? Integer.MAX_VALUE: comma;
+				int end = Math.min(comma , options.length()-1);
+				String fps = options.substring(fp, end);
+				fps = fps.replaceAll("filepath=", "");
+				this.filepath = fps;
+				performAutoActions(filepath);
+			}
+			if (options.indexOf("quadtree=1") != -1) {
+				options = options.toLowerCase();
+				drawQuadTreeImediately = true;
+			}
+			if (options.indexOf("grid=1") != -1) {
+				options = options.toLowerCase();
+				drawGridTreeImediately = true;
+			}
+		}
+
 	}
 
 	/** ------------------------------------------------------------
