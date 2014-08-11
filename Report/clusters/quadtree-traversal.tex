@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Mon 11 Aug 2014 09:48 AM
+% Modified: Mon 11 Aug 2014 04:42 PM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -334,7 +334,7 @@ Figure~\ref{fig:kernel-neighbours}.
 			\hline
 			0 & 1 & 0 \\
 			\hline
-			1 & \cellcolor{lblue}1 & 1 \\
+			1 & \cellcolor{lred}1 & 1 \\
 			\hline
 			0 & 1 & 0 \\
 			\hline
@@ -348,7 +348,7 @@ Figure~\ref{fig:kernel-neighbours}.
 			\hline
 			1 & 1 & 1 \\
 			\hline
-			1 & \cellcolor{lblue}1 & 1 \\
+			1 & \cellcolor{lred}1 & 1 \\
 			\hline
 			1 & 1 & 1 \\
 			\hline
@@ -358,6 +358,25 @@ Figure~\ref{fig:kernel-neighbours}.
 	%TODO short caption
 	% TODO caption
 	\caption{}\label{fig:kernel-neighbours}
+\end{figure}
+
+This functionalilty provides the ability to target certain clusters depending
+on the spatial orientation of the cluster, vertical or horizontal etc.
+Figure~\ref{fig:kernel-shapes} shows a number of possibilities of kernel shapes
+that would allow different types of clusters to be targeted.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=7cm]{kernel-shapes.pdf}
+	%TODO short caption
+	\caption[Different kernel shapes]{Different kernel shapes can be used to
+		find different sorts of clusters. (a) The basic rook's case neighbours
+		and (b) the full number of closest neighbours are the simplest general
+		cases, used for most clusters. (c) the area to search can be extended
+		by including more neighbours---this could help find clusters that are
+		more sparsely populated. Clusters of a specific orientation can be
+		located, for example, predominately (d) vertical or (e) NW SE
+		diagonal.}\label{fig:kernel-shapes}
 \end{figure}
 
 % TODO searching up the tree
