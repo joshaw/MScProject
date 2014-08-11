@@ -443,9 +443,10 @@ public class Cluster_Analysis extends PlugInFrame {
 
 	private void handleOptions() {
 		String options = Macro.getOptions();
+		String optionsOrig = options;
+		options = options.toLowerCase();
 		if (options != null) {
 			if (options.indexOf("sep=") != -1) {
-				options = options.toLowerCase();
 				int sepp = options.indexOf("sep=");
 				int comma = options.indexOf(",", sepp);
 				comma = (comma == -1)? Integer.MAX_VALUE: comma;
@@ -459,17 +460,15 @@ public class Cluster_Analysis extends PlugInFrame {
 				int comma = options.indexOf(",", fp);
 				comma = (comma == -1)? Integer.MAX_VALUE: comma;
 				int end = Math.min(comma , options.length()-1);
-				String fps = options.substring(fp, end);
+				String fps = optionsOrig.substring(fp, end);
 				fps = fps.replaceAll("filepath=", "");
 				this.filepath = fps;
 				performAutoActions(filepath);
 			}
 			if (options.indexOf("quadtree=1") != -1) {
-				options = options.toLowerCase();
 				drawQuadTreeImediately = true;
 			}
 			if (options.indexOf("grid=1") != -1) {
-				options = options.toLowerCase();
 				drawGridTreeImediately = true;
 			}
 		}
