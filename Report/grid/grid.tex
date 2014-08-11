@@ -1,5 +1,5 @@
 % Created:  Mon 23 Jun 2014 13:15 PM
-% Modified: Sun 10 Aug 2014 11:30 am
+% Modified: Mon 11 Aug 2014 04:42 PM
 % @author Josh Wainwright
 % File name : grid.tex
 
@@ -36,6 +36,7 @@ $y$ axes, thus the images are 205 by 205 pixels. This data took
         \frame{\includegraphics[width=\textwidth]{grid-noise-high.png}}
         \caption{}\label{fig:grid-noise-high.png}
     \end{subfigure}
+	%TODO short caption
     \caption{Setting a low threshold, \subref{fig:grid-noise-low.png}, means
     that many of the points in the clusters are lost. Setting it higher,
     \subref{fig:grid-noise-high.png}, includes too many of the points deemed to
@@ -68,6 +69,7 @@ when handling outlying points caused by noise.
 \begin{figure}[tbhp]
 	\centering
 	\frame{\includegraphics[width=7cm]{grid-threshold-close.png}}
+	%TODO short caption
 	\caption{Using a \texttt{close}-ing algorithm can help to emphasise the
 	structure in the data and, at the same time, remove the isolated points
 	representing noise.}\label{fig:grid-threshold-close}
