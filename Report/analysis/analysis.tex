@@ -1,5 +1,5 @@
 % Created:  Fri 01 Aug 2014 02:02 PM
-% Modified: Sun 10 Aug 2014 11:12 am
+% Modified: Mon 11 Aug 2014 09:34 AM
 % @author Josh Wainwright
 % filename: analysis.tex
 
@@ -42,7 +42,7 @@ Here, the nodes of the quadtree that were considered part of the cluster are
 considered, rather than the points that they contain.
 
 \subsubsection{Cluster Area}
-\label{ssub:cluster_area}
+\label{ssub:cluster_area_node}
 
 To calculate the area of the clusters, each node in each cluster is examined.
 Since the size of the node must be known, it is calculated from the quadtree
@@ -60,7 +60,7 @@ cluster area, $A$:
 \end{align}
 
 \subsubsection{Cluster Perimeter}
-\label{ssub:cluster_perimeter}
+\label{ssub:cluster_perimeter_node}
 
 Similarly to the cluster area, the perimeter is given as a fractional value of
 the length of one side of the whole image, as calculated for each node from the
@@ -161,12 +161,12 @@ of the cluster are considered; the nodes are only used to select the correct
 points.
 
 \subsubsection{Cluster Area}
-\label{ssub:cluster_area}
+\label{ssub:cluster_area_point}
 
 % TODO cluster area with points
 
 \subsubsection{Cluster Perimeter}
-\label{ssub:cluster_perimeter}
+\label{ssub:cluster_perimeter_point}
 
 % TODO cluster perimeter with points
 
