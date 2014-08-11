@@ -1,5 +1,5 @@
 % Created:  Fri 01 Aug 2014 02:02 PM
-% Modified: Mon 11 Aug 2014 04:42 PM
+% Modified: Mon 11 Aug 2014 04:51 PM
 % @author Josh Wainwright
 % filename: analysis.tex
 
@@ -98,14 +98,15 @@ into account in case (b).
 		\caption{}\label{fig:perimeter-edges-quadtree.pdf}
 	\end{subfigure}
 
-	%TODO short caption
-	\caption{When calculating the perimeter of a cluster using the nodes that
-		contribute, the size of each node must be taken into account. In
+	\caption[Perimeter size from node edge size.]{When calculating the
+		perimeter of a cluster using the nodes that contribute, the size of
+		each node must be taken into account. In
 		case~\subref{fig:perimeter-edges-grid.pdf}, the process is simple since
 		all nodes are the same size and a fractional value of 3.5 is
 		calculated. For case~\subref{fig:perimeter-edges-quadtree.pdf}, the
 		steps are 25 lengths of size $\rfrac{1}{8}$ and 6 lengths of size
-		$\rfrac{1}{16}$ which gives the same result, 3.5.}\label{fig:perimeter-edges}
+		$\rfrac{1}{16}$ which gives the same result,
+		3.5.}\label{fig:perimeter-edges}
 
 \end{figure}
 
@@ -148,11 +149,11 @@ Figure~\ref{fig:roundness-round.png} has an average $R=0.446$.
 		\fbox{\includegraphics[width=\textwidth]{roundness-round.png}}
 		\caption{}\label{fig:roundness-round.png}
 	\end{subfigure}
-	%TODO short caption
-	\caption{The general shape of the clusters found can be described using the
-		roundness measure. A value closer to 0 means longer and thinner
-		clusters, whereas values closer to 1 mean clusters that are more
-		circular.}\label{fig:roundness}
+
+	\caption[A comparison of roundness values.]{The general shape of the
+		clusters found can be described using the roundness measure. A value
+		closer to 0 means longer and thinner clusters, whereas values closer to
+		1 mean clusters that are more circular.}\label{fig:roundness}
 \end{figure}
 
 \subsection{Point Analysis}

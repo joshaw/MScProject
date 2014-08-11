@@ -1,5 +1,5 @@
 % Created:  Thu 10 Jul 2014 04:22 PM
-% Modified: Mon 11 Aug 2014 04:42 PM
+% Modified: Mon 11 Aug 2014 04:59 PM
 % @author Josh Wainwright
 % File name : quadtree-traversal.tex
 
@@ -87,11 +87,12 @@ can spread, and is separated from the clustering algorithm.
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=7cm]{propogation.pdf}
-	%TODO short caption
-	\caption{For a starting location, (a), in an image, no information is known
-		and so the neighbours are checked. Some of these are found to be part
-		of the cluster, others are rejected. The ones that are included are
-		then, themselves, checked and so on. As the cluster grows, (b), (c) and
+
+	\caption[Propagation of a cluster from a starting location.]{For a starting
+		location, (a), in an image, no information is known and so the
+		neighbours are checked. Some of these are found to be part of the
+		cluster, others are rejected. The ones that are included are then,
+		themselves, checked and so on. As the cluster grows, (b), (c) and
 		(d), the number of checked nodes increases.}\label{fig:propogation}
 \end{figure}
 
@@ -121,8 +122,9 @@ clear that the structure continues beyond the gap.
 		\includegraphics[width=\linewidth]{propogation-levels.pdf}
 		\caption{}\label{fig:propogation-levels}
 	\end{subfigure}
-	%TODO short caption
-	\caption{Considerations regarding quadtree levels that will be accepted
+
+	\caption[Considerations regarding quadtree levels to be
+	accepted.]{Considerations regarding quadtree levels that will be accepted
 		when propagating a node in a quadtree. \subref{fig:propogation-halting}
 		If the depth range that specifies how far up the tree to look for valid
 		neighbours is too small then a cluster might be terminated too soon.
@@ -174,13 +176,14 @@ of the nodes that are included in the cluster and the depth that is searched.
 		\includegraphics[width=\textwidth]{single-cluster-lines.png}
 		\caption{}\label{fig:single-cluster-lines}
 	\end{subfigure}
-	%TODO short caption
-	\caption{Inital versions of the clustering algorithm terminated immediately
-		after finishing propagating the first cluster. This gives a useful test
-		as to the correctness of the algorithm since there are no other
-		clusters for this to collide with. It is useful to be able to check
-		both \subref{fig:single-cluster-points} the points that were considered
-		to be in the cluster and \subref{fig:single-cluster-lines} the nodes in
+
+	\caption[Propagation of a single starting location.]{Inital versions of the
+		clustering algorithm terminated immediately after finishing propagating
+		the first cluster. This gives a useful test as to the correctness of
+		the algorithm since there are no other clusters for this to collide
+		with. It is useful to be able to check both
+		\subref{fig:single-cluster-points} the points that were considered to
+		be in the cluster and \subref{fig:single-cluster-lines} the nodes in
 		the quadtree that were included and where the propagating algorithm
 		stopped.}\label{fig:single-cluster}
 \end{figure}
@@ -237,12 +240,11 @@ this process of finding new clusters:
 		\end{tabular}
 	\end{minipage}
 
-	%TODO short caption
-	\caption{Initial versions of the clustering algorithm included too many
-	nodes, making the clusters too large. This image shows how each node
-	cluster that is started is independent of the previous ones. The clusters
-	were identified in the order they are listed on the right.}\label{fig:multiple-clusters-colours}
-
+	\caption[Propagation of multiple starting locations.]{Initial versions of
+		the clustering algorithm included too many nodes, making the clusters
+		too large. This image shows how each node cluster that is started is
+		independent of the previous ones. The clusters were identified in the
+		order they are listed on the right.}\label{fig:multiple-clusters-colours}
 \end{figure}
 
 \subsection{Choosing Neighbours}
@@ -287,13 +289,11 @@ Figure~\ref{fig:kernel-all8}.
 		\caption{}\label{fig:kernel-all8}
 	\end{subfigure}
 
-	%TODO short caption
-	\caption{A comparison between different neighbour sets.
-		\subref{fig:kernel-rooks-case} shows how some of the cluster is lost
-		when using just the rook's case neighbours, whereas, using all eight
-		neighbours, Figure~\subref{fig:kernel-all8} more of the cluster is
-		included.}\label{fig:kernel-options}
-
+	\caption[A comparison of different neighbour sets.]{A comparison between
+		different neighbour sets.  \subref{fig:kernel-rooks-case} shows how
+		some of the cluster is lost when using just the rook's case neighbours,
+		whereas, using all eight neighbours, Figure~\subref{fig:kernel-all8}
+		more of the cluster is included.}\label{fig:kernel-options}
 \end{figure}
 
 The requirement to include a total of eight neighbours for each node suggests
@@ -368,15 +368,15 @@ that would allow different types of clusters to be targeted.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=7cm]{kernel-shapes.pdf}
-	%TODO short caption
-	\caption[Different kernel shapes]{Different kernel shapes can be used to
-		find different sorts of clusters. (a) The basic rook's case neighbours
-		and (b) the full number of closest neighbours are the simplest general
-		cases, used for most clusters. (c) the area to search can be extended
-		by including more neighbours---this could help find clusters that are
-		more sparsely populated. Clusters of a specific orientation can be
-		located, for example, predominately (d) vertical or (e) NW SE
-		diagonal.}\label{fig:kernel-shapes}
+
+	\caption[Different kernel shapes for different clusters.]{Different kernel
+		shapes can be used to find different sorts of clusters. (a) The basic
+		rook's case neighbours and (b) the full number of closest neighbours
+		are the simplest general cases, used for most clusters. (c) the area to
+		search can be extended by including more neighbours---this could help
+		find clusters that are more sparsely populated. Clusters of a specific
+		orientation can be located, for example, predominately (d) vertical or
+		(e) NW SE diagonal.}\label{fig:kernel-shapes}
 \end{figure}
 
 % TODO searching up the tree

@@ -1,5 +1,5 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% Modified: Sun 10 Aug 2014 11:33 am
+% Modified: Mon 11 Aug 2014 05:07 PM
 % @author Josh Wainwright
 % File name : quadtree.tex
 
@@ -40,7 +40,7 @@ to binary trees.
 	\item[Completeness] A quadtree is `complete' when each of the root node's
 		four children have the same height. In this case, the number of leaves
 		in the tree is a maximum.
-	\item[Quadtree Code] (Code) The unique binary number assiged to a node by
+	\item[Quadtree Code] (Code) The unique binary number assigned to a node by
 		adding its position with respect to its siblings to the code of its
 		parent.
 \end{description}
@@ -79,13 +79,15 @@ traverse the children in a sensible and predictable way is essential.
 		\includegraphics[width=\textwidth]{traverse-modgray-order.pdf}
 		\caption{}\label{fig:traverse-modgray-order.pdf}
 	\end{subfigure}
-	\caption{A selection of possible tree traversal orderings. Each of theses
-	is, more formally, a space filling curve which is a direct, unique mapping
-	from a 2D grid to a 1D array. \subref{fig:traverse-z-order.pdf} shows
-	Z-order, \subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
-	\subref{fig:traverse-gray-order.pdf} shows Gray code order and
-	\subref{fig:traverse-modgray-order.pdf} shows the modified Gray code order
-	developed for this project.}\label{fig:order_traversals}
+
+	\caption[A selection of possible tree traversal orderings]{A selection of
+		possible tree traversal orderings. Each of theses is, more formally, a
+		space filling curve which is a direct, unique mapping from a 2D grid to
+		a 1D array. \subref{fig:traverse-z-order.pdf} shows Z-order,
+		\subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
+		\subref{fig:traverse-gray-order.pdf} shows Gray code order and
+		\subref{fig:traverse-modgray-order.pdf} shows the modified Gray code
+		order developed for this project.}\label{fig:order_traversals}
 \end{figure}
 
 \subsubsection[Morton Order]{Morton Order (Z-Order)}
@@ -227,8 +229,9 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that
 		\includegraphics[width=\textwidth]{modgray-2-levels-numbers.pdf}
 		\caption{}\label{fig:modgray-2-levels-numbers.pdf}
 	\end{subfigure}
-	\caption{The tree traversal that was developed for this project is a
-		variation of the Gray code order discussed in
+
+	\caption[Modified Gray Code ordering]{The tree traversal that was developed
+		for this project is a variation of the Gray code order discussed in
 		Section~\ref{ssub:gray_codes}.  Instead of all sub-quadrants having the
 		same orientation, each is reflected in either the x- or y-axis,
 		\subref{fig:modgray-2-levels-arrows.pdf}. This has the advantage that
@@ -267,13 +270,13 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 		modified Gray order above, but with a single \SI{90}{\degree} rotation.
 		Since the orientation of an image has no effect on the clusters found,
 		all rotations and reflections provide the same functionality as the
-		original. The particular form chosen is simply due to asthetic
+		original. The particular form chosen is simply due to {\ae}sthetic
 		preference.
 
 	\item Figure~\ref{fig:modgray-alt-pinwheel.pdf} shows an alteration to the
 		modified Gray code order, named \emph{pinwheel order}, where, instead of
 		reflecting the quadrants, each is rotated about it's center
-		\SI{90}{\degree} so that the whole image is rotational symetric,
+		\SI{90}{\degree} so that the whole image is rotational symmetric,
 		something the modified Gray code lacks.  This form turns out not to
 		provide any additional features and makes conversion from quadtree code
 		to coordinate representation substantially more difficult.
@@ -301,11 +304,13 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 		\includegraphics[width=\textwidth]{modgray-alt-pinwheel.pdf}
 		\caption{}\label{fig:modgray-alt-pinwheel.pdf}
 	\end{subfigure}
-	\caption{There are a number of different space filling curves that can be
-	used to map a two dimensional grid to a single dimensional array. To be
-	considered for use in the quadtree ordering, the new ordering must provide
-	some improvement of efficiency of some operations. Here are shown some
-	orderings which were discounted.}\label{fig:modgray-2-alternatives}
+
+	\caption[Alternative quadtree orderings.]{There are a number of different
+		space filling curves that can be used to map a two dimensional grid to
+		a single dimensional array. To be considered for use in the quadtree
+		ordering, the new ordering must provide some improvement of efficiency
+		of some operations. Here are shown some orderings which were
+		discounted.}\label{fig:modgray-2-alternatives}
 \end{figure}
 
 Since the quadtree is a recursive data structure, it is necessary to be able to
@@ -425,7 +430,7 @@ in post- or pre-order and return the nodes that are arrived at, $O(\log n)$,
 whereas, for the hash table, each node must be checked to decide if it is a
 child, $O(n)$.
 
-A hash table requires two peices of information for each entry: a \emph{key}
+A hash table requires two pieces of information for each entry: a \emph{key}
 and a \emph{value}. The key is what is used to locate items, its hash is used
 as the index of the array used internally. The value is the information that
 should be accessible when using the key. For this application, since more than
@@ -447,5 +452,6 @@ Table~\ref{tab:hashmap-columns}.
 		\bottomrule
 	\end{tabu}
 
+	% TODO caption
 	\caption{}\label{tab:hashmap-columns}
 \end{table}
