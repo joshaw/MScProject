@@ -1,5 +1,4 @@
 # Created:  Thu 19 Jun 2014 12:19 PM
-# Modified: Thu 19 Jun 2014 12:19 PM
 # x <- data.frame(replicate(2, rnorm( 200, 50, 6 )))
 #x <- data.frame(rnorm(200, 75, 6), rnorm(200, 25, 6))
 #y <- x[ x[,1]>0 & x[,1]<100 & x[,2]>0 & x[,2]<100, ]

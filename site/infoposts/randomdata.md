@@ -42,5 +42,4 @@ simcor <- function (n, xmean, xsd, ymean, ysd, correlation) {
 
 <!--
 Created:  Tue 17 Jun 2014 07:02 PM
-Modified: Fri 20 Jun 2014 04:24 PM
 -->

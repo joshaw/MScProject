@@ -1,5 +1,4 @@
 /** Created: Fri 11 Jul 2014 10:05 AM
- * Modified: Wed 30 Jul 2014 12:21 PM
  * @author Josh Wainwright
  * File name : PropogationDatum.java
  */

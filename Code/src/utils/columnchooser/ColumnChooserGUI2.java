@@ -1,5 +1,4 @@
 /** Created: Wed 4 Jul 2014 12:52 PM
- * Modified: Wed 30 Jul 2014 12:55 PM
  * @author Josh Wainwright
  * filename: ColumnChooserGUI2.java
  */

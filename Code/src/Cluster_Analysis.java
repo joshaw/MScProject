@@ -1,5 +1,4 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Mon 11 Aug 2014 02:13 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */

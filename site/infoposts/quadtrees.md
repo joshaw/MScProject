@@ -27,5 +27,4 @@ features can be stored efficiently and then manipulated.
 
 <!--
 Created:  Thu 19 Jun 2014 08:43 PM
-Modified: Fri 20 Jun 2014 04:22 PM
 -->

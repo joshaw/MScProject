@@ -1,5 +1,4 @@
 /** Created: Tue 17 Jun 2014 12:00 PM
- * Modified: Wed 30 Jul 2014 12:51 PM
  * @author Josh Wainwright
  * File name : Coordinate.java
  */

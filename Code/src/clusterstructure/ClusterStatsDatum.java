@@ -1,5 +1,4 @@
 /** Created: Mon 28 Jul 2014 05:07 PM
- * Modified: Mon 04 Aug 2014 10:26 AM
  * @author Josh Wainwright
  * filename: ClusterStatsDatum.java
  */

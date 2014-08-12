@@ -19,5 +19,4 @@ the resulting file as an pnm image format.
 
 <!--
 Created:  Sat 21 Jun 2014 05:46 pm
-Modified: Sat 21 Jun 2014 07:09 PM
 -->

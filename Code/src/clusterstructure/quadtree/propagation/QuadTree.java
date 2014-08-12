@@ -1,5 +1,4 @@
 /** Created: Wed 16 Jun 2014 9:02 AM
- * Modified: Wed 30 Jul 2014 12:48 PM
  * @author Josh Wainwright
  * File name : QuadTree.java
  */

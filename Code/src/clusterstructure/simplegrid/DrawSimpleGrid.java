@@ -1,5 +1,4 @@
 /** Created: Tue 08 Jul 2014 02:55 PM
- * Modified: Fri 01 Aug 2014 08:59 pm
  * @author Josh Wainwright
  * File name : DrawSimpleGrid.java
  */

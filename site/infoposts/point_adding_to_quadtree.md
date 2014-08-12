@@ -20,5 +20,4 @@ This is an overview of the algorithm used to add points to a new quadtree.
 
 <!--
 Created:  Thu 19 Jun 2014 09:01 PM
-Modified: Sun 22 Jun 2014 10:12 AM
 -->

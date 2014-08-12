@@ -1,5 +1,4 @@
 /** Created: Tue 08 Jul 2014 12:41 PM
-/* Modified: Mon 11 Aug 2014 11:41 AM
  * @author Josh Wainwright
  * File name : FileHandler.java
  */

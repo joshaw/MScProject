@@ -1,5 +1,4 @@
 /** Created: Fri 11 Jul 2014 12:28 PM
- * Modified: Thu 07 Aug 2014 03:32 PM
  * @author Josh Wainwright
  * File name : QuadTreePropagate.java
  */
