@@ -1,5 +1,5 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Tue 05 Aug 2014 10:45 AM
+ * Modified: Tue 12 Aug 2014 03:09 PM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */
@@ -18,6 +18,7 @@ import clusterstructure.ClusterStats;
 import utils.Coordinate;
 import utils.FileHandler;
 import utils.PropogationDatum;
+import hull.ConcaveHull;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -76,15 +77,6 @@ public class DrawQuadTreeMapIJ {
 										"#ef2929",
 										"#eeeeec",
 										"#888a85"};
-										// "#fce94f",
-										// "#fcaf3e",
-										// "#e9b96e"
-										// "#8ae234"
-										// "#729fcf"
-										// "#ad7fa8"
-										// "#ef2929"
-										// "#d3d7cf"
-										// "#888a85"};
 	private ClusterStats clusters = new ClusterStats();
 
 	public DrawQuadTreeMapIJ(String filepath, QuadTree qt, double maxX,
@@ -112,7 +104,9 @@ public class DrawQuadTreeMapIJ {
 		}
 	}
 
-	public void draw(boolean incLines, boolean incPoints, boolean colourize, double minClusterSize) {
+	public void draw(boolean incLines, boolean incPoints, boolean colourize,
+			double minClusterSize) {
+
 		this.incLines       = incLines;
 		this.incPoints      = incPoints;
 		this.colourize      = colourize;
@@ -138,6 +132,9 @@ public class DrawQuadTreeMapIJ {
 		clusters = qtm.getClusterStats();
 		for (int i = 1; i < clusters.size(); i++) {
 			calculateClusterArea(i);
+
+			ConcaveHull ch = new ConcaveHull();
+			ch.concaveHull(clusters.getClusterCoords(i), 4);
 		}
 		traverseMap();
 

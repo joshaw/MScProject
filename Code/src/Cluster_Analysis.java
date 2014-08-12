@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Mon 11 Aug 2014 02:13 PM
+ * Modified: Tue 12 Aug 2014 02:54 PM
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -444,10 +444,10 @@ public class Cluster_Analysis extends PlugInFrame {
 	/** Handle the optional parameters that can be passed to a plugin from
 	 * ImageJ using the run("Command", "parameters"); macro command.
 	 * Supports
-	 * 		filepath=/path/to/file  Data file to read from
-	 * 		sep=\t                  Separator to use when reading file
-	 * 		quadtree=1              Draw quadtree without interaction
-	 * 		grid=1                  Draw grid without interaction
+	 *     filepath=/path/to/file  Data file to read from
+	 *     sep=\t                  Separator to use when reading file
+	 *     quadtree=1              Draw quadtree without interaction
+	 *     grid=1                  Draw grid without interaction
 	 */
 	private void handleOptions() {
 		String options = Macro.getOptions();

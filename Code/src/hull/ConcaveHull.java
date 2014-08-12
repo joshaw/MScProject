@@ -1,6 +1,7 @@
-/** Created:  Tue 12 Aug 2014 09:35 AM
- * author: Josh Wainwright
- * filename: ConcaveHull.java
+/**
+ * Created:  Tue 12 Aug 2014 09:35 AM
+ * Author:   Josh Wainwright
+ * Filename: ConcaveHull.java
  */
 package hull;
 
@@ -12,24 +13,35 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.awt.geom.Line2D;
+import java.awt.geom.Path2D;
 
-public class ConcaveHull {
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.*;
 
-	private Set<Coordinate> dataset;
-	private ArrayList<Coordinate> hull = new ArrayList<Coordinate>();
+public class ConcaveHull extends JPanel {
 
-	public ConcaveHull(Set<Coordinate> dataset) {
-		this.dataset = dataset;
+	private static final long serialVersionUID = 1L;
+	private Path2D poly;
+
+	public ConcaveHull() {
+
 	}
 
-	public ArrayList<Coordinate> ConcaveHull
-		(Set<Coordinate> dataset, int k) {
+	public ArrayList<Coordinate> concaveHull(Set<Coordinate> dataset,
+			int k) {
+
+		System.out.println("ConcaveHull with " + dataset.size() + " points.");
+		ArrayList<Coordinate> hull = new ArrayList<Coordinate>();
 
 		int kk = Math.max(k, 3);
 
 		if (dataset.size() < 3) {
-			throw new IllegalArgumentException
-				("A minimum of 3 dissimilar points is required.");
+			// throw new IllegalArgumentException
+			// 	("A minimum of 3 dissimilar points is required.");
+			return null;
 		}
 
 		// For a 3 points dataset, the polygon is the dataset itself.
@@ -39,32 +51,79 @@ public class ConcaveHull {
 
 		kk = Math.min(kk, dataset.size()-1);
 
-		Coordinate firstPoint = findMinYPoint();
+		Coordinate firstPoint = findMinYPoint(dataset);
 		hull.add(firstPoint);
 		Coordinate currentPoint = firstPoint;
 		dataset.remove(firstPoint);
 
 		double previousAngle = 0;
-		int step = 2;
+		int step = 1;
 
-		while ( (!currentPoint.equals(firstPoint)) || (step == 2)
+		while ( (!currentPoint.equals(firstPoint)) || (step == 1)
 				&& (dataset.size() > 0) ) {
 
-			if (step == 5) {
+			if (step == 4) {
 				dataset.add(firstPoint);
 			}
 
 			// Find the nearest neighbours
-			Set<Coordinate> kNearestPoints = nearestPoints(currentPoint, kk);
+			Set<Coordinate> kNearestPoints =
+				nearestPoints(dataset, currentPoint, kk);
 
 			List<Coordinate> cPoints = sortByAngle(
 					kNearestPoints, currentPoint, previousAngle);
+
+			boolean its = true;
+			int i = 0;
+
+			while (its && i < cPoints.size()) {
+				i++;
+				int lastPoint;
+				if (cPoints.get(i-1).equals(firstPoint)) {
+					lastPoint = 1;
+				} else {
+					lastPoint = 0;
+				}
+
+				int j = 1;
+				its = false;
+
+				while (!its && j < hull.size()-lastPoint) {
+					its = intersectsQ(
+							hull.get(step-1), cPoints.get(i-1),
+							hull.get(step-1-j), hull.get(step-j)
+							);
+					j++;
+				}
+			}
+
+			//  since all candidates intersect at least one edge, try
+			//  again with a higher number of neighbours.
+			if (its) {
+				return concaveHull(dataset, kk+1);
+			}
+
+			currentPoint = cPoints.get(i);
+			hull.add(currentPoint);
+			previousAngle = angle(hull.get(step), hull.get(step-1));
+			dataset.remove(currentPoint);
+			step++;
+
 		}
 
-		return new ArrayList<Coordinate>();
+		for (Coordinate c : dataset) {
+			boolean allInside = pointInPolygonQ(c, hull);
+			if (!allInside) {
+				return concaveHull(dataset, kk+1);
+			}
+		}
+
+		draw();
+		return hull;
 	}
 
-	private Coordinate findMinYPoint() {
+	private Coordinate findMinYPoint(Set<Coordinate> dataset) {
+		System.out.println("findMinYPoint");
 		Coordinate minY = new Coordinate(0,0);
 		for (Coordinate c : dataset) {
 			if (c.getY() < minY.getY()) {
@@ -75,7 +134,10 @@ public class ConcaveHull {
 		return minY;
 	}
 
-	private Set<Coordinate> nearestPoints(Coordinate p, int kk) {
+	private Set<Coordinate> nearestPoints(Set<Coordinate> dataset,
+			Coordinate p, int kk) {
+
+		System.out.println("nearestPoints");
 		Set<Coordinate> tmpDataset = dataset;
 		Set<Coordinate> nearest = new HashSet<Coordinate>();
 		Coordinate minPoint = new Coordinate(0,0);
@@ -91,9 +153,10 @@ public class ConcaveHull {
 				if (distance < minDistance) {
 					minDistance = distance;
 					minPoint = c;
+					System.out.println("MinPoint: " + c);
 				}
 			}
-			nearest.add(minPoint);
+			boolean added = nearest.add(minPoint);
 			tmpDataset.remove(minPoint);
 		}
 
@@ -122,6 +185,78 @@ public class ConcaveHull {
 		}
 
 		return new ArrayList<Coordinate>(mapping.values());
+	}
+
+	private boolean intersectsQ(Coordinate seg1a, Coordinate seg1b,
+			Coordinate seg2a, Coordinate seg2b) {
+
+		System.out.println("intersectsQ");
+		Line2D line1 = new Line2D.Double(seg1a.getX(), seg1a.getY(),
+		                                 seg1b.getX(), seg1b.getY());
+		Line2D line2 = new Line2D.Double(seg2a.getX(), seg2a.getY(),
+		                                 seg2b.getX(), seg2b.getY());
+		return line2.intersectsLine(line1);
+	}
+
+	private double angle(Coordinate c1, Coordinate c2) {
+
+		System.out.println("angle");
+		double deltaX = c1.getX()-c2.getX();
+		double deltaY = c1.getY()-c2.getY();
+
+		// Use atan(x,y) rather than atan(y,x) to get right turn instead of
+		// left turn.
+		return Math.atan2(deltaX, deltaY);
+	}
+
+	private boolean pointInPolygonQ(Coordinate c,
+			List<Coordinate> hull) {
+
+		//http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+		// boolean in = false;
+		// int nvert = hull.size();
+
+		// int i = 0;
+		// int j = nvert - 1;
+		// while (i < nvert) {
+
+		// 	if ( ((verty.get(i) > texty) != (verty.get(j) > testy)) &&
+		// 		( testx < (vertx.get(j) - vertx.git(i)) *
+		// 		  (testy - verty.get(i) /
+		// 		   (verty.get(j) - verty.get(i)) + vertx.get(i) ) ) ) {
+
+		// 		in = !in;
+		// 	}
+
+		// 	j = i++;
+		// }
+
+		// return in;
+
+		poly = new Path2D.Double();
+		for (Coordinate p : hull) {
+			poly.lineTo(p.getX(), p.getY());
+		}
+		poly.closePath();
+
+		return poly.contains(c.getX(), c.getY());
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+
+		Graphics2D g2d = (Graphics2D) g.create();
+		g2d.draw(poly);
+		g2d.dispose();
+	}
+
+	public void draw() {
+		System.out.println("Message");
+		JFrame frame = new JFrame("Hull");
+		frame.getContentPane().add(this);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setVisible(true);
 	}
 
 }
