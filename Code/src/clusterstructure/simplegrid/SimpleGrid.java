@@ -1,5 +1,4 @@
 /** Created: Tue 01 Jul 2014 03:39 PM
- * Modified: Fri 01 Aug 2014 09:28 pm
  * @author Josh Wainwright
  * File name : SimpleGrid.java
  */

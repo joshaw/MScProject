@@ -1,5 +1,4 @@
 /** Created: Wed 18 Jun 2014 10:07 AM
- * Modified: Thu 31 Jul 2014 03:00 PM
  */
 package clusterstructure.quadtree;
 

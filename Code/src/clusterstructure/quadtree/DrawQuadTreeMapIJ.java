@@ -1,5 +1,4 @@
 /** Created: Tue 22 Jul 2014 12:17 PM
- * Modified: Tue 05 Aug 2014 10:45 AM
  * @author Josh Wainwright
  * File name : DrawQuadTreeMapIJ.java
  */

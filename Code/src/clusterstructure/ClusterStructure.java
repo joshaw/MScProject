@@ -1,5 +1,4 @@
 /** Created: Wed 09 Jul 2014 02:57 PM
- * Modified: Wed 30 Jul 2014 12:56 PM
  * @author Josh Wainwright
  * File name: ClusterStructure.java
  */

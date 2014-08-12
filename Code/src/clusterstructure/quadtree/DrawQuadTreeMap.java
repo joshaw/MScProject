@@ -1,5 +1,4 @@
-/** Created: TIMESTAMP
- * Modified: TIMESTAMP
+/** Created: Tue 12 Aug 2014 11:46 AM
  * @author Josh Wainwright
  * filename : DrawQuadTreeMap.java
  */
