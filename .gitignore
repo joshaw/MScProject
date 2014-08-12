@@ -12,7 +12,6 @@ Code/build/
 *.toc
 *.fdb_latexmk
 build/
-!mainfile.pdf
 
 # Latex Styles
 *.sty
