@@ -1,6 +1,6 @@
 % Created:  Fri 27 Jun 2014 11:24 AM
-% @author Josh Wainwright
-% File name : quadtree.tex
+% Author:   Josh Wainwright
+% Filename: quadtree.tex
 
 \section{Quadtrees}
 \label{sec:quadtrees}
@@ -144,13 +144,21 @@ coordinate form are:
 
 \begin{enumerate}
 	\item Ensure the code is in binary format with two bits for each level of
-		the tree,
-	\item \emph{de-interleave} the bits of the code (starting with the first
+		the tree.
+	\item \emph{De-interleave} the bits of the code (starting with the first
 		being given to the $y$-axis, assign bits to the $y$ and $x$ axes
-		building up a binary value for each),
-	\item convert the resulting two binary value to decimal to give a standard
+		building up a binary value for each).
+	\item Convert the resulting two binary value to decimal to give a standard
 		decimal $(x,y)$ coordinate.
 \end{enumerate}
+
+\begin{figure}[tbhp]
+	\centering
+	\includegraphics[width=0.8\linewidth]{deinterleave.pdf}
+
+	% TODO caption
+	\caption{Deinterleave}\label{fig:deinterleave}
+\end{figure}
 
 This method means that it is very easy to calculate an arbitrary number of
 nodes in any direction by simply converting the code for a node to coordinates,
