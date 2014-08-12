@@ -1,6 +1,6 @@
 % Created:  Mon 30 Jun 2014 05:32 PM
-% @author Josh Wainwright
-% File name : rolling-ball.tex
+% Author:   Josh Wainwright
+% Filename: rolling-ball.tex
 
 \section{Rolling Ball Analysis}
 \label{sec:rolling_ball_analysis}
@@ -35,3 +35,54 @@ points within the cluster.
 A simple approximation of this technique can be acheived by using the same
 \texttt{open}-ing and \texttt{close}-ing processes as are described in
 Section~\ref{sec:simple_grid_method}.
+
+\section{Shared Nearest Neighbours}
+\label{sec:shared_nearest_neighbours}
+
+Shared nearest neighbour (SNN) clustering algorithms have been used to overcome
+some of the problems encountered with more traditional clustering methods when
+working in higher dimensions. In these cases, simple Euclidian geometry becomes
+unable to cope with the computaion and so is replaced with other coordinate
+systems. For simple clustering in two dimensions, however, Euclidian geometry
+is sufficient and is far easier and more efficient to implement.
+
+SNN based clustering algorithms analyse each of the points in a set, one at a
+time, selecting those points that lie close to the current one based on certain
+thresholds. As the algorithm progresses, these thresholds are altered and the
+points considered so far re-examined to maximise the ``similarity'' of the
+points in any one cluster.
+
+Implementations of SNN based algorithms, such as~\cite{jarvis1973clustering}
+and~\cite{ertoz2002new} use similarity matrices, where the set of points is
+reduced to a graph with the data points at nodes and the edges between them
+representing the similarities between the points. This matrix is then
+simplified to leave a sonsiderably sparser graph, keeping only the edges with
+the highest similarity. From this matrix, points can be identified as noise and
+rejected, and the networks that show close similarities are designated as
+clusters.
+
+This method is very good at being adaptable to complex situations: arbitrary
+dimension, clusters with complicated shapes, high noise levels, etc. However,
+the complexity in implementation and computation makes it unsuitable for small
+scale clustering such as the application discussed for this project.
+
+\section{Gravity Based Clustering}
+\label{sec:gravity_based_clustering}
+
+A number of algorithms~\cite{zhong2010novel} have been developed that treat
+data points as physical objects under the influence of gravitational effects.
+These algorithms effectively model the points with these properties, allow them
+the move with some defined restrictions, and then examine the products that are
+produced.
+
+The GRAVIclust algorith~\cite{indulska2002gravity} works in two phases, first
+identifying $n$ locations of interest based on the distances to neighbouring
+points, similar to the SNN algorithms above, and secondly applying an
+optimisation phase where each of these locations is further examined with the
+gravity effects of other points applied.
+
+Unfortunately, these algorithms require certain information about the data set
+before clustering can be performed. First, a matrix of the distances between
+every pair of points must be calculated. This make working with large data sets
+prohibitive. Second, the number of clusters to identify is required. This means
+that an algorithm to search for arbitrary numbers of clusters is not possible.
