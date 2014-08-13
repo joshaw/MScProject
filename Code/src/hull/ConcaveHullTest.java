@@ -18,6 +18,7 @@ public class ConcaveHullTest {
 		Set<Coordinate> ts = new HashSet<Coordinate>();
 
 		// points {{{
+		// randomly generated data points between 1 and 10
 		ts.add(new Coordinate(9,2));
 		ts.add(new Coordinate(5,6));
 		ts.add(new Coordinate(3,4));
