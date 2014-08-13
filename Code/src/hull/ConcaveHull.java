@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
+import java.awt.geom.Ellipse2D;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,33 +24,36 @@ import java.awt.*;
 
 public class ConcaveHull extends JPanel {
 
+	private final int SCALE = 20;
 	private static final long serialVersionUID = 1L;
 	private Path2D poly;
+	private Set<Coordinate> pointsL;
+	private int k;
 
 	public ConcaveHull() {
 
 	}
 
-	public ArrayList<Coordinate> concaveHull(Set<Coordinate> pointsList,
-			int k) {
+	public ArrayList<Coordinate> concaveHull(Set<Coordinate> pointsL, int k) {
+		this.pointsL = pointsL;
 
-		System.out.println("ConcaveHull with " + pointsList.size() + " points.");
+		System.out.println("\nConcaveHull: " + pointsL.size() + "p, " + k + ".");
 		ArrayList<Coordinate> hull = new ArrayList<Coordinate>();
+		this.k = k;
 
 		int kk = Math.max(k, 3);
-		Set<Coordinate> dataset = pointsList;
-
-		if (dataset.size() < 3) {
-			// throw new IllegalArgumentException
-			// 	("A minimum of 3 dissimilar points is required.");
-			System.out.println("Dataset too small");
-			return null;
-		}
+		Set<Coordinate> dataset = new HashSet<Coordinate>(pointsL);
 
 		// For a 3 points dataset, the polygon is the dataset itself.
-		if (dataset.size() == 3) {
+		if (dataset.size() <= 3) {
 			System.out.println("Dataset is 3");
-			return new ArrayList<Coordinate>(dataset);
+			hull = new ArrayList<Coordinate>(dataset);
+
+			for (Coordinate c : dataset) {
+				pointInPolygonQ(c, hull);
+			}
+			draw();
+			return hull;
 		}
 
 		kk = Math.min(kk, dataset.size()-1);
@@ -75,8 +79,6 @@ public class ConcaveHull extends JPanel {
 
 			List<Coordinate> cPoints = sortByAngle(
 					kNearestPoints, currentPoint, previousAngle);
-			System.out.println("-> " + currentPoint + " " + kNearestPoints);
-			System.out.println("-> " + currentPoint + " " + cPoints);
 
 			boolean its = true;
 			int i = 0;
@@ -105,10 +107,11 @@ public class ConcaveHull extends JPanel {
 			//  since all candidates intersect at least one edge, try
 			//  again with a higher number of neighbours.
 			if (its) {
-				return concaveHull(dataset, kk+1);
+				return concaveHull(pointsL, kk+1);
 			}
 
-			currentPoint = cPoints.get(i);
+			System.out.println("Message");
+			currentPoint = cPoints.get(i-1);
 			hull.add(currentPoint);
 			previousAngle = angle(hull.get(step), hull.get(step-1));
 			dataset.remove(currentPoint);
@@ -118,9 +121,13 @@ public class ConcaveHull extends JPanel {
 
 		for (Coordinate c : dataset) {
 			boolean allInside = pointInPolygonQ(c, hull);
-			if (!allInside) {
-				return concaveHull(pointsList, kk+1);
-			}
+			// if (!allInside) {
+			// 	return concaveHull(pointsL, kk+1);
+			// }
+		}
+
+		for (Coordinate c : hull) {
+			pointInPolygonQ(c, hull);
 		}
 
 		draw();
@@ -143,13 +150,15 @@ public class ConcaveHull extends JPanel {
 			Coordinate p, int kk) {
 
 		// System.out.println("nearestPoints");
-		Set<Coordinate> tmpDataset = dataset;
+		Set<Coordinate> tmpDataset = new HashSet<Coordinate>(dataset);
 		Set<Coordinate> nearest = new HashSet<Coordinate>();
-		Coordinate minPoint = new Coordinate(0,0);
 
 		for (int i = 0; i < kk; i++) {
 
+			Coordinate minPoint =
+				new Coordinate(Double.MIN_VALUE,Double.MIN_VALUE);
 			double minDistance = Double.MAX_VALUE;
+
 			for (Coordinate c : tmpDataset) {
 				double distance = Math.sqrt(
 						Math.pow((p.getX()-c.getX()), 2) +
@@ -158,18 +167,14 @@ public class ConcaveHull extends JPanel {
 				if (distance < minDistance) {
 					minDistance = distance;
 					minPoint = c;
-					// System.out.println("MinPoint: " + c);
 				}
 			}
-			boolean added = nearest.add(minPoint);
-			tmpDataset.remove(minPoint);
-		}
 
-		if (nearest.size() != kk) {
-			System.out.println(
-					"Nearest points function is wrong. We should be left with "
-					+ kk + " points, but have " + nearest.size() + "."
-					);
+			if (!minPoint.equals(
+						new Coordinate(Double.MIN_VALUE, Double.MIN_VALUE))) {
+				nearest.add(minPoint);
+			}
+			tmpDataset.remove(minPoint);
 		}
 
 		return nearest;
@@ -196,6 +201,13 @@ public class ConcaveHull extends JPanel {
 			Coordinate seg2a, Coordinate seg2b) {
 
 		// System.out.println("intersectsQ");
+		if (
+				seg1a.equals(seg2a) || seg1a.equals(seg2b) ||
+				seg1b.equals(seg2a) || seg1b.equals(seg2b)
+				) {
+			return false;
+		}
+
 		Line2D line1 = new Line2D.Double(seg1a.getX(), seg1a.getY(),
 		                                 seg1b.getX(), seg1b.getY());
 		Line2D line2 = new Line2D.Double(seg2a.getX(), seg2a.getY(),
@@ -214,8 +226,7 @@ public class ConcaveHull extends JPanel {
 		return Math.atan2(deltaX, deltaY);
 	}
 
-	private boolean pointInPolygonQ(Coordinate c,
-			List<Coordinate> hull) {
+	private boolean pointInPolygonQ(Coordinate c, List<Coordinate> hull) {
 
 		//http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
 		// boolean in = false;
@@ -239,8 +250,14 @@ public class ConcaveHull extends JPanel {
 		// return in;
 
 		poly = new Path2D.Double();
+		boolean firstPoint = true;
 		for (Coordinate p : hull) {
-			poly.lineTo(p.getX(), p.getY());
+			if (firstPoint) {
+				poly.moveTo(SCALE*p.getX(), SCALE*p.getY());
+				firstPoint = false;
+			} else {
+				poly.lineTo(SCALE*p.getX(), SCALE*p.getY());
+			}
 		}
 		poly.closePath();
 
@@ -253,15 +270,22 @@ public class ConcaveHull extends JPanel {
 
 		Graphics2D g2d = (Graphics2D) g.create();
 		g2d.draw(poly);
+		for (Coordinate c : pointsL) {
+			Ellipse2D.Double circle = new Ellipse2D.Double(
+					SCALE*c.getX()-4, SCALE*c.getY()-4, 8, 8);
+			g2d.fill(circle);
+		}
 		g2d.dispose();
 	}
 
 	public void draw() {
 		System.out.println("Draw");
-		JFrame frame = new JFrame("Hull");
+		JFrame frame = new JFrame(k + "");
 		frame.getContentPane().add(this);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.pack();
 		frame.setVisible(true);
+		frame.setSize(300, 300);
 	}
 
 }
