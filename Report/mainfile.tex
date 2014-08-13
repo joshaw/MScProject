@@ -54,6 +54,11 @@
 \usepackage[table]{xcolor}
 \usepackage[binary-units]{siunitx}
 \usepackage{amsmath}
+\usepackage{enumitem}
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+\renewcommand{\labelenumiii}{\theenumiii}
+\renewcommand{\theenumiii}{\theenumii\arabic{enumiii}.}
 % \usepackage[%
 % 	activate={true,nocompatibility},
 % 	final,

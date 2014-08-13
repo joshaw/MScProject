@@ -2,17 +2,106 @@
 % Author:   Josh Wainwright
 % Filename: requirements.tex
 
+\newgeometry{onecolumn}
 \section{Requirements}
 \label{sec:requirements}
 
 % TODO Requirements intro
+% TODO include explanation of MoSCoW
 
 \subsection{Functional Requirements}
 \label{sub:functional_requirements}
 
 % TODO Functional Requirements
 
+The plugin will allow the user to:
+
+% \tabulinesep=1.2mm
+% \newcounter{rowcount}
+% \setcounter{rowcount}{-1}
+% % TODO Don't have counter on header
+% \begin{tabu}{@{\stepcounter{rowcount}\makebox[2em][r]{\therowcount.}\hspace*{\tabcolsep}}X c}
+% 	\toprule
+% 	Requirement & MoSCoW \\
+% 	\midrule
+% 	Select a data file to process.
+% 	& M \\
+% 	Select the appropriate column separator for the file.
+% 	& C \\
+% 	Select which coloumn the x- and y-coordinates appear in.
+% 	& C \\
+% 	Adjust parameters relating to the process of analysing the data file.
+% 	& S \\
+% 	Create an image of the points from the file using naitve ImageJ
+% 	functionality.
+% 	& S \\
+% 	Perform a clustering algorithm on the data in the chosen file.
+% 	& M \\
+% 	Create an image of the clusters found using native ImageJ functionality.
+% 	& M \\
+% 	Generate perimeter information for each of the clusters found.
+% 	& S \\
+% 	Generate area information for each of the clusters found.
+% 	& S \\
+% 	Display a results table showing summary of information about each of the
+% 	clusters found.
+% 	& S \\
+% 	Limit the clusters drawn to the image based on the size of the cluster.
+% 	& C \\
+% 	Limit the clusters included in the results table based on the size of the
+% 	cluster.
+% 	& C \\
+% 	Export cluster information by selecing appropriate cluster from the results
+% 	table.
+% 	& W \\
+% 	Export data points contained in cluster by selecing appropriate cluster
+% 	from the results table.
+% 	& W \\
+% 	\bottomrule
+% \end{tabu}
+
+\begin{enumerate}
+	\item Select data
+		\begin{enumerate}
+			\item Select a data file to process.
+			\item Select the appropriate column separator for the file.
+			\item Select which coloumn the x- and y-coordinates appear in.
+			\item Adjust parameters relating to the process of analysing the
+				data file.
+		\end{enumerate}
+	\item Create images
+		\begin{enumerate}
+			\item Create an image of the points from the selected file using
+				naitve ImageJ functionality.
+			\item Create an image of the clusters found using native ImageJ
+				functionality.
+		\end{enumerate}
+	\item Perform a clustering algorithm on the data in the chosen file.
+	\item Generate cluster information
+		\begin{enumerate}
+			\item Generate perimeter information for each of the clusters found.
+			\item Generate area information for each of the clusters found.
+			\item Display a results table showing summary of information about each of the clusters found.
+			\item Limit the clusters drawn to the image based on the size of the cluster.
+			\item Limit the clusters included in the results table based on the size of the cluster.
+		\end{enumerate}
+	\item Export data found by the algorithm.
+		\begin{enumerate}
+			\item Export cluster information by selecing appropriate cluster from the results table.
+			\item Export data points contained in cluster by selecing appropriate cluster from the results table.
+		\end{enumerate}
+\end{enumerate}
+
 \subsection{Non-Functional Requirements}
 \label{sub:non_functional_requirements}
 
 % TODO Non-Functional Requirements
+
+The plugin will:
+
+\begin{enumerate}
+	\item Handle input data files of upto 3 million data points.
+		% TODO test this
+\end{enumerate}
+
+\restoregeometry
