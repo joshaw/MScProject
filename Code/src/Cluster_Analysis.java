@@ -1,5 +1,5 @@
 /** Created: Wed 02 Jul 2014 9:55 AM
- * Modified: Tue 12 Aug 2014 02:54 PM
+ * Modified: Tue 12 Aug 2014 10:57 pm
  * @author Josh Wainwright
  * filename: Cluster_Analysis.java
  */
@@ -470,6 +470,9 @@ public class Cluster_Analysis extends PlugInFrame {
 				int end = Math.min(comma , options.length()-1);
 				String fps = optionsOrig.substring(fp, end);
 				fps = fps.replaceAll("filepath=", "");
+				if (!(new File(fps)).exists()) {
+					throw new IllegalArgumentException("File, " + fps + " not found.");
+				}
 				this.filepath = fps;
 				performAutoActions(filepath);
 			}
