@@ -443,10 +443,10 @@ public class Cluster_Analysis extends PlugInFrame {
 	/** Handle the optional parameters that can be passed to a plugin from
 	 * ImageJ using the run("Command", "parameters"); macro command.
 	 * Supports
-	 * 		filepath=/path/to/file  Data file to read from
-	 * 		sep=\t                  Separator to use when reading file
-	 * 		quadtree=1              Draw quadtree without interaction
-	 * 		grid=1                  Draw grid without interaction
+	 *     filepath=/path/to/file  Data file to read from
+	 *     sep=\t                  Separator to use when reading file
+	 *     quadtree=1              Draw quadtree without interaction
+	 *     grid=1                  Draw grid without interaction
 	 */
 	private void handleOptions() {
 		String options = Macro.getOptions();
@@ -469,6 +469,9 @@ public class Cluster_Analysis extends PlugInFrame {
 				int end = Math.min(comma , options.length()-1);
 				String fps = optionsOrig.substring(fp, end);
 				fps = fps.replaceAll("filepath=", "");
+				if (!(new File(fps)).exists()) {
+					throw new IllegalArgumentException("File, " + fps + " not found.");
+				}
 				this.filepath = fps;
 				performAutoActions(filepath);
 			}
