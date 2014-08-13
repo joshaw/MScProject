@@ -30,22 +30,25 @@ public class ConcaveHull extends JPanel {
 
 	}
 
-	public ArrayList<Coordinate> concaveHull(Set<Coordinate> dataset,
+	public ArrayList<Coordinate> concaveHull(Set<Coordinate> pointsList,
 			int k) {
 
-		System.out.println("ConcaveHull with " + dataset.size() + " points.");
+		System.out.println("ConcaveHull with " + pointsList.size() + " points.");
 		ArrayList<Coordinate> hull = new ArrayList<Coordinate>();
 
 		int kk = Math.max(k, 3);
+		Set<Coordinate> dataset = pointsList;
 
 		if (dataset.size() < 3) {
 			// throw new IllegalArgumentException
 			// 	("A minimum of 3 dissimilar points is required.");
+			System.out.println("Dataset too small");
 			return null;
 		}
 
 		// For a 3 points dataset, the polygon is the dataset itself.
 		if (dataset.size() == 3) {
+			System.out.println("Dataset is 3");
 			return new ArrayList<Coordinate>(dataset);
 		}
 
@@ -72,14 +75,15 @@ public class ConcaveHull extends JPanel {
 
 			List<Coordinate> cPoints = sortByAngle(
 					kNearestPoints, currentPoint, previousAngle);
+			System.out.println("-> " + currentPoint + " " + kNearestPoints);
+			System.out.println("-> " + currentPoint + " " + cPoints);
 
 			boolean its = true;
 			int i = 0;
 
 			while (its && i < cPoints.size()) {
-				i++;
 				int lastPoint;
-				if (cPoints.get(i-1).equals(firstPoint)) {
+				if (cPoints.get(i).equals(firstPoint)) {
 					lastPoint = 1;
 				} else {
 					lastPoint = 0;
@@ -90,11 +94,12 @@ public class ConcaveHull extends JPanel {
 
 				while (!its && j < hull.size()-lastPoint) {
 					its = intersectsQ(
-							hull.get(step-1), cPoints.get(i-1),
+							hull.get(step-1), cPoints.get(i),
 							hull.get(step-1-j), hull.get(step-j)
 							);
 					j++;
 				}
+				i++;
 			}
 
 			//  since all candidates intersect at least one edge, try
@@ -114,7 +119,7 @@ public class ConcaveHull extends JPanel {
 		for (Coordinate c : dataset) {
 			boolean allInside = pointInPolygonQ(c, hull);
 			if (!allInside) {
-				return concaveHull(dataset, kk+1);
+				return concaveHull(pointsList, kk+1);
 			}
 		}
 
@@ -123,8 +128,8 @@ public class ConcaveHull extends JPanel {
 	}
 
 	private Coordinate findMinYPoint(Set<Coordinate> dataset) {
-		System.out.println("findMinYPoint");
-		Coordinate minY = new Coordinate(0,0);
+		// System.out.println("findMinYPoint");
+		Coordinate minY = new Coordinate(Double.MAX_VALUE, Double.MAX_VALUE);
 		for (Coordinate c : dataset) {
 			if (c.getY() < minY.getY()) {
 				minY = c;
@@ -137,7 +142,7 @@ public class ConcaveHull extends JPanel {
 	private Set<Coordinate> nearestPoints(Set<Coordinate> dataset,
 			Coordinate p, int kk) {
 
-		System.out.println("nearestPoints");
+		// System.out.println("nearestPoints");
 		Set<Coordinate> tmpDataset = dataset;
 		Set<Coordinate> nearest = new HashSet<Coordinate>();
 		Coordinate minPoint = new Coordinate(0,0);
@@ -153,7 +158,7 @@ public class ConcaveHull extends JPanel {
 				if (distance < minDistance) {
 					minDistance = distance;
 					minPoint = c;
-					System.out.println("MinPoint: " + c);
+					// System.out.println("MinPoint: " + c);
 				}
 			}
 			boolean added = nearest.add(minPoint);
@@ -190,7 +195,7 @@ public class ConcaveHull extends JPanel {
 	private boolean intersectsQ(Coordinate seg1a, Coordinate seg1b,
 			Coordinate seg2a, Coordinate seg2b) {
 
-		System.out.println("intersectsQ");
+		// System.out.println("intersectsQ");
 		Line2D line1 = new Line2D.Double(seg1a.getX(), seg1a.getY(),
 		                                 seg1b.getX(), seg1b.getY());
 		Line2D line2 = new Line2D.Double(seg2a.getX(), seg2a.getY(),
@@ -200,7 +205,7 @@ public class ConcaveHull extends JPanel {
 
 	private double angle(Coordinate c1, Coordinate c2) {
 
-		System.out.println("angle");
+		// System.out.println("angle");
 		double deltaX = c1.getX()-c2.getX();
 		double deltaY = c1.getY()-c2.getY();
 
@@ -252,7 +257,7 @@ public class ConcaveHull extends JPanel {
 	}
 
 	public void draw() {
-		System.out.println("Message");
+		System.out.println("Draw");
 		JFrame frame = new JFrame("Hull");
 		frame.getContentPane().add(this);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
