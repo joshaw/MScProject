@@ -25,7 +25,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[RE,LO]{\leftmark}
+\fancyhead[RE,LO]{Part \thepart}
 \fancyfoot[CE,CO]{}
 \fancyfoot[LE,RO]{}
 
@@ -141,13 +141,20 @@
 \setcounter{page}{1}
 \input{intro/introduction.tex}
 \input{benchmarking/benchmarking.tex}
+\input{requirements/requirements.tex}
+\input{clusters/clusters.tex}
+\input{clusters/alternatives.tex}
 \input{datastructures/datastructures.tex}
 \input{grid/grid.tex}
 \input{quadtree/quadtree.tex}
-\input{clusters/clusters.tex}
+\input{quadtree/quadtree-traversal.tex}
 \input{plugin/imagej.tex}
+\input{plugin/imagej_plugin.tex}
 \input{analysis/analysis.tex}
 
+\input{evaluation/evaluation.tex}
+\input{evaluation/requirements.tex}
+\input{improvements/improvements.tex}
 \input{considerations/considerations.tex}
 
 % \clearpage
