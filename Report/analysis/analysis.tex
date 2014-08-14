@@ -8,8 +8,8 @@
 Once the data has been processed and a number of clusters have been identified,
 they can be displayed on screen in an image to verify what was found and
 perform further analysis. However, since the data that was used to find the
-clusteres is still held in memory at this point, it is useful to take advantage
-of this and perform some imediate analysis and provide some statistics
+clusters is still held in memory at this point, it is useful to take advantage
+of this and perform some immediate analysis and provide some statistics
 regarding the clusters that were found.
 
 There are two ways of conceptually viewing the clusters which will lead to
@@ -21,15 +21,15 @@ slightly different results when analysing them.
 		that were considered to be part of a cluster to be the boundary of the
 		cluster. This will mean that the actual cluster is likely to be
 		slightly larger than the actual data points that it is comprised of,
-		but is computationally simple to acheive, so fast, and can take into
+		but is computationally simple to achieve, so fast, and can take into
 		account any holes in the cluster.
 
-	\item The second way is to, once the cluster has been located, disgard the
+	\item The second way is to, once the cluster has been located, discard the
 		information about the nodes themselves, and simply use them to select
 		the appropriate points. This results in a set of points that are all
 		considered to be spatially grouped into the same cluster. From this
 		set, calculations can be performed on the real data. This method is
-		garanteed to provide information that more closely represents the
+		guaranteed to provide information that more closely represents the
 		original data, though is more computationally intensive.
 
 \end{itemize}
@@ -120,11 +120,11 @@ perimeter is slightly smaller than that calculated.
 
 A potentially useful measure of a cluster is its \emph{roundness}. This
 describes the extent to which the area and perimeter of the cluster resemble a
-circle. The avialible values of roundness are from 0, meaning a perfect line
+circle. The available values of roundness are from 0, meaning a perfect line
 with no area but finite perimeter, to 1, being a perfect circle. The equation
 to determine roundness, Equation~\ref{eq:roundness} is defined such that it is
-a unitless ratio of area and perimeter, such that a circle has roundness 1. The
-derivation of Equation~\ref{eq:roundness} is found in
+a unit-less ratio of area and perimeter, such that a circle has roundness 1.
+The derivation of Equation~\ref{eq:roundness} is found in
 Appendix~\ref{app:roundness_derivation}.
 
 \begin{align}
@@ -162,15 +162,39 @@ Here, the points contained in the nodes of quadtree that were considered part
 of the cluster are considered; the nodes are only used to select the correct
 points.
 
-\subsubsection{Cluster Area}
-\label{ssub:cluster_area_point}
-
-% TODO cluster area with points
-
 \subsubsection{Cluster Perimeter}
 \label{ssub:cluster_perimeter_point}
 
+\subsubsection*{Convex Hull Algorithm}
+\label{ssub:Convex Hull Algorithm}
+
 % TODO cluster perimeter with points
+There are a number of algorithms that atempt to find the bounding polygon of a
+set of points. Ignoring any holes in the cluster, the perimeter of this bouding
+polygon is equivalent to the perimeter of the cluster.
+
+The simplest method of finding the bounding polygon is using the convex hull
+method\cite{}. In principle, this involves starting with a circle far larger
+than the points it encloses which is reduced in size, without letting any point
+leave the shape, until only stright lines exist between external points. The
+final shap can be pictured by imaginging each of the points as being
+represented by a nail in a piece of wood. The convex hull algorithm then
+calculates the shape that would be produced if an elastic band were streched
+around these nails.
+
+The major disadvantage of this algorithm is that, as the name suggest, the
+final shape consists only of convex angles, meaning that the actual shape of
+the perimeter of the points may be lost, as shown in
+Figure~\ref{fig:convex-hull}.
+
+\begin{figure}[tbhp]
+	\centering
+	\includegraphics[width=0.8\linewidth]{name.ext}
+	\caption{Name}
+	\label{fig:convex-hull}
+\end{figure}
+
+An alternative
 
 \cite{lee2002polygonization}
 
@@ -180,3 +204,8 @@ points.
 
 % TODO mention delaunay triangulation
 \cite{lee1980two}
+
+\subsubsection{Cluster Area}
+\label{ssub:cluster_area_point}
+
+% TODO cluster area with points
