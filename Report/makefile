@@ -26,7 +26,7 @@ $(DIR):
 $(DIR)/%.pdf: %.dia
 	echo "$< ==> $@"
 	mkdir -p $(shell dirname $@)
-	dia -t svg -e "/dev/stdout" $< 2> /dev/null | sed '$$ d'\
+	dia -t svg -e "/dev/stdout" $< 2> /dev/null | sed '#/dev/null#d'\
 		| rsvg-convert -f pdf > "$@"
 
 $(DIR)/%.pdf: %.svg
