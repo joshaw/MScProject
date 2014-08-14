@@ -450,36 +450,38 @@ public class Cluster_Analysis extends PlugInFrame {
 	 */
 	private void handleOptions() {
 		String options = Macro.getOptions();
-		String optionsOrig = options;
-		options = options.toLowerCase();
 		if (options != null) {
-			if (options.indexOf("sep=") != -1) {
-				int sepp = options.indexOf("sep=");
-				int comma = options.indexOf(",", sepp);
-				comma = (comma == -1)? Integer.MAX_VALUE: comma;
-				int end = Math.min(comma , options.length()-1);
-				String seps = options.substring(sepp, end);
-				seps = seps.replaceAll("sep=", "");
-				this.separator = seps;
-			}
-			if (options.indexOf("filepath=") != -1) {
-				int fp = options.indexOf("filepath=");
-				int comma = options.indexOf(",", fp);
-				comma = (comma == -1)? Integer.MAX_VALUE: comma;
-				int end = Math.min(comma , options.length()-1);
-				String fps = optionsOrig.substring(fp, end);
-				fps = fps.replaceAll("filepath=", "");
-				if (!(new File(fps)).exists()) {
-					throw new IllegalArgumentException("File, " + fps + " not found.");
+			String optionsOrig = options;
+			options = options.toLowerCase();
+			if (options != null) {
+				if (options.indexOf("sep=") != -1) {
+					int sepp = options.indexOf("sep=");
+					int comma = options.indexOf(",", sepp);
+					comma = (comma == -1)? Integer.MAX_VALUE: comma;
+					int end = Math.min(comma , options.length()-1);
+					String seps = options.substring(sepp, end);
+					seps = seps.replaceAll("sep=", "");
+					this.separator = seps;
 				}
-				this.filepath = fps;
-				performAutoActions(filepath);
-			}
-			if (options.indexOf("quadtree=1") != -1) {
-				drawQuadTreeImediately = true;
-			}
-			if (options.indexOf("grid=1") != -1) {
-				drawGridTreeImediately = true;
+				if (options.indexOf("filepath=") != -1) {
+					int fp = options.indexOf("filepath=");
+					int comma = options.indexOf(",", fp);
+					comma = (comma == -1)? Integer.MAX_VALUE: comma;
+					int end = Math.min(comma , options.length()-1);
+					String fps = optionsOrig.substring(fp, end);
+					fps = fps.replaceAll("filepath=", "");
+					if (!(new File(fps)).exists()) {
+						throw new IllegalArgumentException("File, " + fps + " not found.");
+					}
+					this.filepath = fps;
+					performAutoActions(filepath);
+				}
+				if (options.indexOf("quadtree=1") != -1) {
+					drawQuadTreeImediately = true;
+				}
+				if (options.indexOf("grid=1") != -1) {
+					drawGridTreeImediately = true;
+				}
 			}
 		}
 
