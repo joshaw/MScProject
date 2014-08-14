@@ -447,18 +447,20 @@ Table~\ref{tab:hashmap-columns}.
 
 \begin{table}[htbp]
 	\centering
-	\begin{tabu}{l X}
+	\begin{tabu}{l >{$\bullet$\hspace*{\tabcolsep}}p{0pt} X}
 		\toprule
-		Key  & Value \\
+		Key  & \multicolumn{2}{l}{Value} \\
 		\midrule
-		Quadtree Code & $\bullet$ Set of points in this node \\
-					&	$\bullet$ Cluster these points exist in \\
-					&	$\bullet$ Size of this node \\
-					&	$\bullet$ Number of edges this node contributes to
+		Quadtree Code && Set of points in this node \\
+		              &&  Cluster these points exist in \\
+		              &&  Size of this node \\
+		              &&  Number of edges this node contributes to
 		the perimeter of the cluster\\
 		\bottomrule
 	\end{tabu}
 
 	% TODO caption
-	\caption{}\label{tab:hashmap-columns}
+	\caption[Hash map key and value format for a quadtree.]{A hash map is used
+		to associate a quadtree code with the required data for each node. The
+		value of the map is an object containing several fields.}\label{tab:hashmap-columns}
 \end{table}
