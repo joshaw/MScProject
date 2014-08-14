@@ -83,7 +83,10 @@ public class FileHandler {
 	}
 
 	public static String removeExt(String filepath) {
-		return filepath.substring(0, filepath.lastIndexOf('.'));
+		if (filepath.indexOf('.') > 0) {
+			return filepath.substring(0, filepath.lastIndexOf('.'));
+		}
+		return filepath;
 	}
 
 	public static String getFileName(String filepath) {
