@@ -168,33 +168,61 @@ points.
 \subsubsection*{Convex Hull Algorithm}
 \label{ssub:Convex Hull Algorithm}
 
-% TODO cluster perimeter with points
 There are a number of algorithms that atempt to find the bounding polygon of a
 set of points. Ignoring any holes in the cluster, the perimeter of this bouding
 polygon is equivalent to the perimeter of the cluster.
 
-The simplest method of finding the bounding polygon is using the convex hull
-method\cite{}. In principle, this involves starting with a circle far larger
-than the points it encloses which is reduced in size, without letting any point
-leave the shape, until only stright lines exist between external points. The
-final shap can be pictured by imaginging each of the points as being
-represented by a nail in a piece of wood. The convex hull algorithm then
-calculates the shape that would be produced if an elastic band were streched
-around these nails.
+The simplest method of finding this bounding polygon is using the \emph{convex
+hull} method\cite{barber1996quickhull}. In principle, this involves starting
+with a circle far larger than the points it encloses, which is reduced in size,
+without letting any point leave the shape, until only stright lines exist
+between external points. The final shape can be pictured by imaginging each of
+the points as being represented by a nail in a piece of wood. The convex hull
+algorithm then calculates the shape that would be produced if an elastic band
+were streched around these nails.
 
 The major disadvantage of this algorithm is that, as the name suggest, the
 final shape consists only of convex angles, meaning that the actual shape of
 the perimeter of the points may be lost, as shown in
 Figure~\ref{fig:convex-hull}.
 
-\begin{figure}[tbhp]
-	\centering
-	\includegraphics[width=0.8\linewidth]{name.ext}
-	\caption{Name}
-	\label{fig:convex-hull}
-\end{figure}
+% TODO figure of convex hull
+% \begin{figure}[tbhp]
+% 	\centering
+% 	\includegraphics[width=0.8\linewidth]{name.ext}
+% 	\caption{Name}
+% 	\label{fig:convex-hull}
+% \end{figure}
 
-An alternative
+\subsubsection*{Concave Hull Algorithm}
+\label{ssub:Concave Hull Algorithm}
+
+An alternative to the convex hull algorithm is the slightly more complex
+\emph{concave} hull algorithm\cite{moreira2007concave}. Instead of simply
+finding the outermost shape that will enclose all of the points, the concave
+hull algorithm finds that shape that fits the outer boundary of the points more
+closely. The steps involved are listed below.
+
+\begin{enumerate}
+	\item The algorithm looks at the distance to each of the nearest $n$
+		points, where $n$ is specified beforehand.
+	\item From these possibilities, it chooses the closest to be added to the
+		``hull''.
+	\item The new line segment that would be added by joining the existing hull
+		to the new point is examined to ensure that it does not cross the
+		existing hull at all.
+	\item If it does cross, this point is removed as a possibility of being a
+		part of the hull and the next nearest point is checked.
+	\item When the initial starting point is reached again, the algorithm will
+		have generated a closed loop joining a number of points togther.
+	\item This closed loop is checked to ensure that all points lie either on
+		the hull or are enclosed within it.
+	\item If there are any points that fall outside the hull, the results are
+		abandoned and the algorithm is re-run with the number of neighbours to
+		check, $n$, incremented by one.
+	\item When a hull is found that encloses all points, the algorithm
+		terminates.
+\end{enumerate}
 
 \cite{lee2002polygonization}
 
@@ -208,4 +236,28 @@ An alternative
 \subsubsection{Cluster Area}
 \label{ssub:cluster_area_point}
 
-% TODO cluster area with points
+Once the perimeter hull of the cluster of points has been identified, it is
+simple to calculate the area enclosed by that cluster from the hull. Since the
+hull consists only of straight lines connecting single points, the area can be
+calculated by splitting the polygon into regular triangles, and finding each of
+their areas individually. The area of the whole cluster is then given by the
+sum of these areas. An algorithm for calculating the area of the irregular
+polygon produced with this method is shown in Listing~\ref{lst:polygon-area}.
+
+\begin{lstlisting}[caption={Code to find the area of an irregular polygon.
+	Adapted from~\cite{finley2006poly}},
+label=lst:polygon-area]
+	polygonArea(points, numPoints) {
+
+		area = 0;
+		j = numPoints - 1;
+
+		/* Sum the area contained between each pair of points and the y-axis on the right hand side of the shape and subtract the area between pairs of points and the y-axis on the left hand side. */
+		for (i=0; i < numpoints; i++) {
+			area += (points[j].getX() + points.[i].getX()) *
+		        	(points[j].getY() - points.[i].getY());
+			j = i;
+		}
+		return area/2;
+	}
+\end{lstlisting}
