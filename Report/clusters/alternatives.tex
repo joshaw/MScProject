@@ -32,7 +32,7 @@ points within the cluster.
 		points are very dense and there is no noise.}\label{fig:rolling-ball}
 \end{figure}
 
-A simple approximation of this technique can be acheived by using the same
+A simple approximation of this technique can be achieved by using the same
 \texttt{open}-ing and \texttt{close}-ing processes as are described in
 Section~\ref{sec:simple_grid_method}.
 
@@ -41,9 +41,9 @@ Section~\ref{sec:simple_grid_method}.
 
 Shared nearest neighbour (SNN) clustering algorithms have been used to overcome
 some of the problems encountered with more traditional clustering methods when
-working in higher dimensions. In these cases, simple Euclidian geometry becomes
-unable to cope with the computaion and so is replaced with other coordinate
-systems. For simple clustering in two dimensions, however, Euclidian geometry
+working in higher dimensions. In these cases, simple Euclidean geometry becomes
+unable to cope with the computation and so is replaced with other coordinate
+systems. For simple clustering in two dimensions, however, Euclidean geometry
 is sufficient and is far easier and more efficient to implement.
 
 SNN based clustering algorithms analyse each of the points in a set, one at a
@@ -56,7 +56,7 @@ Implementations of SNN based algorithms, such as~\cite{jarvis1973clustering}
 and~\cite{ertoz2002new} use similarity matrices, where the set of points is
 reduced to a graph with the data points at nodes and the edges between them
 representing the similarities between the points. This matrix is then
-simplified to leave a sonsiderably sparser graph, keeping only the edges with
+simplified to leave a considerably sparser graph, keeping only the edges with
 the highest similarity. From this matrix, points can be identified as noise and
 rejected, and the networks that show close similarities are designated as
 clusters.
@@ -75,7 +75,7 @@ These algorithms effectively model the points with these properties, allow them
 the move with some defined restrictions, and then examine the products that are
 produced.
 
-The GRAVIclust algorith~\cite{indulska2002gravity} works in two phases, first
+The GRAVIclust algorithm~\cite{indulska2002gravity} works in two phases, first
 identifying $n$ locations of interest based on the distances to neighbouring
 points, similar to the SNN algorithms above, and secondly applying an
 optimisation phase where each of these locations is further examined with the
