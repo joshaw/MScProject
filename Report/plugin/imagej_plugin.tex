@@ -123,7 +123,7 @@ they are found.
 		\num{10000}, with a scale value of 1, the image would be \num{10000}
 		pixels by \num{10000} pixels. Since each pixel requires a number of
 		type \emph{float} to hold the RGB colour information, this would be far
-		too large to draw (giving an image with a size of
+		too large to draw (giving an image with a size of around
 		\SI{10}{\giga\byte}). Instead, the size of each coordinate is
 		multiplied by the scale value to reduce the overall size of the image.
 		Because this uses integer devision, there is a certain degree of error
@@ -136,10 +136,35 @@ they are found.
 		A default value of \num{5e-4} is used. This gives an uncompressed image
 		size of \SI{11}{\mega\byte} for a data set with maximum x- and
 		y-coordinates of around \num{50000}.
+\end{description}
 
-	\item[Lines] % TODO lines explanation
-	\item[Points] % TODO points explanation
-	\item[Colourize] % TODO colourize explanation
+The following are purely display settings. Each is a boolean value controlled
+with a checkbox component. Changing any of these settings simply requires the
+data to be redrawn, no further computation is performed.
+\begin{description}
+	\item[Lines] The quadtree can be displayed to check the settins that have
+		been used, above, are most appropriate. This setting toggles the
+		display of the quadtree lines so that the nodes can be seen.
+
+		The default value is true.
+
+	\item[Points] Similarly to ``Lines'', ``Points'' simply controls whether
+		the data points from the data file are drawn as single pixels or not at
+		all.
+
+		The default value is true. If this and ``Lines'' are both set to false,
+		then only the clusters themselves, as identified by the nodes that are
+		part of the cluster, are drawn.
+
+	\item[Colourize] By default, the clusters are drawn behind the lines of the
+		quadtree and behind the points from the data file. The colour of each
+		cluster is different from the previous. There are 20 colours defined,
+		meaning that when the number of clusters exceeds this number, the
+		colours will repeat. The colourisation is simply to allow the clusters
+		to be visually ditinguished from each other. This setting stops the
+		clusters from being colourized, instead using the same grey for all.
+
+		The default value is true.
 \end{description}
 
 \subsection{Displaying the QuadTree}
