@@ -53,12 +53,18 @@ neighbours of the blue nodes that will have to be checked to determine if it is
 included or not and crosses ({\footnotesize x}) represent neighbours that have
 been checked and excluded.
 
-% TODO captions
-\begin{lstlisting}
+Listing~\ref{code:quadtree-propagate} shows pseudocode for the propagate
+algorithm which, starting at a given starting location, expands the cluster
+outwards while there still exist neighbours that should be included. The
+%TODO reference get neighbours method
+\texttt{getNodeNeighbours()} method is described later on.
+
+\begin{lstlisting}[caption={Code for the propagate algorithm which expands an
+inital starting location to a cluster.}, label=code:quadtree-propagate]
 	public |propagate()| {
 
-		node[] start_locations = get_start_locations() (*@\label{eql:a}@*)
-		for each node in start_locations {
+		node[] startLocations = getStartLocations() (*@\label{eql:a}@*)
+		for each node in startLocations {
 			propagate(node)
 		}
 	}
@@ -66,7 +72,7 @@ been checked and excluded.
 	private |propagate(node)| {
 
 		if (not node.inCluster()) { (*@\label{eql:b}@*)
-			node[] neighbours = get_node_neighbours(node)
+			node[] neighbours = getNodeNeighbours(node)
 
 			for each neighbour in neighbours { (*@\label{eql:c}@*)
 				propagate(neighbour)
@@ -180,11 +186,11 @@ of the nodes that are included in the cluster and the depth that is searched.
 		\caption{}\label{fig:single-cluster-lines}
 	\end{subfigure}
 
-	\caption[Propagation of a single starting location.]{Inital versions of the
-		clustering algorithm terminated immediately after finishing propagating
-		the first cluster. This gives a useful test as to the correctness of
-		the algorithm since there are no other clusters for this to collide
-		with. It is useful to be able to check both
+	\caption[Propagation of a single starting location.]{Initial versions of
+		the clustering algorithm terminated immediately after finishing
+		propagating the first cluster. This gives a useful test as to the
+		correctness of the algorithm since there are no other clusters for this
+		to collide with. It is useful to be able to check both
 		\subref{fig:single-cluster-points} the points that were considered to
 		be in the cluster and \subref{fig:single-cluster-lines} the nodes in
 		the quadtree that were included and where the propagating algorithm
@@ -322,8 +328,8 @@ under an element with a value of 1 is included as a neighbour and 0 elements
 are ignored so that no neighbours are chosen. The value of the central element
 in the kernel does not matter, but the convention shall be to set this to 1.
 
-Thus, the simpest kernel, though of least use, is the identity kernel which has
-an element with value 1 in the center and all other elements 0. This would
+Thus, the simplest kernel, though of least use, is the identity kernel which has
+an element with value `1' in the center and all other elements `0'. This would
 result in no neighbours being selected, and so no clusters located. The rook's
 case neighbours are now represented with the first kernel in
 Figure~\ref{fig:kernel-neighbours}.
@@ -358,15 +364,17 @@ Figure~\ref{fig:kernel-neighbours}.
 		\end{tabular}
 		\caption{}\label{fig:kernel-image-all8}
 	\end{subtable}
-	%TODO short caption
-	% TODO caption
-	\caption{}\label{fig:kernel-neighbours}
+
+	\caption[Kernels for rook's case and all 8 neighbours.]{Kernels
+		for~\subref{fig:kernel-image-rooks} rook's case neighbours
+		and~\subref{fig:kernel-all8} all 8 neighbours. The central cell of the
+		kernel can be anything as it is never included as a neighbour.}\label{fig:kernel-neighbours}
 \end{figure}
 
-This functionalilty provides the ability to target certain clusters depending
-on the spatial orientation of the cluster, vertical or horizontal etc.
-Figure~\ref{fig:kernel-shapes} shows a number of possibilities of kernel shapes
-that would allow different types of clusters to be targeted.
+This functionality provides the ability to target certain clusters depending on
+the spatial orientation of the cluster, vertical or horizontal etc.
+Figure~\ref{fig:kernel-shapes} shows a number of possibilities for kernel
+shapes that would allow different types of clusters to be targeted.
 
 \begin{figure}[htbp]
 	\centering

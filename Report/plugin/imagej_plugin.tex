@@ -1,6 +1,6 @@
 % Created:  Fri 04 Jul 2014 04:47 PM
-% @author Josh Wainwright
-% File name : imagej_plugin.tex
+% Author:   Josh Wainwright
+% Filename: imagej_plugin.tex
 
 \section{ImageJ Plugin}
 \label{sec:imagej_plugin}
@@ -19,7 +19,8 @@ of activities from opening the plugin is:
 	\item select the values for the x- and y-columns,
 	\item adjust the sliders to select the parameters that are used to build
 		the quadtrees,
-	\item adjust the checkboxes to change the way the final image is displayed,
+	\item adjust the check boxes to change the way the final image is
+		displayed,
 	\item click the \texttt{Quadtree} button to start the process of reading
 		and analysing the selected file.
 \end{enumerate}
@@ -50,7 +51,7 @@ given below.
 		four new quadtrees are created, and each of the points added in to the
 		appropriate new leaf, this is known as \emph{de-leafing}.
 
-		An extremely large value for the denisty, greater than
+		An extremely large value for the density, greater than
 		$\rfrac{1}{4}$~times the number of points in the data file, would
 		result in only the first level of nodes being populated (since the root
 		does not hold points) and the final quadtree having only 4 leaves. A
@@ -79,7 +80,7 @@ given below.
 		leaf, adding points to the quadtree is also limited by the maximum
 		depth. If the depth of a node reaches the maximum depth, then it is not
 		de-leafed even if the number of points in the node exceeds the density.
-		This allows a high value to be set for the denisty so that where the
+		This allows a high value to be set for the density so that where the
 		points are relatively clustered, the tree is created deep enough to
 		distinguish them, but to prevent the depth getting very high for
 		regions of localised, abnormal high clustering that might skew the
@@ -202,11 +203,12 @@ in a stack of slices. Each slice in a stack must have the same dimensions.
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=7cm]{imagej-stack.pdf}
-	%TODO short caption
-	\caption{An ``image'' in ImageJ can be composed of a number of layers, each
-		of which is easily viewable and can be saved on its own. These layers
-		are used to display different parts of the generated image: data
-		points, located clusters, quadtree structure, etc.}\label{fig:imagej-stack}
+
+	\caption[Image layers in ImageJ]{An ``image'' in ImageJ can be composed of
+		a number of layers, each of which is easily viewable and can be saved
+		on its own. These layers are used to display different parts of the
+		generated image: data points, located clusters, quadtree structure,
+		etc.}\label{fig:imagej-stack}
 \end{figure}
 
 \subsection{Results Table}
@@ -224,8 +226,56 @@ should be multiplied by the perimeter.
 To calculate each of these values, each node that exists in a cluster is
 examined and its contribution to the overall value added.
 
-% TODO add writing about macro support
-% case insensitive
-% filepath
-% separator
-% imediately draw quadtree and grid support
+\subsection{Macro Support}
+\label{sub:macro_support}
+
+As mentioned at the start of Part~\ref{part:imagej_plugin}, ImageJ allows
+extension via macros, as well as plugins and scripts. The ImageJ documentation
+describes macros like this:
+
+\begin{quote}
+	A macro is a simple program that automates a series of ImageJ
+	commands.
+
+	[\,\ldots]
+
+	Use the macro language's built-in \texttt{run(command,
+	options)} function to run any of the 400+ commands in the ImageJ menu
+	bar.  The first argument (\texttt{command}) is any ImageJ menu command
+	(e.g., ``Measure'' and ``Close All'') and the second argument
+	(\texttt{options}), which is optional, is a string containing parameter
+	values.
+\end{quote}
+
+This means that the process of image processing can be simplified by writing or
+recording macros which perform repetitive tasks automatically.
+
+In order to make use of these features of ImageJ, support for macros must be
+written into plugins. The plugin written for this project includes basic
+support for macros through the \texttt{run(command, options)} command described
+above. The command is ``Cluster Analysis'' and the supported options are
+described below.
+
+\tabulinesep=1.2mm
+\begin{tabu}{c c X}
+	\toprule
+	Option & Value & Description \\
+	\midrule
+	\texttt{sep} & \textbf{String} & Specifies the separator to use when
+		reading the data file. If this option is not given, the separator
+		defaults to a single tab character. \\
+	\texttt{filepath} & \textbf{String} & The data file to read from. \\
+	\texttt{quadtree} & \textbf{0 or 1} & If 1, the quadtree generated from
+		the given file is drawn immediately. If 0, or if this option is not
+		given, the main dialog window is opened. If 0, or not given, but a
+		filepath is given, the file is read and initial analysis performed once
+		the window is open. \\
+	\texttt{grid} & \textbf{0 or 1} & Same as for \texttt{quadtree} above
+		but for the simple grid method. \\
+	\bottomrule
+\end{tabu}
+
+Each of these options must be given in the form \texttt{option=value} where
+value has the type or limitations described above and each option/value pair
+must be separated with a comma and an optional space. All options except
+\texttt{filepath} are case-insensitive.
