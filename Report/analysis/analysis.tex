@@ -186,13 +186,16 @@ final shape consists only of convex angles, meaning that the actual shape of
 the perimeter of the points may be lost, as shown in
 Figure~\ref{fig:convex-hull}.
 
-% TODO figure of convex hull
-% \begin{figure}[tbhp]
-% 	\centering
-% 	\includegraphics[width=0.8\linewidth]{name.ext}
-% 	\caption{Name}
-% 	\label{fig:convex-hull}
-% \end{figure}
+\begin{figure}[tbhp]
+	\centering
+	\includegraphics[width=5cm]{convex-hull.pdf}
+
+	\caption[Convex versus concave hull algorithms.]{Convex versus concave hull
+		algorithms. The red line shows the convex hul found for this set of
+		points, which misses much of the detail and will report the area as
+		being significantly above its actual value. The blue line is the
+		concave hull found.}\label{fig:convex-hull}
+\end{figure}
 
 \subsubsection*{Concave Hull Algorithm}
 \label{ssub:Concave Hull Algorithm}
@@ -245,9 +248,8 @@ sum of these areas. An algorithm for calculating the area of the irregular
 polygon produced with this method is shown in Listing~\ref{lst:polygon-area}.
 
 \begin{lstlisting}[caption={Code to find the area of an irregular polygon.
-	Adapted from~\cite{finley2006poly}},
-label=lst:polygon-area]
-	polygonArea(points, numPoints) {
+	Adapted from~\cite{finley2006poly}}, label=lst:polygon-area]
+	public |polygonArea(points, numPoints)| {
 
 		area = 0;
 		j = numPoints - 1;
