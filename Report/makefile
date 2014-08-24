@@ -26,7 +26,8 @@ $(DIR):
 $(DIR)/%.pdf: %.dia
 	echo "$< ==> $@"
 	mkdir -p $(shell dirname $@)
-	dia -t svg -e "/dev/stdout" $< 2> /dev/null | sed '#/dev/null#d'\
+	dia -t svg -e "/dev/stdout" $< 2> /dev/null | sed '/\/dev\/stdout/d'\
+		| sed 's/CM Roman/cmr10/'\
 		| rsvg-convert -f pdf > "$@"
 
 $(DIR)/%.pdf: %.svg
@@ -49,4 +50,7 @@ clean:
 
 keep-pdf:
 	find ${DIR}/ -type f ! -name "*.pdf" -delete
+
+remove-pdf:
+	find -name "$(PROJECT).pdf" -delete
 # vim:ft=make
