@@ -59,8 +59,12 @@ outwards while there still exist neighbours that should be included. The
 %TODO reference get neighbours method
 \texttt{getNodeNeighbours()} method is described later on.
 
-\begin{lstlisting}[caption={Code for the propagate algorithm which expands an
-inital starting location to a cluster.}, label=code:quadtree-propagate]
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption={[Code for the propagate algorithm.]Code for the
+	propagate algorithm which expands an inital starting location to a
+	cluster.}, label=code:quadtree-propagate]
+
 	public |propagate()| {
 
 		node[] startLocations = getStartLocations() (*@\label{eql:a}@*)
@@ -80,6 +84,8 @@ inital starting location to a cluster.}, label=code:quadtree-propagate]
 		}
 	}
 \end{lstlisting}
+\end{minipage}
+\end{center}
 
 \paragraph{Line~\ref{eql:a}} A set of starting locations is selected based on
 some heuristic that determines if a node is deep enough in the tree to be used

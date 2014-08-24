@@ -247,9 +247,12 @@ their areas individually. The area of the whole cluster is then given by the
 sum of these areas. An algorithm for calculating the area of the irregular
 polygon produced with this method is shown in Listing~\ref{lst:polygon-area}.
 
-\begin{lstlisting}[caption={Code to find the area of an irregular polygon.
-	Adapted from~\cite{finley2006poly}}, label=lst:polygon-area]
-	public |polygonArea(points, numPoints)| {
+\begin{center}
+\begin{minipage}{\textwidth}
+	\begin{lstlisting}[caption={[Code to find the area of an irregular
+	polygon.]Code to find the area of an irregular polygon.  Adapted
+	from~\cite{finley2006poly}}, label=lst:polygon-area] public
+	|polygonArea(points, numPoints)| {
 
 		area = 0;
 		j = numPoints - 1;
@@ -263,3 +266,5 @@ polygon produced with this method is shown in Listing~\ref{lst:polygon-area}.
 		return area/2;
 	}
 \end{lstlisting}
+\end{minipage}
+\end{center}

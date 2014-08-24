@@ -330,9 +330,12 @@ modified Gray code order is shown in Listings~\ref{code:child_construction}
 and~\ref{code:child_construction_mgc}.
 
 	%TODO short caption
-\begin{lstlisting}[caption={Code to generate children of the current quadtree
-while maintaining the correct ordering. Z- and Gray ordering.},
-label=code:child_construction]
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption={[Code to generate the children of the current
+	quadtree using Z- and Gray ordering.]Code to generate children of the
+	current quadtree while maintaining the correct ordering. Z- and Gray
+	ordering.}, label=code:child_construction]
 	// Constructor
 	Quadtree(max_x, max_y, code)
 
@@ -348,13 +351,17 @@ label=code:child_construction]
 	b_l = new Quadtree(100, 100, this.code + "10");
 	b_r = new Quadtree(100, 100, this.code + "11");
 \end{lstlisting}
+\end{minipage}
+\end{center}
 
-	%TODO short caption
-\begin{lstlisting}[caption={Code to generate children of the current quadtree
-while maintaining the correct ordering. Modified Gray code order. Since the
-ordering is different for each quadrant, the ordering is changed depending on
-the position of the current node.},
-label=code:child_construction_mgc]
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption={[Code to generate the children of the current
+	quadtree using modified Gray ordering.]Code to generate children of the
+	current quadtree while maintaining the correct ordering. Modified Gray code
+	order. Since the ordering is different for each quadrant, the ordering is
+	changed depending on the position of the current node.},
+	label=code:child_construction_mgc]
 	// Child creation, Modified Gray Code
 	this.position = pos;
 	if (pos == "tl") {
@@ -387,6 +394,8 @@ label=code:child_construction_mgc]
 	b_l = new Quadtree(100, 100, this.code + new_code[2]);
 	b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \end{lstlisting}
+\end{minipage}
+\end{center}
 
 \subsection{Hash Table Implementation}
 \label{sub:hash_table_implementation}
@@ -447,7 +456,7 @@ Table~\ref{tab:hashmap-columns}.
 
 \begin{table}[htbp]
 	\centering
-	\begin{tabu}{l >{$\bullet$\hspace*{\tabcolsep}}p{0pt} X}
+	\begin{tabu}{l >{$\bullet$\hspace*{\tabcolsep}}p{0pt} p{5.4cm}}
 		\toprule
 		Key  & \multicolumn{2}{l}{Value} \\
 		\midrule
