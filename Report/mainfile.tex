@@ -2,20 +2,20 @@
 % @author Josh Wainwright
 % File name : mainfile.tex
 
-\documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
-% \documentclass[a4paper,9pt,twoside]{extarticle}
+% \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
+\documentclass[a4paper,9pt,twoside]{extarticle}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
-% \usepackage[
-% 	top=4cm,
-% 	right=3cm,
-% 	left=4cm,
-% 	bottom=4cm]{geometry}
-\usepackage[top=3cm,
-	bottom=2cm,
-	left=1.5cm,
-	right=1.5cm]{geometry}
+\usepackage[
+	top=4cm,
+	right=3cm,
+	left=4cm,
+	bottom=4cm]{geometry}
+% \usepackage[top=3cm,
+% 	bottom=2cm,
+% 	left=1.5cm,
+% 	right=1.5cm]{geometry}
 \usepackage[parfill]{parskip}
 \setlength{\columnsep}{1.5em}
 
@@ -41,7 +41,7 @@
 	labelfont=bf,
 	textfont=it]{caption}
 \usepackage{subcaption}
-\captionsetup{subrefformat=parens,width=8.7cm}
+\captionsetup{subrefformat=parens,width=8.8cm}
 
 \usepackage[pdftex]{graphicx}
 \usepackage{booktabs}
@@ -60,16 +60,16 @@
 \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 \renewcommand{\labelenumiii}{\theenumiii}
 \renewcommand{\theenumiii}{\theenumii\arabic{enumiii}.}
-% \usepackage[%
-% 	activate={true,nocompatibility},
-% 	final,
-% 	tracking=true,
-% 	kerning=true,
-% 	spacing=true,
-% 	factor=1100,
-% 	stretch=10,
-% 	shrink=10]{microtype}
-% \microtypecontext{spacing=nonfrench}
+\usepackage[%
+	activate={true,nocompatibility},
+	final,
+	tracking=true,
+	kerning=true,
+	spacing=true,
+	factor=1100,
+	stretch=10,
+	shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
 
 %% CODE STYLING ----------------------------------------------------------------
 \definecolor{grey}{HTML}{555753}
