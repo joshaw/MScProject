@@ -3,15 +3,15 @@
 % File name : mainfile.tex
 
 % \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
-\documentclass[a4paper,9pt,twoside]{extarticle}
+\documentclass[a4paper,9pt]{extarticle}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
 \usepackage[
-	top=4cm,
-	right=3cm,
+	top=3.5cm,
+	right=3.5cm,
 	left=4cm,
-	bottom=4cm]{geometry}
+	bottom=3cm]{geometry}
 % \usepackage[top=3cm,
 % 	bottom=2cm,
 % 	left=1.5cm,
@@ -22,11 +22,10 @@
 %%% HEADERS & FOOTERS ----------------------------------------------------------
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE,LO]{Part \thepart}
-\fancyfoot[CE,CO]{}
+\fancyfoot[CE,CO]{\thepage}
 \fancyfoot[LE,RO]{}
 
 %%% SECTION TITLE APPEARANCE ---------------------------------------------------

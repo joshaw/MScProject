@@ -227,6 +227,13 @@ closely. The steps involved are listed below.
 		terminates.
 \end{enumerate}
 
+Most implementations of the concave hull algorithm require an argement
+specifiing the number of neighbours to examine when choosing the next segment.
+A higher number of neighbouring points that are checked, the less the final
+hull will include small incursions into the shape and so the hull will be
+smoother. The blue line in Figure~\ref{fig:convex-hull} shows the concave hull
+identified for a cluster with a neighbouring number of 4.
+
 \cite{lee2002polygonization}
 
 \cite{estivill2000autoclust}
