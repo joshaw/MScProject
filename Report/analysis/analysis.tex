@@ -240,19 +240,44 @@ identified for a cluster with a neighbouring number of 4.
 
 \cite{xia2006border}
 
-% TODO mention delaunay triangulation
-\cite{lee1980two}
+\subsubsection*{Delaunay Triangulation}
+\label{ssub:Delaunay Triangulation}
+
+Another, more complex to implement, alternative that is considered is Delaunay
+Triangulation\cite{delaunay1934sphere}. This is a method first proposed in 1934
+by Boris Delaunay for use in geographical applications.
+
+\begin{quote}
+	The Delaunay triangulation is a triangulation which is equivalent to the
+	nerve of the cells in a Voronoi diagram, i.e., that triangulation of the
+	convex hull of the points in the diagram in which every circumcircle of a
+	triangle is an empty circle.\\
+	\hspace*{\fill}\cite{okabe2009spatial}
+\end{quote}
+
+This means that the result is a densley connected graph where every point is
+joined to exactly two other points such that there are no points within the
+circle joining any three connected points. This has the side effect of
+calculating the convex hull and makes calculating the area of the cluster
+simple, the areas of the triangles are summed.
+
+This method is not used to calculate the perimeter or the area since the
+implementation is generally more complex than other methods and provides more
+information than is useful, and hence takes longer to calculate. Finally the
+area of the cluster that is identified is convex and so shows the same issues
+as the convex hull algorithm above.
 
 \subsubsection{Cluster Area}
 \label{ssub:cluster_area_point}
 
-Once the perimeter hull of the cluster of points has been identified, it is
-simple to calculate the area enclosed by that cluster from the hull. Since the
-hull consists only of straight lines connecting single points, the area can be
-calculated by splitting the polygon into regular triangles, and finding each of
-their areas individually. The area of the whole cluster is then given by the
-sum of these areas. An algorithm for calculating the area of the irregular
-polygon produced with this method is shown in Listing~\ref{lst:polygon-area}.
+If using a hull-based algorithm to find the perimeter of the cluster, once the
+perimeter hull has been identified, it is simple to calculate the area enclosed
+by that cluster. Since the hull consists only of straight lines
+connecting single points, the area can be calculated by splitting the polygon
+into regular triangles, and finding each of their areas individually. The area
+of the whole cluster is then given by the sum of these areas. An algorithm for
+calculating the area of the irregular polygon produced with this method is
+shown in Listing~\ref{lst:polygon-area}.
 
 \begin{center}
 \begin{minipage}{\textwidth}
@@ -264,7 +289,11 @@ polygon produced with this method is shown in Listing~\ref{lst:polygon-area}.
 		area = 0;
 		j = numPoints - 1;
 
-		/* Sum the area contained between each pair of points and the y-axis on the right hand side of the shape and subtract the area between pairs of points and the y-axis on the left hand side. */
+		/* Sum the area contained between each pair of points
+		 * and the y-axis on the right hand side of the shape
+		 * and subtract the area between pairs of points and
+		 * the y-axis on the left hand side.
+		 */
 		for (i=0; i < numpoints; i++) {
 			area += (points[j].getX() + points.[i].getX()) *
 		        	(points[j].getY() - points.[i].getY());
