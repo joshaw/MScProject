@@ -1,6 +1,8 @@
 <?xml version="1.0" ?>
 <project name="Clusters" default="quadtree" basedir=".">
 
+	<property name="imagej-plugin" value="${user.home}/Bin/ImageJ/ij.jar">
+
 	<!-- Variables {{{ -->
 	<property name="src.dir"     value="src"/>
 
@@ -24,7 +26,7 @@
 	<target name="compile" depends="init" >
 		<javac includeantruntime="false" destdir="${classes.dir}" debug="true" srcdir="src">
 			<classpath>
-				<pathelement location="${user.home}/Bin/ImageJ/ij.jar"/>
+				<pathelement location="${imagej-plugin}"/>
 			</classpath>
 		</javac>
 	</target>

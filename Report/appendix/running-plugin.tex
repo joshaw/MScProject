@@ -1,0 +1,30 @@
+% Created:  Mon 25 Aug 2014 02:12 pm
+% Author:   Josh Wainwright
+% Filename: running-plugin.tex
+
+\section{Compiling and Running the Plugin}
+\label{sec:running_the_plugin}
+
+The steps required to compile the plugin are given below. These steps require
+Apache Ant to be installed with a relatively recent version of the JavaVM\@.
+\begin{enumerate}
+	\item Edit the \texttt{build.xml} file to change the third line with the
+		\texttt{imagej-plugin-location} variable to point to the ``jars''
+		folder within the plugin section of the ImageJ executable folder.
+	\item Run the command \texttt{ant compile} from the same folder as the
+		\texttt{build.xml} file to compile the Java source and generate the
+		Java jar file ready for installation.
+	\item If there were no errors, run the command \texttt{ant imagej} to copy
+		the generated jar file to the relavent folder to be run by ImageJ.
+	\item The command \texttt{ant imagej} can be run to both compile and copy
+		the file.
+\end{enumerate}
+
+To run the plugin from ImageJ, follow the steps below.
+\begin{enumerate}
+	\item If ImageJ is already running when the plugin was installed, refresh
+		the menus so that the latest version of the plugin by clicking
+		\texttt{Help >> Refresh Menus}.
+	\item Run the plugin by clicking \texttt{Plugins >> jars >> Cluster
+		Analysis}.
+\end{enumerate}
