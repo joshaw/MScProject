@@ -5,9 +5,6 @@
 \section{Quadtree Traversal}
 \label{sec:quadtree_traversal}
 
-% TODO why is this method better than those in other works
-% TODO why is it different
-
 Whether the quadtree is stored in memory as a recursive quadtree data
 structure, or as hash table, Section~\ref{sub:hash_table_implementation}, the
 most important and computationally intensive step is extracting the clusters at
@@ -53,11 +50,11 @@ neighbours of the blue nodes that will have to be checked to determine if it is
 included or not and crosses ({\footnotesize x}) represent neighbours that have
 been checked and excluded.
 
-Listing~\ref{code:quadtree-propagate} shows pseudocode for the propagate
+Listing~\ref{code:quadtree-propagate} shows pseudo code for the propagate
 algorithm which, starting at a given starting location, expands the cluster
 outwards while there still exist neighbours that should be included. The
-%TODO reference get neighbours method
-\texttt{getNodeNeighbours()} method is described later on.
+\texttt{getNodeNeighbours()} method is described
+Section~\ref{sub:choosing_neighbours}.
 
 \begin{center}
 \begin{minipage}{\textwidth}
@@ -322,6 +319,9 @@ Figure~\ref{fig:kernel-all8}.
 		more of the cluster is included.}\label{fig:kernel-options}
 \end{figure}
 
+\subsubsection*{Image Kernel}
+\label{ssub:Image Kernel}
+
 The requirement to include a total of eight neighbours for each node suggests
 that it might be of value to be able to specify an arbitrary number of
 neighbours around the given cell.
@@ -337,20 +337,21 @@ all $\rfrac{1}{9}$'s can be used. When applied, this would mean that the
 current pixel is given a value which is the sum of each of matrix elements
 multiplied by the pixel value beneath it.
 
-A similar technique is used to choose neighbours from the quadtree. The image
-kernel that is used is a binary matrix, meaning that all of the elements are
-restricted to 0 or 1, but, in all other respects, is the same as a regular
-image kernel. The kernel is placed over a node of interest. Any nodes that lie
-under an element with a value of 1 is included as a neighbour and 0 elements
-are ignored so that no neighbours are chosen. The value of the central element
-in the kernel does not matter, but the convention shall be to set this to 1.
+A similar technique is used here to choose neighbours from the quadtree. The
+image kernel that is used is a binary matrix, meaning that all of the elements
+are restricted to either 0 or 1, but, in all other respects, is the same as a
+regular image kernel. The kernel is placed over a node of interest. Any nodes
+that lie under an element with a value of 1 is included as a neighbour and
+nodes under 0 elements are ignored so that no neighbours are chosen. The value
+of the central element in the kernel does not matter, but the convention shall
+be to set this to 1.
 
-Thus, the simplest kernel, though of least use, is the identity kernel which has
-an element with value `1' in the center and all other elements `0'. This would
-result in no neighbours being selected, and so no clusters located. The rook's
-case neighbours are now represented with the first kernel in
-Figure~\ref{fig:kernel-neighbours}.
-% TODO kernel explanation
+Thus, the simplest kernel, though of least use, is the identity kernel which
+has an element with value `1' in the center and all other elements `0'. This
+would result in no neighbours being selected, and so no clusters located. The
+rook's case neighbours are now represented with the kernel in
+Figure~\ref{fig:kernel-image-rooks} and the case with all 8 neighbours in
+Figure~\ref{fig:kernel-image-all8}.
 
 \begin{figure}[tbhp]
 	\centering
