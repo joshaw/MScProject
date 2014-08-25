@@ -232,7 +232,18 @@ this process of finding new clusters:
 
 \end{itemize}
 
-% TODO why have we chosen what we have.
+The plugin developed uses a combination of the first and second approaches.
+Since the number of clusters cannot often be counted easily, the user cannot be
+expected to provide this value. However, it is also very difficult to determine
+when clusters that are being propagated are valid or not. The algorithm can be
+instructed to halt if the nodes that are being considered are too high up the
+tree, i.e., too many nodes have been included and the algorithm has run away,
+but this is generally not sufficient for all cases. Instead, a comparason with
+the depth range allowed (which is set by the user) with the difference between
+the first cluster found and the current cluster is made. If the difference is
+similar to the depth range, then the algorithm continues. After this process
+has finished, the clusters that have been found are examined and those that are
+too small with respect to the others are removed.
 
 \begin{figure}[tbhp]
 	\centering
@@ -396,5 +407,49 @@ shapes that would allow different types of clusters to be targeted.
 		(e) NW SE diagonal.}\label{fig:kernel-shapes}
 \end{figure}
 
-% TODO searching up the tree
-% TODO searching down the tree
+\subsubsection*{Searching Up and Down the Tree}
+\label{ssub:Searching Up and Down the Tree}
+
+Once a node location has been identified as a valid neighbour, there is still
+no guarantee that there exists a node there. There are three possible cases
+concerning the location that has been identified:
+\begin{enumerate}
+	\item The location could represent a leaf node, in which case the process
+		is complete and a neighbour has been identified,
+		Figure~\ref{fig:updownsearch}a.
+	\item The location could be a non-existant node, i.e., there may be a leaf
+		node at a position further up the tree than the location meaning there
+		is nothing at this position in the tree,
+		Figure~\ref{fig:updownsearch}b.
+	\item The location could be a node in the quadtree which is not a leaf
+		node, i.e., it has four children, each of which may be trees or leaves,
+		Figure~\ref{fig:updownsearch}c.
+\end{enumerate}
+
+\begin{figure}[tbhp]
+	\centering
+	\includegraphics[width=5cm]{updownsearch.pdf}
+	\caption[Possible results of neighbour selection.]{The possible results of
+		neighbour selection. The blue square is the node that is being
+		propagated and the red square represents the location of the node given
+		by the neighbour code, black squares are real nodes in the tree. (a)
+		shows the ideal case where the neighbour is a node, (b) shows where the
+		code could be further down in the tree than exists and (c) shows the
+		case where a real node is selected, but is not a leaf.}\label{fig:updownsearch}
+\end{figure}
+
+Each of these situations must be handled differently in order to ensure that
+all of the correct nodes are selected as neighbours. In the first case, no
+further action must be taken.
+
+In the second case, either the code that has been obtained from the kernel
+analysis must be shortened until it represents a node that exists in the tree,
+or the tree must be traversed according to the quadtree code until a leaf node
+is reached. The located node must then be compared against the node to which
+this is a neighbour to check that the two are within the depth range specified
+(Section~\ref{sub:option_sliders}).
+
+For the third case, the depth range is not considered since all nodes deeper
+than the starting node are assumed to be a part of the same cluster. Instead,
+all leaf nodes below the node represented by the code are included as valid
+neighbours, and hence are, themselves, propagated.
