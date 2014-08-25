@@ -5,11 +5,12 @@
 \section{Benchmarking}
 \label{sec:benchmarking}
 
-Throughout the project, a set of files will be used to test the algorithms
-that are developed; their correctness and effectiveness, speed and resource
-use. These files contain real data formated in the same way as would be
-expected for data given to the plugin in general use. The files that will be
-used are detailed in Table~\ref{tab:benchmarking-files}.
+Throughout the project, a set of files will be used to test the algorithms that
+are developed; their correctness and effectiveness, speed and resource use.
+Several of these files contain real data formated in the same way as would be
+expected for data given to the plugin in general use, the others contain
+simulated or uniform data for testing. The files that will be used are detailed
+in Table~\ref{tab:benchmarking-files}.
 
 \renewcommand{\arraystretch}{1.3}
 \begin{table}[htbp]
@@ -36,30 +37,6 @@ used are detailed in Table~\ref{tab:benchmarking-files}.
 Note that \texttt{palm-3-small.txt} is a subset of \texttt{palm-3.txt} which
 is used for simply checking correctness of algorithms. A summary of the
 columns that are included in the files, used and unused fields, is included in
-Appendix~\ref{app:data_file_structure}.
-
-% TODO system information of benchmark machine
-%
-\begin{tabular}{l l}
-	Architecture:          & x86\_64 \\
-	CPU op-mode  (s):      & 32-bit, 64-bit \\
-	Byte Order:            & Little Endian \\
-	CPU (s):               & 4 \\
-	On-line CPU (s) list:  & 0--3 \\
-	Thread (s) per core:   & 1 \\
-	Core (s) per socket:   & 4 \\
-	Socket (s):            & 1 \\
-	NUMA node (s):         & 1 \\
-	Vendor ID\@:           & GenuineIntel \\
-	CPU family:            & 6 \\
-	Model:                 & 60 \\
-	Stepping:              & 3 \\
-	CPU MHz:               & 800.000 \\
-	BogoMIPS\@:            & 6385.81 \\
-	Virtualization:        & VT-x \\
-	L1d cache:             & 32K \\
-	L1i cache:             & 32K \\
-	L2 cache:              & 256K \\
-	L3 cache:              & 6144K \\
-	NUMA node0 CPU (s):    & 0--3 \\
-\end{tabular}
+Appendix~\ref{app:data_file_structure} and a summary of the hardware that was
+used when benchmarking the algorithms is shown in
+Appendix~\ref{app:benchmarking_hardware}.
