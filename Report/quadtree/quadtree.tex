@@ -206,8 +206,8 @@ calculation of neighbours becomes difficult.
 
 The Gray Code\cite{gray1953pulse}, developed by Frank Gray in 1953, was
 originally designed to reduce the error rate produced by mechanical
-electronics. The code is a variation on binary where each step when counting
-up changes only a single bit at a time. This meant that electromechanical
+electronics. The code is a variation on binary where each step, when counting
+up, changes only a single bit at a time. This meant that electromechanical
 apparatus was less likely to make a mistake or generate errors since the
 actions required to count from one to two required only a single bit change,
 rather than two, as would be required for binary counting. When using just two
@@ -221,6 +221,7 @@ Z-order and the neighbours are just as difficult to calculate as for Hilbert
 Order. However, by using a different arrangement of the sub-trees, as the
 Hilbert curve does, the leaf nodes group themselves in a very ordered
 fashion. When arranged as in Figure~\ref{fig:traverse-modgray-order.pdf}
+% TODO modified gray code explanation
 and~\ref{fig:modgray-traversal}, each cell is arranged such that
 
 \begin{figure}[tbhp]
@@ -281,7 +282,7 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 	\item Figure~\ref{fig:modgray-alt-pinwheel.pdf} shows an alteration to the
 		modified Gray code order, named \emph{pinwheel order}, where, instead of
 		reflecting the quadrants, each is rotated about it's center
-		\SI{90}{\degree} so that the whole image is rotational symmetric,
+		\SI{90}{\degree} so that the whole image is rotationally symmetric,
 		something the modified Gray code lacks.  This form turns out not to
 		provide any additional features and makes conversion from quadtree code
 		to coordinate representation substantially more difficult.
@@ -318,6 +319,16 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 		discounted.}\label{fig:modgray-2-alternatives}
 \end{figure}
 
+\subsubsection{Chosen Ordering}
+\label{ssub:Chosen Ordering}
+
+% TODO which ordering was chosen and why?
+Despite
+
+\subsection{Constructing Orderings in Code}
+\label{sub:constructing_orderings_in_code}
+
+% TODO mention constructor in listing 1
 Since the quadtree is a recursive data structure, it is necessary to be able to
 maintain the correct orientation of child trees with respect to their parents
 at the construction stage. It turns out that this is easy to achieve and thus
