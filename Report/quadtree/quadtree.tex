@@ -219,10 +219,11 @@ Figure~\ref{fig:traverse-gray-order.pdf}. This does not seem to provide any
 benefits since there is now more jumping around the image space than with
 Z-order and the neighbours are just as difficult to calculate as for Hilbert
 Order. However, by using a different arrangement of the sub-trees, as the
-Hilbert curve does, the leaf nodes group themselves in a very ordered
-fashion. When arranged as in Figure~\ref{fig:traverse-modgray-order.pdf}
-% TODO modified gray code explanation
-and~\ref{fig:modgray-traversal}, each cell is arranged such that
+Hilbert curve does, the leaf nodes group themselves in a very ordered fashion.
+When arranged as in Figures~\ref{fig:traverse-modgray-order.pdf}
+and~\ref{fig:modgray-traversal}, each cell is arranged such that the codes for
+any two neightbouring nodes at the same depth differs by exactly one bit. This
+means that to check if nodes are neighbours becomes trivial.
 
 \begin{figure}[tbhp]
 	\centering
@@ -322,13 +323,62 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 \subsubsection{Chosen Ordering}
 \label{ssub:Chosen Ordering}
 
-% TODO which ordering was chosen and why?
-Despite
+Despite the promising features of the modified Gray ordering, the simple Morton
+ordering is used when constructing quadtrees in the ImageJ plugin. This is due
+to the issues encountered when developing a method of discovering neighbours of
+nodes in the modified Gray code system. It was found that, despite there being
+an assurance that two neighbours' codes differ by exactly one bit, this cannot
+provide a one to one mapping with the required neighbours of that node.
+
+Consider, for example, a node, $S$, at a depth of three in the tree where the
+rook's case neighbours are required. This node has a code consisting of 6 bits,
+two for each level. From this code, a total of six possible neighbour
+candidates can be identified by simply flipping each of the bits in the code.
+These neighbours are shown for an example node in Table~\ref{tab:s-neighbours}
+and their position relative to the original shown in
+Firgure~\ref{fig:modgray-failures}. The first two of these, the results of
+flipping the two least significant bits, are guaranteed always to be valid
+neighbours since they share the same parent as $S$. However, the two other
+neighbours which need to be selected from the remaining four possibilities,
+cannot be identified easily.  These other possible neighbours exist at other
+locations in the quadtree, always either vertically above or below or
+horizontally to the left or right of $S$, but there is no simple test to
+determine if they are actually neighbours or not.
+
+\begin{table}
+	\centering
+	\begin{tabu}{c c c}
+		\toprule Node $S$ & Neighbours \\
+		\cmidrule{1-2} \multirow{6}{*}{101001}
+		& 10100\textbf{0} & \rdelim\}{2}{4cm}[Guaranteed to be neighbours] \\
+		& 1010\textbf{1}1 & \\
+		& 101\textbf{1}01 & \rdelim\}{4}{4cm}[Must choose two others]\\
+		& 10\textbf{0}001 & \\
+		& 1\textbf{1}1001 & \\
+		& \textbf{0}01001 & \\
+		\bottomrule
+	\end{tabu}
+	\caption[The possible neighbours for a node using modified Gray
+		ordering.]{The possible neighbours for a node using modified Gray
+		ordering. The bit that was flipped is highlighted for each
+		neighbour.}\label{tab:s-neighbours}
+\end{table}
+
+\begin{figure}[tbhp]
+	\centering
+	\includegraphics[width=8.8cm]{modgray-failures.pdf}
+	\caption[Flipping code bits gives too many possible neighbours.]{Flipping
+		the bits of the code to get possible neighbours gives too many
+		possibilities to be able to select the correct neighbours. This problem
+		is exagerated as the node gets deeper in the tree since there are more
+		bits in the code to change. The incorrect neighbours are always in line
+		with the original and represent what would be neighbours if the tree
+		was a level shallower.}\label{fig:modgray-failures}
+\end{figure}
 
 \subsection{Constructing Orderings in Code}
 \label{sub:constructing_orderings_in_code}
 
-% TODO mention constructor in listing 1
 Since the quadtree is a recursive data structure, it is necessary to be able to
 maintain the correct orientation of child trees with respect to their parents
 at the construction stage. It turns out that this is easy to achieve and thus
@@ -336,7 +386,9 @@ adapting it for each of the arrangements discussed above is simply a matter of
 adjusting the next part of the code that is added for each of the four children
 when creating them. Pseudo code to achieve this for the Morton order and the
 modified Gray code order is shown in Listings~\ref{code:child_construction}
-and~\ref{code:child_construction_mgc}.
+and~\ref{code:child_construction_mgc}. In each of these cases, the constructor
+for a quadtree is \texttt{Quadtree(max\_x, max\_y, code)}, where \texttt{code} is
+the new portion of code to be added for that child.
 
 \begin{center}
 \begin{minipage}{\textwidth}
@@ -344,9 +396,6 @@ and~\ref{code:child_construction_mgc}.
 	quadtree using Z- and Gray ordering.]Code to generate children of the
 	current quadtree while maintaining the correct ordering. Z- and Gray
 	ordering.}, label=code:child_construction]
-	// Constructor
-	Quadtree(max_x, max_y, code)
-
 	// Child creation,  Z-Order
 	t_l = new Quadtree(100, 100, this.code + "00");
 	t_r = new Quadtree(100, 100, this.code + "01");
@@ -371,26 +420,25 @@ and~\ref{code:child_construction_mgc}.
 	changed depending on the position of the current node.},
 	label=code:child_construction_mgc]
 	// Child creation, Modified Gray Code
-	this.position = pos;
-	if (pos == "tl") {
+	if (position == "tl") {
 		new_code[0] = code + "00";
 		new_code[1] = code + "01";
 		new_code[2] = code + "10";
 		new_code[3] = code + "11";
 
-	} else if (pos == "tr") {
+	} else if (position == "tr") {
 		new_code[0] = code + "01";
 		new_code[1] = code + "00";
 		new_code[2] = code + "11";
 		new_code[3] = code + "10";
 
-	} else if (pos == "bl") {
+	} else if (position == "bl") {
 		new_code[0] = code + "10";
 		new_code[1] = code + "11";
 		new_code[2] = code + "00";
 		new_code[3] = code + "01";
 
-	} else if (pos == "br") {
+	} else if (position == "br") {
 		new_code[0] = code + "11";
 		new_code[1] = code + "10";
 		new_code[2] = code + "01";
