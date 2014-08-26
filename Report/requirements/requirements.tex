@@ -19,41 +19,45 @@ usability andfeatures but is not essential and `W' is something that
 
 The plugin will allow the user to:
 
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*.]
 	\item Select data
-		\begin{enumerate}
-			\item Select a data file to process.
-			\item Select the appropriate column separator for the file.
-			\item Select which coloumn the x- and y-coordinates appear in.
-			\item Adjust parameters relating to the process of analysing the
-				data file.
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:a} Select a data file to process. (M)
+			\item~\label{req:b} Select the appropriate column separator for the
+				file. (C)
+			\item~\label{req:c} Select which coloumn the x- and y-coordinates
+				appear in. (W)
+			\item~\label{req:d} Adjust parameters relating to the process of
+				analysing the data file. (S)
 		\end{enumerate}
 	\item Create images
-		\begin{enumerate}
-			\item Create an image of the points from the selected file using
-				naitve ImageJ functionality.
-			\item Create an image of the clusters found using native ImageJ
-				functionality.
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:e} Create an image of the points from the selected
+				file using naitve ImageJ functionality. (S)
+			\item~\label{req:f} Create an image of the clusters found using
+				native ImageJ functionality. (M)
 		\end{enumerate}
-	\item Perform a clustering algorithm on the data in the chosen file.
+	\item~\label{req:g} Perform a clustering algorithm on the data in the
+		chosen file. (M)
 	\item Generate cluster information
-		\begin{enumerate}
-			\item Generate perimeter information for each of the clusters
-				found.
-			\item Generate area information for each of the clusters found.
-			\item Display a results table showing summary of information about
-				each of the clusters found.
-			\item Limit the clusters drawn to the image based on the size of
-				the cluster.
-			\item Limit the clusters included in the results table based on the
-				size of the cluster.
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:h} Generate perimeter information for each of the
+				clusters founh. (S)
+			\item~\label{req:i} Generate area information for each of the
+				clusters found. (S)
+			\item~\label{req:j} Display a results table showing summary of
+				information about each of the clusters found. (C)
+			\item~\label{req:k} Limit the clusters drawn to the image based on
+				the size of the cluster. (C)
+			\item~\label{req:l} Limit the clusters included in the results
+				table based on the size of the cluster. (C)
 		\end{enumerate}
 	\item Export data found by the algorithm.
-		\begin{enumerate}
-			\item Export cluster information by selecing appropriate cluster
-				from the results table.
-			\item Export data points contained in cluster by selecing
-				appropriate cluster from the results table.
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:m} Export cluster information by selecing
+				appropriate cluster from the results table. (W)
+			\item~\label{req:n} Export data points contained in cluster by
+				selecing appropriate cluster from the results table. (W)
 		\end{enumerate}
 \end{enumerate}
 
@@ -62,20 +66,22 @@ The plugin will allow the user to:
 
 The plugin will:
 
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*.]
 	\item Efficiency
-		\begin{enumerate}
-			\item Handle input data files of upto \num{100000} data points in
-				under 10 seconds.
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:o} Handle input data files of upto \num{100000}
+				data points in under 10 seconds. (S)
 		\end{enumerate}
 	\item Usability
-		\begin{enumerate}
-			\item Be easy to use without instruction.
-			\item Have customisation ability for more advanced uses.
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:p} Be easy to use without instruction. (M)
+			\item~\label{req:q} Have customisation ability for more advanced
+				uses. (S)
 		\end{enumerate}
 	\item Interoperability
-		\begin{enumerate}
-			\item Be platform independant, as long as ImageJ is present.
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:r} Be platform independant, as long as ImageJ is
+				present. (S)
 		\end{enumerate}
 \end{enumerate}
 
