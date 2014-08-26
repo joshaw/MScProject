@@ -3,7 +3,7 @@
 % File name : mainfile.tex
 
 % \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
-\documentclass[a4paper,9pt]{extarticle}
+\documentclass[a4paper,9pt,twoside]{extarticle}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
@@ -55,20 +55,22 @@
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{url}
-\renewcommand{\labelenumii}{\theenumii}
-\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
-\renewcommand{\labelenumiii}{\theenumiii}
-\renewcommand{\theenumiii}{\theenumii\arabic{enumiii}.}
-\usepackage[%
-	activate={true,nocompatibility},
-	final,
-	tracking=true,
-	kerning=true,
-	spacing=true,
-	factor=1100,
-	stretch=10,
-	shrink=10]{microtype}
-\microtypecontext{spacing=nonfrench}
+\usepackage{multirow,bigdelim}
+
+% \renewcommand{\labelenumii}{\theenumii}
+% \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+% \renewcommand{\labelenumiii}{\theenumiii}
+% \renewcommand{\theenumiii}{\theenumii\arabic{enumiii}.}
+% \usepackage[%
+% 	activate={true,nocompatibility},
+% 	final,
+% 	tracking=true,
+% 	kerning=true,
+% 	spacing=true,
+% 	factor=1100,
+% 	stretch=10,
+% 	shrink=10]{microtype}
+% \microtypecontext{spacing=nonfrench}
 
 %% CODE STYLING ----------------------------------------------------------------
 \definecolor{grey}{HTML}{555753}
