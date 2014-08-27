@@ -22,7 +22,7 @@ slightly different results when analysing them.
 		cluster. This will mean that the actual cluster is likely to be
 		slightly larger than the actual data points that it is comprised of,
 		but is computationally simple to achieve, so fast, and can take into
-		account any holes in the cluster.
+		account any holes in the cluster (see below).
 
 	\item The second way is to, once the cluster has been located, discard the
 		information about the nodes themselves, and simply use them to select
@@ -74,7 +74,7 @@ However, this simply gives the length of one side of the node for any node. In
 order to calculate the perimeter of the cluster, it is not enough to simply
 sum these values, as for the cluster area, since not all nodes contribute to
 the perimeter. Instead, for each node, it must be decided whether it
-contributes to the perimeter and how much (1, 2, 3 or 4 sides), and then
+contributes to the perimeter and how much (0, 1, 2, 3 or 4 sides), and then
 increase the total perimeter by this many times the length of one side. The
 total perimeter, $P$, then is given by Equation~\ref{eq:total-perimeter},
 \begin{align}
@@ -109,9 +109,9 @@ into account in case (b).
 
 \end{figure}
 
-Within the cluster, \emph{holes} occur where a node, or number of nodes, is
+Within the cluster, \emph{holes} occur where a node is, or number of nodes are,
 surrounded on all sides by the same cluster. An example can be seen in
-Figure~\ref{fig:kernel-options}. Unfortunately, these are included in the
+Figure~\ref{fig:roundness}. Unfortunately, these are included in the
 calculation of the perimeter and so, where holes exist in a cluster, the actual
 perimeter is slightly smaller than that calculated.
 
@@ -122,7 +122,7 @@ A potentially useful measure of a cluster is its \emph{roundness}. This
 describes the extent to which the area and perimeter of the cluster resemble a
 circle. The available values of roundness are from 0, meaning a perfect line
 with no area but finite perimeter, to 1, being a perfect circle. The equation
-to determine roundness, Equation~\ref{eq:roundness} is defined such that it is
+to determine roundness, Equation~\ref{eq:roundness}, is defined such that it is
 a unit-less ratio of area and perimeter, such that a circle has roundness 1.
 The derivation of Equation~\ref{eq:roundness} is found in
 Appendix~\ref{app:roundness_derivation}.
@@ -158,9 +158,9 @@ Figure~\ref{fig:roundness-round.png} has an average $R=0.446$.
 \subsection{Point Analysis}
 \label{sub:point_analysis}
 
-Here, the points contained in the nodes of quadtree that were considered part
-of the cluster are considered; the nodes are only used to select the correct
-points.
+Here, the points contained in the nodes of the quadtree that were considered
+part of the cluster are considered; the nodes are only used to select the
+correct points.
 
 \subsubsection{Cluster Perimeter}
 \label{ssub:cluster_perimeter_point}
@@ -168,18 +168,18 @@ points.
 \subsubsection*{Convex Hull Algorithm}
 \label{ssub:Convex Hull Algorithm}
 
-There are a number of algorithms that atempt to find the bounding polygon of a
-set of points. Ignoring any holes in the cluster, the perimeter of this bouding
-polygon is equivalent to the perimeter of the cluster.
+There are a number of algorithms that attempt to find the bounding polygon of a
+set of points. Ignoring any holes in the cluster, the perimeter of this
+bounding polygon is equivalent to the perimeter of the cluster.
 
 The simplest method of finding this bounding polygon is using the \emph{convex
 hull} method\cite{barber1996quickhull}. In principle, this involves starting
 with a circle far larger than the points it encloses, which is reduced in size,
-without letting any point leave the shape, until only stright lines exist
-between external points. The final shape can be pictured by imaginging each of
-the points as being represented by a nail in a piece of wood. The convex hull
-algorithm then calculates the shape that would be produced if an elastic band
-were streched around these nails.
+without letting any point leave the shape, until only straight lines exist
+between external points. The final shape can be pictured by imagining each of
+the points as a nail in a piece of wood. The convex hull algorithm then
+calculates the shape that would be produced if an elastic band were stretched
+around these nails.
 
 The major disadvantage of this algorithm is that, as the name suggest, the
 final shape consists only of convex angles, meaning that the actual shape of
@@ -191,22 +191,23 @@ Figure~\ref{fig:convex-hull}.
 	\includegraphics[width=5cm]{convex-hull.pdf}
 
 	\caption[Convex versus concave hull algorithms.]{Convex versus concave hull
-		algorithms. The red line shows the convex hul found for this set of
+		algorithms. The red line shows the convex hull found for this set of
 		points, which misses much of the detail and will report the area as
 		being significantly above its actual value. The blue line is the
-		concave hull found.}\label{fig:convex-hull}
+		concave hull.}\label{fig:convex-hull}
 \end{figure}
 
 \subsubsection*{Concave Hull Algorithm}
 \label{ssub:Concave Hull Algorithm}
 
-An alternative to the convex hull algorithm is the slightly more complex
+An alternative to the convex hull algorithm is the significantly more complex
 \emph{concave} hull algorithm\cite{moreira2007concave}. Instead of simply
 finding the outermost shape that will enclose all of the points, the concave
 hull algorithm finds that shape that fits the outer boundary of the points more
 closely. The steps involved are listed below.
 
 \begin{enumerate}
+	\item Find the the most southerly point to be the first point in the hull.
 	\item The algorithm looks at the distance to each of the nearest $n$
 		points, where $n$ is specified beforehand.
 	\item From these possibilities, it chooses the closest to be added to the
@@ -217,7 +218,7 @@ closely. The steps involved are listed below.
 	\item If it does cross, this point is removed as a possibility of being a
 		part of the hull and the next nearest point is checked.
 	\item When the initial starting point is reached again, the algorithm will
-		have generated a closed loop joining a number of points togther.
+		have generated a closed loop joining a number of points together.
 	\item This closed loop is checked to ensure that all points lie either on
 		the hull or are enclosed within it.
 	\item If there are any points that fall outside the hull, the results are
@@ -227,8 +228,8 @@ closely. The steps involved are listed below.
 		terminates.
 \end{enumerate}
 
-Most implementations of the concave hull algorithm require an argement
-specifiing the number of neighbours to examine when choosing the next segment.
+Most implementations of the concave hull algorithm require an argument
+specifying the number of neighbours to examine when choosing the next segment.
 A higher number of neighbouring points that are checked, the less the final
 hull will include small incursions into the shape and so the hull will be
 smoother. The blue line in Figure~\ref{fig:convex-hull} shows the concave hull
@@ -243,7 +244,7 @@ identified for a cluster with a neighbouring number of 4.
 \subsubsection*{Delaunay Triangulation}
 \label{ssub:Delaunay Triangulation}
 
-Another, more complex to implement, alternative that is considered is Delaunay
+Another, more complex to implement, alternative is Delaunay
 Triangulation\cite{delaunay1934sphere}. This is a method first proposed in 1934
 by Boris Delaunay for use in geographical applications.
 
@@ -255,11 +256,11 @@ by Boris Delaunay for use in geographical applications.
 	\hspace*{\fill}\cite{okabe2009spatial}
 \end{quote}
 
-This means that the result is a densley connected graph where every point is
+This means that the result is a densely connected graph where every point is
 joined to exactly two other points such that there are no points within the
 circle joining any three connected points. This has the side effect of
 calculating the convex hull and makes calculating the area of the cluster
-simple, the areas of the triangles are summed.
+simple---the areas of the triangles are summed.
 
 This method is not used to calculate the perimeter or the area since the
 implementation is generally more complex than other methods and provides more
@@ -304,3 +305,5 @@ shown in Listing~\ref{lst:polygon-area}.
 \end{lstlisting}
 \end{minipage}
 \end{center}
+
+% TODO describe out dilate/erode method

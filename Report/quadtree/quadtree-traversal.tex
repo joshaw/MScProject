@@ -49,14 +49,6 @@ The propagation algorithm is performed as follows:
 
 This process is shown graphically in Figure~\ref{fig:propogation}.
 
-% TODO move this block to better location
-Here, and from now on, blue nodes are nodes that either need to be checked or
-are currently being checked; red are nodes that have been checked and have been
-included in the cluster; question marks ({\footnotesize?}) represent the
-neighbours of the blue nodes that will have to be checked to determine if it is
-included or not and crosses ({\footnotesize x}) represent neighbours that have
-been checked and excluded.
-
 Listing~\ref{code:quadtree-propagate} shows pseudo code for the propagate
 algorithm which, starting at a given starting location, expands the cluster
 outwards while there still exist valid neighbours that should be included. The
@@ -242,7 +234,7 @@ expected to provide this value. However, it is also very difficult to determine
 when clusters that are being propagated are valid or not. The algorithm can be
 instructed to halt if the nodes that are being considered are too high up the
 tree, i.e., too many nodes have been included and the algorithm has run away,
-but this is generally not sufficient for all cases. Instead, a comparason with
+but this is generally not sufficient for all cases. Instead, a comparison with
 the depth range allowed (which is set by the user) with the difference between
 the first cluster found and the current cluster is made. If the difference is
 similar to the depth range, then the algorithm continues. After this process
@@ -329,9 +321,9 @@ Figure~\ref{fig:kernel-all8}.
 \subsubsection*{Image Kernel}
 \label{ssub:Image Kernel}
 
-The requirement to include a total of eight neighbours for each node suggests
-that it might be of value to be able to specify an arbitrary number of
-neighbours around the given cell.
+The requirement to include eight neighbours for each node suggests that it
+might be of value to allow users to specify an arbitrary number of neighbours
+around the given cell.
 
 In many applications in image processing, the concept of an image \emph{kernel}
 is commonplace. This is a square, odd-sided matrix that is used to apply
@@ -347,21 +339,34 @@ multiplied by the pixel value beneath it.
 A similar technique is used here to choose neighbours from the quadtree. The
 image kernel that is used is a binary matrix, meaning that all of the elements
 are restricted to either 0 or 1, but, in all other respects, is the same as a
-regular image kernel. The kernel is placed over a node of interest. Any nodes
-that lie under an element with a value of 1 is included as a neighbour and
-nodes under 0 elements are ignored so that no neighbours are chosen. The value
-of the central element in the kernel does not matter, but the convention shall
-be to set this to 1.
+regular image kernel. The kernel is placed over a node of interest. Any node
+that lies under an element with a value of 1 is included as a neighbour and
+nodes under 0 elements are ignored. The value of the central element in the
+kernel does not matter, but the convention is to set this to 1.
 
 Thus, the simplest kernel, though of least use, is the identity kernel which
-has an element with value `1' in the center and all other elements `0'. This
-would result in no neighbours being selected, and so no clusters located. The
-rook's case neighbours are now represented with the kernel in
-Figure~\ref{fig:kernel-image-rooks} and the case with all 8 neighbours in
-Figure~\ref{fig:kernel-image-all8}.
+has an element with value `1' in the center and all other elements `0',
+Figure~\ref{fig:kernel-identity}. This would result in no neighbours being
+selected, and so no clusters located. The rook's case neighbours are now
+represented with the kernel in Figure~\ref{fig:kernel-image-rooks} and the case
+with all 8 neighbours in Figure~\ref{fig:kernel-image-all8}.
 
 \begin{figure}[tbhp]
 	\centering
+	\begin{subtable}[b]{0.2\textwidth}
+	\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			0 & 0 & 0 \\
+			\hline
+			0 & \cellcolor{lred}1 & 0 \\
+			\hline
+			0 & 0 & 0 \\
+			\hline
+		\end{tabular}
+		\caption{}\label{fig:kernel-identity}
+	\end{subtable}%
+	\quad
 	\begin{subtable}[b]{0.2\textwidth}
 	\centering
 		\begin{tabular}{|l|l|l|}
@@ -390,8 +395,9 @@ Figure~\ref{fig:kernel-image-all8}.
 		\caption{}\label{fig:kernel-image-all8}
 	\end{subtable}
 
-	\caption[Kernels for rook's case and all 8 neighbours.]{Kernels
-		for~\subref{fig:kernel-image-rooks} rook's case neighbours
+	\caption[Kernels for the identity matrix, rook's case and all 8
+		neighbours.]{Kernels for~\subref{fig:kernel-identity} the identity
+		matrix,\subref{fig:kernel-image-rooks} rook's case neighbours
 		and~\subref{fig:kernel-all8} all 8 neighbours. The central cell of the
 		kernel can be anything as it is never included as a neighbour.}\label{fig:kernel-neighbours}
 \end{figure}
@@ -420,18 +426,41 @@ shapes that would allow different types of clusters to be targeted.
 
 Once a node location has been identified as a valid neighbour, there is still
 no guarantee that there exists a node there. There are three possible cases
-concerning the location that has been identified:
+concerning the location that has been identified. Each of these situations must
+be handled differently in order to ensure that all of the correct nodes are
+selected as neighbours.
+
 \begin{enumerate}
-	\item The location could represent a leaf node, in which case the process
-		is complete and a neighbour has been identified,
+	\item The location represents a leaf node, in which case the process is
+		complete and a neighbour has been identified,
 		Figure~\ref{fig:updownsearch}a.
-	\item The location could be a non-existant node, i.e., there may be a leaf
+
+		In this case, no further action must be taken.
+
+	\item The location is be a non-existent node, i.e., there may be a leaf
 		node at a position further up the tree than the location meaning there
 		is nothing at this position in the tree,
 		Figure~\ref{fig:updownsearch}b.
-	\item The location could be a node in the quadtree which is not a leaf
-		node, i.e., it has four children, each of which may be trees or leaves,
+
+		In this case, either the code that has been obtained from the kernel
+		analysis must be shortened until it represents a node that exists in
+		the tree, or the tree must be traversed according to the quadtree code
+		until a leaf node is reached. The located node must then be compared
+		against the node to which this is a neighbour to check that the two are
+		within the depth range specified (Section~\ref{sub:option_sliders}).
+
+	\item The location is a node in the quadtree which is not a leaf node,
+		i.e., it has four children, each of which may be trees or leaves,
 		Figure~\ref{fig:updownsearch}c.
+
+		For this third case, the depth range is not considered since all nodes
+		deeper than the starting node are assumed to be a part of the same
+		cluster. Instead, all leaf nodes below the node represented by the code
+		are included as valid neighbours, and hence are, themselves,
+		propagated. To get these children, the sub-tree below the current node
+		is traversed in pre- or post-order and every leaf node that is
+		encountered is added as a neighbour.
+
 \end{enumerate}
 
 \begin{figure}[tbhp]
@@ -445,19 +474,3 @@ concerning the location that has been identified:
 		code could be further down in the tree than exists and (c) shows the
 		case where a real node is selected, but is not a leaf.}\label{fig:updownsearch}
 \end{figure}
-
-Each of these situations must be handled differently in order to ensure that
-all of the correct nodes are selected as neighbours. In the first case, no
-further action must be taken.
-
-In the second case, either the code that has been obtained from the kernel
-analysis must be shortened until it represents a node that exists in the tree,
-or the tree must be traversed according to the quadtree code until a leaf node
-is reached. The located node must then be compared against the node to which
-this is a neighbour to check that the two are within the depth range specified
-(Section~\ref{sub:option_sliders}).
-
-For the third case, the depth range is not considered since all nodes deeper
-than the starting node are assumed to be a part of the same cluster. Instead,
-all leaf nodes below the node represented by the code are included as valid
-neighbours, and hence are, themselves, propagated.

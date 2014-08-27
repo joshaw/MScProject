@@ -22,18 +22,21 @@ of activities from opening the plugin is:
 	\item adjust the check boxes to change the way the final image is
 		displayed,
 	\item click the \texttt{Quadtree} button to start the process of reading
-		and analysing the selected file.
+		and analysing the selected file,
+	\item use the additional information presented in the results table.
 \end{enumerate}
 
 \subsection{Column Picker}
 \label{sub:column_picker}
 
-To make the plugin more general purpose than being limited to only data
-formatted in precisely the same way as the data in the sample files used during
-development, the ability to specify some formatting features of the data file
-used are available. The user can specify the delimiter used in the file (how
-the columns are separated; comma, space tab etc.), and which column represents
-the x- and y-coordinates. These are chosen through a separate GUI\@.
+The first step is for the user to select a data file. This is performed with
+the Java built-in file choose. To make the plugin more general purpose than
+being limited to only data formatted in precisely the same way as the data in
+the sample files used during development, the ability to specify some
+formatting features of the data file used are available. The user can specify
+the delimiter used in the file (how the columns are separated; comma, space tab
+etc.), and which column represents the x- and y-coordinates. These are chosen
+through a separate graphical user interface (GUI).
 
 \subsection{Option Sliders}
 \label{sub:option_sliders}
@@ -41,64 +44,84 @@ the x- and y-coordinates. These are chosen through a separate GUI\@.
 The creation of the quadtrees is subject to a number of parameters that affect
 the way points are added, and how it manages the propagation once all points
 are added. A summary of the options available and what effect they have is
-given below.
+given below. Each heading represents the label given to the corresponding
+slider in the GUI\@.
 
 \begin{description}
 
 	\item[Density] As points are added to a leaf in the quadtree, the capacity
 		of the leaf is checked against this value. If the number of points in
 		that leaf exceeds this value, the points are removed from the leaf,
-		four new quadtrees are created, and each of the points added in to the
-		appropriate new leaf, this is known as \emph{de-leafing}.
+		four new quadtrees are created, and each of the points is added in to
+		the appropriate new leaf, this is known as \emph{re-leafing}.
 
-		An extremely large value for the density, greater than
+		An extremely large value for the \textbf{density}, greater than
 		$\rfrac{1}{4}$~times the number of points in the data file, would
 		result in only the first level of nodes being populated (since the root
 		does not hold points) and the final quadtree having only 4 leaves. A
 		value of 1 would mean that there would be the same number of leaf nodes
-		as points in the file. This can lead to out of memory errors in some
-		cases where the file is large and a large value for depth range is set.
+		as points in the file. This can lead to out-of-memory errors in some
+		cases where the file is large and a large value for \textbf{depth
+		range} is set.
 
 		A value of the order of 20 is recommended as this reduces the number of
 		quadtrees created by 10, but still provides enough resolution for
-		propagation. The default value is 20.
+		propagation.
+
+		\begin{tabular}{r l}
+			\texttt{default} & 20 \\
+			\texttt{minimum} & 1 \\
+			\texttt{maximum} & 100 \\
+		\end{tabular}
 
 	\item[Depth Range] This controls how far up the quadtree will be searched
 		when looking for neighbours as described in
 		Section~\ref{sub:choosing_neighbours}. All neighbours that are deeper
-		in the tree that the node being propagated are included irrespective of
-		this setting. A large value for the depth range will mean that the
-		propagation will go too far up the tree and, ultimately, will reach the
-		root, thus automatically including the whole tree in the located
+		in the tree than the node being propagated are included irrespective of
+		this setting. A large value for the \textbf{depth range} will mean that
+		the propagation will go too far up the tree and, ultimately, will reach
+		the root, thus automatically including the whole tree in the located
 		cluster. A value of 0 means that only nodes that are in the same level
 		as the current node, or deeper, are included.
 
-		The depth range should always be considerably less than the max depth.
-		The default value is 3.
+		The \textbf{depth range} should always be considerably less than the
+		\textbf{max depth}.
+
+		\begin{tabular}{r l}
+			\texttt{default} & 3 \\
+			\texttt{minimum} & 0 \\
+			\texttt{maximum} & 25 \\
+		\end{tabular}
 
 	\item[Max Depth] As well as being controlled by the number of points in the
-		leaf, adding points to the quadtree is also limited by the maximum
-		depth. If the depth of a node reaches the maximum depth, then it is not
-		de-leafed even if the number of points in the node exceeds the density.
-		This allows a high value to be set for the density so that where the
-		points are relatively clustered, the tree is created deep enough to
-		distinguish them, but to prevent the depth getting very high for
-		regions of localised, abnormal high clustering that might skew the
-		results.
+		leaf, adding points to the quadtree is also limited by the \textbf{max
+		depth}. If the depth of a node reaches the \textbf{max depth}, then it
+		is not re-leafed even if the number of points in the node exceeds the
+		\textbf{density}.  This allows a high value to be set for the
+		\textbf{density} so that where the points are relatively clustered, the
+		tree is created deep enough to distinguish them, but to prevent the
+		depth getting very high for regions of localised, abnormally high
+		clustering that might skew the results.
 
-		A small value for max depth means that the tree will never get very
-		deep. If there is noise in the points, this can cause the depth of the
-		noise and the depth of the clusters to be too similar and so mean
+		A small value for \textbf{max depth} means that the tree will never get
+		very deep. If there is noise in the points, this can cause the depth of
+		the noise and the depth of the clusters to be too similar and so mean
 		clustering is not effective. Setting it to a high value can effectively
-		remove the constraint.
+		remove the constraint, as the tree is unlikely to get that deep.
 
 		Since the number of nodes in the quadtree increases exponentially with
-		the depth, a large value for the maximum depth can lead to memory
+		the depth, a large value for the \textbf{max depth} can lead to memory
 		errors, though for typical data sets, it is unusual to exceed a depth
 		of around 16. As long as this depth is localised to small areas, this
 		should not be a problem. A depth of 16 provides a maximum of
-		\num{4.29e9} leaf nodes, so even extremely large files can be
+		almost 5 billion leaf nodes, so even extremely large files can be
 		represented to a high degree of accuracy.
+
+		\begin{tabular}{r l}
+			\texttt{default} & 10 \\
+			\texttt{minimum} & 5 \\
+			\texttt{maximum} & 25 \\
+		\end{tabular}
 
 \end{description}
 
@@ -106,66 +129,90 @@ The following are settings that affect the way the clusters are displayed once
 they are found.
 
 \begin{description}
-	\item[Cluster Size] Once the clustering algorithm has completed, the value
+	\item[Cluster Size] Once the clustering algorithm has completed, this value
 		places a limit on the minimum size of a cluster. Any clusters that are
 		smaller than this will not be drawn in the image and will not have an
 		entry in the results table. This can be useful for a noisy data set
 		that contains many small clusters which make the interesting clusters
 		less easy to see. The value is given as a fraction of the overall size
-		of the image, so a value for the cluster size of 0.05 means that only
-		cluster which are larger than~$\rfrac{1}{20}$ of the size of the whole
-		image are displayed.
+		of the image, so a value for the \textbf{cluster size} of 0.05 means
+		that only clusters which are larger than~$\rfrac{1}{20}$ of the size of
+		the whole image are displayed.
 
 		A value of 0 means that no clusters are hidden.
+
+		\begin{tabular}{r l}
+			\texttt{default} & 0 \\
+			\texttt{minimum} & \num{5e-4} \\
+			\texttt{maximum} & \num{2e-2} \\
+		\end{tabular}
 
 	\item[Scale] Internally, the points read from the file are stored exactly
 		as they are read. The pixel grid for the image is then generated based
 		on these values. If the maximum x- and y-coordinate are both
-		\num{10000}, with a scale value of 1, the image would be \num{10000}
-		pixels by \num{10000} pixels. Since each pixel requires a number of
-		type \emph{float} to hold the RGB colour information, this would be far
-		too large to draw (giving an image with a size of around
+		\num{10000}, with a \textbf{scale} value of 1, the image would be
+		\num{10000} pixels by \num{10000} pixels. Since each pixel requires a
+		number of type \emph{float} to hold the RGB colour information, this
+		would be far too large to draw (giving an image with a size of around
 		\SI{10}{\giga\byte}). Instead, the size of each coordinate is
-		multiplied by the scale value to reduce the overall size of the image.
-		Because this uses integer devision, there is a certain degree of error
-		that is introduced by this process. This can be seen when viewing the
-		quadtree structure of a deep node where the size of neighbouring nodes
-		at the same level do not appear to be the same size. This alteration is
-		performed only on the pixel information, the original data is
-		maintained and used for all subsequent operations.
+		multiplied by the \textbf{scale} value to reduce the overall size of
+		the image.  Because this uses integer devision, there is a certain
+		degree of error that is introduced by this process. This can be seen
+		when viewing the quadtree structure of a deep node where the size of
+		neighbouring nodes at the same level do not appear to be the same size.
+		This alteration is performed only on the pixel information, the
+		original data is maintained and used for all subsequent operations.
 
-		A default value of \num{5e-4} is used. This gives an uncompressed image
-		size of \SI{11}{\mega\byte} for a data set with maximum x- and
-		y-coordinates of around \num{50000}.
+		A default value of \num{0.03} is used. This gives an uncompressed image
+		size of around \SI{11}{\mega\byte} for a data set with maximum x- and
+		y-coordinates of \num{50000}.
+
+		\begin{tabular}{r l}
+			\texttt{default} & \num{0.03} \\
+			\texttt{minimum} & 0 \\
+			\texttt{maximum} & 0.1 \\
+		\end{tabular}
 \end{description}
 
 The following are purely display settings. Each is a boolean value controlled
 with a checkbox component. Changing any of these settings simply requires the
 data to be redrawn, no further computation is performed.
+
 \begin{description}
-	\item[Lines] The quadtree can be displayed to check the settins that have
-		been used, above, are most appropriate. This setting toggles the
-		display of the quadtree lines so that the nodes can be seen.
 
-		The default value is true.
+	\item[Lines] The quadtree can be displayed on screen to check the settings
+		that have been used, above, are most appropriate. This setting toggles
+		the display of the quadtree lines so that the nodes can be seen.
 
-	\item[Points] Similarly to ``Lines'', ``Points'' simply controls whether
-		the data points from the data file are drawn as single pixels or not at
-		all.
+		\begin{tabular}{r l}
+			\texttt{default} & true \\
+		\end{tabular}
 
-		The default value is true. If this and ``Lines'' are both set to false,
-		then only the clusters themselves, as identified by the nodes that are
-		part of the cluster, are drawn.
+	\item[Points] Similarly to \textbf{Lines}, \textbf{Points} simply controls
+		whether the data points from the data file are drawn as single pixels
+		or not at all.
+
+		If this and \textbf{Lines} are both set to false, then only the clusters
+		themselves, as identified by the nodes that are part of the cluster,
+		are drawn.
+
+		\begin{tabular}{r l}
+			\texttt{default} & true \\
+		\end{tabular}
 
 	\item[Colourize] By default, the clusters are drawn behind the lines of the
 		quadtree and behind the points from the data file. The colour of each
-		cluster is different from the previous. There are 20 colours defined,
-		meaning that when the number of clusters exceeds this number, the
-		colours will repeat. The colourisation is simply to allow the clusters
-		to be visually ditinguished from each other. This setting stops the
-		clusters from being colourized, instead using the same grey for all.
+		cluster is different from the previous cluster. There are 20 colours
+		defined, meaning that when the number of clusters exceeds this number,
+		the colours will repeat. The colourisation is simply to allow the
+		clusters to be visually distinguished from each other. This setting
+		stops the clusters from being colourized, instead using the same grey
+		for all.
 
-		The default value is true.
+		\begin{tabular}{r l}
+			\texttt{default} & true \\
+		\end{tabular}
+
 \end{description}
 
 \subsection{Displaying the QuadTree}
@@ -191,14 +238,14 @@ by boxes, etc.) and so was slow to draw initially and redraw with any
 subsequent move or resize of the window.
 
 The code used to generate this view of the data was modified to make use of the
-easy image generation functions present in ImageJ. Now, instead of many
-different objects being manipulated for each view of the data, a single array
-with a value for each pixel is needed. For the cases where the user wishes to
-view the clusters that have been found, but not have them affect the image, the
-image is created with a number of different \emph{slices} in the image
-\emph{stack}, Figure~\ref{fig:imagej-stack}. Slices are ImageJ's representation
-of images with two or more layers, or alternative views, each of which resides
-in a stack of slices. Each slice in a stack must have the same dimensions.
+image generation functions present in ImageJ. Now, instead of many different
+objects being manipulated for each view of the data, a single array with a
+value for each pixel is needed. For the cases where the user wishes to view the
+clusters that have been found, but not have them affect the image, the image is
+created with a number of different \emph{slices} in the image \emph{stack},
+Figure~\ref{fig:imagej-stack}. Slices are ImageJ's representation of images
+with two or more layers, or alternative views, each of which resides in a stack
+of slices. Each slice in a stack must have the same dimensions.
 
 \begin{figure}[tbhp]
 	\centering
@@ -224,14 +271,15 @@ area of the image, and for the perimeter, the length of one side of the image
 should be multiplied by the perimeter.
 
 To calculate each of these values, each node that exists in a cluster is
-examined and its contribution to the overall value added.
+examined and its contribution to the overall value added. This is discussed
+further in Section~\ref{ssub:cluster_perimeter_node}.
 
 \subsection{Macro Support}
 \label{sub:macro_support}
 
-As mentioned at the start of Part~\ref{part:imagej_plugin}, ImageJ allows
-extension via macros, as well as plugins and scripts. The ImageJ documentation
-describes macros like this:
+As mentioned on page~\pageref{part:imagej_plugin}, ImageJ allows extension via
+macros, as well as plugins and scripts. The ImageJ documentation describes
+macros like this:
 
 \begin{quote}
 	A macro is a simple program that automates a series of ImageJ
@@ -270,13 +318,13 @@ described below.
 		the given file is drawn immediately. If 0, or if this option is not
 		given, the main dialog window is opened. If 0, or not given, but a
 		filepath is given, the file is read and initial analysis performed once
-		the window is open. \\
+		the window is open, but the image is not displayed. \\
 	\texttt{grid} & \textbf{0 or 1} & Same as for \texttt{quadtree} above
 		but for the simple grid method. \\
 	\bottomrule
 \end{tabu}
 
 Each of these options must be given in the form \texttt{option=value} where
-value has the type or limitations described above and each option/value pair
-must be separated with a comma and an optional space. All options except
-\texttt{filepath} are case-insensitive.
+\texttt{value} has the type or limitations described above and each
+option/value pair must be separated with a comma and an optional space. All
+options except \texttt{filepath} are case-insensitive.
