@@ -1,4 +1,6 @@
 % Created:  Sun 15 Jun 2014 04:25 pm
+% Author:   Josh Wainwright
+% Filename: introduction.tex
 \part{Introduction}
 
 \section{Medical Imaging}
@@ -14,17 +16,17 @@ The humble microscope, used as far back as the 1500's, is able to show us a
 world that is not usually visible, but in recent times, as our understanding
 has grown, we have desired to see beyond what ordinary microscopes are capable
 and have invented machines that let us catch a glimpse of some of the smallest
-structures, molecules. However, when the objects to be viewed get this small, of
-the order of a few tens of nanometers, the light that is used to view them
-become the limiting factor.
+structures in biology, molecules. However, when the objects to be viewed get
+this small, of the order of a few tens of nanometers, the light that is used to
+view them become the limiting factor.
 
 % \section[Sub-Diffraction-Limit Imaging]{Sub-Diffraction-Limit\\ Imaging}
 \section{Sub-Diffraction-Limit Imaging}
 \label{sec:sub_diffraction_limit_imaging}
 
 Imaging objects becomes more difficult as they get smaller because of the
-wavelength of light. Once two objects are separated by a distance of an order
-similar to that of the wavelength ($\lambda$) of the light used to view them,
+wavelength of light ($\lambda$). Once two objects are separated by a distance
+of an order similar to that of the wavelength of the light used to view them,
 it is no longer possible to resolve these two objects apart, instead all that
 can be seen is a blur of the two objects together.
 
@@ -37,8 +39,8 @@ can be used to resolve smaller scales in x-ray and electron microscopy
 respectively. These, however, have the issue that, because the smaller
 wavelengths imply higher energies, there is the danger of destroying the sample.
 
-The minimum distance that two objects can be resolved at is given by Abbe's
-criterion,
+The minimum separation that two objects can be apart and still be resolved at
+is given by Abbe's criterion, $d$,
 
 \begin{align}
 	d &= \frac{\lambda}{2N\!A} \\
@@ -46,21 +48,23 @@ criterion,
 \end{align}
 
 where $N\!A$ is the numerical aperture of the microscope, the range of angles
-that the microscope's lens will let light through properly. For $\lambda
-\approx \SI{500}{\nano\metre}$ (in the middle of the visible range), and $N\!A =
-1.5$, the maximum resolving distance is $d = \SI{160}{\nano\meter}$, this is
-the diffraction limit. This is an order of magnitude larger than the objects
-that need to be resolved. A few attempts to avoid this limit using exotic types
-of lenses have been developed\cite{fang2005sub}, but these are currently far
-more expensive to use than traditional imaging equipment.
+that the microscope's lens will let light through properly, $n$ is the
+refractive index of the lens material and $\theta$ is the angle at which the
+light is incident on the lens. For typical values of $\lambda \approx
+\SI{500}{\nano\metre}$ (in the middle of the visible range), and $N\!A = 1.5$,
+the maximum resolving distance is $d = \SI{160}{\nano\meter}$, this is the
+diffraction limit. This is an order of magnitude larger than the objects that
+need to be resolved. A few attempts to avoid this limit using exotic types of
+lenses have been developed\cite{fang2005sub}, but these are currently far more
+expensive to use than traditional imaging equipment.
 
 \subsection{Image Manipulation}
 \label{sub:image_manipulation}
 
 Instead of trying to avoid the diffraction limit using shorter wavelengths of
-light or other particles, other techniques employ different methods of actually
-capturing the image, or cleaver manipulation of the images that are produced,
-to get around the limitations of the diffraction problem.
+light or particles, other techniques employ different methods of actually
+capturing the image, and/or cleaver manipulation of the images that are
+produced to get around the limitations of the diffraction problem.
 
 For example Stochastic Optical Reconstruction Microscopy (STORM)
 \cite{rust2006sub} and Photo-Activation Localisation Microscopy
@@ -69,11 +73,12 @@ molecules of a fluorescent dye. These are attached to the object of interest, a
 cell or sample of tissue for example. The type of dye molecule used allows the
 fluorescence to be switched on and off, allowing some markers to be imaged
 separately to others, effectively increasing the distance between points. Once
-an image is captured, the point spread function (PSF) of the point is used to
-locate the single marker, the ``on'' markers are changed and the image retaken.
-When many of these images are taken, they can be combined to provide accurate
-information on the original location of the markers and hence the shape and
-dimensions of the object.
+an image is captured, the point spread function (PSF) of the image of a marker
+is used to locate the single point location of that marker, the ``on'' markers
+are turned off and different ones turned on and the image retaken.  When many
+of these images are taken, they can be combined to provide accurate information
+on the original location of the markers and hence the shape and dimensions of
+the object.
 
 \begin{figure}[tbhp]
 	\centering

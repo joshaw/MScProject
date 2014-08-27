@@ -2,42 +2,48 @@
 % Author:   Josh Wainwright
 % Filename: rolling-ball.tex
 
-\section{Rolling Ball Analysis}
-\label{sec:rolling_ball_analysis}
+\section{Existing Clustering Algorithms}
+\label{sec:existing_clustering_algorithms}
+
+% TODO quick explanation
+
+\subsection{Rolling Ball Analysis}
+\label{sub:rolling_ball_analysis}
 
 The accessible surface area (ASA) algorithm, also known as the ``Rolling Ball
 Method'', is a technique used in image processing for describing the outer
 limit of a cluster of points. It is derived from biological molecules analysis
 where it describes the surface area of a molecule that is accessible to a
-solvent.
+liquid solvent.
 
 The rolling ball method can be used to analyse a cluster of points by imagining
-a solid ball that sits against one of the outer-most points. From here it is
-``rolled'' around the cluster such that it is always touching at least one
-point. Once the ball has reached the point it started at, the line that the ball
-traced is reduced in size by the radius of the ball. This line then represents
-the outer limit of the cluster.
+a solid ball or circle that sits against one of the outer-most points. From
+here it is ``rolled'' around the cluster such that it is always touching at
+least one point. Once the ball has reached the point it started at, the line
+that the ball traced is reduced in size by the radius of the ball. This line
+then represents the outer limit of the cluster.
 
 The size of the ball must be chosen depending on the average separation of the
-points within the cluster.
+points within the cluster such that points classed as noise are not included
+but all interesting points are.
 
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=4.2cm]{rolling-ball.pdf}
 
-	\caption[Rolling ball method for cluster detection.]{The rolling ball
-		method for cluster detection provides a way of identifying clusters, as
+	\caption[Rolling ball method for cluster analysis.]{The rolling ball method
+		for cluster detection provides a way of identifying clusters, as
 		inspired by molecular biology. A very simple implementation can be fast
 		but is not particularly successful at finding clusters unless the data
 		points are very dense and there is no noise.}\label{fig:rolling-ball}
 \end{figure}
 
 A simple approximation of this technique can be achieved by using the same
-\texttt{open}-ing and \texttt{close}-ing processes as are described in
+dilating and eroding processes that are described later in
 Section~\ref{sec:simple_grid_method}.
 
-\section{Shared Nearest Neighbours}
-\label{sec:shared_nearest_neighbours}
+\subsection{Shared Nearest Neighbours}
+\label{sub:shared_nearest_neighbours}
 
 Shared nearest neighbour (SNN) clustering algorithms have been used to overcome
 some of the problems encountered with more traditional clustering methods when
@@ -49,7 +55,7 @@ is sufficient and is far easier and more efficient to implement.
 SNN based clustering algorithms analyse each of the points in a set, one at a
 time, selecting those points that lie close to the current one based on certain
 thresholds. As the algorithm progresses, these thresholds are altered and the
-points considered so far re-examined to maximise the ``similarity'' of the
+points considered so far are re-examined to maximise the ``similarity'' of the
 points in any one cluster.
 
 Implementations of SNN based algorithms, such as~\cite{jarvis1973clustering}
@@ -64,16 +70,18 @@ clusters.
 This method is very good at being adaptable to complex situations: arbitrary
 dimension, clusters with complicated shapes, high noise levels, etc. However,
 the complexity in implementation and computation makes it unsuitable for small
-scale clustering such as the application discussed for this project.
+scale clustering such as the application discussed for this project. It also
+suffers from performance issues when the number of points to analyse becomes
+large as it has approximately $O(n^2)$ time complexity.
 
-\section{Gravity Based Clustering}
-\label{sec:gravity_based_clustering}
+\subsection{Gravity Based Clustering}
+\label{sub:gravity_based_clustering}
 
-A number of algorithms~\cite{zhong2010novel} have been developed that treat
-data points as physical objects under the influence of gravitational effects.
-These algorithms effectively model the points with these properties, allow them
-the move with some defined restrictions, and then examine the products that are
-produced.
+A number of clustering algorithms~\cite{zhong2010novel} have been developed
+that treat data points as physical objects under the influence of gravitational
+effects.  These algorithms effectively model the points with these properties,
+allow them the move with some defined restrictions, and then examine the
+products that are produced.
 
 The GRAVIclust algorithm~\cite{indulska2002gravity} works in two phases, first
 identifying $n$ locations of interest based on the distances to neighbouring

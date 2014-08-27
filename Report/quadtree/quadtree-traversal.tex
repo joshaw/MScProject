@@ -18,17 +18,22 @@ examined.
 \subsection{Algorithm Description}
 \label{sub:algorithm_description}
 
+% TODO finish sentence
+The algorithm is defined recursively with the main step being ``propagation''
+of nodes.
+
 The propagation algorithm is performed as follows:
 \begin{enumerate}
-	\item Choose a starting location that has not yet been checked.
-	\item For this given starting location, the $n$ neighbours are checked for
-		validity based on the conditions of the analysis (the way these
-		neighbours are selected is discussed in
+	\item Choose a starting location that has not yet been checked, $l$.
+	\item For this given starting location, the $i$ neighbours surrounding it,
+		$n_0$ to $n_i$, are checked for validity based on the conditions of the
+		analysis (the way these neighbours are selected is discussed in
 		Section~\ref{sub:choosing_neighbours}).
 	\item If a node fails the check, then it is recorded as having done so and
-		shall not be checked again. If it passes, then it is itself propagated.
+		shall not be checked again. If it passes, then it is, itself,
+		propagated.
 		\begin{itemize}
-			\item To be ``propagated'' means the perform this propagation
+			\item To be ``propagated'' means to perform this propagation
 				algorithm using that node as the starting location.
 		\end{itemize}
 	\item When all nodes have been checked, return to step 1.
@@ -42,9 +47,11 @@ The propagation algorithm is performed as follows:
 	\end{itemize}
 \end{enumerate}
 
-This process is shown graphically in Figure~\ref{fig:propogation}. Here, and
-from now on, blue nodes are nodes that either need to be checked or are
-currently being checked; red are nodes that have been checked and have been
+This process is shown graphically in Figure~\ref{fig:propogation}.
+
+% TODO move this block to better location
+Here, and from now on, blue nodes are nodes that either need to be checked or
+are currently being checked; red are nodes that have been checked and have been
 included in the cluster; question marks ({\footnotesize?}) represent the
 neighbours of the blue nodes that will have to be checked to determine if it is
 included or not and crosses ({\footnotesize x}) represent neighbours that have
@@ -52,14 +59,14 @@ been checked and excluded.
 
 Listing~\ref{code:quadtree-propagate} shows pseudo code for the propagate
 algorithm which, starting at a given starting location, expands the cluster
-outwards while there still exist neighbours that should be included. The
-\texttt{getNodeNeighbours()} method is described
+outwards while there still exist valid neighbours that should be included. The
+\texttt{getNeighbours()} method is described
 Section~\ref{sub:choosing_neighbours}.
 
 \begin{center}
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[caption={[Code for the propagate algorithm.]Code for the
-	propagate algorithm which expands an inital starting location to a
+	propagate algorithm which expands an initial starting location to a
 	cluster.}, label=code:quadtree-propagate]
 
 	public |propagate()| {
@@ -73,10 +80,10 @@ Section~\ref{sub:choosing_neighbours}.
 	private |propagate(node)| {
 
 		if (not node.inCluster()) { (*@\label{eql:b}@*)
-			node[] neighbours = getNodeNeighbours(node)
+			node[] neighbours = getNeighbours(node)
 
-			for each neighbour in neighbours { (*@\label{eql:c}@*)
-				propagate(neighbour)
+			for each n in neighbours { (*@\label{eql:c}@*)
+				propagate(n)
 			}
 		}
 	}
@@ -101,7 +108,7 @@ can spread, and is separated from the clustering algorithm.
 	\includegraphics[width=7cm]{propogation.pdf}
 
 	\caption[Propagation of a cluster from a starting location.]{For a starting
-		location, (a), in an image, no information is known and so the
+		location, (a), in an image, no information is known and so all it's
 		neighbours are checked. Some of these are found to be part of the
 		cluster, others are rejected. The ones that are included are then,
 		themselves, checked and so on. As the cluster grows, (b), (c) and
@@ -112,16 +119,15 @@ When discovering clusters via this propagation technique, care must be taken to
 avoid a run-away situation where every node in the tree gets included. This
 would happen when looking at the neighbours of a node and blindly including
 them. Since every internal node has exactly four neighbours, the propagation
-would terminate only when reaching the edge nodes.
-
-Instead, the depth of the node must be considered. Again, the simplest method
-is not sufficient. If the propagation is limited to a given node depth, even if
-this is not the same as the deepest node, the size of any clusters that are
-identified will be limited, as shown in Figure~\ref{fig:propogation-halting}.
-Since the depth to consider is not able to change, when the neighbours of the
-blue node are checked, no correct neighbours are found and so the process
-terminates. When able to view the larger structure of the nodes, however, it is
-clear that the structure continues beyond the gap.
+would terminate only when reaching the boundary nodes. Instead, the depth of
+the node must be considered. Again, the simplest method is not sufficient. If
+the propagation is limited to a given node depth, even if this is not the same
+as the deepest node, the size of any clusters that are identified will be
+limited, as shown in Figure~\ref{fig:propogation-halting}.  Since the depth to
+consider is not able to change, when the neighbours of the blue node are
+checked, no correct neighbours are found and so the process terminates. When
+able to view the larger structure of the nodes, however, it is clear that the
+structure continues beyond the gap, following the dotted line.
 
 \begin{figure}[tbhp]
 	\centering
@@ -140,11 +146,11 @@ clear that the structure continues beyond the gap.
 		when propagating a node in a quadtree. \subref{fig:propogation-halting}
 		If the depth range that specifies how far up the tree to look for valid
 		neighbours is too small then a cluster might be terminated too soon.
-		\subref{fig:propogation-levels}~(i) a depth range of two and, (ii) a
+		\subref{fig:propogation-levels}(i) a depth range of two and, (ii) a
 		depth range of three.}\label{fig:prop-levels-halting}
 \end{figure}
 
-To avoid this, a certain amount of leniency must be given when deciding what
+To avoid this, a certain amount of leniency must be allowed when deciding what
 constitutes a neighbour. Given an appropriate value, this would allow both of
 the larger white cells in Figure~\ref{fig:propogation-halting} to be included.
 
@@ -155,9 +161,9 @@ depth greater than the target depth shall be allowed, so the purple cells in
 Figure~\ref{fig:propogation-halting} would be included when the target depth is
 the same as the depth of the included red cells. A depth range of zero is
 equivalent to the situation above where only cells of a given depth are
-considered. A depth range of 1 would mean that the white square in
+considered. A depth range of one would mean that the white square in
 Figure~\ref{fig:propogation-levels}\,(i) would be included but not in~(ii),
-whereas a depth range of three would include both and so on.
+whereas a depth range of two would include both and so on.
 
 \subsection{Clustering Start Locations}
 \label{sub:clustering_start_locations}
@@ -226,6 +232,7 @@ this process of finding new clusters:
 		then convert the locations of each of these ROI points into the
 		relevant quadtree code and begin propagating from that node and
 		terminate when all of the ROI's had been used.
+		% TODO why is this one bad?
 
 \end{itemize}
 

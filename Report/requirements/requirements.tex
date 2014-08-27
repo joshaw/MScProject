@@ -6,12 +6,12 @@
 \section{Requirements}
 \label{sec:requirements}
 
-A number of requirements that should be acheived during this project are listed
+A number of requirements that should be achieved during this project are listed
 below. Each is given a value on the ``MoSCoW'' scale, meaning `M' is a feature
-that \textbf{M}ust be included in order for the final product to fullfill the
+that \textbf{M}ust be included in order for the final product to fulfill the
 brief in Part~\ref{part:imagej_plugin}, `S' is a feature that \textbf{S}hould
 be included, `C' is a feature that \textbf{C}ould be included to increase the
-usability andfeatures but is not essential and `W' is something that
+usability and features but is not essential and `W' is something that
 \textbf{W}ould be included if there is time and resources to do so.
 
 \subsection{Functional Requirements}
@@ -20,44 +20,49 @@ usability andfeatures but is not essential and `W' is something that
 The plugin will allow the user to:
 
 \begin{enumerate}[label=\arabic*.]
-	\item Select data
+	\item Select data:
 		\begin{enumerate}[label*=\arabic*.]
 			\item~\label{req:a} Select a data file to process. (M)
 			\item~\label{req:b} Select the appropriate column separator for the
 				file. (C)
-			\item~\label{req:c} Select which coloumn the x- and y-coordinates
-				appear in. (W)
+			\item~\label{req:c} Select which column from the data file the x-
+				and y-coordinates appear in. (W)
 			\item~\label{req:d} Adjust parameters relating to the process of
 				analysing the data file. (S)
 		\end{enumerate}
-	\item Create images
+	\item Create images:
 		\begin{enumerate}[label*=\arabic*.]
-			\item~\label{req:e} Create an image of the points from the selected
-				file using naitve ImageJ functionality. (S)
+			\item~\label{req:e} Create an image of the points from the file
+				using native ImageJ functionality. (S)
 			\item~\label{req:f} Create an image of the clusters found using
 				native ImageJ functionality. (M)
 		\end{enumerate}
-	\item~\label{req:g} Perform a clustering algorithm on the data in the
-		chosen file. (M)
-	\item Generate cluster information
+	\item Clustering algorithm:
+		\begin{enumerate}
+			\item~\label{req:g} Perform a clustering algorithm on the data in
+				the chosen file. (M)
+			\item~\label{req:qa} Choose from alternative clustering algorithms
+				to perform on the data. (C)
+		\end{enumerate}
+	\item Generate cluster information:
 		\begin{enumerate}[label*=\arabic*.]
 			\item~\label{req:h} Generate perimeter information for each of the
-				clusters founh. (S)
+				clusters found. (S)
 			\item~\label{req:i} Generate area information for each of the
 				clusters found. (S)
-			\item~\label{req:j} Display a results table showing summary of
+			\item~\label{req:j} Display a results table showing a summary of
 				information about each of the clusters found. (C)
-			\item~\label{req:k} Limit the clusters drawn to the image based on
-				the size of the cluster. (C)
-			\item~\label{req:l} Limit the clusters included in the results
-				table based on the size of the cluster. (C)
+			\item~\label{req:k} Limit which of the clusters are drawn to the
+				image based on their size. (C)
+			\item~\label{req:l} Limit which of the clusters are included in the
+				results table based on the size of the cluster. (C)
 		\end{enumerate}
-	\item Export data found by the algorithm.
+	\item Export data found by the algorithm:
 		\begin{enumerate}[label*=\arabic*.]
-			\item~\label{req:m} Export cluster information by selecing
-				appropriate cluster from the results table. (W)
+			\item~\label{req:m} Export information by selecting appropriate
+				cluster from the results table. (W)
 			\item~\label{req:n} Export data points contained in cluster by
-				selecing appropriate cluster from the results table. (W)
+				selecting appropriate cluster from the results table. (W)
 		\end{enumerate}
 \end{enumerate}
 
@@ -67,20 +72,20 @@ The plugin will allow the user to:
 The plugin will:
 
 \begin{enumerate}[label=\arabic*.]
-	\item Efficiency
+	\item Efficiency:
 		\begin{enumerate}[label*=\arabic*.]
-			\item~\label{req:o} Handle input data files of upto \num{100000}
+			\item~\label{req:o} Handle input data files of up to \num{100000}
 				data points in under 10 seconds. (S)
 		\end{enumerate}
-	\item Usability
+	\item Usability:
 		\begin{enumerate}[label*=\arabic*.]
 			\item~\label{req:p} Be easy to use without instruction. (M)
 			\item~\label{req:q} Have customisation ability for more advanced
 				uses. (S)
 		\end{enumerate}
-	\item Interoperability
+	\item Interoperability:
 		\begin{enumerate}[label*=\arabic*.]
-			\item~\label{req:r} Be platform independant, as long as ImageJ is
+			\item~\label{req:r} Be platform independent, as long as ImageJ is
 				present. (S)
 		\end{enumerate}
 \end{enumerate}

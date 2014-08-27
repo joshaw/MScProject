@@ -15,7 +15,7 @@ is a leaf and contains some information, value or quantity. A node with four
 children is not a leaf and cannot hold information.
 
 Quadtrees are often used in image processing since the four children of the
-root node can naturally represent the four quadrants of the image; upper left,
+root node can naturally represent the four quadrants of an image; upper left,
 upper right, lower left and lower right. Since each of these children is also a
 quadtree, the image can be subdivided to any arbitrary depth. From this point,
 information about the image can be ``seen'' more easily by the computer and
@@ -29,8 +29,10 @@ quadtrees. Many of these are identical to the definitions more commonly applied
 to binary trees.
 
 \begin{description}
-	\item[Node] (Cell) A leaf in the tree which holds a number of points.
-	\item[Root] The node at the topmost position in the tree.
+	\item[Node] (Cell, element) A leaf in the tree which holds some
+		information, value or quantity.
+	\item[Root Node] The node at the topmost position in the tree. It has no
+		parents and is never a leaf.
 	\item[Child] One of the four nodes that are beneath a given node for which
 		there is a direct path of length 1 between this node and it.
 	\item[Height] The length of the longest path from the root node to one of
@@ -39,16 +41,16 @@ to binary trees.
 	\item[Completeness] A quadtree is `complete' when each of the root node's
 		four children have the same height. In this case, the number of leaves
 		in the tree is a maximum.
-	\item[Quadtree Code] (Code) The unique binary number assigned to a node by
-		adding its position with respect to its siblings to the code of its
-		parent.
+	\item[Quadtree Code] (Code) A unique number or value that is assigned to a
+		node by adding its position with respect to its siblings to the code of
+		its parent.
 \end{description}
 
 \subsection{Code Orderings}
 \label{sub:code_orderings}
 
 In order to identify a node uniquely in the tree, each node is given a code
-that is built up from it's parent code plus some value that identifies it
+that is built up from it's parent's code plus some value that identifies it
 among it's siblings. The root node is usually chosen to have an empty code so
 that the first four children are given the first level codes.
 
@@ -93,19 +95,20 @@ traverse the children in a sensible and predictable way is essential.
 \label{ssub:morton_code_z_order_}
 
 Perhaps the most natural order to give to the values in a spatial quadtree is
-to number them from 1 to 4, left to right, top to bottom. This can be made
-more appropriate for a computer to use by numbering from 0 to 3. This is
-called Morton Order\cite{mortoncomputer} or Z-order because of the resulting
-path that would be followed by traversing the nodes in order,
-Figure~\ref{fig:traverse-z-order.pdf}. This has several useful features.
+to number them from 1 to 4, left to right, top to bottom. This can be made more
+appropriate for a computer to use by changing to zero based indexing,
+numbering from 0 to 3. This is called Morton Order\cite{mortoncomputer} or
+Z-order because of the resulting path that would be followed by traversing the
+nodes in order, Figure~\ref{fig:traverse-z-order.pdf}. This has several useful
+features.
 
 \begin{enumerate}
 	\item First, the numbers can be converted to base 2; 0 becomes 00, 1
 		becomes 01, 2 becomes 10, and 3 becomes 11.
 
 	\item This has advantages since binary is very efficient for computers to
-	work with and allows certain tricks to be employed (see Morton order
-	coordinates).
+	work with and allows certain tricks to be employed (see Morton Order
+	Coordinates below).
 
 	\item Also, this numbering system is easily extendible to any depth of
 	tree that can be imagined.
@@ -124,12 +127,6 @@ Figure~\ref{fig:traverse-z-order.pdf}. This has several useful features.
 	\end{enumerate}
 \end{enumerate}
 
-This method of numbering is simple and so acceptable for the standard uses of
-quadtrees, but it was found to be difficult to work with in a spatial context
-when information about neighbouring cells is needed. The steps required to
-calculate the neighbours of any given cell are reasonably complex and so would
-add computational and time complexity to calculations performed on the tree.
-
 \subsubsection*{Morton Order Coordinates}
 \label{ssub:morton_order_coordinates}
 
@@ -144,15 +141,19 @@ coordinate form are:
 		being given to the $y$-axis, assign bits to the $y$ and $x$ axes
 		building up a binary value for each).
 	\item Convert the resulting two binary value to decimal to give a standard
-		decimal $(x,y)$ coordinate.
+		decimal $(x,y)$ Cartesian coordinate.
 \end{enumerate}
+
+These steps result in a coordinates that represents the top left corner of the
+node. The coordinate is dependant on the length of the code, so to compare two
+coordinated from their codes, the codes must be of the same length.
 
 \begin{figure}[tbhp]
 	\centering
 	\includegraphics[width=3cm]{deinterleave.pdf}
 
 	\caption[Decomposition of a Z-order code to give coordinates.]{Decomposition
-		of a Z-order code using de-interleaving to give cartesian coordinates.
+		of a Z-order code using de-interleaving to give Cartesian coordinates.
 		The bits of the code are alternately assigned to the y- and then
 		x-coordinate which is then converted to decimal to given the final
 		coordinate of the cell.}\label{fig:deinterleave}
@@ -176,9 +177,11 @@ there are a number of options as to how to find the correct node for the code:
 		code checked to see if it is in the tree. This trial and error method
 		can be fastest when there is a limit on the depth range allowed when
 		searching (see Section~\ref{sub:algorithm_description}).
-	\item The tree can be traversed to find the nearest node to the expected
-		code reference.
+	\item The tree can be traversed, starting at the root, to find the nearest
+		node to the expected code reference.
 \end{itemize}
+
+% TODO needs some description of which of the above is better
 
 \subsubsection{Hilbert Order}
 \label{ssub:hilbert_order}
@@ -186,44 +189,46 @@ there are a number of options as to how to find the correct node for the code:
 One of the reasons the Z-order above becomes difficult to work with is that
 the resulting path from traversing the nodes in-order has to make large jumps
 and so cells which are numbered next to each other may, in fact, not be near
-each other in the image.
+each other in the image. This property is known as being continuous.
 
 A number of routes exist that avoid this jumping around the image. These are
-based on space filling curves which have the property of being a simple
-recursive pattern that visits every point in a 2D space exactly once. These
-curves were first discovered in the early 1900's and described mathematically
-by D. Hilbert\cite{hilbert1970stetige}. One of the curves that Hilbert found,
-the Hilbert Curve, is particularly useful since it can be represented in the
+based on space filling curves which have the property of being simple recursive
+patterns that visit every point in a 2D space exactly once. These curves were
+first discovered in the early 1900's and described mathematically by David
+Hilbert\cite{hilbert1970stetige}. One of the curves that Hilbert found, the
+Hilbert Curve, is particularly useful since it can be represented in the
 simplest level in a two by two square which is then recursively repeated for
-each quadrant of that first square---exactly as the quadtree does.
+each quadrant of that first square---exactly as the quadtree is.
 
 The path that the traversal of points follows becomes fairly complicated,
-Figure~\ref{fig:traverse-hilbert-order.pdf}. This means, again, that the
-calculation of neighbours becomes difficult.
+Figure~\ref{fig:traverse-hilbert-order.pdf}, meaning that the calculation of
+neighbours becomes difficult as there is no simple way to traverse the path an
+arbitrary distance. Two of the neighbours are always simple to find by simply
+going a single step forward and backward, but the others are far more complex.
 
 \subsubsection{Gray Codes}
 \label{ssub:gray_codes}
 
-The Gray Code\cite{gray1953pulse}, developed by Frank Gray in 1953, was
+The Gray Code, developed by Frank Gray in 1953\cite{gray1953pulse}, was
 originally designed to reduce the error rate produced by mechanical
-electronics. The code is a variation on binary where each step, when counting
-up, changes only a single bit at a time. This meant that electromechanical
-apparatus was less likely to make a mistake or generate errors since the
-actions required to count from one to two required only a single bit change,
-rather than two, as would be required for binary counting. When using just two
-bits, i.e., counting from zero to three, the steps are very similar to binary,
-(00, 01, 11, 10).
+electronics. The code is a variation on binary where each step, when
+incrementing, changes only a single bit at a time. This meant that
+electromechanical apparatus was less likely to make a mistake or generate
+errors since the actions required to count from one to two required only a
+single bit change, rather than two, which would be required for binary
+counting.  When using just two bits, i.e., counting from zero to three, the
+steps are very similar to binary, (00, 01, 11, 10).
 
 The path that this follows is shown in
 Figure~\ref{fig:traverse-gray-order.pdf}. This does not seem to provide any
 benefits since there is now more jumping around the image space than with
 Z-order and the neighbours are just as difficult to calculate as for Hilbert
-Order. However, by using a different arrangement of the sub-trees, as the
-Hilbert curve does, the leaf nodes group themselves in a very ordered fashion.
-When arranged as in Figures~\ref{fig:traverse-modgray-order.pdf}
+Order. However, by using a different arrangement for each of the sub-trees, as
+the Hilbert curve does, the leaf nodes group themselves in a very ordered
+fashion.  When arranged as in Figures~\ref{fig:traverse-modgray-order.pdf}
 and~\ref{fig:modgray-traversal}, each cell is arranged such that the codes for
-any two neightbouring nodes at the same depth differs by exactly one bit. This
-means that to check if nodes are neighbours becomes trivial.
+any two neighbouring nodes at the same depth differs by exactly one bit. This
+means that checking if any two nodes are neighbours becomes trivial.
 
 \begin{figure}[tbhp]
 	\centering
@@ -258,20 +263,20 @@ means that to check if nodes are neighbours becomes trivial.
 \label{ssub:other_orderings}
 
 As well as the orderings discussed above, there are also a number of other
-space filling curves and dis-joint orderings that were also discounted.
+space filling curves and dis-joint orderings that were discounted.
 Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 
 \begin{itemize}
 
 	\item Figure~\ref{fig:modgray-alt-order.pdf} shows \emph{row order}
-		traversal of the grid. This extremely simple to implement for a simple
-		grid-like arrangement, but is very awkward and looses much of the
-		information when using quadtrees.
+		traversal of the grid. This is extremely simple to implement for a
+		simple grid-like arrangement, but is very awkward and looses much of
+		the information when using quadtrees.
 
 	\item Figure~\ref{fig:modgray-alt-prime.pdf} shows \emph{row-prime order},
 		also known as snake-order\cite{goodchild1983optimizing}, traversal.
-		This is a slight modification of row order which is continuous, again,
-		is not recursive so not suitable for use with quadtrees.
+		This is a slight modification of row order which is continuous but,
+		again, is not recursive so not suitable for use with quadtrees.
 
 	\item Figure~\ref{fig:modgray-alt-rotated.pdf} is identical to them
 		modified Gray order above, but with a single \SI{90}{\degree} rotation.
@@ -331,19 +336,20 @@ an assurance that two neighbours' codes differ by exactly one bit, this cannot
 provide a one to one mapping with the required neighbours of that node.
 
 Consider, for example, a node, $S$, at a depth of three in the tree where the
-rook's case neighbours are required. This node has a code consisting of 6 bits,
-two for each level. From this code, a total of six possible neighbour
-candidates can be identified by simply flipping each of the bits in the code.
-These neighbours are shown for an example node in Table~\ref{tab:s-neighbours}
-and their position relative to the original shown in
-Firgure~\ref{fig:modgray-failures}. The first two of these, the results of
-flipping the two least significant bits, are guaranteed always to be valid
-neighbours since they share the same parent as $S$. However, the two other
-neighbours which need to be selected from the remaining four possibilities,
-cannot be identified easily.  These other possible neighbours exist at other
-locations in the quadtree, always either vertically above or below or
-horizontally to the left or right of $S$, but there is no simple test to
-determine if they are actually neighbours or not.
+% TODO reference
+rook's case neighbours (see Section~\ref{}) are required. This node has a code
+consisting of 6 bits, two for each level. From this code, a total of six
+possible neighbour candidates can be identified by simply flipping each of the
+bits in the code.  These neighbours are shown for an example node in
+Table~\ref{tab:s-neighbours} and their position relative to the original shown
+in Figure~\ref{fig:modgray-failures}. The first two of these possible
+neighbours, the results of flipping the two least significant bits, are
+guaranteed always to be valid neighbours since they share the same parent as
+$S$. However, the two other neighbours which need to be selected from the
+remaining four possibilities, cannot be identified easily.  These other
+possible neighbours exist at other locations in the quadtree, always either
+vertically above or below or horizontally to the left or right of $S$, but
+there is no simple test to determine if they are actually neighbours or not.
 
 \begin{table}
 	\centering
@@ -370,10 +376,10 @@ determine if they are actually neighbours or not.
 	\caption[Flipping code bits gives too many possible neighbours.]{Flipping
 		the bits of the code to get possible neighbours gives too many
 		possibilities to be able to select the correct neighbours. This problem
-		is exagerated as the node gets deeper in the tree since there are more
+		is exaggerated as the node gets deeper in the tree since there are more
 		bits in the code to change. The incorrect neighbours are always in line
 		with the original and represent what would be neighbours if the tree
-		was a level shallower.}\label{fig:modgray-failures}
+		was some number of levels shallower.}\label{fig:modgray-failures}
 \end{figure}
 
 \subsection{Constructing Orderings in Code}
@@ -394,7 +400,7 @@ of code to be added for that child.
 \begin{lstlisting}[caption={[Code to generate the children of the current
 	quadtree using Z- and Gray ordering.]Code to generate children of the
 	current quadtree while maintaining the correct ordering. Z- and Gray
-	ordering.}, label=code:child_construction]
+	ordering.}, label=code:child-construction]
 	// Child creation,  Z-Order
 	t_l = new Quadtree(100, 100, this.code + "00");
 	t_r = new Quadtree(100, 100, this.code + "01");
@@ -414,20 +420,20 @@ of code to be added for that child.
 \label{sub:hash_table_implementation}
 
 In order to speed up the subsequent operations applied to the quadtree
-structure, it is converted to a simpler, one dimensional data structure. The
-method discussed above, to number the cells in a logical fashion based on the
-code of the parent, can be viewed as a way to map the two dimensional image to
-a single unique binary code, and hence to a one dimensional format. Thus, the
-quadtree can be easily converted to an array structure by simply using the key
-code as the array index. Once this is performed the access complexity is
+structure, it can be converted to a simpler, one dimensional data structure.
+The method discussed above, to number the cells in a logical fashion based on
+the code of the parent, can be viewed as a way to map the two dimensional image
+to a single unique binary code, and hence to a one dimensional format. Thus,
+the quadtree can be easily converted to an array structure by simply using the
+key code as the array index. Once this is performed the access complexity is
 significantly reduced. This operation is only performed once after the quadtree
 has been generated meaning the amortized complexity is reduced.
 
-As mentioned in Part~\ref{prt:data_structures}, using a na\"{\i}ve
+As mentioned on page~\pageref{prt:custom_algorithm}, using a na\"{\i}ve
 implementation has the potential to have a very poor space usage if the image
 is not densely populated (in which case it is likely that few clusters would be
 identifiable anyway). Instead, an implementation is created that makes use of
-the \emph{Hash Table} data structure\cite{cormen2001introduction}. This allows
+the \emph{hash table} data structure\cite{cormen2001introduction}. This allows
 the data structure to increase in size dynamically as more space is needed, but
 also provides linear time complexity for access, modification and search. The
 quadtree code is used as the key for the hash table, and the data stored within
@@ -435,20 +441,20 @@ the cell with that code is the hash table value.
 
 Using this data structure means that several operations are significantly sped
 up. For example, for the quadtree format, the steps required to check if a
-given code is present involves traversing the tree as specified by the code to
-check and waiting to see if a node with that code is found, thus $O(\log n)$.
-However, for a hash table, the hash function is used to get a hash of the code
-to be checked and the appropriate location checked. If the codes match, then
-the code does appear in the tree, a total of two operations, constant $O(1)$.
+given code is present involves traversing the tree as specified by the code to see if a node with that code is found, thus a time
+complexity of $O(\log n)$.  However, for a hash table, the hash function is
+used to get a hash of the code to be checked and the appropriate location
+checked. If the codes match, then the code does appear in the tree, a total of
+two operations, and so constant $O(1)$.
 
-Also, since the structure is defined recursively, it is not possible to
+Since the quadtree structure is defined recursively, it is not possible to
 directly access a given location of the data. Instead it must be arrived at by
 starting at the root, and, for every level, deciding which of the children the
 destination exists in. This would be a time consuming step for a number of
 operations, but the biggest effect would be when checking the neighbours of
 cells since for every neighbour of every node, the tree must be traversed. This
 is not an issue for the hash table since the single dimensional nature means
-that data can be accessed anywhere directly.
+that data anywhere can be accessed directly.
 
 Little spatial information should be lost during the conversion from quadtree
 to hash table since this is all contained in the quadtree code assigned to the
@@ -461,10 +467,10 @@ child, $O(n)$.
 
 A hash table requires two pieces of information for each entry: a \emph{key}
 and a \emph{value}. The key is what is used to locate items, its hash is used
-as the index of the array used internally. The value is the information that
-should be accessible when using the key. For this application, since more than
-a single piece of information should be accessible for each quadtree code, an
-object is stored against each key. This has the format shown in
+as the index of the internal array. The value is the information that should be
+accessible when using the key. For this application, since more than a single
+piece of information should be accessible for each quadtree code, an object is
+stored against each key. This has the format shown in
 Table~\ref{tab:hashmap-columns}.
 
 \begin{table}[htbp]
@@ -474,14 +480,14 @@ Table~\ref{tab:hashmap-columns}.
 		Key  & \multicolumn{2}{l}{Value} \\
 		\midrule
 		Quadtree Code && Set of points in this node \\
-		              &&  Cluster these points exist in \\
-		              &&  Size of this node \\
-		              &&  Number of edges this node contributes to
-		the perimeter of the cluster\\
+		              &&  Cluster ID that these points exist in \\
+		              &&  Dimensions of this node \\
+		              &&  Number of edges this node contributes to the
+		                  perimeter of the cluster\\
 		\bottomrule
 	\end{tabu}
 
 	\caption[Hash map key and value format for a quadtree.]{A hash map is used
 		to associate a quadtree code with the required data for each node. The
-		value of the map is an object containing several fields.}\label{tab:hashmap-columns}
+		hash map value is an object containing several fields.}\label{tab:hashmap-columns}
 \end{table}
