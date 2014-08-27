@@ -384,11 +384,10 @@ maintain the correct orientation of child trees with respect to their parents
 at the construction stage. It turns out that this is easy to achieve and thus
 adapting it for each of the arrangements discussed above is simply a matter of
 adjusting the next part of the code that is added for each of the four children
-when creating them. Pseudo code to achieve this for the Morton order and the
-modified Gray code order is shown in Listings~\ref{code:child_construction}
-and~\ref{code:child_construction_mgc}. In each of these cases, the constructor
-for a quadtree is \texttt{Quadtree(max\_x, max\_y, code)}, where \texttt{code} is
-the new portion of code to be added for that child.
+when creating them. Pseudo code to achieve this for Morton order is shown in
+Listing~\ref{code:child-construction}. The constructor for a quadtree is
+\texttt{Quadtree(max\_x, max\_y, code)}, where \texttt{code} is the new portion
+of code to be added for that child.
 
 \begin{center}
 \begin{minipage}{\textwidth}
@@ -407,48 +406,6 @@ the new portion of code to be added for that child.
 	t_r = new Quadtree(100, 100, this.code + "01");
 	b_l = new Quadtree(100, 100, this.code + "10");
 	b_r = new Quadtree(100, 100, this.code + "11");
-\end{lstlisting}
-\end{minipage}
-\end{center}
-
-\begin{center}
-\begin{minipage}{\textwidth}
-\begin{lstlisting}[caption={[Code to generate the children of the current
-	quadtree using modified Gray ordering.]Code to generate children of the
-	current quadtree while maintaining the correct ordering. Modified Gray code
-	order. Since the ordering is different for each quadrant, the ordering is
-	changed depending on the position of the current node.},
-	label=code:child_construction_mgc]
-	// Child creation, Modified Gray Code
-	if (position == "tl") {
-		new_code[0] = code + "00";
-		new_code[1] = code + "01";
-		new_code[2] = code + "10";
-		new_code[3] = code + "11";
-
-	} else if (position == "tr") {
-		new_code[0] = code + "01";
-		new_code[1] = code + "00";
-		new_code[2] = code + "11";
-		new_code[3] = code + "10";
-
-	} else if (position == "bl") {
-		new_code[0] = code + "10";
-		new_code[1] = code + "11";
-		new_code[2] = code + "00";
-		new_code[3] = code + "01";
-
-	} else if (position == "br") {
-		new_code[0] = code + "11";
-		new_code[1] = code + "10";
-		new_code[2] = code + "01";
-		new_code[3] = code + "00";
-	}
-
-	t_l = new Quadtree(100, 100, this.code + new_code[0]);
-	t_r = new Quadtree(100, 100, this.code + new_code[1]);
-	b_l = new Quadtree(100, 100, this.code + new_code[2]);
-	b_r = new Quadtree(100, 100, this.code + new_code[3]);
 \end{lstlisting}
 \end{minipage}
 \end{center}
