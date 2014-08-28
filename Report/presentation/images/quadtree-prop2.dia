@@ -82,6 +82,9 @@
       <dia:attribute name="border_width">
         <dia:real val="0.10000000149011612"/>
       </dia:attribute>
+      <dia:attribute name="line_style">
+        <dia:enum val="4"/>
+      </dia:attribute>
     </dia:object>
     <dia:object type="Standard - Ellipse" version="0" id="O1">
       <dia:attribute name="obj_pos">
