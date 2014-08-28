@@ -3,7 +3,7 @@
 % File name : mainfile.tex
 
 % \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
-\documentclass[a4paper,9pt,twoside]{extarticle}
+\documentclass[a4paper,10pt,twoside]{article}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
@@ -29,8 +29,8 @@
 \fancyfoot[LE,RO]{}
 
 %%% SECTION TITLE APPEARANCE ---------------------------------------------------
-% \usepackage{sectsty}
-% \allsectionsfont{\sffamily\mdseries\upshape}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape}
 \let\stdpart\part%
 \renewcommand\part{\clearpage\stdpart}
 
@@ -161,6 +161,7 @@
 
 \input{evaluation/evaluation.tex}
 \input{evaluation/requirements.tex}
+\input{evaluation/development.tex}
 \input{improvements/improvements.tex}
 
 % \clearpage
