@@ -129,15 +129,15 @@ The following are settings that affect the way the clusters are displayed once
 they are found.
 
 \begin{description}
-	\item[Cluster Size] Once the clustering algorithm has completed, this value
-		places a limit on the minimum size of a cluster. Any clusters that are
-		smaller than this will not be drawn in the image and will not have an
-		entry in the results table. This can be useful for a noisy data set
-		that contains many small clusters which make the interesting clusters
-		less easy to see. The value is given as a fraction of the overall size
-		of the image, so a value for the \textbf{cluster size} of 0.05 means
-		that only clusters which are larger than~$\rfrac{1}{20}$ of the size of
-		the whole image are displayed.
+	\item[Cluster Size]\label{it:cluster-size} Once the clustering algorithm
+		has completed, this value places a limit on the minimum size of a
+		cluster. Any clusters that are smaller than this will not be drawn in
+		the image and will not have an entry in the results table. This can be
+		useful for a noisy data set that contains many small clusters which
+		make the interesting clusters less easy to see. The value is given as a
+		fraction of the overall size of the image, so a value for the
+		\textbf{cluster size} of 0.05 means that only clusters which are larger
+		than~$\rfrac{1}{20}$ of the size of the whole image are displayed.
 
 		A value of 0 means that no clusters are hidden.
 
@@ -156,7 +156,7 @@ they are found.
 		would be far too large to draw (giving an image with a size of around
 		\SI{10}{\giga\byte}). Instead, the size of each coordinate is
 		multiplied by the \textbf{scale} value to reduce the overall size of
-		the image.  Because this uses integer devision, there is a certain
+		the image.  Because this uses integer division, there is a certain
 		degree of error that is introduced by this process. This can be seen
 		when viewing the quadtree structure of a deep node where the size of
 		neighbouring nodes at the same level do not appear to be the same size.
@@ -316,7 +316,7 @@ described below.
 	\texttt{filepath} & \textbf{String} & The data file to read from. \\
 	\texttt{quadtree} & \textbf{0 or 1} & If 1, the quadtree generated from
 		the given file is drawn immediately. If 0, or if this option is not
-		given, the main dialog window is opened. If 0, or not given, but a
+		given, the main dialogue window is opened. If 0, or not given, but a
 		filepath is given, the file is read and initial analysis performed once
 		the window is open, but the image is not displayed. \\
 	\texttt{grid} & \textbf{0 or 1} & Same as for \texttt{quadtree} above
