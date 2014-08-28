@@ -1,0 +1,52 @@
+% Created:  Thu 28 Aug 2014 10:09 AM
+% Author:   Josh Wainwright
+% Filename: development.tex
+
+\section{Development Evaluation}
+\label{sec:development_evaluation}
+
+The development process of this project followed an agile methodology. There
+was a distinction in steps between the initial design of the data structres and
+algorithms and the development of the program and the plugin for ImageJ. There
+were stages of development of the algorithms and the plugin which were
+revisited a number of times during the development.
+ % TODO
+
+\subsection{Future Work}
+\label{sub:future_work}
+
+% TODO future work
+
+\subsection{Development Process}
+\label{sub:development_process}
+
+The estimated timescales that were proposed prior to the start of development
+are listed in Table~\ref{tab:schedule}. This was followed reasonably closely
+throughout the project, though some deviations were encountered when the
+development of algorithms took longer than was expected. In particular, issues
+when designing the modified Gray code quadtree ordering slowed development
+significantly. See Section~\ref{ssub:Chosen Ordering} for the reasons. To
+account for these changes, other stages were allocated slightly less time than
+is recorded here.
+
+\begin{table}
+\begin{tabu} to \linewidth{c X l}
+	\toprule
+	Stage & Tasks & Date \\
+	\midrule
+	1  & Research existing methods of cluster analysis and identify short comings.         & 20th June 2014 \\
+	2  & Build implementation of Uniform Discrete Cell method.                             & 27th June 2014 \\
+	3  & Build implementation of Quadtree method.                                          & 11th July 2014 \\
+	4  & Test and compare previous algorithms. Perform timing and resource usage analysis. & 18th July 2014 \\
+	5  & Build first iteration ImageJ plugin using chosen method.                          & 25th July 2014 \\
+	6  & Using chosen method, implement cluster analysis algorithms.                       & 1th August 2014 \\
+	7  & Add cluster analysis to ImageJ plugin.                                            & 8th August 2014 \\
+	8  & Performance and ease of use testing of plugin.                                    & 15th August 2014 \\
+	9  & Write-up of background research and current implementations investigation         & 18th July 2014 \\
+	10 & Write-up of data structure algorithms.                                            & 1st August 2014 \\
+	11 & Write-up of cluster analysis algorithms.                                          & 22nd August 2014 \\
+	12 & Final write-up of processes, improvements and end results of project.             & 29th August 2014 \\
+	\bottomrule
+\end{tabu}
+\caption{Initially proposed schedule for the development process.}\label{tab:schedule}
+\end{table}
