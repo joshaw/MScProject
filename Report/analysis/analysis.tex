@@ -235,12 +235,6 @@ hull will include small incursions into the shape and so the hull will be
 smoother. The blue line in Figure~\ref{fig:convex-hull} shows the concave hull
 identified for a cluster with a neighbouring number of 4.
 
-\cite{lee2002polygonization}
-
-\cite{estivill2000autoclust}
-
-\cite{xia2006border}
-
 \subsubsection*{Delaunay Triangulation}
 \label{ssub:Delaunay Triangulation}
 
@@ -306,4 +300,100 @@ shown in Listing~\ref{lst:polygon-area}.
 \end{minipage}
 \end{center}
 
-% TODO describe out dilate/erode method
+\subsubsection{Dilate/Erode Alternative}
+\label{ssub:Dilate/Erode Alternative}
+
+As an alternative to the other methods described above, a fast technique for
+finding the perimeter and area of the points that takes advantage of the fact
+that the points are represented in an image in ImageJ was developed. With the
+points that represent the cluster to find the details for, and using the
+built-in commands in ImageJ, several successive dilate filters are applied to
+the points followed by the same number of erode filters.
+
+\paragraph{Dilate Filter}
+\label{par:dilate_filter}
+
+A dilate filter, also known as a grow or expand filter, is a technique in
+mathematical morphology to extend the boundaries of a shape by adding pixels to
+the outer edge. It can be performed only on a binary image since the pixels
+that are added must all have the same value. The filter adds new white
+foreground pixels to the boundary of existing foreground regions with the
+effect that shapes get larger and holes in those shapes are reduced.
+
+\paragraph{Erode Filter}
+\label{par:erode_filter}
+
+An erode filter, also called a shrink or reduce filter, is a very similar
+process to dilation above, but in reverse. Instead of adding to foreground
+regions, pixels are removed. Another way to consider the erode filter is as an
+identical filter to dilating but performed on the black background pixels.
+
+In order to get the usful information using this method, the dilate filter is
+applied $N$ times. This has the effect of filling in holes that exist
+between points and combining the cluster into a single conglomerate that can be
+manipulated as a one object, rather than a number of distinct points. Next an
+erode filter is applied to the shape $N+1$ times. This reduces the shape back
+to the original size of the points. The reason for the extra erode is to remove
+outlying points that were not joined in to the main shape and so would skew the
+results. Finally, an additional dilation is performed to reverse the effect of
+the extra erode.
+
+Figure~\ref{fig:dilate-erode} shows these steps on a number of points that have
+been identified, \subref{fig:de0}, which is dilated twice, \subref{fig:de1} and
+\subref{fig:de2}, before being eroded again, \subref{fig:de3} to
+\subref{fig:de5} and then dilated again, \subref{fig:de6}. It can be seen from
+the image that the shape in \subref{fig:de6} is a good approximation of the
+outline of the points in \subref{fig:de0} with the single outlying point
+removed.
+
+\begin{figure}[tbhp]
+	\centering
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-0.png}
+		\caption{}\label{fig:de0}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-1.png}
+		\caption{}\label{fig:de1}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-2.png}
+		\caption{}\label{fig:de2}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-3.png}
+		\caption{}\label{fig:de3}
+	\end{subfigure}
+	\quad \\[1em]
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-4.png}
+		\caption{}\label{fig:de4}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-5.png}
+		\caption{}\label{fig:de5}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-6.png}
+		\caption{}\label{fig:de6}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{2cm}
+		\includegraphics[width=\textwidth]{dilate-erode-7.png}
+		\caption{}\label{fig:de7}
+	\end{subfigure}
+	\caption{}\label{fig:dilate-erode}
+\end{figure}
+
+To find the area now becomes a simple case of counting the number of white
+pixels that are left in the image and then scaling this according to the scale
+factor used to draw the image (page~\pageref{it:scale}). A final step is
+performed to get the perimeter of the shape. This time an outline filter is
+applied. This has the effect of creating a one pixel wide outline of the shape.
+The perimeter is then the length of this outline which, again, can be found by
+counting the pixels it consists of and scaling for the size of the pixels.
