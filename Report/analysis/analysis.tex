@@ -328,7 +328,7 @@ process to dilation above, but in reverse. Instead of adding to foreground
 regions, pixels are removed. Another way to consider the erode filter is as an
 identical filter to dilating but performed on the black background pixels.
 
-In order to get the usful information using this method, the dilate filter is
+In order to get the useful information using this method, the dilate filter is
 applied $N$ times. This has the effect of filling in holes that exist
 between points and combining the cluster into a single conglomerate that can be
 manipulated as a one object, rather than a number of distinct points. Next an
@@ -398,4 +398,11 @@ applied. This has the effect of creating a one pixel wide outline of the shape.
 The perimeter is then the length of this outline which, again, can be found by
 counting the pixels it consists of and scaling for the size of the pixels.
 
-% TODO sentence to say the image is complete tada etc.
+Once the cluster information has been calculated, the list of clusters is
+examined and any that fall outside the limits set by the user (`Cluster Size',
+page~\pageref{it:cluster-size}) are removed and are not displayed either in the
+table or in the image. The final results are then  displayed in a results
+table. This results table is sorted by the number of points within each of the
+clusters. At this point, the clustering algorithm is completed and the user is
+free to export the data using the built-in functionality of the ImageJ results
+table or re-run the plugin with altered settings.
