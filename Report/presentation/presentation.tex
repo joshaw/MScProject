@@ -1,11 +1,26 @@
 \documentclass{beamer}
 \usepackage[latin1]{inputenc}
 \usepackage{graphicx}
+% \usepackage[table]{xcolor}
+\usepackage{xcolor,colortbl}
+
+\definecolor{lyellow}{HTML}{FCE94F}
+\definecolor{lorange}{HTML}{FCAF3E}
+\definecolor{lbrown}{HTML}{E9B96E}
+\definecolor{lgreen}{HTML}{8AE234}
+\definecolor{lblue}{HTML}{729FCF}
+\definecolor{lpurple}{HTML}{AD7FA8}
+\definecolor{lred}{HTML}{EF2929}
+\definecolor{silver}{HTML}{D3D7CF}
+\definecolor{lgrey}{HTML}{888A85}
+
 \usetheme{Pittsburgh}
+
 \title{Cluster Analysis in Medical Imaging Data}
 \author{Josh Wainwright}
 \institute{Iain Styles}
 \date{September 3rd, 2014}
+
 \begin{document}
 
 \graphicspath{ {images/} }
@@ -18,7 +33,7 @@
 	\begin{enumerate}
 		\item Background
 		\item Specification
-		\item Implementation
+		\item Implementation---Example
 	\end{enumerate}
 \end{frame}
 
@@ -33,9 +48,69 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Specification}
+	\begin{itemize}
+		\item Plugin for ImageJ
+		\item Allow
+			\begin{itemize}
+				\item selecting file,
+				\item adjust parameters,
+				\item draw results to screen.
+			\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
 \begin{frame}
 	\begin{figure}
 		\includegraphics[width=\textwidth]{complete-tree.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth]{quadtree-tree.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Example Clustering}
+	\begin{table}
+		\begin{tabular}{l l}
+			\cellcolor{lred}   & Node included in cluster \\
+			\cellcolor{lblue}  & Node ready to be checked \\
+			\phantom{one}      & Node not yet examined \\
+			\cellcolor{silver} & Node excluded from clusters \\
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth]{quadtree-prop1.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth]{quadtree-prop2.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth]{quadtree-prop3.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth]{quadtree-prop4.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth]{quadtree-prop5.pdf}
 	\end{figure}
 \end{frame}
 

@@ -13,8 +13,9 @@ BUILDTEX=latexmk -pdf -pdflatex="$(TEX)" $(OPTIONS) $(PROJECT).tex
 TEXFILES=$(wildcard **/*.tex)
 SVGPDF=$(addprefix $(DIR)/,$(subst .svg,.pdf,$(wildcard **/*.svg)))
 DIAPDF=$(addprefix $(DIR)/,$(subst .dia,.pdf,$(wildcard **/*.dia)))
+DOTPDF=$(addprefix $(DIR)/,$(subst .dot,.pdf,$(wildcard **/*.dot)))
 
-all: $(DIR) $(DIR)/$(PROJECT).pdf $(SVGPDF) $(DIAPDF)
+all: $(DIR) $(DIR)/$(PROJECT).pdf $(SVGPDF) $(DIAPDF) $(DOTPDF)
 
 $(DIR):
 	mkdir $(DIR)
@@ -22,18 +23,26 @@ $(DIR):
 
 .SECONDEXPANSION:
 $(DIR)/%.pdf: %.dia
-	echo "$< ==> $@"
+	@echo "DIA"
+	@echo "$< ==> $@"
 	mkdir -p $(shell dirname $@)
 	dia -t svg -e "/dev/stdout" $< 2> /dev/null | sed '/\/dev\/stdout/d'\
 		| rsvg-convert -f pdf > "$@"
 		# | sed 's/CM Roman/CMU Serif/'\
 
 $(DIR)/%.pdf: %.svg
-	echo "$< ---> $@"
+	@echo "SVG"
+	@echo "$< ---> $@"
 	mkdir -p $(shell dirname $@)
 	rsvg-convert -f pdf $< > "$@"
 
-$(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(TEXFILES) $(DIAPDF) $(SVGPDF)
+$(DIR)/%.pdf: %.dot
+	@echo "DOT"
+	@echo "$< ---> $@"
+	mkdir -p $(shell dirname $@)
+	dot -Tpdf $< -o "$@"
+
+$(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(TEXFILES) $(DIAPDF) $(SVGPDF) $(DOTPDF)
 	$(BUILDTEX)
 	@xdotool search $(PROJECT).pdf key r > /dev/null 2>&1 || true
 
