@@ -7,63 +7,87 @@
 
 With the plugin written, the requirements outlined in
 Section~\ref{sec:requirements} are examined to check which have been fulfilled
-and which were not able to be completed.
+and which were not able to be completed. Each of the requirements below refer
+to a requirement from Section~\ref{sec:requirements}. In each case, the
+requirement is given with a note to say whether it was completed and if so,
+what component is the fulfillment of it and if not, why not.
 
 \subsection{Functional Requirements}
 \label{sub:functional_requirements}
 
 \begin{description}[style=unboxed]
-	\item[\ref{req:a} Select a data file to process.] \emph{Completed} with
-		file chooser dialogue.
+	\item[\ref{req:a} Select a data file to process.]
+		\hfill \\ \emph{Completed} with file chooser dialogue.
 
 	\item[\ref{req:b} Select the appropriate column separator for the file.]
-		\emph{Completed} with column chooser integrated in the file chooser.
+		\hfill \\ \emph{Completed} with column chooser integrated in the file
+		chooser.
 
 	\item[\ref{req:c} Select which coloumn the x- and y-coordinates appear in.]
-		\emph{Completed} with column chooser integrated in the file chooser.
+		\hfill \\ \emph{Completed} with column chooser integrated in the file
+		chooser.
 
 	\item[\ref{req:d} Adjust parameters relating to the process of analysing
-		the data file.] \emph{Completed} with sliders on main user interface.
+		the data file.]
+		\hfill \\ \emph{Completed} with sliders on main user interface.
 
 	\item[\ref{req:e} Create an image of the points from the selected file
-		using naitve ImageJ functionality.] \emph{Completed} with simple grid
-		implementation which just adds the points to the grid and draws the
-		image to the screen, no analysis of the clusters is performed.
+		using naitve ImageJ functionality.]
+		\hfill \\ \emph{Completed} with simple grid implementation which just
+		adds the points to the grid and draws the image to the screen, no
+		analysis of the clusters is performed.
 
 	\item[\ref{req:f} Create an image of the clusters found using native ImageJ
-		functionality.] \emph{Completed} with ImageJ image of clusters found,
+		functionality.]
+		\hfill \\ \emph{Completed} with ImageJ image of clusters found,
 		colour-coded based on order the clusters were found.
 
 	\item[\ref{req:g} Perform a clustering algorithm on the data in the chosen
-		file.] \emph{Completed} with the quadtree based clustering algorithm.
+		file.]
+		\hfill \\ \emph{Completed} with the quadtree based clustering
+		algorithm.
+
+	\item[\ref{req:ga} Choose from alternative clustering algorithms
+		to perform on the data.]
+		\hfill \\ \emph{Not completed} The simple grid method was implemented
+		but found to perform too badly to be used as an alternative clustering
+		algorithm. Limitations in time prevented the implementation of existing
+		clustering algorithms.
 
 	\item[\ref{req:h} Generate perimeter information for each of the clusters
-		found.] \emph{Completed} with dilate/erode based perimeter method.
+		found.]
+		\hfill \\ \emph{Completed} with dilate/erode based perimeter method.
 
 	\item[\ref{req:i} Generate area information for each of the clusters
-		found.] \emph{Completed} with dilate/erode based area method.
+		found.]
+		\hfill \\ \emph{Completed} with dilate/erode based area method.
 
 	\item[\ref{req:j} Display a results table showing summary of information
-		about each of the clusters found.] \emph{Completed} with ImageJ results
-		table shown after cluster analysis is complete.
+		about each of the clusters found.]
+		\hfill \\ \emph{Completed} with ImageJ results table shown after
+		cluster analysis is complete.
 
 	\item[\ref{req:k} Limit the clusters drawn to the image based on the size
-		of the cluster.] \emph{Completed} with limit chosen by user from main
-		user interface.
+		of the cluster.]
+		\hfill \\ \emph{Completed} with limit chosen by user from main user
+		interface.
 
 	\item[\ref{req:l} Limit the clusters included in the results table based on
-		the size of the cluster.] \emph{Completed} with limit chosen by user
-		from main user interface.
+		the size of the cluster.]
+		\hfill \\ \emph{Completed} with limit chosen by user from main user
+		interface.
 
 	\item[\ref{req:m} Export cluster information by selecing appropriate
-		cluster from the results table.] \emph{Not completed} since integration
-		with the results table (which is defined and maintained by ImageJ) does
-		not allow selecting a line and passing that line to the plugin.
+		cluster from the results table.]
+		\hfill \\ \emph{Not completed} since integration with the results table
+		(which is defined and maintained by ImageJ) does not allow selecting a
+		line and passing that line to the plugin.
 
 	\item[\ref{req:n} Export data points contained in cluster by selecing
-		appropriate cluster from the results table.] \emph{Not completed} since
-		ImageJ does not allow making clickable selections from images as this
-		would interfere with manipulation of the image itself.
+		appropriate cluster from the results table.]
+		\hfill \\ \emph{Not completed} since ImageJ does not allow making
+		clickable selections from images as this would interfere with
+		manipulation of the image itself.
 \end{description}
 
 \subsection{Non-Functional Requirements}
@@ -71,21 +95,23 @@ and which were not able to be completed.
 
 \begin{description}
 	\item[\ref{req:o} Handle input data files of upto 100\,000 data points in
-		under 10 seconds.] \emph{Completed}, though the time to process files
-		is very much dependant on the hardware used, the algorithms developed
-		are quite efficient.
+		under 10 seconds.]
+		\hfill \\ \emph{Completed}, though the time to process files is very
+		much dependant on the hardware used, the algorithms developed are quite
+		efficient.
 
-	\item[\ref{req:p} Be easy to use without instruction.] \emph{Completed}
-		with a small number of test users who were allowed to use the plugin
-		and comment on its usability.
+	\item[\ref{req:p} Be easy to use without instruction.]
+		\hfill \\ \emph{Completed} with a small number of test users who were
+		allowed to use the plugin and comment on its usability.
 
 	\item[\ref{req:q} Have customisation ability for more advanced uses.]
-		\emph{Not completed}, a number of options are provided to customise the
-		running of the algorithm but these are required to work and so there is
-		no other customisation.
+		\hfill \\ \emph{Not completed}, a number of options are provided to
+		customise the running of the algorithm but these are required to work
+		and so there is no other customisation.
 
 	\item[\ref{req:r} Be platform independant, as long as ImageJ is
-		present.] \emph{Completed} with ImageJ and Java being platform
+		present.]
+		\hfill \\ \emph{Completed} with ImageJ and Java being platform
 		independent so the plugin should work wherever ImageJ and Java is
 		installed.
 \end{description}

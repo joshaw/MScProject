@@ -2,16 +2,16 @@
 % @author Josh Wainwright
 % File name : grid.tex
 
-\section{Simple Grid Method}
+\section{Uniform Discrete Cell Method}
 \label{sec:simple_grid_method}
 
 The simplest method for analysing the distribution of points is to use a
-regular grid of cells and place the points into these cells one at a time. Once
-all points have been added, the number of points that are contained in each
-cell can be treated as a grey scale brightness value with lighter pixels
-representing cells with more points and black cells having no points. This
-gives a simple pixel image, with brightness as a function of density of the
-points, in the \texttt{pnm} image format\cite{murray1996encyclopedia}. A
+uniform, discrete grid of cells and place the points into these cells one at a
+time. Once all points have been added, the number of points that are contained
+in each cell can be treated as a grey scale brightness value with lighter
+pixels representing cells with more points and black cells having no points.
+This gives a simple pixel image, with brightness as a function of density of
+the points, in the \texttt{pnm} image format\cite{murray1996encyclopedia}. A
 thresholding filter can then be applied to remove the points that are isolated
 by removing the darker pixels and leave the denser areas corresponding to
 clusters.

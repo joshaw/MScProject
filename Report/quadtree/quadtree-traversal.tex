@@ -18,11 +18,13 @@ examined.
 \subsection{Algorithm Description}
 \label{sub:algorithm_description}
 
-% TODO finish sentence
-The algorithm is defined recursively with the main step being ``propagation''
-of nodes.
+To \emph{propagate} is defined as the act of ``spreading and promoting (an
+idea, theory etc.) widely''\cite{oed31}. This term shall refer to the process
+by which a single starting location, previously chosen, is expanded by examing
+neighbours to form a cluster. The algorithm is defined recursively with the
+main step being `propagation' of nodes. The propagation algorithm is performed
+as follows:
 
-The propagation algorithm is performed as follows:
 \begin{enumerate}
 	\item Choose a starting location that has not yet been checked, $l$.
 	\item For this given starting location, the $i$ neighbours surrounding it,
@@ -60,7 +62,6 @@ Section~\ref{sub:choosing_neighbours}.
 \begin{lstlisting}[caption={[Code for the propagate algorithm.]Code for the
 	propagate algorithm which expands an initial starting location to a
 	cluster.}, label=code:quadtree-propagate]
-
 	public |propagate()| {
 
 		node[] startLocations = getStartLocations() (*@\label{eql:a}@*)
@@ -223,8 +224,9 @@ this process of finding new clusters:
 		they consider a reasonable place to find a cluster. The algorithm would
 		then convert the locations of each of these ROI points into the
 		relevant quadtree code and begin propagating from that node and
-		terminate when all of the ROI's had been used.
-		% TODO why is this one bad?
+		terminate when all of the ROI's had been used. This suffers from the
+		same issues as method 1, since it is not helpful to require the user to
+		make the selections manually.
 
 \end{itemize}
 

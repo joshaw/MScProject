@@ -181,7 +181,8 @@ there are a number of options as to how to find the correct node for the code:
 		node to the expected code reference.
 \end{itemize}
 
-% TODO needs some description of which of the above is better
+The first of these is used in the plugin since it allows the hash map structure
+to be used when searching which speeds up the process.
 
 \subsubsection{Hilbert Order}
 \label{ssub:hilbert_order}
@@ -336,16 +337,15 @@ an assurance that two neighbours' codes differ by exactly one bit, this cannot
 provide a one to one mapping with the required neighbours of that node.
 
 Consider, for example, a node, $S$, at a depth of three in the tree where the
-% TODO reference
-rook's case neighbours (see Section~\ref{}) are required. This node has a code
-consisting of 6 bits, two for each level. From this code, a total of six
-possible neighbour candidates can be identified by simply flipping each of the
-bits in the code.  These neighbours are shown for an example node in
-Table~\ref{tab:s-neighbours} and their position relative to the original shown
-in Figure~\ref{fig:modgray-failures}. The first two of these possible
-neighbours, the results of flipping the two least significant bits, are
-guaranteed always to be valid neighbours since they share the same parent as
-$S$. However, the two other neighbours which need to be selected from the
+rook's case neighbours (see Section~\ref{sub:choosing_neighbours}) are
+required. This node has a code consisting of 6 bits, two for each level. From
+this code, a total of six possible neighbour candidates can be identified by
+simply flipping each of the bits in the code.  These neighbours are shown for
+an example node in Table~\ref{tab:s-neighbours} and their position relative to
+the original shown in Figure~\ref{fig:modgray-failures}. The first two of these
+possible neighbours, the results of flipping the two least significant bits,
+are guaranteed always to be valid neighbours since they share the same parent
+as $S$. However, the two other neighbours which need to be selected from the
 remaining four possibilities, cannot be identified easily.  These other
 possible neighbours exist at other locations in the quadtree, always either
 vertically above or below or horizontally to the left or right of $S$, but

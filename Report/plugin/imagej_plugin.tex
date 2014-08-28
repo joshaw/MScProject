@@ -147,10 +147,10 @@ they are found.
 			\texttt{maximum} & \num{2e-2} \\
 		\end{tabular}
 
-	\item[Scale] Internally, the points read from the file are stored exactly
-		as they are read. The pixel grid for the image is then generated based
-		on these values. If the maximum x- and y-coordinate are both
-		\num{10000}, with a \textbf{scale} value of 1, the image would be
+	\item[Scale] \label{it:scale} Internally, the points read from the file are
+		stored exactly as they are read. The pixel grid for the image is then
+		generated based on these values. If the maximum x- and y-coordinate are
+		both \num{10000}, with a \textbf{scale} value of 1, the image would be
 		\num{10000} pixels by \num{10000} pixels. Since each pixel requires a
 		number of type \emph{float} to hold the RGB colour information, this
 		would be far too large to draw (giving an image with a size of around
