@@ -32,6 +32,7 @@ $(DIR)/%.pdf: %.dia
 
 $(DIR)/%.pdf: %.svg
 	echo "$< ---> $@"
+	sed -i 's/CMU Serif/CM Roman/'
 	mkdir -p $(shell dirname $@)
 	rsvg-convert -f pdf $< > "$@"
 
