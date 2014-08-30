@@ -37,6 +37,7 @@
 
 \newgeometry{onecolumn}
 \thispagestyle{empty}
+\pagenumbering{roman}
 
 \textbf{Title:} Medical Image Processing with Quadtrees \\
 \textbf{Author:} Josh Wainwright \\
@@ -47,42 +48,39 @@
 Completed as part of a Post Graduate Masters Degree in Computer Science at the
 University of Birmingham (2013/2014).
 
-\pagenumbering{roman}
+\pagestyle{empty}
 
-% \newgeometry{left=5cm, top=5cm, right=5cm}
-\thispagestyle{empty}
-\part*{Abstract}
-\label{prt:abstract}
-\addcontentsline{toc}{section}{Abstract}
+\newpage
+\makebox[\linewidth][c]{%
+	\begin{minipage}[c]{0.7\textwidth}
+		\part*{Abstract}\label{prt:abstract}
+		\addcontentsline{toc}{section}{Abstract}
 
-This project introduces the concept of data clustering and it's uses in medical
-and biological image analysis and examines some existing techniques for
-extracting clustering information from such data sets. A new technique based on
-quadtree style data structures is discussed and an implementation tested and
-evaluated based on this technique. This method is found to perform well even
-under difficult conditions, such as noisy data, where others struggle, though
-has limitations in data set size, resource usage and taking advantage of
-parallel processing.
+		This project introduces the concept of data clustering and it's uses in
+		medical and biological image analysis and examines some existing
+		techniques for extracting clustering information from such data sets. A
+		new technique based on quadtree style data structures is discussed and
+		an implementation tested and evaluated based on this technique. This
+		method is found to perform well even under difficult conditions, such
+		as noisy data, where others struggle, though has limitations in data
+		set size, resource usage and taking advantage of parallel processing.
 
-% \restoregeometry
+	\end{minipage}
+}
 
 \clearpage
 
-\thispagestyle{empty}
 \tableofcontents
 \addcontentsline{toc}{section}{Table of Contents}
-\thispagestyle{empty}
 \listoffigures
 \addcontentsline{toc}{section}{List of Figures}
-\thispagestyle{empty}
 \listoftables
 \addcontentsline{toc}{section}{List of Tables}
-\thispagestyle{empty}
 \lstlistoflistings%
 \addcontentsline{toc}{section}{List of Code Listings}
-\thispagestyle{empty}
 
 \restoregeometry
 \clearpage
 \pagenumbering{arabic}
 % \twocolumn
+\pagestyle{fancy}

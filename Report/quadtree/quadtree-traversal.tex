@@ -51,34 +51,45 @@ performed as follows:
 
 This process is shown graphically in Figure~\ref{fig:propogation}.
 
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=7cm]{propogation.pdf}
+
+	\caption[Propagation of a cluster from a starting location.]{For a starting
+		location, (a), in an image, no information is known and so all it's
+		neighbours are checked. Some of these are found to be part of the
+		cluster, others are rejected. The ones that are included are then,
+		themselves, checked and so on. As the cluster grows, (b), (c) and
+		(d), the number of checked nodes increases.}\label{fig:propogation}
+\end{figure}
+
 Listing~\ref{code:quadtree-propagate} shows pseudo code for the propagate
 algorithm which, starting at a given starting location, expands the cluster
 outwards while there still exist valid neighbours that should be included. The
 \texttt{getNeighbours()} method is described
-Section~\ref{sub:choosing_neighbours}.
+Section~\ref{sub:choosing_neighbours}. This is a recursively defined algorithm
+which calls itself for each of the neighbours of a node and for each of their
+neighbours, and so on. There is a condition that prevents the algorithm from
+being called again on nodes that have been checked already. This prevents a
+loop from forming and preventing the algorithm terminating.
 
 \begin{center}
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[caption={[Code for the propagate algorithm.]Code for the
 	propagate algorithm which expands an initial starting location to a
 	cluster.}, label=code:quadtree-propagate]
-	public |propagate()| {
-
+	function |propagate()| {
 		node[] startLocations = getStartLocations() (*@\label{eql:a}@*)
-		for each node in startLocations {
+		for each node in startLocations
 			propagate(node)
-		}
 	}
 
 	private |propagate(node)| {
-
-		if (not node.inCluster()) { (*@\label{eql:b}@*)
+		if (not node.inCluster()) (*@\label{eql:b}@*)
 			node[] neighbours = getNeighbours(node)
 
-			for each n in neighbours { (*@\label{eql:c}@*)
-				propagate(n)
-			}
-		}
+			for each n in neighbours  (*@\label{eql:c}@*)
+				if (n is valid) propagate(n)
 	}
 \end{lstlisting}
 \end{minipage}
@@ -96,18 +107,6 @@ overlap.
 propagated. The method of choosing neighbours determines how far the cluster
 can spread, and is separated from the clustering algorithm.
 
-\begin{figure}[tbhp]
-	\centering
-	\includegraphics[width=7cm]{propogation.pdf}
-
-	\caption[Propagation of a cluster from a starting location.]{For a starting
-		location, (a), in an image, no information is known and so all it's
-		neighbours are checked. Some of these are found to be part of the
-		cluster, others are rejected. The ones that are included are then,
-		themselves, checked and so on. As the cluster grows, (b), (c) and
-		(d), the number of checked nodes increases.}\label{fig:propogation}
-\end{figure}
-
 When discovering clusters via this propagation technique, care must be taken to
 avoid a run-away situation where every node in the tree gets included. This
 would happen when looking at the neighbours of a node and blindly including
@@ -122,7 +121,7 @@ checked, no correct neighbours are found and so the process terminates. When
 able to view the larger structure of the nodes, however, it is clear that the
 structure continues beyond the gap, following the dotted line.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[c]{5.2cm}
 		\includegraphics[width=\linewidth]{propogation-halting.pdf}
@@ -176,7 +175,7 @@ cluster shown in Figure~\ref{fig:single-cluster} is found. The file
 Altering the parameters that are used to generate the quadtree affects the size
 of the nodes that are included in the cluster and the depth that is searched.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[c]{4.2cm}
 		\includegraphics[width=\textwidth]{single-cluster.png}
@@ -243,7 +242,7 @@ similar to the depth range, then the algorithm continues. After this process
 has finished, the clusters that have been found are examined and those that are
 too small with respect to the others are removed.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{minipage}[c]{7cm}
 		\fbox{\includegraphics[width=\textwidth]{multiple-clusters-colours.png}}
@@ -301,7 +300,7 @@ to the rook's case, the four \emph{diagonal} neighbours are included, giving a
 total of eight, the results are much more complete, as shown in
 Figure~\ref{fig:kernel-all8}.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[b]{4.2cm}
 		\includegraphics[width=\textwidth]{clusters/kernel-rooks-case.png}
@@ -353,7 +352,7 @@ selected, and so no clusters located. The rook's case neighbours are now
 represented with the kernel in Figure~\ref{fig:kernel-image-rooks} and the case
 with all 8 neighbours in Figure~\ref{fig:kernel-image-all8}.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subtable}[b]{0.2\textwidth}
 	\centering
@@ -404,12 +403,14 @@ with all 8 neighbours in Figure~\ref{fig:kernel-image-all8}.
 		kernel can be anything as it is never included as a neighbour.}\label{fig:kernel-neighbours}
 \end{figure}
 
-This functionality provides the ability to target certain clusters depending on
-the spatial orientation of the cluster, vertical or horizontal etc.
-Figure~\ref{fig:kernel-shapes} shows a number of possibilities for kernel
-shapes that would allow different types of clusters to be targeted.
+This functionality provides the ability to target certain types of clusters
+depending on the spatial orientation of the cluster; vertical or horizontal
+etc. Figure~\ref{fig:kernel-shapes} shows a number of possible kernel shapes
+that would allow different types of clusters to be targeted. Each of these show
+the central cell with the cells that would be represented by a 1; cells
+represented by 0's are not displayed.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\includegraphics[width=7cm]{kernel-shapes.pdf}
 
@@ -424,7 +425,7 @@ shapes that would allow different types of clusters to be targeted.
 \end{figure}
 
 \subsubsection{Searching Up and Down the Tree}
-\label{ssub:Searching Up and Down the Tree}
+\label{ssub:searching_up_and_down_the_tree}
 
 Once a node location has been identified as a valid neighbour, there is still
 no guarantee that there exists a node there. There are three possible cases
@@ -465,7 +466,7 @@ selected as neighbours.
 
 \end{enumerate}
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\includegraphics[width=5cm]{updownsearch.pdf}
 	\caption[Possible results of neighbour selection.]{The possible results of

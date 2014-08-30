@@ -59,7 +59,7 @@ in which the nodes are placed is important. For spatial indexing, for example,
 each node represents a quadrant in two dimensional space, so being able to
 traverse the children in a sensible and predictable way is essential.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{traverse-z-order.pdf}
@@ -102,13 +102,15 @@ Z-order because of the resulting path that would be followed by traversing the
 nodes in order, Figure~\ref{fig:traverse-z-order.pdf}. This has several useful
 features.
 
-\begin{enumerate}
+\begin{itemize}
 	\item First, the numbers can be converted to base 2; 0 becomes 00, 1
 		becomes 01, 2 becomes 10, and 3 becomes 11.
 
-	\item This has advantages since binary is very efficient for computers to
-	work with and allows certain tricks to be employed (see Morton Order
-	Coordinates below).
+		\begin{itemize}
+			\item This has advantages since binary is very efficient for
+				computers to work with and allows certain tricks to be employed
+				(see Morton Order Coordinates below).
+		\end{itemize}
 
 	\item Also, this numbering system is easily extendible to any depth of
 	tree that can be imagined.
@@ -125,7 +127,7 @@ features.
 		at the top and going top to bottom and left to right, this is
 		maintained for all children.
 	\end{enumerate}
-\end{enumerate}
+\end{itemize}
 
 \subsubsection*{Morton Order Coordinates}
 \label{ssub:morton_order_coordinates}
@@ -148,7 +150,7 @@ These steps result in a coordinates that represents the top left corner of the
 node. The coordinate is dependant on the length of the code, so to compare two
 coordinated from their codes, the codes must be of the same length.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\includegraphics[width=3cm]{deinterleave.pdf}
 
@@ -231,7 +233,7 @@ and~\ref{fig:modgray-traversal}, each cell is arranged such that the codes for
 any two neighbouring nodes at the same depth differs by exactly one bit. This
 means that checking if any two nodes are neighbours becomes trivial.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[c]{3.4cm}
 		\includegraphics[width=\textwidth]{modgray-2-levels-arrows.pdf}
@@ -252,7 +254,7 @@ means that checking if any two nodes are neighbours becomes trivial.
 		\subref{fig:modgray-2-levels-numbers.pdf}.}\label{fig:modgray-traversal}
 \end{figure}
 
-% \begin{figure}[tbhp]
+% \begin{figure}[tbh]
 % 	\centering
 % 	\includegraphics[width=7.4cm]{modgray-steps.pdf}
 % 	% TOD short caption
@@ -296,7 +298,7 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 
 \end{itemize}
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[b]{3.5cm}
 		\includegraphics[width=\textwidth]{modgray-alt-order.pdf}
@@ -370,7 +372,7 @@ there is no simple test to determine if they are actually neighbours or not.
 		neighbour.}\label{tab:s-neighbours}
 \end{table}
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\includegraphics[width=8.8cm]{modgray-failures.pdf}
 	\caption[Flipping code bits gives too many possible neighbours.]{Flipping

@@ -85,7 +85,7 @@ Figure~\ref{fig:perimeter-edges} where the perimeter is simple to calculate in
 case (a) as the nodes are all the same, but the size of each node must be taken
 into account in case (b).
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[c]{3.5cm}
 		\includegraphics[width=\textwidth]{perimeter-edges-grid.pdf}
@@ -137,7 +137,7 @@ values for the clusters for these data are very different,
 Figure~\ref{fig:roundness-long.png} has an average $R=0.350$ whereas
 Figure~\ref{fig:roundness-round.png} has an average $R=0.446$.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[b]{4.2cm}
 		\fbox{\includegraphics[width=\textwidth]{roundness-long.png}}
@@ -186,7 +186,7 @@ final shape consists only of convex angles, meaning that the actual shape of
 the perimeter of the points may be lost, as shown in
 Figure~\ref{fig:convex-hull}.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\includegraphics[width=5cm]{convex-hull.pdf}
 
@@ -279,21 +279,22 @@ shown in Listing~\ref{lst:polygon-area}.
 	\begin{lstlisting}[caption={[Code to find the area of an irregular
 	polygon.]Code to find the area of an irregular polygon.  Adapted
 	from~\cite{finley2006poly}}, label=lst:polygon-area] public
-	|polygonArea(points, numPoints)| {
+	function |polygonArea(ps, numPoints)| {
 
 		area = 0;
 		j = numPoints - 1;
 
-		/* Sum the area contained between each pair of points
-		 * and the y-axis on the right hand side of the shape
-		 * and subtract the area between pairs of points and
-		 * the y-axis on the left hand side.
+		/* Sum the area contained between each pair of
+		 * points and the y-axis on the right hand side
+		 * of the shape and subtract the area between
+		 * pairs of points and the y-axis on the left
+		 * hand side.
 		 */
-		for (i=0; i < numpoints; i++) {
-			area += (points[j].getX() + points.[i].getX()) *
-		        	(points[j].getY() - points.[i].getY());
+		for (i=0; i < numpoints; i++)
+			area += (ps[j].getX() + ps[i].getX()) *
+		            (ps[j].getY() - ps[i].getY());
 			j = i;
-		}
+
 		return area/2;
 	}
 \end{lstlisting}
@@ -346,7 +347,7 @@ the image that the shape in \subref{fig:de6} is a good approximation of the
 outline of the points in \subref{fig:de0} with the single outlying point
 removed.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 	\centering
 	\begin{subfigure}[b]{2cm}
 		\includegraphics[width=\textwidth]{dilate-erode-0.png}
