@@ -56,6 +56,7 @@
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{multirow,bigdelim}
+\usepackage{nameref}
 
 % \renewcommand{\labelenumii}{\theenumii}
 % \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
@@ -134,6 +135,7 @@
 	pdfauthor={Josh Wainwright}}
 
 \newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+\newcommand*{\fullref}[1]{\ref{#1}~\nameref{#1}}
 %*******************************************************************************
 %******************************** END HEADER ***********************************
 %*******************************************************************************
