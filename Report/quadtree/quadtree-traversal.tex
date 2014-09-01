@@ -84,7 +84,7 @@ loop from forming and preventing the algorithm terminating.
 			propagate(node)
 	}
 
-	private |propagate(node)| {
+	function |propagate(node)| {
 		if (not node.inCluster()) (*@\label{eql:b}@*)
 			node[] neighbours = getNeighbours(node)
 

@@ -14,9 +14,9 @@ micro-organisms and cells and the way they work together and to develop
 preventative measures and cures for injuries and diseases.
 
 The humble microscope, used as far back as the 1500's, is able to show us a
-world that is not usually visible, but in recent times, as our understanding
-has grown, we have desired to see beyond what ordinary microscopes are capable
-and have invented machines that let us catch a glimpse of some of the smallest
+world that is not usually visible. In recent times, as our understanding has
+grown, we have desired to see beyond what ordinary microscopes are capable and
+have invented machines that let us catch a glimpse of some of the smallest
 structures in biology, molecules. However, when the objects to be viewed get
 this small, of the order of a few tens of nanometers, the light that is used to
 view them become the limiting factor.
@@ -37,11 +37,11 @@ wavelengths of light.  For example, instead of being limited by visible light,
 $\lambda \approx 5\times 10^{-7} \textrm{m}$, x-ray radiation ($\lambda \approx
 10^{-10} \textrm{m}$) or even electrons ($\lambda \approx 10^{-11} \textrm{m}$)
 can be used to resolve smaller scales in x-ray and electron microscopy
-respectively. These, however, have the issue that, because the smaller
-wavelengths imply higher energies, there is the danger of destroying the sample.
+respectively. The smaller wavelengths imply higher energies however, meaning
+that there is the danger of destroying the sample.
 
-The minimum separation that two objects can be apart and still be resolved at
-is given by Abbe's criterion, $d$,
+The minimum separation at which two objects can be resolved is given by Abbe's
+criterion, $d$,
 
 \begin{align}
 	d &= \frac{\lambda}{2N\!A} \\
@@ -97,6 +97,10 @@ method of imaging can be analysed more efficiently and with a greater degree of
 accuracy. This will take the form of a plugin for a piece of popular image
 processing software called ImageJ.
 
+The main deliverable is a plugin for extracting clusters of points from large
+data sets for ImageJ. This plugin is written in Java and makes use of the
+ImageJ Java API\cite{imagejapi}.
+
 The sections included in this report are detailed below.
 
 \begin{description}
@@ -104,7 +108,7 @@ The sections included in this report are detailed below.
 		A brief background to the project with information about the type of
 		data to be managed.
 
-	\item[\fullref{prt:cluster_analysis}] \hfill \\
+	\item[\fullref{prt:existing_cluster_analysis_algorithms}] \hfill \\
 		A discussion of the existing algorithms that are in use for different
 		applications and the reasons they do not fulfill the requirements of
 		this project.

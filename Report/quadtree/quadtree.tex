@@ -9,11 +9,6 @@ Since the simple grid method described in Section~\ref{sec:simple_grid_method}
 performs slowly and does not offer good cluster analysis, a different approach
 is needed. The chosen method is to use a quadtree data structure.
 
-Quadtrees are a type of recursive abstract data type in the form of a tree
-where every node has exactly zero or four children. A node with zero children
-is a leaf and contains some information, value or quantity. A node with four
-children is not a leaf and cannot hold information.
-
 Quadtrees are often used in image processing since the four children of the
 root node can naturally represent the four quadrants of an image; upper left,
 upper right, lower left and lower right. Since each of these children is also a
@@ -45,6 +40,11 @@ to binary trees.
 		node by adding its position with respect to its siblings to the code of
 		its parent.
 \end{description}
+
+Quadtrees are a type of recursive abstract data type in the form of a tree
+where every node has exactly zero or four children. A node with zero children
+is a leaf and contains some information, value or quantity. A node with four
+children is not a leaf and cannot hold information.
 
 \subsection{Code Orderings}
 \label{sub:code_orderings}
