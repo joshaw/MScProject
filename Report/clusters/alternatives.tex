@@ -1,15 +1,24 @@
-% Created:  Mon 30 Jun 2014 05:32 PM
-% Author:   Josh Wainwright
-% Filename: rolling-ball.tex
+% Created:  Wed 09 Jul 2014 03:00 PM
+% @author Josh Wainwright
+% File name : clusters.tex
 
-\section{Existing Clustering Algorithms}
-\label{sec:existing_clustering_algorithms}
+\part{Existing Cluster Analysis Algorithms}
+\label{prt:existing_cluster_analysis_algorithms}
+
+Cluster analysis is the grouping of a set of objects or items in a spatially or
+informationally logical way such that the items that are placed in the same
+group are more similar to each other than they are to the objects in the other
+groups in the set. These groups shall be called \emph{clusters}. When dealing
+with images, the clustering that is of interest is often based on spatial
+location, i.e., clusters should be composed of objects that are close together
+in the image and clusters should be separated by regions of emptiness or
+background level noise.
 
 A number of clustering algorithms already exist. Many of these are designed for
 very specific purposes and so are not well suited for this application. Several
 of these are described below.
 
-\subsection{Rolling Ball Analysis}
+\section{Rolling Ball Analysis}
 \label{sub:rolling_ball_analysis}
 
 The accessible surface area (ASA) algorithm, also known as the ``Rolling Ball
@@ -21,7 +30,7 @@ liquid solvent.
 The rolling ball method can be used to analyse a cluster of points by imagining
 a solid ball or circle that sits against one of the outer-most points. From
 here it is ``rolled'' around the cluster such that it is always touching at
-least one point. Once the ball has reached the point it started at, the line
+least one point. Once the ball has reached the point it started from, the line
 that the ball traced is reduced in size by the radius of the ball. This line
 then represents the outer limit of the cluster.
 
@@ -44,7 +53,7 @@ A simple approximation of this technique can be achieved by using the same
 dilating and eroding processes that are described later in
 Section~\ref{sec:simple_grid_method}.
 
-\subsection{Shared Nearest Neighbours}
+\section{Shared Nearest Neighbours}
 \label{sub:shared_nearest_neighbours}
 
 Shared nearest neighbour (SNN) clustering algorithms have been used to overcome
@@ -76,7 +85,7 @@ scale clustering such as the application discussed for this project. It also
 suffers from performance issues when the number of points to analyse becomes
 large as it has approximately $O(n^2)$ time complexity.
 
-\subsection{Gravity Based Clustering}
+\section{Gravity Based Clustering}
 \label{sub:gravity_based_clustering}
 
 A number of clustering algorithms~\cite{zhong2010novel} have been developed
