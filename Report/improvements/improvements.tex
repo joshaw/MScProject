@@ -12,12 +12,9 @@ course of this project because the core functionality was more important and
 time constraints prevented them from being added after the existing features
 were complete.
 
-%TODO improvements section
-% (see writing in book)
-
 \begin{description}
 
-	\item[Alternative algorithms] \hfill \\
+	\item[Alternative algorithms] \hfill
 
 		The algorithm that was developed for this project performs well under a
 		range of different conditions. This was tested through the use of
@@ -29,22 +26,35 @@ were complete.
 		approach which might handle the data better.
 
 		One or more of the existing algorithms discussed in
-		Section~\ref{sec:existing_clustering_algorithms} could be implemented
-		as alternatives which could then be selected from the main user
-		interface if the quadtree based method failed.
+		Part~\ref{prt:existing_cluster_analysis_algorithms} could be
+		implemented as alternatives which could then be selected from the main
+		user interface if the quadtree based method failed.
 
-	\item[Better starting location selection] \hfill \\
+	\item[Better starting location selection] \hfill
 
-		% TODO
+		The logic in the current implementation that selects new starting
+		locations where clusters are propagated from is reasonably simple and
+		so can fail to determine the best next location. This would be improved
+		by a method that considered more than simply the quadtree structure,
+		such as the placement of existing clusters and the depth of node
+		surrounding the possible starting location.
 
-	\item[Better algorithm halting] \hfill \\
+	\item[Better algorithm halting] \hfill
 
-		% TODO
+		Similarly to above, the logic that stops the algorithm looking for
+		more starting locations once a cluster has finished being propagated
+		are not always sufficient. For example, in a data set with few
+		clusters, zero to six, the algorithm will continue to look for more and
+		so might identify the background noise as a cluster that spans most of
+		the image.
+
+	\item[Calculation of optimum settings] \hfill
+
+		Since the particular settings that are required vary a lot between
+		different data sets, the user must often alter the settings before any
+		useful results are found. To automate this process would require some
+		significant changes to the algorithm so that it did not take a
+		prohibitive amount of time to produce results, but would make the
+		plugin far easier to use.
 
 \end{description}
-
-\begin{itemize}
-	\item Alternative algorithms
-	\item better starting location selection
-	\item better determining when all clusters have been found
-\end{itemize}
