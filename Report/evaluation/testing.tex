@@ -1,0 +1,36 @@
+% Created:  Mon 01 Sep 2014 01:03 PM
+% Author:   Josh Wainwright
+% Filename: testing.tex
+
+\section{Testing}
+\label{sec:testing}
+
+Since the absolute definition of the clusters that the plugin looks for are
+somewhat subjective, testing the algorithm for correctness is difficult. The
+individual functions and smaller components of the algorithms are tested using
+the unit testing framework JUnit\cite{tahchiev2010junit}, and the overall
+effectiveness of the clustering algorithms is validated with acceptance
+testing.
+
+The acceptance testing took the form of a sample set of data that was plotted
+onto an image using the discrete grid method. This data was then presented to a
+number of volunteers who were asked to count the number of clusters they could
+identify and then highlight the clusters that they were able to observe in
+order of precedence, most defined through to least defined.
+
+Once the volunteer had identified the clusters, the algorithm was performed on
+the same set of data and the results compared to the predicted results.
+Finally, when the algorithm identified clusters that the volunteers had not,
+they were asked to identify which of these they did not consider to be valid
+clusters and which were valid clusters that they had missed. The number of
+false positive clusters identified by the quadtree algorithm was found, by this
+method, to be low.
+
+When using the settings described in Section~\ref{sub:option_sliders}, 100\% of
+the clusters identified by the volunteers were able to be located by the
+algorithm. Of the clusters that the algorithm found but the volunteers did not,
+around 60\% were considered to be valid by the volunteers. These results
+suggest that the algorithm is performing well at being able to identify
+clusters, but requires some intervention to get the best results (see
+Section~\ref{sec:possible_improvements}) and that, in general, the algorithm
+does not produce that many false positive results.
