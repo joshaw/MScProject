@@ -242,10 +242,10 @@ image generation functions present in ImageJ. Now, instead of many different
 objects being manipulated for each view of the data, a single array with a
 value for each pixel is needed. For the cases where the user wishes to view the
 clusters that have been found, but not have them affect the image, the image is
-created with a number of different \emph{slices} in the image \emph{stack},
-Figure~\ref{fig:imagej-stack}. Slices are ImageJ's representation of images
-with two or more layers, or alternative views, each of which resides in a stack
-of slices. Each slice in a stack must have the same dimensions.
+created with a number of different \emph{slices} in the image \emph{stack}.
+Slices are ImageJ's representation of images with two or more layers, or
+alternative views, each of which resides in a stack of slices. Each slice in a
+stack must have the same dimensions.
 
 % \begin{figure}[tbh]
 % 	\centering
@@ -277,7 +277,7 @@ further in Section~\ref{ssub:cluster_perimeter_node}.
 \subsection{Macro Support}
 \label{sub:macro_support}
 
-As mentioned on page~\pageref{part:imagej_plugin}, ImageJ allows extension via
+As mentioned on page~\pageref{prt:imagej_plugin}, ImageJ allows extension via
 macros, as well as plugins and scripts. The ImageJ documentation describes
 macros as follows:
 
