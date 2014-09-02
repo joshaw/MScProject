@@ -41,13 +41,25 @@
 	\begin{itemize}
 		\item Sub-diffraction limit imaging: PALM, STORM\@.
 		\item Allows researchers to avoid diffraction limit.
+		\item Abbe's criterion:
+			\begin{align}
+				d &= \frac{\lambda}{2n\sin\theta}
+			\end{align}
+		\item Objects smaller than $d$ cannot be resolved.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Background}
 	\begin{enumerate}
 		\item Attach markers to the object to be imaged,
+			\begin{itemize}
+				\item ``Photoswitchable fluorophores'', Cy5.
+			\end{itemize}
 		\item\label{step} Turn some markers `on', leaving others `off',
 		\item Light incident on the markers is absorbed and re-emitted at a
 			known frequency,
 		\item Take an image of those active markers,
+		\item Turn all markers `off'
 		\item Goto step~\ref{step}
 	\end{enumerate}
 \end{frame}
