@@ -11,43 +11,36 @@ standard format.
 \begin{enumerate}
 	\item Tab separated fields.
 	\item Single header line with names of fields.
-	\item One or more item of data, separated by newlines.
+	\item One or more items of data, separated by newlines.
 \end{enumerate}
 
 The columns that represent fields in the file are as follows.
 
-\begin{center}
-	\begin{tabu}{p{1.1cm} X c}
-		\toprule
-		Header & Meaning & Used? \\
-		\midrule
-		\texttt{Channel Name} & Wavelength channel that was used to capture data.
-			First value, $I$, is the incident wavelength of the light used to
-			excite the dye and the second, $E$, is the wavelength emitted that
-			was imaged. & no \\
-		\texttt{X} & x-coordinate of the point & no \\
-		\texttt{Y} & y-coordinate of the point & no \\
-		\texttt{Xc} & centered, normalised x-coordinate of point & yes \\
-		\texttt{Yc} & centered, normalised y-coordinate of point & yes \\
-		\texttt{Height} & the height of the fitted Gaussian peak used to
-			extract the point from the original image & not yet \\
-		\texttt{Area} & area of the point & not yet \\
-		\texttt{Width} & full width half maximum of the point & not yet \\
-		\texttt{Phi}          &  & no \\
-		\texttt{Ax}           &  & no \\
-		\texttt{BG}           &  & no \\
-		\texttt{I}            &  & no \\
-		\texttt{Frame}        &  & no \\
-		\texttt{Length}       &  & no \\
-		\texttt{Valid}        &  & no \\
-		\texttt{Z}            &  & no \\
-		\texttt{Zc}           &  & no \\
-		\texttt{Photons}      &  & no \\
-		\texttt{Lateral Localisation Accuracy}     &  & no \\
-		\texttt{Xw}           &  & no \\
-		\texttt{Yw}           &  & no \\
-		\texttt{Xwc}          &  & no \\
-		\texttt{Ywc}          &  & no \\
-		\bottomrule
-	\end{tabu}
-\end{center}
+\begin{itemize}
+		\item \texttt{Channel Name}
+		\item \texttt{X}
+		\item \texttt{Y}
+		\item \texttt{Xc}
+		\item \texttt{Yc}
+		\item \texttt{Height}
+		\item \texttt{Area}
+		\item \texttt{Width}
+		\item \texttt{Phi}
+		\item \texttt{Ax}
+		\item \texttt{BG}
+		\item \texttt{I}
+		\item \texttt{Frame}
+		\item \texttt{Length}
+		\item \texttt{Valid}
+		\item \texttt{Z}
+		\item \texttt{Zc}
+		\item \texttt{Photons}
+		\item \texttt{Lateral Localisation Accuracy}
+		\item \texttt{Xw}
+		\item \texttt{Yw}
+		\item \texttt{Xwc}
+		\item \texttt{Ywc}
+\end{itemize}
+
+Only the \texttt{Xc} and \texttt{Yc} columns, which represent the x- and y-
+coordinate of the data point, are used.
