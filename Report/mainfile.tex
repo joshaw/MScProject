@@ -24,7 +24,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[RE,LO]{Part \thepart}
+\fancyhead[RE,LO]{\textit{\nouppercase{\leftmark}}}
 \fancyfoot[CE,CO]{\thepage}
 \fancyfoot[LE,RO]{}
 
@@ -136,6 +136,8 @@
 
 \newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
 \newcommand*{\fullref}[1]{\ref{#1}~\nameref{#1}}
+\newcommand*{\file}{$\triangleright$}
+\newcommand*{\folder}{$\vdash$}
 %*******************************************************************************
 %******************************** END HEADER ***********************************
 %*******************************************************************************
