@@ -1,0 +1,4290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dia:diagram xmlns:dia="http://www.lysator.liu.se/~alla/dia/">
+  <dia:diagramdata>
+    <dia:attribute name="background">
+      <dia:color val="#ffffff"/>
+    </dia:attribute>
+    <dia:attribute name="pagebreak">
+      <dia:color val="#000099"/>
+    </dia:attribute>
+    <dia:attribute name="paper">
+      <dia:composite type="paper">
+        <dia:attribute name="name">
+          <dia:string>#A5#</dia:string>
+        </dia:attribute>
+        <dia:attribute name="tmargin">
+          <dia:real val="2.8222000598907471"/>
+        </dia:attribute>
+        <dia:attribute name="bmargin">
+          <dia:real val="2.8222000598907471"/>
+        </dia:attribute>
+        <dia:attribute name="lmargin">
+          <dia:real val="2.8222000598907471"/>
+        </dia:attribute>
+        <dia:attribute name="rmargin">
+          <dia:real val="2.8222000598907471"/>
+        </dia:attribute>
+        <dia:attribute name="is_portrait">
+          <dia:boolean val="true"/>
+        </dia:attribute>
+        <dia:attribute name="scaling">
+          <dia:real val="1"/>
+        </dia:attribute>
+        <dia:attribute name="fitto">
+          <dia:boolean val="false"/>
+        </dia:attribute>
+      </dia:composite>
+    </dia:attribute>
+    <dia:attribute name="grid">
+      <dia:composite type="grid">
+        <dia:attribute name="width_x">
+          <dia:real val="1"/>
+        </dia:attribute>
+        <dia:attribute name="width_y">
+          <dia:real val="1"/>
+        </dia:attribute>
+        <dia:attribute name="visible_x">
+          <dia:int val="1"/>
+        </dia:attribute>
+        <dia:attribute name="visible_y">
+          <dia:int val="1"/>
+        </dia:attribute>
+        <dia:composite type="color"/>
+      </dia:composite>
+    </dia:attribute>
+    <dia:attribute name="color">
+      <dia:color val="#d8e5e5"/>
+    </dia:attribute>
+    <dia:attribute name="guides">
+      <dia:composite type="guides">
+        <dia:attribute name="hguides"/>
+        <dia:attribute name="vguides"/>
+      </dia:composite>
+    </dia:attribute>
+  </dia:diagramdata>
+  <dia:layer name="Background" visible="true" active="true">
+    <dia:object type="Standard - Box" version="0" id="O0">
+      <dia:attribute name="obj_pos">
+        <dia:point val="14.4334,10.1437"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="14.3834,10.0937;30.4834,25.1937"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="14.4334,10.1437"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="16"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="14.999999999999993"/>
+      </dia:attribute>
+      <dia:attribute name="border_width">
+        <dia:real val="0.10000000149011612"/>
+      </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="show_background">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+    </dia:object>
+    <dia:group>
+      <dia:group>
+        <dia:object type="Standard - PolyLine" version="0" id="O1">
+          <dia:attribute name="obj_pos">
+            <dia:point val="16.4303,23.601"/>
+          </dia:attribute>
+          <dia:attribute name="obj_bb">
+            <dia:rectangle val="16.3671,11.551;28.4997,23.6642"/>
+          </dia:attribute>
+          <dia:attribute name="poly_points">
+            <dia:point val="16.4303,23.601"/>
+            <dia:point val="20.4303,11.601"/>
+            <dia:point val="24.4303,11.601"/>
+            <dia:point val="28.4303,23.601"/>
+            <dia:point val="24.4303,23.601"/>
+            <dia:point val="23.4303,20.601"/>
+            <dia:point val="21.4303,20.601"/>
+            <dia:point val="20.4303,23.601"/>
+            <dia:point val="16.4303,23.601"/>
+          </dia:attribute>
+        </dia:object>
+        <dia:object type="Standard - PolyLine" version="0" id="O2">
+          <dia:attribute name="obj_pos">
+            <dia:point val="21.4303,18.601"/>
+          </dia:attribute>
+          <dia:attribute name="obj_bb">
+            <dia:rectangle val="21.3671,15.5852;23.4997,18.6642"/>
+          </dia:attribute>
+          <dia:attribute name="poly_points">
+            <dia:point val="21.4303,18.601"/>
+            <dia:point val="22.4303,15.601"/>
+            <dia:point val="23.4303,18.601"/>
+            <dia:point val="21.4303,18.601"/>
+          </dia:attribute>
+        </dia:object>
+      </dia:group>
+      <dia:object type="Standard - Ellipse" version="0" id="O3">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.0894,12.0839"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.0594,12.0539;20.4256,12.4201"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.0894,12.0839"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O4">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.9735,12.3881"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.9435,12.3581;20.3097,12.7243"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.9735,12.3881"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O5">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.8721,12.7503"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.8421,12.7203;20.2083,13.0865"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.8721,12.7503"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O6">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.7611,13.0405"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.7311,13.0105;20.0973,13.3767"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.7611,13.0405"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O7">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.6577,13.3795"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.6277,13.3495;19.9939,13.7157"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.6577,13.3795"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O8">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.5418,13.6837"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.5118,13.6537;19.878,14.0199"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.5418,13.6837"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O9">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.4404,14.0458"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.4104,14.0158;19.7766,14.382"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.4404,14.0458"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O10">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.3294,14.3361"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.2994,14.3061;19.6656,14.6723"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.3294,14.3361"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O11">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.2216,14.6948"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.1916,14.6648;19.5578,15.031"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.2216,14.6948"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O12">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.1057,14.999"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.0757,14.969;19.4419,15.3352"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.1057,14.999"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O13">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.0043,15.3612"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.9743,15.3312;19.3405,15.6974"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.0043,15.3612"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O14">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.8934,15.6515"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.8634,15.6215;19.2296,15.9877"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.8934,15.6515"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O15">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.8015,15.987"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.7715,15.957;19.1377,16.3232"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.8015,15.987"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O16">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.6856,16.2912"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.6556,16.2612;19.0218,16.6274"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.6856,16.2912"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O17">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.5842,16.6534"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.5542,16.6234;18.9204,16.9896"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.5842,16.6534"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O18">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.4733,16.9436"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.4433,16.9136;18.8095,17.2798"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.4733,16.9436"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O19">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.3698,17.2826"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.3398,17.2526;18.706,17.6188"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.3698,17.2826"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O20">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.254,17.5868"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.224,17.5568;18.5902,17.923"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.254,17.5868"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O21">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.1525,17.949"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.1225,17.919;18.4887,18.2852"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.1525,17.949"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O22">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.0416,18.2393"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.0116,18.2093;18.3778,18.5755"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.0416,18.2393"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O23">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.9338,18.598"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.9038,18.568;18.27,18.9342"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.9338,18.598"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O24">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.8179,18.9022"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.7879,18.8722;18.1541,19.2384"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.8179,18.9022"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O25">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.7165,19.2643"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.6865,19.2343;18.0527,19.6005"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.7165,19.2643"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O26">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.6055,19.5546"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.5755,19.5246;17.9417,19.8908"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.6055,19.5546"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O27">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.5108,19.8085"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.4808,19.7785;17.847,20.1447"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.5108,19.8085"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O28">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.3949,20.1127"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.3649,20.0827;17.7311,20.4489"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.3949,20.1127"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O29">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.2935,20.4748"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.2635,20.4448;17.6297,20.811"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.2935,20.4748"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O30">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.1825,20.7651"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.1525,20.7351;17.5187,21.1013"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.1825,20.7651"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O31">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.0791,21.1041"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.0491,21.0741;17.4153,21.4403"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.0791,21.1041"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O32">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.9632,21.4083"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.9332,21.3783;17.2994,21.7445"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.9632,21.4083"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O33">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.8618,21.7705"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.8318,21.7405;17.198,22.1067"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.8618,21.7705"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O34">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.7508,22.0607"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.7208,22.0307;17.087,22.3969"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.7508,22.0607"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O35">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.6431,22.4194"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.6131,22.3894;16.9793,22.7556"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.6431,22.4194"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O36">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.5272,22.7236"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.4972,22.6936;16.8634,23.0598"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.5272,22.7236"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O37">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.4258,23.0858"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.3958,23.0558;16.762,23.422"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.4258,23.0858"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O38">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.3148,23.3761"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.2848,23.3461;16.651,23.7123"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.3148,23.3761"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O39">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.5402,23.4411"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.5102,23.4111;16.8764,23.7773"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.5402,23.4411"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O40">
+        <dia:attribute name="obj_pos">
+          <dia:point val="16.8734,23.4266"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="16.8434,23.3966;17.2096,23.7628"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="16.8734,23.4266"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O41">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.1921,23.4266"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.1621,23.3966;17.5283,23.7628"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.1921,23.4266"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O42">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.5543,23.4411"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.5243,23.4111;17.8905,23.7773"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.5543,23.4411"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O43">
+        <dia:attribute name="obj_pos">
+          <dia:point val="17.8953,23.4184"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="17.8653,23.3884;18.2315,23.7546"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="17.8953,23.4184"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O44">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.2284,23.4039"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.1984,23.3739;18.5646,23.7401"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.2284,23.4039"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O45">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.5471,23.4039"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.5171,23.3739;18.8833,23.7401"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.5471,23.4039"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O46">
+        <dia:attribute name="obj_pos">
+          <dia:point val="18.9093,23.4184"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="18.8793,23.3884;19.2455,23.7546"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="18.9093,23.4184"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O47">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.241,23.4445"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.211,23.4145;19.5772,23.7807"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.241,23.4445"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O48">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.5742,23.43"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.5442,23.4;19.9104,23.7662"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.5742,23.43"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O49">
+        <dia:attribute name="obj_pos">
+          <dia:point val="19.8929,23.43"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="19.8629,23.4;20.2291,23.7662"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="19.8929,23.43"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O50">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.2551,23.4445"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.2251,23.4145;20.5913,23.7807"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.2551,23.4445"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O51">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.4415,18.5018"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.4115,18.4718;21.7777,18.838"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.4415,18.5018"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O52">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.7747,18.4873"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.7447,18.4573;22.1109,18.8235"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.7747,18.4873"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O53">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.0934,18.4873"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.0634,18.4573;22.4296,18.8235"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.0934,18.4873"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O54">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.4555,18.5018"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.4255,18.4718;22.7917,18.838"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.4555,18.5018"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O55">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.7583,18.4844"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.7283,18.4544;23.0945,18.8206"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.7583,18.4844"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O56">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.0915,18.4699"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.0615,18.4399;23.4277,18.8061"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.0915,18.4699"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O57">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.4096,20.4661"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.3796,20.4361;21.7458,20.8023"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.4096,20.4661"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O58">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.7428,20.4517"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.7128,20.4217;22.079,20.7879"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.7428,20.4517"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O59">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.0615,20.4517"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.0315,20.4217;22.3977,20.7879"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.0615,20.4517"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O60">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.4236,20.4661"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.3936,20.4361;22.7598,20.8023"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.4236,20.4661"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O61">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.7844,20.4343"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.7544,20.4043;23.1206,20.7705"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.7844,20.4343"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O62">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.1175,20.4198"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.0875,20.3898;23.4537,20.756"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.1175,20.4198"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O63">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.4217,11.4499"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.3917,11.4199;20.7579,11.7861"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.4217,11.4499"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O64">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.7548,11.4355"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.7248,11.4055;21.091,11.7717"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.7548,11.4355"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O65">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.0735,11.4355"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.0435,11.4055;21.4097,11.7717"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.0735,11.4355"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O66">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.4357,11.4499"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.4057,11.4199;21.7719,11.7861"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.4357,11.4499"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O67">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.8109,11.447"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.7809,11.417;22.1471,11.7832"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.8109,11.447"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O68">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.1441,11.4326"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.1141,11.4026;22.4803,11.7688"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.1441,11.4326"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O69">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.4628,11.4326"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.4328,11.4026;22.799,11.7688"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.4628,11.4326"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O70">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.8249,11.447"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.7949,11.417;23.1611,11.7832"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.8249,11.447"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O71">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.1711,11.4586"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.1411,11.4286;23.5073,11.7948"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.1711,11.4586"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O72">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.5043,11.4441"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.4743,11.4141;23.8405,11.7803"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.5043,11.4441"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O73">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.823,11.4441"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.793,11.4141;24.1592,11.7803"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.823,11.4441"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O74">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.1852,11.4586"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.1552,11.4286;24.5214,11.7948"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.1852,11.4586"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O75">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.4734,23.4358"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.4434,23.4058;24.8096,23.772"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.4734,23.4358"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O76">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.8066,23.4213"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.7766,23.3913;25.1428,23.7575"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.8066,23.4213"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O77">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.1253,23.4213"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.0953,23.3913;25.4615,23.7575"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.1253,23.4213"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O78">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.4875,23.4358"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.4575,23.4058;25.8237,23.772"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.4875,23.4358"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O79">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.8518,23.4402"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.8218,23.4102;26.188,23.7764"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.8518,23.4402"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O80">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.185,23.4257"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.155,23.3957;26.5212,23.7619"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.185,23.4257"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O81">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.5037,23.4257"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.4737,23.3957;26.8399,23.7619"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.5037,23.4257"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O82">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.8658,23.4402"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.8358,23.4102;27.202,23.7764"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.8658,23.4402"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O83">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.2316,23.4764"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.2016,23.4464;27.5678,23.8126"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.2316,23.4764"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O84">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.5648,23.4619"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.5348,23.4319;27.901,23.7981"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.5648,23.4619"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O85">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.8835,23.4619"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.8535,23.4319;28.2197,23.7981"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.8835,23.4619"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O86">
+        <dia:attribute name="obj_pos">
+          <dia:point val="28.2457,23.4764"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="28.2157,23.4464;28.5819,23.8126"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="28.2457,23.4764"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O87">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.1591,11.8149"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.1291,11.7849;20.4953,12.1511"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.1591,11.8149"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O88">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.2481,11.5922"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.2181,11.5622;20.5843,11.9284"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.2481,11.5922"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O89">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.1452,15.8833"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.1152,15.8533;22.4814,16.2195"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.1452,15.8833"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O90">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.0438,16.2455"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.0138,16.2155;22.38,16.5817"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.0438,16.2455"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O91">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.9328,16.5357"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.9028,16.5057;22.269,16.8719"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.9328,16.5357"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O92">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.8409,16.8713"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.8109,16.8413;22.1771,17.2075"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.8409,16.8713"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O93">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.7251,17.1755"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.6951,17.1455;22.0613,17.5117"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.7251,17.1755"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O94">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.6237,17.5376"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.5937,17.5076;21.9599,17.8738"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.6237,17.5376"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O95">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.5127,17.8279"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.4827,17.7979;21.8489,18.1641"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.5127,17.8279"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O96">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.4093,18.1669"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.3793,18.1369;21.7455,18.5031"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.4093,18.1669"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O97">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.1493,20.8818"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.1193,20.8518;21.4855,21.218"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.1493,20.8818"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O98">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.0479,21.244"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.0179,21.214;21.3841,21.5802"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.0479,21.244"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O99">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.9369,21.5342"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.9069,21.5042;21.2731,21.8704"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.9369,21.5342"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O100">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.8451,21.8698"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.8151,21.8398;21.1813,22.206"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.8451,21.8698"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O101">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.7292,22.174"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.6992,22.144;21.0654,22.5102"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.7292,22.174"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O102">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.6278,22.5361"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.5978,22.5061;20.964,22.8723"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.6278,22.5361"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O103">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.5168,22.8264"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.4868,22.7964;20.853,23.1626"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.5168,22.8264"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O104">
+        <dia:attribute name="obj_pos">
+          <dia:point val="20.4134,23.1654"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="20.3834,23.1354;20.7496,23.5016"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="20.4134,23.1654"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O105">
+        <dia:attribute name="obj_pos">
+          <dia:point val="21.2015,20.588"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="21.1715,20.558;21.5377,20.9242"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="21.2015,20.588"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O106">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.2517,15.5845"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.2217,15.5545;22.5879,15.9207"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.2517,15.5845"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O107">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.4334,15.9076"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.4034,15.8776;22.7696,16.2438"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.4334,15.9076"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O108">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.5342,16.1445"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.5042,16.1145;22.8704,16.4807"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.5342,16.1445"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O109">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.6262,16.477"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.5962,16.447;22.9624,16.8132"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.6262,16.477"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O110">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.7266,16.7718"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.6966,16.7418;23.0628,17.108"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.7266,16.7718"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O111">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.7895,17.0706"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.7595,17.0406;23.1257,17.4068"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.7895,17.0706"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O112">
+        <dia:attribute name="obj_pos">
+          <dia:point val="22.9102,17.3665"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.8802,17.3365;23.2464,17.7027"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="22.9102,17.3665"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O113">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.0275,17.6455"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="22.9975,17.6155;23.3637,17.9817"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.0275,17.6455"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O114">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.1195,17.9779"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.0895,17.9479;23.4557,18.3141"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.1195,17.9779"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O115">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.2199,18.2727"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.1899,18.2427;23.5561,18.6089"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.2199,18.2727"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O116">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.4334,11.7076"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.4034,11.6776;24.7696,12.0438"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.4334,11.7076"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O117">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.5393,12.081"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.5093,12.051;24.8755,12.4172"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.5393,12.081"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O118">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.6313,12.4135"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.6013,12.3835;24.9675,12.7497"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.6313,12.4135"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O119">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.7316,12.7083"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.7016,12.6783;25.0678,13.0445"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.7316,12.7083"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O120">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.7945,13.0071"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.7645,12.9771;25.1307,13.3433"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.7945,13.0071"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O121">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.9153,13.303"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.8853,13.273;25.2515,13.6392"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.9153,13.303"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O122">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.0325,13.582"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.0025,13.552;25.3687,13.9182"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.0325,13.582"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O123">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.1245,13.9144"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.0945,13.8844;25.4607,14.2506"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.1245,13.9144"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O124">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.2249,14.2092"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.1949,14.1792;25.5611,14.5454"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.2249,14.2092"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O125">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.311,14.5446"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.281,14.5146;25.6472,14.8808"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.311,14.5446"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O126">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.4579,14.8533"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.4279,14.8233;25.7941,15.1895"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.4579,14.8533"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O127">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.5499,15.1858"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.5199,15.1558;25.8861,15.522"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.5499,15.1858"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O128">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.6503,15.4806"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.6203,15.4506;25.9865,15.8168"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.6503,15.4806"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O129">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.7132,15.7794"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.6832,15.7494;26.0494,16.1156"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.7132,15.7794"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O130">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.8339,16.0753"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.8039,16.0453;26.1701,16.4115"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.8339,16.0753"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O131">
+        <dia:attribute name="obj_pos">
+          <dia:point val="25.9512,16.3543"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="25.9212,16.3243;26.2874,16.6905"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="25.9512,16.3543"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O132">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.0432,16.6868"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.0132,16.6568;26.3794,17.023"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.0432,16.6868"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O133">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.1436,16.9816"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.1136,16.9516;26.4798,17.3178"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.1436,16.9816"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O134">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.2297,17.3318"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.1997,17.3018;26.5659,17.668"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.2297,17.3318"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O135">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.3766,17.6405"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.3466,17.6105;26.7128,17.9767"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.3766,17.6405"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O136">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.4686,17.9729"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.4386,17.9429;26.8048,18.3091"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.4686,17.9729"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O137">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.569,18.2677"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.539,18.2377;26.9052,18.6039"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.569,18.2677"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O138">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.6319,18.5666"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.6019,18.5366;26.9681,18.9028"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.6319,18.5666"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O139">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.7526,18.8625"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.7226,18.8325;27.0888,19.1987"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.7526,18.8625"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O140">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.8698,19.1415"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.8398,19.1115;27.206,19.4777"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.8698,19.1415"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O141">
+        <dia:attribute name="obj_pos">
+          <dia:point val="26.9619,19.4739"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="26.9319,19.4439;27.2981,19.8101"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="26.9619,19.4739"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O142">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.0622,19.7687"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.0322,19.7387;27.3984,20.1049"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.0622,19.7687"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O143">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.178,20.1041"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.148,20.0741;27.5142,20.4403"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.178,20.1041"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O144">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.3249,20.4128"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.2949,20.3828;27.6611,20.749"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.3249,20.4128"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O145">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.4169,20.7453"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.3869,20.7153;27.7531,21.0815"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.4169,20.7453"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O146">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.5173,21.0401"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.4873,21.0101;27.8535,21.3763"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.5173,21.0401"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O147">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.5802,21.3389"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.5502,21.3089;27.9164,21.6751"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.5802,21.3389"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O148">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.701,21.6348"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.671,21.6048;28.0372,21.971"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.701,21.6348"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O149">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.8182,21.9138"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.7882,21.8838;28.1544,22.25"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.8182,21.9138"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O150">
+        <dia:attribute name="obj_pos">
+          <dia:point val="27.9102,22.2462"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.8802,22.2162;28.2464,22.5824"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="27.9102,22.2462"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O151">
+        <dia:attribute name="obj_pos">
+          <dia:point val="28.0106,22.541"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="27.9806,22.511;28.3468,22.8772"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="28.0106,22.541"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O152">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.3624,20.6651"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.3324,20.6351;23.6986,21.0013"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.3624,20.6651"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O153">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.5093,20.9738"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.4793,20.9438;23.8455,21.31"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.5093,20.9738"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O154">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.6013,21.3063"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.5713,21.2763;23.9375,21.6425"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.6013,21.3063"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O155">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.7017,21.6011"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.6717,21.5711;24.0379,21.9373"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.7017,21.6011"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O156">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.7645,21.8999"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.7345,21.8699;24.1007,22.2361"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.7645,21.8999"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O157">
+        <dia:attribute name="obj_pos">
+          <dia:point val="23.8853,22.1958"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.8553,22.1658;24.2215,22.532"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="23.8853,22.1958"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O158">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.0025,22.4748"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="23.9725,22.4448;24.3387,22.811"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.0025,22.4748"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O159">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.0946,22.8072"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.0646,22.7772;24.4308,23.1434"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.0946,22.8072"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O160">
+        <dia:attribute name="obj_pos">
+          <dia:point val="24.1949,23.102"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="24.1649,23.072;24.5311,23.4382"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="24.1949,23.102"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O161">
+        <dia:attribute name="obj_pos">
+          <dia:point val="28.1056,22.8349"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="28.0756,22.8049;28.4418,23.1711"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="28.1056,22.8349"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+      <dia:object type="Standard - Ellipse" version="0" id="O162">
+        <dia:attribute name="obj_pos">
+          <dia:point val="28.206,23.1297"/>
+        </dia:attribute>
+        <dia:attribute name="obj_bb">
+          <dia:rectangle val="28.176,23.0997;28.5422,23.4659"/>
+        </dia:attribute>
+        <dia:attribute name="elem_corner">
+          <dia:point val="28.206,23.1297"/>
+        </dia:attribute>
+        <dia:attribute name="elem_width">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="elem_height">
+          <dia:real val="0.30616709589958191"/>
+        </dia:attribute>
+        <dia:attribute name="border_width">
+          <dia:real val="0.059999998658895493"/>
+        </dia:attribute>
+        <dia:attribute name="inner_color">
+          <dia:color val="#729fcf"/>
+        </dia:attribute>
+        <dia:attribute name="aspect">
+          <dia:enum val="2"/>
+        </dia:attribute>
+      </dia:object>
+    </dia:group>
+  </dia:layer>
+</dia:diagram>
