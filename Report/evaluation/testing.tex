@@ -12,11 +12,14 @@ the unit testing framework JUnit\cite{tahchiev2010junit}, and the overall
 effectiveness of the clustering algorithms is validated with acceptance
 testing.
 
-The acceptance testing took the form of a sample set of data that was plotted
-onto an image using the discrete grid method. This data was then presented to a
-number of volunteers who were asked to count the number of clusters they could
-identify and then highlight the clusters that they were able to observe in
-order of precedence, most defined through to least defined.
+\subsection{Volunteer Validation}
+\label{sub:volunteer_validation}
+
+The first stage of acceptance testing took the form of a sample set of data
+that was plotted onto an image using the discrete grid method. This data was
+then presented to a number of volunteers who were asked to count the number of
+clusters they could identify and then highlight the clusters that they were
+able to observe in order of precedence, most defined through to least defined.
 
 Once the volunteer had identified the clusters, the algorithm was performed on
 the same set of data and the results compared to the predicted results.
@@ -34,3 +37,12 @@ suggest that the algorithm is performing well at being able to identify
 clusters, but requires some intervention to get the best results (see
 Section~\ref{sec:possible_improvements}) and that, in general, the algorithm
 does not produce that many false positive results.
+
+\subsection{Researcher Validation}
+\label{sub:researcher_validation}
+
+The final stage of acceptance testing was performed to confirm the type of
+clusters identified conformed with the actual objects that are being imaged.
+This was performed by two researchers working in the medical imaging field who
+produced the sample data used in this project.
+% TODO
