@@ -17,6 +17,7 @@ SVGPDF=$(addprefix $(DIR)/,$(subst .svg,.pdf,$(wildcard **/*.svg)))
 DIAPDF=$(addprefix $(DIR)/,$(subst .dia,.pdf,$(wildcard **/*.dia)))
 
 all: $(DIR) $(DIR)/$(PROJECT).pdf $(SVGPDF) $(DIAPDF)
+	cp "$(DIR)/$(PROJECT).pdf" "$(HOME)/web/host/disertation.pdf"
 
 $(DIR):
 	mkdir $(DIR)
