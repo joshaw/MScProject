@@ -171,15 +171,15 @@
     </dia:object>
     <dia:object type="Standard - Text" version="1" id="O6">
       <dia:attribute name="obj_pos">
-        <dia:point val="26.2,8.5"/>
+        <dia:point val="26,8.6"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="26.2,7.905;28.5825,8.6525"/>
+        <dia:rectangle val="26,7.98631;28.8087,8.78988"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#~50nm#</dia:string>
+            <dia:string>#~300nm#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -188,7 +188,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="26.2,8.5"/>
+            <dia:point val="26,8.6"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
