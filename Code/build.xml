@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <project name="Clusters" default="quadtree" basedir=".">
 
-	<property name="imagej-plugin" value="${user.home}/Bin/ImageJ/ij.jar">
+	<property name="imagej-plugin" value="${user.home}/Bin/ImageJ/ij.jar"/>
 
 	<!-- Variables {{{ -->
 	<property name="src.dir"     value="src"/>
