@@ -14,7 +14,7 @@ root node can naturally represent the four quadrants of an image; upper left,
 upper right, lower left and lower right. Since each of these children is also a
 quadtree, the image can be subdivided to any arbitrary depth. From this point,
 information about the image can be ``seen'' more easily by the computer and
-statistics calculated.
+statistics can be calculated.
 
 \subsection{Quadtree Definitions}
 \label{sub:quadtree_definitions}
@@ -24,7 +24,7 @@ quadtrees. Many of these are identical to the definitions more commonly applied
 to binary trees.
 
 \begin{description}
-	\item[Node] (Cell, element) A leaf in the tree which holds some
+	\item[Node (Cell, element)] A leaf in the tree which holds some
 		information, value or quantity.
 	\item[Root Node] The node at the topmost position in the tree. It has no
 		parents and is never a leaf.
@@ -36,7 +36,7 @@ to binary trees.
 	\item[Completeness] A quadtree is `complete' when each of the root node's
 		four children have the same height. In this case, the number of leaves
 		in the tree is a maximum.
-	\item[Quadtree Code] (Code) A unique number or value that is assigned to a
+	\item[Quadtree Code (Code)] A unique number or value that is assigned to a
 		node by adding its position with respect to its siblings to the code of
 		its parent.
 \end{description}
@@ -50,8 +50,8 @@ children is not a leaf and cannot hold information.
 \label{sub:code_orderings}
 
 In order to identify a node uniquely in the tree, each node is given a code
-that is built up from it's parent's code plus some value that identifies it
-among it's siblings. The root node is usually chosen to have an empty code so
+that is built up from its parent's code plus some value that identifies it
+among its siblings. The root node is usually chosen to have an empty code so
 that the first four children are given the first level codes.
 
 The choice of what order to label the children is important if the order
@@ -82,7 +82,7 @@ traverse the children in a sensible and predictable way is essential.
 	\end{subfigure}
 
 	\caption[A selection of possible tree traversal orderings]{A selection of
-		possible tree traversal orderings. Each of theses is, more formally, a
+		possible tree traversal orderings. Each of these is, more formally, a
 		space filling curve which is a direct, unique mapping from a 2D grid to
 		a 1D array. \subref{fig:traverse-z-order.pdf} shows Z-order,
 		\subref{fig:traverse-hilbert-order.pdf} shows Hilbert order,
@@ -116,16 +116,21 @@ features.
 	tree that can be imagined.
 
 	\begin{enumerate}
-		\item The root, as mentioned before, is given no value,
-		\item each of the children are numbered {00} through 11.
 
-		\item the children of these children are numbered 00 to 11 with the
-		parent as a prefix. So the children of node 00 are 0000, 0001, 0010
-		and 0011. Likewise, the children of 11 are 1100, 1101, 1110 and 1111.
+		\item The root, as mentioned before, is given no value.
 
+		\item Each of the children are numbered {00} through 11.
+
+		\item The children of these children are numbered 00 to 11 with the
+			parent as a prefix. So the children of node 00 are 0000, 0001, 0010
+			and 0011. Likewise, the children of 11 are 1100, 1101, 1110 and
+			1111.
+
+			% TODO reword item
 		\item The children are always numbered in the same order. If starting
-		at the top and going top to bottom and left to right, this is
-		maintained for all children.
+			at the top and going left to right and top to bottom, then this is
+			maintained for all children.
+
 	\end{enumerate}
 \end{itemize}
 
@@ -142,23 +147,23 @@ coordinate form are:
 	\item \emph{De-interleave} the bits of the code (starting with the first
 		being given to the $y$-axis, assign bits to the $y$ and $x$ axes
 		building up a binary value for each).
-	\item Convert the resulting two binary value to decimal to give a standard
-		decimal $(x,y)$ Cartesian coordinate.
+	\item Convert the resulting two binary values to their decimal equivalent
+		to give a standard decimal $(x,y)$ Cartesian coordinate.
 \end{enumerate}
 
-These steps result in a coordinates that represents the top left corner of the
+These steps result in a coordinate that represents the top left corner of the
 node. The coordinate is dependant on the length of the code, so to compare two
-coordinated from their codes, the codes must be of the same length.
+coordinates using their codes, the codes must be of the same length.
 
 \begin{figure}[tbh]
 	\centering
 	\includegraphics[width=3cm]{deinterleave.pdf}
 
-	\caption[Decomposition of a Z-order code to give coordinates.]{Decomposition
-		of a Z-order code using de-interleaving to give Cartesian coordinates.
-		The bits of the code are alternately assigned to the y- and then
-		x-coordinate which is then converted to decimal to given the final
-		coordinate of the cell.}\label{fig:deinterleave}
+	\caption[Decomposition of a Z-order code to give coordinates.]
+		{Decomposition of a Z-order code using de-interleaving to give
+		Cartesian coordinates. The bits of the code are alternately assigned to
+		the y- and then x-coordinate which is then converted to decimal to give
+		the final coordinate of the cell.}\label{fig:deinterleave}
 \end{figure}
 
 This method means that it is very easy to calculate an arbitrary number of
@@ -273,15 +278,16 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 
 	\item Figure~\ref{fig:modgray-alt-order.pdf} shows \emph{row order}
 		traversal of the grid. This is extremely simple to implement for a
-		simple grid-like arrangement, but is very awkward and looses much of
-		the information when using quadtrees.
+		simple grid-like arrangement, but is very awkward and loses much of the
+		information when using quadtrees.
 
-	\item Figure~\ref{fig:modgray-alt-prime.pdf} shows \emph{row-prime order},
-		also known as snake-order\cite{goodchild1983optimizing}, traversal.
-		This is a slight modification of row order which is continuous but,
-		again, is not recursive so not suitable for use with quadtrees.
+	\item Figure~\ref{fig:modgray-alt-prime.pdf} shows \emph{row-prime order}
+		traversal, also known as snake-order\cite{goodchild1983optimizing}
+		traversal.  This is a slight modification of row order which is
+		continuous but, again, is not recursive so not suitable for use with
+		quadtrees.
 
-	\item Figure~\ref{fig:modgray-alt-rotated.pdf} is identical to them
+	\item Figure~\ref{fig:modgray-alt-rotated.pdf} is identical to the
 		modified Gray order above, but with a single \SI{90}{\degree} rotation.
 		Since the orientation of an image has no effect on the clusters found,
 		all rotations and reflections provide the same functionality as the
@@ -289,8 +295,9 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 		preference.
 
 	\item Figure~\ref{fig:modgray-alt-pinwheel.pdf} shows an alteration to the
-		modified Gray code order, named \emph{pinwheel order}, where, instead of
-		reflecting the quadrants, each is rotated about it's center
+		modified Gray code order, named \emph{pinwheel order}, where, instead
+		of reflecting the quadrants, each is rotated about its centre
+		% TODO symmetric/symetrical
 		\SI{90}{\degree} so that the whole image is rotationally symmetric,
 		something the modified Gray code lacks.  This form turns out not to
 		provide any additional features and makes conversion from quadtree code

@@ -52,16 +52,17 @@ grid when handling outlying points caused by noise:
 
 \begin{enumerate}
 
-	\item First the algorithm is modified to include a thresholding step before
-		writing the pixel image data to a file. This means that the pixels can
-		be adjusted with greater accuracy and any arbitrary level can be chosen
-		to threshold at.
+	\item First, the algorithm is modified to include a thresholding step
+		before writing the pixel image data to a file. This means that the
+		pixels can be adjusted with greater accuracy and any arbitrary level
+		can be chosen to threshold at.
 
 	\item Next, once the image has been generated, the number of points that
 		contributed to each pixel is no longer of interest and so the image can
 		be converted to a binary image. This is an image with just two possible
-		values, the first represents white space, where there are no points,
-		the seconds is black where there were points and so is of interest.
+		values. The first represents white space, where there are no points,
+		the second is black where there were some number of points and so is of
+		interest.
 
 	\item Once a binary image has been generated, dilate and erode filters can
 		be applied to remove remaining outliers and to try to close the gaps in

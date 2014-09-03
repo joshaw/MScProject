@@ -9,34 +9,37 @@ The main deliverable for this project is a plugin for extracting clusters of
 points from large data sets, for the image processing program ImageJ. This
 plugin is written in Java and makes use of the ImageJ Java API\cite{imagejapi}.
 Each of the following sections describes a part of the plugin. The general flow
-of activities from opening the plugin is:
+of activities from opening the plugin is as follows:
 
 \begin{enumerate}
-	\item click the \texttt{Data File} button,
-	\item choose the data file to analyse,
+	\item Click the \texttt{Data File} button.
+	\item Choose the data file to analyse.
 	\item If the default separator is incorrect, input the correct one and
-		click the \texttt{Read File} button to re-read with the new separator,
-	\item select the values for the x- and y-columns,
-	\item adjust the sliders to select the parameters that are used to build
-		the quadtrees,
-	\item adjust the check boxes to change the way the final image is
-		displayed,
-	\item click the \texttt{Quadtree} button to start the process of reading
-		and analysing the selected file,
-	\item use the additional information presented in the results table.
+		click the \texttt{Read File} button to re-read with the new separator.
+	\item Select the values for the x- and y-columns.
+	\item Adjust the sliders to select the parameters that are used to build
+		the quadtrees.
+	\item Adjust the check boxes to change the way the final image is
+		displayed.
+	\item Click the \texttt{Quadtree} button to start the process of reading
+		and analysing the selected file.
+	\item Use the additional information presented in the results table.
 \end{enumerate}
 
 \subsection{Column Picker}
 \label{sub:column_picker}
 
 The first step is for the user to select a data file. This is performed with
-the Java built-in file choose. To make the plugin more general purpose than
+% TODO reword sentence too long
+the Java built-in file chooser. To make the plugin more general purpose than
 being limited to only data formatted in precisely the same way as the data in
 the sample files used during development, the ability to specify some
 formatting features of the data file used are available. The user can specify
 the delimiter used in the file (how the columns are separated; comma, space tab
 etc.), and which column represents the x- and y-coordinates. These are chosen
 through a separate graphical user interface (GUI).
+
+% TODO check capitalisation of quadtree QuadTree Quadtree
 
 \subsection{Option Sliders}
 \label{sub:option_sliders}
@@ -232,10 +235,11 @@ GUI classes in the AWT\cite{zukowski1997java} and Swing\cite{loy2002java}
 libraries included in the standard Java distribution. This effectively
 prohibited any further actions being performed on the image once it had been
 generated since what was displayed was only modifiable by the JVM via compiled
+% TODO sentence too long
 code. It was also very memory intensive since, in many cases, many thousands of
 separate objects (data points represented by zero length lines, quadtree cells
-by boxes, etc.) and so was slow to draw initially and redraw with any
-subsequent move or resize of the window.
+by boxes, etc.) were maintained in memory and so was slow to draw initially and
+redraw with any subsequent move or resize of the window.
 
 The code used to generate this view of the data was modified to make use of the
 image generation functions present in ImageJ. Now, instead of many different
@@ -264,7 +268,7 @@ stack must have the same dimensions.
 In addition to the image of the data with the clusters, the plugin also
 calculates a number of statistics for each of the clusters that are found.
 These include the number of points that are included in the cluster, the area
-of the cluster, and it's perimeter. The area and perimeter values are given as
+of the cluster, and its perimeter. The area and perimeter values are given as
 a fraction where the whole image represents 1. Thus, to find the actual area
 for the real life object, the area of the cluster should be multiplied by the
 area of the image, and for the perimeter, the length of one side of the image

@@ -39,6 +39,7 @@ performed as follows:
 				algorithm using that node as the starting location.
 		\end{itemize}
 	\item When all nodes have been checked, return to step 1.
+		% TODO ?? v
 	\item The algorithm completes either when either;
 	\begin{itemize}
 		\item every one of the nodes in the image have been checked and
@@ -56,7 +57,7 @@ This process is shown graphically in Figure~\ref{fig:propogation}.
 	\includegraphics[width=7cm]{propogation.pdf}
 
 	\caption[Propagation of a cluster from a starting location.]{For a starting
-		location, (a), in an image, no information is known and so all it's
+		location, (a), in an image, no information is known and so all its
 		neighbours are checked. Some of these are found to be part of the
 		cluster, others are rejected. The ones that are included are then,
 		themselves, checked and so on. As the cluster grows, (b), (c) and
@@ -66,7 +67,7 @@ This process is shown graphically in Figure~\ref{fig:propogation}.
 Listing~\ref{code:quadtree-propagate} shows pseudo code for the propagate
 algorithm which, starting at a given starting location, expands the cluster
 outwards while there still exist valid neighbours that should be included. The
-\texttt{getNeighbours()} method is described
+\texttt{getNeighbours()} method is described in
 Section~\ref{sub:choosing_neighbours}. This is a recursively defined algorithm
 which calls itself for each of the neighbours of a node and for each of their
 neighbours, and so on. There is a condition that prevents the algorithm from
@@ -95,6 +96,8 @@ loop from forming and preventing the algorithm terminating.
 \end{minipage}
 \end{center}
 
+% TODO
+% "in refernce to Listing 2"
 \paragraph{Line~\ref{eql:a}} A set of starting locations is selected based on
 some heuristic that determines if a node is deep enough in the tree to be used
 as a starting location.
@@ -133,8 +136,8 @@ structure continues beyond the gap, following the dotted line.
 		\caption{}\label{fig:propogation-levels}
 	\end{subfigure}
 
-	\caption[Considerations regarding quadtree levels to be
-	accepted.]{Considerations regarding quadtree levels that will be accepted
+	\caption[Considerations regarding quadtree levels to be accepted.]
+		{Considerations regarding quadtree levels that will be accepted
 		when propagating a node in a quadtree. \subref{fig:propogation-halting}
 		If the depth range that specifies how far up the tree to look for valid
 		neighbours is too small then a cluster might be terminated too soon.
@@ -277,7 +280,7 @@ Some care must be taken when deciding what constitutes a neighbour of a node
 and what does not. As mentioned above, when detecting clusters using
 propagation, the neighbours of a node are checked and, if they are valid, are
 themselves propagated. For this reason, a poor choice of neighbours means that
-either the propagation will either:
+the propagation will either:
 
 \begin{itemize}
 	\item be cut short too early, and so not all of the clusters will be
@@ -287,8 +290,9 @@ either the propagation will either:
 \end{itemize}
 
 The first neighbours that must be considered, named \emph{rook's case}
+% TODO remove brackets around citation
 neighbours by~\cite{abel1990comparative}, are the four nodes that lie to the
-north, east, sound and west of the current node. These are the nodes that are
+north, east, south and west of the current node. These are the nodes that are
 directly in contact with the node and so, if they are valid, represent a direct
 continuation of the cluster.
 
@@ -334,6 +338,7 @@ the current pixel and each of the other elements is over another pixel. The
 value of the element in the kernel is then used to manipulate the pixels in the
 image below it. For example, to blur an image, a $3\times 3$ kernel composed of
 all $\rfrac{1}{9}$'s can be used. When applied, this would mean that the
+% TODO reread sentence
 current pixel is given a value which is the sum of each of matrix elements
 multiplied by the pixel value beneath it.
 
@@ -346,7 +351,7 @@ nodes under 0 elements are ignored. The value of the central element in the
 kernel does not matter, but the convention is to set this to 1.
 
 Thus, the simplest kernel, though of least use, is the identity kernel which
-has an element with value `1' in the center and all other elements `0',
+has an element with value `1' in the centre and all other elements `0',
 Figure~\ref{fig:kernel-identity}. This would result in no neighbours being
 selected, and so no clusters located. The rook's case neighbours are now
 represented with the kernel in Figure~\ref{fig:kernel-image-rooks} and the case
@@ -415,13 +420,13 @@ represented by 0's are not displayed.
 	\includegraphics[width=7cm]{kernel-shapes.pdf}
 
 	\caption[Different kernel shapes for different clusters.]{Different kernel
-		shapes can be used to find different sorts of clusters. (a) The basic
-		rook's case neighbours and (b) the full number of closest neighbours
-		are the simplest general cases, used for most clusters. (c) the area to
+		shapes can be used to find different sorts of clusters. (a)~The basic
+		rook's case neighbours and (b)~the full number of closest neighbours
+		are the simplest general cases, used for most clusters. (c)~The area to
 		search can be extended by including more neighbours---this could help
 		find clusters that are more sparsely populated. Clusters of a specific
-		orientation can be located, for example, predominately (d) vertical or
-		(e) NW SE diagonal.}\label{fig:kernel-shapes}
+		orientation can be located, for example, predominately (d)~vertical or
+		(e)~NW SE diagonal.}\label{fig:kernel-shapes}
 \end{figure}
 
 \subsubsection{Searching Up and Down the Tree}
@@ -440,7 +445,7 @@ selected as neighbours.
 
 		In this case, no further action must be taken.
 
-	\item The location is be a non-existent node, i.e., there may be a leaf
+	\item The location is to be a non-existent node, i.e., there may be a leaf
 		node at a position further up the tree than the location meaning there
 		is nothing at this position in the tree,
 		Figure~\ref{fig:updownsearch}b.
