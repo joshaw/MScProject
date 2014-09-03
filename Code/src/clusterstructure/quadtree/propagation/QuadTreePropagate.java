@@ -26,6 +26,7 @@ public class QuadTreePropagate {
 
 	private String start;
 	private String firstStart = "";
+	private ArrayList<String> locs = new ArrayList<String>();
 	private int[]  kernel;
 	private int    depthRange;
 
@@ -46,6 +47,7 @@ public class QuadTreePropagate {
 
 			if (node.length() > lmax &&
 					node.length() >= firstStart.length()-depthRange &&
+					!locs.contains(node) &&
 					hashmap.get(node).status() == 0) {
 
 				lmax = node.length();
@@ -53,6 +55,8 @@ public class QuadTreePropagate {
 			}
 		}
 
+		System.out.println("Start: " + smax);
+		locs.add(smax);
 		return smax;
 	}
 

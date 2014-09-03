@@ -175,7 +175,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		// }}}
 		// Scale Slider {{{
 		scaleLab = new Label("Scale: "+(SCALE_INIT/1000.0)+" ");
-		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, SCALE_INIT); //*1000
+		scaleSlider = new JSlider(JSlider.HORIZONTAL, 0, 5000, SCALE_INIT); //*1000
 		scaleSlider.setMajorTickSpacing(10);
 		scaleSlider.setSnapToTicks(true);
 		scaleSlider.addChangeListener(new ChangeListener() {
