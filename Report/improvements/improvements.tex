@@ -57,4 +57,16 @@ were complete.
 		prohibitive amount of time to produce results, but would make the
 		plugin far easier to use.
 
+	\item[Use of additional fields from data file] \hfill
+
+		The STORM and PALM imaging processes produce a considerable amount of
+		data more than just the x- and y- coordinate information that is used
+		by the plugin. A summary of the headers of the columns from a file is
+		given in Appendix~\ref{app:data_file_structure}. A number of these
+		extra parameters for each data point could be used to enhance the
+		algorithms to produce better results. For example, the \texttt{width}
+		field, which represents the full width at half maximum of the point,
+		could be used to classify the data point and maybe give some indication
+		about whether it is interesting or is noise.
+
 \end{description}
