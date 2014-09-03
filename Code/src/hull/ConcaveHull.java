@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.*;
 
-public class ConcaveHull extends JPanel {
+public class ConcaveHull {
 
 	private final int SCALE = 20;
 	private static final long serialVersionUID = 1L;
@@ -52,7 +52,6 @@ public class ConcaveHull extends JPanel {
 			for (Coordinate c : dataset) {
 				pointInPolygonQ(c, hull);
 			}
-			draw();
 			return hull;
 		}
 
@@ -130,7 +129,6 @@ public class ConcaveHull extends JPanel {
 			pointInPolygonQ(c, hull);
 		}
 
-		draw();
 		return hull;
 	}
 
@@ -262,30 +260,6 @@ public class ConcaveHull extends JPanel {
 		poly.closePath();
 
 		return poly.contains(c.getX(), c.getY());
-	}
-
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-
-		Graphics2D g2d = (Graphics2D) g.create();
-		g2d.draw(poly);
-		for (Coordinate c : pointsL) {
-			Ellipse2D.Double circle = new Ellipse2D.Double(
-					SCALE*c.getX()-4, SCALE*c.getY()-4, 8, 8);
-			g2d.fill(circle);
-		}
-		g2d.dispose();
-	}
-
-	public void draw() {
-		System.out.println("Draw");
-		JFrame frame = new JFrame(k + "");
-		frame.getContentPane().add(this);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.pack();
-		frame.setVisible(true);
-		frame.setSize(300, 300);
 	}
 
 }
