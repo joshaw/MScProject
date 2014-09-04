@@ -51,9 +51,22 @@ is shown in Figure~\ref{fig:testing-image2a}.
 \begin{figure}[tbh]
 	\centering
 	\includegraphics[width=0.5\linewidth]{testing-image2a.png}
-	\caption[]{testing-Image2a}
-	\label{fig:testing-image2a}
+	\caption[Custom generated data set for testing clustering
+		algorithm.]{Custom generated data set for testing clustering
+		algorithm. This data set is similar to that shown above, but
+		has more space between clusters. The number of points in this
+		% TODO Number of points in dataset.
+		data set is .} \label{fig:testing-image2a}
 \end{figure}
+
+The results were better with this data set since the propagation step of the
+algorithm was halted by the clear space between the clusters. When there is no
+noise at all in the data, all of the clusters are located. The amount of noise
+can be increased by simply adding random data points which are distributed
+evenly across the image space. This is done progressively, adding TODO points
+at a time. The clustering algorithm stops finding the clusters properly when
+the number of noise points added is TODO. This represents when the noise to
+signal ratio is TODO.
 
 \subsection{Volunteer Validation}
 \label{sub:volunteer_validation}
