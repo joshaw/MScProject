@@ -48,25 +48,45 @@ Another testing data set was created, similar to the final two images above,
 but with more spacing to see how the algorithm would cope. An image of this set
 is shown in Figure~\ref{fig:testing-image2a}.
 
-\begin{figure}[tbh]
+% \begin{figure}[tbh]
+% 	\centering
+% 	\includegraphics[width=0.5\linewidth]{testing-image2a.png}
+% 	\caption[Custom generated data set for testing clustering
+% 		algorithm.]{Custom generated data set for testing clustering
+% 		algorithm. This data set is similar to that shown above, but
+% 		has more space between clusters. The number of points in this
+% 		data set is appropriately \num{14000}.} \label{fig:testing-image2a}
+% \end{figure}
+
+\begin{figure}[tbhp]
 	\centering
-	\includegraphics[width=0.5\linewidth]{testing-image2a.png}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{testing-image2a.png}
+		\caption{}\label{fig:testing-image2a}
+	\end{subfigure}%
+	\quad
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{testing-image2b.png}
+		\caption{}\label{fig:testing-image2b}
+	\end{subfigure}
 	\caption[Custom generated data set for testing clustering
 		algorithm.]{Custom generated data set for testing clustering
 		algorithm. This data set is similar to that shown above, but
-		has more space between clusters. The number of points in this
-		% TODO Number of points in dataset.
-		data set is .} \label{fig:testing-image2a}
+		has more space between clusters. The number of points originally in
+		this data set is appropriately \num{14000},
+		\subref{fig:testing-image2a}, and random noise is added up to a ratio
+		of $1.4:\!1$,~\subref{fig:testing-image2b}.}\label{fig:testing-image2a}
 \end{figure}
 
 The results were better with this data set since the propagation step of the
 algorithm was halted by the clear space between the clusters. When there is no
 noise at all in the data, all of the clusters are located. The amount of noise
 can be increased by simply adding random data points which are distributed
-evenly across the image space. This is done progressively, adding TODO points
-at a time. The clustering algorithm stops finding the clusters properly when
-the number of noise points added is TODO. This represents when the noise to
-signal ratio is TODO.
+evenly across the image space. This is done progressively, adding appropriately
+\num{2000} points at a time. The clustering algorithm stops finding the
+clusters properly when roughly \num{10000} random points have been added,
+Figure~\ref{fig:testing-image2b}. This represents when the signal to noise
+ratio is noise $1.4:\!1$.
 
 \subsection{Volunteer Validation}
 \label{sub:volunteer_validation}
