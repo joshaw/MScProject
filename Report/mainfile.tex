@@ -58,10 +58,6 @@
 \usepackage{multirow,bigdelim}
 \usepackage{nameref}
 
-% \renewcommand{\labelenumii}{\theenumii}
-% \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
-% \renewcommand{\labelenumiii}{\theenumiii}
-% \renewcommand{\theenumiii}{\theenumii\arabic{enumiii}.}
 % \usepackage[%
 % 	activate={true,nocompatibility},
 % 	final,
@@ -116,7 +112,10 @@
 }
 
 %% BIBIOGRAPHY -----------------------------------------------------------------
-\usepackage{cite}
+\usepackage{citesort}
+\usepackage{natbib}
+\renewcommand{\cite}{\citep}
+\bibpunct{[}{]}{;}{a}{}{,}
 
 %%% ToC (table of contents) APPEARANCE -----------------------------------------
 \renewcommand{\contentsname}{Table of Contents}
