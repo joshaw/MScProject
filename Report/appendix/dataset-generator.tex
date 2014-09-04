@@ -1,0 +1,68 @@
+% Created:  Thu 04 Sep 2014 05:57 PM
+% Author:   Josh Wainwright
+% Filename: dataset-generator.tex
+
+\section{Data Set Generator}
+\label{sec:dataset_generator}
+
+A small utility was written to aid the generation of data sets for testing.
+This program, written in C++, takes an image file and outputs a data file based
+on the pixels in the image. The input file must be of the same format as the
+output when saving from ImageJ in the \texttt{text image} format. The file will
+then be formed of a decimal value, from 0 to 255, for each pixel in the image,
+separated by tab characters.
+
+The utility code is shown in Listing~\ref{lst:dataset-gen}. It is used by
+calling \texttt{gen-coords FILENAME} at the command line and outputs the
+coordinates to standard output.
+
+\begin{center}
+\begin{minipage}{\textwidth}
+	\begin{lstlisting}[caption={Utility to gen data sets from images.},
+	label=lst:dataset-gen, language=c++, linewidth=12cm, firstnumber=1] public
+	// Filename: gen-coords.cpp
+	// Compile: g++ gen-coords.cpp -o gen-coords
+	#include <iostream>
+	#include <fstream>
+	#include <string>
+	#include <sstream>
+	#include <stdlib.h>
+
+	using namespace std;
+
+	int main(int argc, char* argv[]) {
+
+		if (argc != 2) {
+			cout << "Usage: " << argv[0] << " FILENAME" << endl;
+			exit (EXIT_FAILURE);
+		}
+
+		string filename = argv[1];
+		ifstream scores(filename.c_str());
+
+		string line = "";
+
+		// For each line, for each tab separated field, output coord if 0.
+		int y = 0;
+		while(getline(scores, line)) {
+
+			string delimiter = "\t";
+			size_t pos = 0;
+			string token;
+			int x = 0;
+			while ((pos = line.find(delimiter)) != string::npos) {
+
+				token = line.substr(0, pos);
+				if (token == "0") {
+					cout << x << "\t" << y << endl;
+				}
+				x++;
+				line.erase(0, pos + delimiter.length());
+			}
+
+			y++;
+		}
+	}
+\end{lstlisting}
+\end{minipage}
+\end{center}
