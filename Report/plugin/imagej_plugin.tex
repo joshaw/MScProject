@@ -30,14 +30,13 @@ of activities from opening the plugin is as follows:
 \label{sub:column_picker}
 
 The first step is for the user to select a data file. This is performed with
-% TODO reword sentence too long
-the Java built-in file chooser. To make the plugin more general purpose than
-being limited to only data formatted in precisely the same way as the data in
-the sample files used during development, the ability to specify some
-formatting features of the data file used are available. The user can specify
-the delimiter used in the file (how the columns are separated; comma, space tab
-etc.), and which column represents the x- and y-coordinates. These are chosen
-through a separate graphical user interface (GUI).
+the Java built-in file chooser. The ability to specify some formatting features
+of the data file used are available. This makes the plugin more general purpose
+than being limited to only data formatted in precisely the same way as the data
+in the sample files used during development. The user can specify the delimiter
+used in the file (how the columns are separated; comma, space, tab, etc.), and
+which column represents the x- and y-coordinates. These are chosen through a
+separate graphical user interface (GUI).
 
 % TODO check capitalisation of quadtree QuadTree Quadtree
 
@@ -235,11 +234,10 @@ GUI classes in the AWT\cite{zukowski1997java} and Swing\cite{loy2002java}
 libraries included in the standard Java distribution. This effectively
 prohibited any further actions being performed on the image once it had been
 generated since what was displayed was only modifiable by the JVM via compiled
-% TODO sentence too long
-code. It was also very memory intensive since, in many cases, many thousands of
-separate objects (data points represented by zero length lines, quadtree cells
-by boxes, etc.) were maintained in memory and so was slow to draw initially and
-redraw with any subsequent move or resize of the window.
+code. It was also very memory intensive since, in most cases, many thousands of
+separate Java objects (data points represented by zero length lines, quadtree
+cells by boxes, etc.) were maintained in memory. This made it slow to draw with
+any move or resize of the window.
 
 The code used to generate this view of the data was modified to make use of the
 image generation functions present in ImageJ. Now, instead of many different

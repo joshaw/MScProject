@@ -39,8 +39,7 @@ performed as follows:
 				algorithm using that node as the starting location.
 		\end{itemize}
 	\item When all nodes have been checked, return to step 1.
-		% TODO ?? v
-	\item The algorithm completes either when either;
+	\item The algorithm completes either when;
 	\begin{itemize}
 		\item every one of the nodes in the image have been checked and
 			included or ignored, or
@@ -96,19 +95,20 @@ loop from forming and preventing the algorithm terminating.
 \end{minipage}
 \end{center}
 
-% TODO
-% "in refernce to Listing 2"
-\paragraph{Line~\ref{eql:a}} A set of starting locations is selected based on
-some heuristic that determines if a node is deep enough in the tree to be used
-as a starting location.
+In reference to Listing~\ref{code:quadtree-propagate} above:
+\begin{description}
+	\item[Line~\ref{eql:a}] A set of starting locations is selected based on
+		some heuristic that determines if a node is deep enough in the tree to
+		be used as a starting location.
 
-\paragraph{Line~\ref{eql:b}} Nodes are only propagated if they have not already
-been included in a cluster. If this were not the case, then clusters would
-overlap.
+	\item[Line~\ref{eql:b}] Nodes are only propagated if they have not already
+		been included in a cluster. If this were not the case, then clusters
+		would overlap.
 
-\paragraph{Line~\ref{eql:c}} Each of the neighbours of the current node is
-propagated. The method of choosing neighbours determines how far the cluster
-can spread, and is separated from the clustering algorithm.
+	\item[Line~\ref{eql:c}] Each of the neighbours of the current node is
+		propagated. The method of choosing neighbours determines how far the
+		cluster can spread, and is separated from the clustering algorithm.
+\end{description}
 
 When discovering clusters via this propagation technique, care must be taken to
 avoid a run-away situation where every node in the tree gets included. This

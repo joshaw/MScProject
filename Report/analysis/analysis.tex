@@ -17,13 +17,11 @@ slightly different results when analysing them.
 
 \begin{itemize}
 
-		% TODO sentence doesn't make sense
 	\item The first is to consider the boundary of the nodes of the quadtree
-		that were considered to be part of a cluster to be the boundary of the
-		cluster. This will mean that the actual cluster is likely to be
-		slightly larger than the actual data points that it is comprised of,
-		but is computationally simple to achieve, so fast, and can take into
-		account any holes in the cluster (see below).
+		that were identified as being part of a cluster. This will mean that
+		the cluster is likely to be slightly larger than the actual data points
+		that it is comprised of, but is computationally simple to achieve, so
+		fast, and can take into account any holes in the cluster (see below).
 
 	\item The second way is to, once the cluster has been located, discard the
 		information about the nodes themselves, and simply use them to select
