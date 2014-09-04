@@ -77,7 +77,7 @@
           <y:Geometry height="40.0" width="161.0" x="939.5" y="401.95858170606374"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="119.96882629394531" x="20.515586853027344" y="10.889950275421143">Create new QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="119.96882629394531" x="20.515586853027344" y="10.889950275421143">Create new Quadtree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -96,7 +96,7 @@
           <y:Geometry height="40.0" width="161.0" x="939.5" y="299.7292908530319"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="101.16470336914062" x="29.917648315429688" y="3.779900550842285">"Draw QuadTree"
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="101.16470336914062" x="29.917648315429688" y="3.779900550842285">"Draw Quadtree"
 button<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -135,7 +135,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="995.8002890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="114.1488037109375" x="23.42559814453125" y="10.889950275421143">Propagate QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="114.1488037109375" x="23.42559814453125" y="10.889950275421143">Propagate Quadtree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -154,7 +154,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="1233.7690390544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="89.16461181640625" x="35.917694091796875" y="10.889950275421143">Draw QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="89.16461181640625" x="35.917694091796875" y="10.889950275421143">Draw Quadtree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -363,7 +363,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="844.0" y="1556.7377890544708"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="100.16868591308594" x="30.41565704345703" y="10.889950275421143">Display QuadTree<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.220099449157715" modelName="custom" textColor="#000000" visible="true" width="100.16868591308594" x="30.41565704345703" y="10.889950275421143">Display Quadtree<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -482,7 +482,7 @@ button<y:LabelModel>
           <y:Geometry height="40.0" width="161.0" x="653.0" y="299.7292908530319"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="115.87680053710938" x="22.561599731445312" y="3.779900550842285">"Draw Simple Grid" 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="115.87680053710938" x="22.561599731445312" y="3.779900550842285">"Draw Simple Grid"
 button<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -602,7 +602,7 @@ button<y:LabelModel>
           <y:Geometry height="79.935457348407" width="186.0" x="5.0" y="745.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="137.63294982910156" x="24.18352508544922" y="23.747629225045785">Set values for X column, 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="137.63294982910156" x="24.18352508544922" y="23.747629225045785">Set values for X column,
 Y column and separator.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -622,7 +622,7 @@ Y column and separator.<y:LabelModel>
           <y:Geometry height="79.935457348407" width="186.0" x="221.0" y="745.8648317060638"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="121.98484802246094" x="32.00757598876953" y="23.747629225045785">Set values for max X, 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.44019889831543" modelName="custom" textColor="#000000" visible="true" width="121.98484802246094" x="32.00757598876953" y="23.747629225045785">Set values for max X,
 max Y and scale.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -737,8 +737,8 @@ max Y and scale.<y:LabelModel>
           <y:Geometry height="99.45858170606374" width="186.0" x="437.0" y="270.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.660298347473145" modelName="custom" textColor="#000000" visible="true" width="124.34886169433594" x="30.82556915283203" y="26.399141679295383">Set values for density, 
-depth range lines, 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="CMU Serif" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.660298347473145" modelName="custom" textColor="#000000" visible="true" width="124.34886169433594" x="30.82556915283203" y="26.399141679295383">Set values for density,
+depth range lines,
 points and colourize.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>

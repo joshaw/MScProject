@@ -336,10 +336,17 @@ pixels in the image in turn so that the central element in the matrix is over
 the current pixel and each of the other elements is over another pixel. The
 value of the element in the kernel is then used to manipulate the pixels in the
 image below it. For example, to blur an image, a $3\times 3$ kernel composed of
-all $\rfrac{1}{9}$'s can be used. When applied, this would mean that the
-% TODO reread sentence
-current pixel is given a value which is the sum of each of matrix elements
-multiplied by the pixel value beneath it.
+all $\rfrac{1}{9}$'s can be used. The sum of the nine elements is one, meaning
+the overall brightness of the image is not changed. When applied, this would
+mean that the current pixel, $p$, is given a value which is the sum of each of
+matrix elements, $m_i = \rfrac{1}{9}$, multiplied by the pixel value beneath
+it, $v_i$, Equation~\ref{eq:pixel_matrix}.
+
+\begin{align}
+	& s := \texttt{kernel.size} \notag \\
+	& \texttt{for each pixel p in image}: \notag \\
+	& \qquad\qquad p := \sum_{i=0}^s m_i * v_i \label{eq:pixel_matrix}
+\end{align}
 
 A similar technique is used here to choose neighbours from the quadtree. The
 image kernel that is used is a binary matrix, meaning that all of the elements
