@@ -114,8 +114,9 @@
 %% BIBIOGRAPHY -----------------------------------------------------------------
 \usepackage{citesort}
 \usepackage{natbib}
+\bibliographystyle{plainnat}
+\setcitestyle{authoryear,open={[},close={]}}
 \renewcommand{\cite}{\citep}
-\bibpunct{[}{]}{;}{a}{}{,}
 
 %%% ToC (table of contents) APPEARANCE -----------------------------------------
 \renewcommand{\contentsname}{Table of Contents}
@@ -144,7 +145,7 @@
 \begin{document}
 
 \graphicspath{{front/} {intro/} {grid/} {quadtree/} {clusters/} {plugin/}
-	{analysis/} {improvements/} {appendix/} {build/}}
+	{analysis/} {improvements/} {evaluation/} {appendix/} {build/}}
 
 \input{front/titlepage.tex}
 
@@ -172,7 +173,6 @@
 \onecolumn
 % \thispagestyle{empty}
 \nocite{*}
-\bibliographystyle{apalike}
 \bibliography{references}
 
 \clearpage

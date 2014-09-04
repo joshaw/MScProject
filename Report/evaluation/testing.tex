@@ -15,7 +15,45 @@ files and acceptance testing.
 \subsection{Generated Test Files}
 \label{sub:generated_test_files}
 
-% TODO
+To try to test the algorithm and get some more quantitative results, it was
+performed on a number of simulated test files. These data sets, shown in
+Figure~\ref{fig:cam-tests} were produced by \citet{karypis1999chameleon} for
+testing their Cameleon clustering algorithm. The algorithm was found to
+identify 4 clusters in image (a) and a single cluster image (b), but performed
+poorly in the final two.
+
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=0.9\linewidth]{cam-tests.png}
+	\caption[Manually generated data sets for testing]{Manually generated data
+		sets for testing. The images (a), (b), (c) and (d) above are used to
+		test the algorithm for this project and for a number of other studies
+		in clustering.}\label{fig:cam-tests}
+\end{figure}
+
+These particular datasets have been used to test a number of clustering
+algorithms and so they provide a helpful benchmark with which these algorithms
+can be compared. It is unfortunate that this algorithm fails to cope with the
+complex structures that are present in the second two images, but shows that it
+is more specifically taylored than the more general algorithms that use these
+as tests. The clusters that the algorithm failed to identify lie too close
+together meaning that the propagation step is able to cross from one cluster to
+another.
+
+The same effect is seen in images (a) and (b) where there is a link between
+what would, otherwise, be separate clusters. This means the algorithm reports
+these as a single object.
+
+Another testing data set was created, similar to the final two images above,
+but with more spacing to see how the algorithm would cope. An image of this set
+is shown in Figure~\ref{fig:testing-image2a}.
+
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=0.5\linewidth]{testing-image2a.png}
+	\caption[]{testing-Image2a}
+	\label{fig:testing-image2a}
+\end{figure}
 
 \subsection{Volunteer Validation}
 \label{sub:volunteer_validation}
