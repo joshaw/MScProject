@@ -8,11 +8,12 @@
 		\vspace*{\fill}
 
 		\centering
-		\includegraphics[scale=1.0]{Logo.pdf}
+		\includegraphics[scale=1.3]{Logo.pdf}
 		\vfill
 
 		\hrule
-		{\LARGE\bf Medical Image Processing with Quadtrees\\[0.4cm]}
+		{\LARGE\bf An ImageJ Plugin for Cluster Analysis \\
+		of PALM and STORM Data\\[0.4cm]}
 		\hrule
 
 		\vfill
@@ -39,7 +40,7 @@
 \thispagestyle{empty}
 \pagenumbering{roman}
 
-\textbf{Project Title:} Medical Image Processing with Quadtrees \\
+\textbf{Project Title:} An ImageJ Plugin for Cluster Analysis of PALM and STORM Data \\
 \textbf{Author:} Josh Wainwright \\
 \textbf{Supervisor:} Iain Styles \\
 \textbf{Date:} September 2014 \\
@@ -57,21 +58,22 @@ unless indicated otherwise.\\
 Signed \dotfill
 
 \vfill
+
 Submitted in conformance with the requirements of the post graduate degree of
 MSc Computer Science at the School of Computer Science, University of
 Birmingham (2013/2014).
 
 \copyright~University of Birmingham 2013/2014
-% Completed as part of a Post Graduate Masters Degree in Computer Science at the
-% University of Birmingham (2013/2014).
 
 \pagestyle{empty}
 
 \newpage
+\pagenumbering{gobble}
 \makebox[\linewidth][c]{%
-	\begin{minipage}[c]{0.7\textwidth}
-		\part*{Abstract}\label{prt:abstract}
+	\begin{minipage}[c]{0.8\textwidth}
+		\part*{Abstract}
 
+		\vspace{1cm}
 		This project introduces the concept of data clustering and its uses in
 		medical and biological image analysis and examines some existing
 		techniques for extracting clustering information from such data sets. A
@@ -101,16 +103,21 @@ Birmingham (2013/2014).
 
 \clearpage
 
+\pagenumbering{roman}
+\begingroup
+\let\clearpage\relax
+
 \tableofcontents
-\listoffigures
+\newpage
 \addcontentsline{toc}{section}{List of Figures}
-\listoftables
+\listoffigures
 \addcontentsline{toc}{section}{List of Tables}
-\lstlistoflistings%
+\listoftables
 \addcontentsline{toc}{section}{List of Code Listings}
+\renewcommand{\lstlistlistingname}{List of Code Listings}
+\lstlistoflistings%
+\endgroup
 
 \restoregeometry
 \clearpage
-\pagenumbering{arabic}
-% \twocolumn
 \pagestyle{fancy}

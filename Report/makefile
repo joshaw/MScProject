@@ -33,9 +33,9 @@ $(DIR)/%.pdf: %.dia
 
 $(DIR)/%.pdf: %.svg
 	echo "$< ---> $@"
-	sed -i 's/CMU Serif/CM Roman/'
 	mkdir -p $(shell dirname $@)
 	rsvg-convert -f pdf $< > "$@"
+	# sed -i 's/CMU Serif/CM Roman/'
 
 $(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(REFERENCES) $(TEXFILES) $(DIAPDF) $(SVGPDF)
 	$(BUILDTEX)

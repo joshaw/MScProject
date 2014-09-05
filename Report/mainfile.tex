@@ -3,7 +3,7 @@
 % File name : mainfile.tex
 
 % \documentclass[a4paper,9pt,twoside,twocolumn]{extarticle}
-\documentclass[a4paper,10pt,twoside]{article}
+\documentclass[a4paper,10pt,twoside]{report}
 \usepackage[utf8]{inputenc}
 
 %%% PAGE DIMENSIONS ------------------------------------------------------------
@@ -18,15 +18,6 @@
 % 	right=1.5cm]{geometry}
 \usepackage[parfill]{parskip}
 \setlength{\columnsep}{1.5em}
-
-%%% HEADERS & FOOTERS ----------------------------------------------------------
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[RE,LO]{\textit{\nouppercase{\leftmark}}}
-\fancyfoot[CE,CO]{\thepage}
-\fancyfoot[LE,RO]{}
 
 %%% SECTION TITLE APPEARANCE ---------------------------------------------------
 \usepackage{sectsty}
@@ -48,6 +39,7 @@
 \usepackage{longtable}
 \usepackage{tabu} % \tabulinesep=1.2mm
 \usepackage{multirow}
+\usepackage{multicol}
 \usepackage{verbatim}
 \usepackage{listings}
 \usepackage[table]{xcolor}
@@ -117,10 +109,20 @@
 \bibliographystyle{plainnat}
 \setcitestyle{authoryear,open={[},close={]}}
 \renewcommand{\cite}{\citep}
+\renewcommand{\bibname}{References}
 
 %%% ToC (table of contents) APPEARANCE -----------------------------------------
 \renewcommand{\contentsname}{Table of Contents}
 % \setcounter{tocdepth}{2}
+
+%%% HEADERS & FOOTERS ----------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\textit{\nouppercase{\leftmark}}}
+\fancyfoot[CE,CO]{}
+\fancyfoot[LE,RO]{}
 
 %%% PDF LINKS AND STYLE --------------------------------------------------------
 \usepackage[bookmarks=true]{hyperref}
@@ -149,6 +151,7 @@
 
 \input{front/titlepage.tex}
 
+\pagenumbering{arabic}
 \setcounter{page}{1}
 \input{intro/introduction.tex}
 \input{benchmarking/benchmarking.tex}
