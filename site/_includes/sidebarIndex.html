@@ -1,9 +1,0 @@
-<ul class="menu">
-	{% for page in site.pages %}
-		{% for pc in page.categories %}
-			{% if pc == "index" %}
-				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-			{% endif %}
-		{% endfor %}  <!-- page-category -->
-	{% endfor %}
-</ul>
