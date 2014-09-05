@@ -2,15 +2,15 @@
 % Author:   Josh Wainwright
 % Filename: dataset-generator.tex
 
-\section{Data Set Generator}
+\newgeometry{voffset=-1cm, textheight=27cm}
+\chapter{Data Set Generator}
 \label{sec:dataset_generator}
 
-A small utility was written to aid the generation of data sets for testing.
-This program, written in C++, takes an image file and outputs a data file based
-on the pixels in the image. The input file must be of the same format as the
-output when saving from ImageJ in the \texttt{text image} format. The file will
-then be formed of a decimal value, from 0 to 255, for each pixel in the image,
-separated by tab characters.
+A small C++ utility was written to aid the generation of data sets for testing.
+This program takes an image file and produces data based on the pixels in the
+image. The input must have the same format as when saving from ImageJ in the
+\texttt{text image} format. The file will then be formed of a decimal value,
+from 0 to 255, for each pixel in the image, separated by tab characters.
 
 The utility code is shown in Listing~\ref{lst:dataset-gen}. It is used by
 calling \texttt{gen-coords FILENAME} at the command line and outputs the
@@ -20,8 +20,6 @@ coordinates to standard output.
 \begin{minipage}{\textwidth}
 	\begin{lstlisting}[caption={Utility to gen data sets from images.},
 	label=lst:dataset-gen, language=c++, linewidth=12cm, firstnumber=1] public
-	// Filename: gen-coords.cpp
-	// Compile: g++ gen-coords.cpp -o gen-coords
 	#include <iostream>
 	#include <fstream>
 	#include <string>
@@ -39,7 +37,6 @@ coordinates to standard output.
 
 		string filename = argv[1];
 		ifstream scores(filename.c_str());
-
 		string line = "";
 
 		// For each line, for each tab separated field, output coord if 0.
