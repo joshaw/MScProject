@@ -172,7 +172,7 @@ set of points. Ignoring any holes in the cluster, the perimeter of this
 bounding polygon is equivalent to the perimeter of the cluster.
 
 The simplest method of finding this bounding polygon is using the \emph{convex
-hull} method\cite{barber1996quickhull}. In principle, this involves starting
+hull} method \cite{barber1996quickhull}. In principle, this involves starting
 with a circle far larger than the points it encloses, which is reduced in size,
 without letting any point leave the shape, until only straight lines exist
 between external points. The final shape can be pictured by imagining each of
@@ -200,7 +200,7 @@ Figure~\ref{fig:convex-hull}.
 \label{ssub:Concave Hull Algorithm}
 
 An alternative to the convex hull algorithm is the significantly more complex
-\emph{concave} hull algorithm\cite{moreira2007concave}. Instead of simply
+\emph{concave} hull algorithm \cite{moreira2007concave}. Instead of simply
 finding the outermost shape that will enclose all of the points, the concave
 hull algorithm finds that shape that fits the outer boundary of the points more
 closely. The steps involved are listed below.
@@ -238,7 +238,7 @@ identified for a cluster with a neighbouring number of 4.
 \label{ssub:Delaunay Triangulation}
 
 Another, more complex to implement, alternative is Delaunay
-Triangulation\cite{delaunay1934sphere}. This is a method first proposed in 1934
+Triangulation \cite{delaunay1934sphere}. This is a method first proposed in 1934
 by Boris Delaunay for use in geographical applications.
 
 \begin{quote}
@@ -246,7 +246,7 @@ by Boris Delaunay for use in geographical applications.
 	nerve of the cells in a Voronoi diagram, i.e., that triangulation of the
 	convex hull of the points in the diagram in which every circumcircle of a
 	triangle is an empty circle.\\
-	\hspace*{\fill}\cite{okabe2009spatial}
+	\hspace*{\fill} \cite{okabe2009spatial}
 \end{quote}
 
 This means that the result is a densely connected graph where every point is
@@ -277,7 +277,7 @@ shown in Listing~\ref{lst:polygon-area}.
 \begin{minipage}{\textwidth}
 	\begin{lstlisting}[caption={[Code to find the area of an irregular
 	polygon.]Code to find the area of an irregular polygon.  Adapted
-	from~\cite{finley2006poly}}, label=lst:polygon-area] public
+	from \cite{finley2006poly}}, label=lst:polygon-area] public
 	function |polygonArea(ps, numPoints)| {
 
 		area = 0;

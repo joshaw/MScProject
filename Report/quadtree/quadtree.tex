@@ -97,7 +97,7 @@ traverse the children in a sensible and predictable way is essential.
 Perhaps the most natural order to give to the values in a spatial quadtree is
 to number them from 1 to 4, left to right, top to bottom. This can be made more
 appropriate for a computer to use by changing to zero based indexing,
-numbering from 0 to 3. This is called Morton Order\cite{mortoncomputer} or
+numbering from 0 to 3. This is called Morton Order \cite{mortoncomputer} or
 Z-order because of the resulting path that would be followed by traversing the
 nodes in order, Figure~\ref{fig:traverse-z-order.pdf}. This has several useful
 features.
@@ -201,7 +201,7 @@ A number of routes exist that avoid this jumping around the image. These are
 based on space filling curves which have the property of being simple recursive
 patterns that visit every point in a 2D space exactly once. These curves were
 first discovered in the early 1900's and described mathematically by David
-Hilbert\cite{hilbert1970stetige}. One of the curves that Hilbert found, the
+Hilbert \cite{hilbert1970stetige}. One of the curves that Hilbert found, the
 Hilbert Curve, is particularly useful since it can be represented in the
 simplest level in a two by two square which is then recursively repeated for
 each quadrant of that first square---exactly as the quadtree is.
@@ -215,7 +215,7 @@ going a single step forward and backward, but the others are far more complex.
 \subsubsection{Gray Codes}
 \label{ssub:gray_codes}
 
-The Gray Code, developed by Frank Gray in 1953\cite{gray1953pulse}, was
+The Gray Code, developed by Frank Gray in 1953 \cite{gray1953pulse}, was
 originally designed to reduce the error rate produced by mechanical
 electronics. The code is a variation on binary where each step, when
 incrementing, changes only a single bit at a time. This meant that
@@ -280,7 +280,7 @@ Figure~\ref{fig:modgray-2-alternatives} shows some of these.
 		information when using quadtrees.
 
 	\item Figure~\ref{fig:modgray-alt-prime.pdf} shows \emph{row-prime order}
-		traversal, also known as snake-order\cite{goodchild1983optimizing}
+		traversal, also known as snake-order \cite{goodchild1983optimizing}
 		traversal.  This is a slight modification of row order which is
 		continuous but, again, is not recursive so not suitable for use with
 		quadtrees.
@@ -439,7 +439,7 @@ As mentioned on page~\pageref{prt:custom_algorithm}, using a na\"{\i}ve
 implementation has the potential to have a very poor space usage if the image
 is not densely populated (in which case it is likely that few clusters would be
 identifiable anyway). Instead, an implementation is created that makes use of
-the \emph{hash table} data structure\cite{cormen2001introduction}. This allows
+the \emph{hash table} data structure \cite{cormen2001introduction}. This allows
 the data structure to increase in size dynamically as more space is needed, but
 also provides linear time complexity for access, modification and search. The
 quadtree code is used as the key for the hash table, and the data stored within

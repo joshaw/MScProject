@@ -69,8 +69,8 @@ the algorithm progresses, these thresholds are altered and the points
 considered so far are re-examined to maximise the `similarity' of the points
 in any one cluster.
 
-Implementations of SNN based algorithms, such as~\cite{jarvis1973clustering}
-and~\cite{ertoz2002new} use similarity matrices, where the set of points is
+Implementations of SNN based algorithms, such as \cite{jarvis1973clustering}
+and \cite{ertoz2002new} use similarity matrices, where the set of points is
 reduced to a graph with data points at nodes and edges between them
 representing the similarities between the points. This matrix is then
 simplified to leave a sparse graph, keeping only the edges with the highest
@@ -87,13 +87,13 @@ large as it has approximately $O(n^2)$ time complexity.
 \section{Gravity Based Clustering}
 \label{sub:gravity_based_clustering}
 
-A number of clustering algorithms~\cite{zhong2010novel} have been developed
+A number of clustering algorithms \cite{zhong2010novel} have been developed
 that treat data points as physical objects under the influence of gravitational
 effects. These algorithms effectively model the points with these properties,
 allow them to move with some defined restrictions, and then examine the
 products that are produced.
 
-The GRAVIclust algorithm~\cite{indulska2002gravity} works in two phases, first
+The GRAVIclust algorithm \cite{indulska2002gravity} works in two phases, first
 identifying $n$ locations of interest based on the distances to neighbouring
 points, similar to the SNN algorithms above, and secondly applying an
 optimisation phase where each of these locations is further examined with the
