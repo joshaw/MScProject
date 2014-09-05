@@ -40,7 +40,7 @@ but all interesting points are.
 
 \begin{figure}[tbh]
 	\centering
-	\includegraphics[width=4.2cm]{rolling-ball.pdf}
+	\includegraphics[width=4.0cm]{rolling-ball.pdf}
 
 	\caption[Rolling ball method for cluster analysis.]{The rolling ball method
 		for cluster detection provides a way of identifying clusters, as
@@ -63,24 +63,23 @@ unable to cope with the computation and so is replaced with other coordinate
 systems. For simple clustering in two dimensions, however, Euclidean geometry
 is sufficient and is far easier and more efficient to implement.
 
-SNN based clustering algorithms analyse each of the points in a set, one at a
-time, selecting those points that lie close to the current one based on certain
-thresholds. As the algorithm progresses, these thresholds are altered and the
-points considered so far are re-examined to maximise the ``similarity'' of the
-points in any one cluster.
+SNN based clustering algorithms analyse each of the points in a set, selecting
+those points that lie close to the current one based on certain thresholds. As
+the algorithm progresses, these thresholds are altered and the points
+considered so far are re-examined to maximise the `similarity' of the points
+in any one cluster.
 
 Implementations of SNN based algorithms, such as~\cite{jarvis1973clustering}
 and~\cite{ertoz2002new} use similarity matrices, where the set of points is
-reduced to a graph with the data points at nodes and the edges between them
+reduced to a graph with data points at nodes and edges between them
 representing the similarities between the points. This matrix is then
-simplified to leave a considerably sparser graph, keeping only the edges with
-the highest similarity. From this matrix, points can be identified as noise and
-rejected, and the networks that show close similarities are designated as
-clusters.
+simplified to leave a sparse graph, keeping only the edges with the highest
+similarity. From this matrix, points can be identified as noise and rejected,
+and the networks that show close similarities are designated as clusters.
 
-This method is very good at being adaptable to complex situations: arbitrary
-dimension, clusters with complicated shapes, high noise levels, etc. However,
-the complexity in implementation and computation makes it unsuitable for small
+This method is very good at being adaptable to complex situations such as
+arbitrary dimension or clusters with complicated shapes. However, the
+complexity in implementation and computation makes it unsuitable for small
 scale clustering such as the application discussed for this project. It also
 suffers from performance issues when the number of points to analyse becomes
 large as it has approximately $O(n^2)$ time complexity.
