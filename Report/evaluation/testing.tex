@@ -119,6 +119,59 @@ does not produce that many false positive results.
 
 The final stage of acceptance testing was performed to confirm the type of
 clusters identified conformed with the actual objects that are being imaged.
-This was performed by two researchers working in the medical imaging field who
+This was performed by a researcher working in the medical imaging field who
 produced the sample data used in this project.
-% TODO
+
+The feedback from the researcher was very positive with relation to the
+performance of the clustering algorithm. In particular the speed of the plugin
+to produce results was commented as being much better than existing utilities
+that have been written in the MatLab suit\cite{matlab2010}. This means that a
+user can make changes to the settings a number of times to get the results
+desired without spending long periods of time waiting for the process to
+complete.
+
+The clusters that were identified, when given some sample data from current
+research, were also confirmed to be in line with the biological theory,
+something that only someone with good knowledge in the area could confirm. With
+some explanation of the effects of the different settings, the researcher was
+able to produce desirable results quickly.
+
+There were a number of suggestions for improvements that were identified. Many
+of these would not require large changes to the code base. These are summarised
+below.
+
+\begin{description}[style=unboxed]
+
+	\item[Provide a better mapping between the clusters highlighted in the
+		image and the results table which summarises the clusters.] \hfill
+
+		The image is colored with each cluster that is found having a different
+		colour which then corresponds to a line in the results table. This
+		mapping is not clear since the results table does not allow any
+		contents other than strings of text. A better solution would be to
+		label each of the clusters in the image with a numerical value which
+		can then be identified in the table by the cluster id.
+
+		This would require a single extra step during the drawing phase to add
+		a text label with the number of the cluster.
+
+	\item[Allow choosing the scale of the image to correspond to the real size
+		of the object which is imaged.] \hfill
+
+		A setting in the main UI that allows the user to input a scale would
+		mean that the results that are presented in the table would have more
+		immediate value. This value would be the dimensions of the image which
+		would be able to act as a multiplication factor for the other results.
+
+	\item[Use different clustering algorithms from the same plugin.] \hfill
+
+		As discussed in more detail in Section~\ref{sec:possible_improvements},
+		the ability to choose from a number of different algorithms to perform
+		the clustering would make the plugin more general purpose, in the event
+		that one of them did not cope well with the particular data being
+		examined. Adding other algorithms would, currently, require some
+		refactoring of the code to separate some of the functionality from the
+		algorithm. This would be required so that adding other algorithms was
+		simple.
+
+\end{description}
