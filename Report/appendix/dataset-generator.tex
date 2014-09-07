@@ -36,12 +36,12 @@ coordinates to standard output.
 		}
 
 		string filename = argv[1];
-		ifstream scores(filename.c_str());
+		ifstream datafile(filename.c_str());
 		string line = "";
 
 		// For each line, for each tab separated field, output coord if 0.
 		int y = 0;
-		while(getline(scores, line)) {
+		while(getline(datafile, line)) {
 
 			string delimiter = "\t";
 			size_t pos = 0;

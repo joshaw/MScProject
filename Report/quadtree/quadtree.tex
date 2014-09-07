@@ -142,9 +142,10 @@ coordinate form are:
 \begin{enumerate}
 	\item Ensure the code is in binary format with two bits for each level of
 		the tree.
-	\item \emph{De-interleave} the bits of the code (starting with the first
+	\item \emph{De-interleave} the bits of the code---starting with the first
 		being given to the $y$-axis, assign bits to the $y$ and $x$ axes
-		building up a binary value for each).
+		building up a binary value for each, as shown in
+		Figure~\ref{fig:deinterleave}.
 	\item Convert the resulting two binary values to their decimal equivalent
 		to give a standard decimal $(x,y)$ Cartesian coordinate.
 \end{enumerate}
@@ -447,11 +448,12 @@ the cell with that code is the hash table value.
 
 Using this data structure means that several operations are significantly sped
 up. For example, for the quadtree format, the steps required to check if a
-given code is present involves traversing the tree as specified by the code to see if a node with that code is found, thus a time
-complexity of $O(\log n)$.  However, for a hash table, the hash function is
-used to get a hash of the code to be checked and the appropriate location
-checked. If the codes match, then the code does appear in the tree, a total of
-two operations, and so constant $O(1)$.
+given code is present involves traversing the tree as specified by the code to
+see if a node with that code is found, thus a time complexity of $O(\log n)$.
+However, for a hash table, the hash function is used to get a hash of the code
+to be checked and the appropriate location checked. If the codes match, then
+the code does appear in the tree, a total of two operations, and so constant
+$O(1)$.
 
 Since the quadtree structure is defined recursively, it is not possible to
 directly access a given location of the data. Instead it must be arrived at by
