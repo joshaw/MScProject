@@ -29,14 +29,16 @@ $(DIR)/%.pdf: %.dia
 	echo "$< ==> $@"
 	mkdir -p $(shell dirname $@)
 	dia -t svg -e "/dev/stdout" $< 2> /dev/null | sed '/\/dev\/stdout/d'\
+		| sed 's/CMU Serif/cmr10/' \
+		| sed 's/CM Roman/cmr10/' \
 		| rsvg-convert -f pdf > "$@"
-		# | sed 's/CM Roman/CMU Serif/'\
 
 $(DIR)/%.pdf: %.svg
 	echo "$< ---> $@"
 	mkdir -p $(shell dirname $@)
+	sed -i 's/CMU Serif/cmr10/' "$<"
+	sed -i 's/CM Roman/cmr10/' "$<"
 	rsvg-convert -f pdf $< > "$@"
-	# sed -i 's/CMU Serif/CM Roman/'
 
 $(DIR)/$(PROJECT).pdf: $(PROJECT).tex $(REFERENCES) $(TEXFILES) $(DIAPDF) $(SVGPDF)
 	$(BUILDTEX)
