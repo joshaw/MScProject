@@ -15,108 +15,136 @@ what component is the fulfillment of it and if not, why not.
 \subsection{Functional Requirements}
 \label{sub:functional_requirements}
 
-\begin{description}[style=unboxed]
-	\item[\ref{req:a} Select a data file to process.]
-		\hfill \\ \emph{Completed} with file chooser dialogue.
+\begin{enumerate}[label=\arabic*.]
+	\item Select data:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:a} Select a data file to process. (M) \\
+ 	 	 	\emph{Completed} with file chooser dialogue.
 
-	\item[\ref{req:b} Select the appropriate column separator for the file.]
-		\hfill \\ \emph{Completed} with column chooser integrated into the file
-		chooser.
+			\item~\label{req:b} Select the appropriate column separator for the
+				file. (C) \\
+				\emph{Completed} with column chooser integrated into the file
+				chooser.
 
-	\item[\ref{req:c} Select which coloumn the x- and y-coordinates appear in.]
-		\hfill \\ \emph{Completed} with column chooser integrated into the file
-		chooser.
+			\item~\label{req:c} Select which column from the data file the x-
+				and y-coordinates appear in. (W) \\
+				\emph{Completed} with column chooser integrated into the file
+				chooser.
 
-	\item[\ref{req:d} Adjust parameters relating to the process of analysing
-		the data file.]
-		\hfill \\ \emph{Completed} with sliders and checkboxes for options in
-		main user interface.
+			\item~\label{req:d} Adjust parameters relating to the process of
+				analysing the data file. (S) \\
+				\emph{Completed} with sliders and checkboxes for options in
+				main user interface.
 
-	\item[\ref{req:e} Create an image of the points from the selected file
-		using naitve ImageJ functionality.]
-		\hfill \\ \emph{Completed} with simple grid implementation which simply
-		adds the points to the grid and draws the image to the screen, no
-		analysis of the clusters is performed.
+		\end{enumerate}
+	\item Create images:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:e} Create an image of the points from the file
+				using native ImageJ functionality. (S) \\
+				\emph{Completed} with simple grid implementation which simply
+				adds the points to the grid and draws the image to the screen,
+				no analysis of the clusters is performed.
 
-	\item[\ref{req:f} Create an image of the clusters found using native ImageJ
-		functionality.]
-		\hfill \\ \emph{Completed} with an ImageJ image of clusters found,
-		colour-coded based on order in which the clusters were found.
+			\item~\label{req:f} Create an image of the clusters found using
+				native ImageJ functionality. (M) \\
+				\emph{Completed} with an ImageJ image of clusters found,
+				colour-coded based on order in which the clusters were found.
 
-	\item[\ref{req:g} Perform a clustering algorithm on the data in the chosen
-		file.]
-		\hfill \\ \emph{Completed} with the quadtree based clustering
-		algorithm.
+		\end{enumerate}
+	\item Clustering algorithm:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:g} Perform a clustering algorithm on the data in
+				the chosen file. (M) \\
+				\emph{Completed} with the quadtree based clustering algorithm.
 
-	\item[\ref{req:ga} Choose from alternative clustering algorithms
-		to perform on the data.]
-		\hfill \\ \emph{Not completed} The simple grid method was implemented
-		but found to perform too badly to be used as an alternative clustering
-		algorithm. Limitations in time prevented the implementation of existing
-		clustering algorithms.
+			\item~\label{req:ga} Choose from alternative clustering algorithms
+				to perform on the data. (C) \\
+				\emph{Not completed} The simple grid method was implemented but
+				found to perform too badly to be used as an alternative
+				clustering algorithm. Limitations in time prevented the
+				implementation of existing clustering algorithms.
 
-	\item[\ref{req:h} Generate perimeter information for each of the clusters
-		found.]
-		\hfill \\ \emph{Completed} with dilate/erode or concave hull based
-		perimeter methods.
+		\end{enumerate}
+	\item Generate cluster information:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:h} Generate perimeter information for each of the
+				clusters found. (S) \\
+				\emph{Completed} with dilate/erode or concave hull based
+				perimeter methods.
 
-	\item[\ref{req:i} Generate area information for each of the clusters
-		found.]
-		\hfill \\ \emph{Completed} with dilate/erode or concave hull based area
-		methods.
+			\item~\label{req:i} Generate area information for each of the
+				clusters found. (S) \\
+				\emph{Completed} with dilate/erode or concave hull based area
+				methods.
 
-	\item[\ref{req:j} Display a results table showing summary of information
-		about each of the clusters found.]
-		\hfill \\ \emph{Completed} with ImageJ results table shown after
-		cluster analysis is completed.
+			\item~\label{req:j} Display a results table showing a summary of
+				information about each of the clusters found. (C) \\
+				\emph{Completed} with ImageJ results table shown after cluster
+				analysis is completed.
 
-	\item[\ref{req:k} Limit the clusters drawn to the image based on the size
-		of the cluster.]
-		\hfill \\ \emph{Completed} with limit chosen by user from main user
-		interface.
+			\item~\label{req:k} Limit which of the clusters are drawn to the
+				image based on their size. (C) \\
+				\emph{Completed} with limit chosen by user from main user
+				interface.
 
-	\item[\ref{req:l} Limit the clusters included in the results table based on
-		the size of the cluster.]
-		\hfill \\ \emph{Completed} with limit chosen by user from main user
-		interface.
+			\item~\label{req:l} Limit which of the clusters are included in the
+				results table based on the size of the cluster. (C) \\
+				\emph{Completed} with limit chosen by user from main user
+				interface.
 
-	\item[\ref{req:m} Export cluster information by selecting appropriate
-		cluster from the results table.]
-		\hfill \\ \emph{Not completed} since integration with the results table
-		(which is defined and maintained by ImageJ) does not allow selecting a
-		line and passing that line to the plugin. To implement this
-		functionality would require a custom implementation of the results
-		table.
+		\end{enumerate}
+	\item Export data found by the algorithm:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:m} Export information by selecting appropriate
+				cluster from the results table. (W) \\
+				\emph{Not completed} since integration with the results table
+				(which is defined and maintained by ImageJ) does not allow
+				selecting a line and passing that line to the plugin. To
+				implement this functionality would require a custom
+				implementation of the results table.
 
-	\item[\ref{req:n} Export data points contained in cluster by selecting
-		appropriate cluster from the results table.]
-		\hfill \\ \emph{Not completed} since ImageJ does not allow making
-		clickable selections from images as this would interfere with
-		manipulation of the image itself.
-\end{description}
+			\item~\label{req:n} Export data points contained in cluster by
+				selecting appropriate cluster from the results table. (W) \\
+				\emph{Not completed} since ImageJ does not allow making
+				clickable selections from images as this would interfere with
+				manipulation of the image itself.
+
+		\end{enumerate}
+\end{enumerate}
 
 \subsection{Non-Functional Requirements}
 \label{sub:non_functional_requirements}
 
-\begin{description}[style=unboxed]
-	\item[\ref{req:o} Handle input data files with up to 100\,000 data points in
-		under 10 seconds.]
-		\hfill \\ \emph{Completed}, though the time to process files is very
-		much dependant on the hardware used, the algorithms developed are quite
-		efficient.
+\begin{enumerate}[label=\arabic*.]
+	\item Efficiency:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:o} Handle input data files of up to \num{100000}
+				data points in under 10 seconds. (S) \\
+				\emph{Completed}, though the time to process files is very much
+				dependant on the hardware used, the algorithms developed are
+				quite efficient.
 
-	\item[\ref{req:p} Be easy to use without instruction.]
-		\hfill \\ \emph{Completed} with a small number of test users who were
-		allowed to use the plugin and comment on its usability.
+		\end{enumerate}
+	\item Usability:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:p} Be easy to use without instruction. (M) \\
+				\emph{Completed} with a small number of test users who were
+				allowed to use the plugin and comment on its usability.
 
-	\item[\ref{req:q} Have customisation ability for more advanced uses.]
-		\hfill \\ \emph{Not completed}, a number of options are provided to
-		customise the running of the algorithm but these are required to work
-		and so there is no other customisation.
+			\item~\label{req:q} Have customisation ability for more advanced
+				uses. (S) \\
+				\emph{Not completed}, a number of options are provided to
+				customise the running of the algorithm but these are required
+				to work and so there is no other customisation.
 
-	\item[\ref{req:r} Be platform independent, as long as ImageJ is
-		present.]
-		\hfill \\ \emph{Completed} with ImageJ and Java being platform
-		independent so the plugin should work wherever ImageJ and Java are
-		installed.
-\end{description}
+		\end{enumerate}
+	\item Interoperability:
+		\begin{enumerate}[label*=\arabic*.]
+			\item~\label{req:r} Be platform independent, as long as ImageJ is
+				present. (S) \\
+				\emph{Completed} with ImageJ and Java being platform
+				independent so the plugin should work wherever ImageJ and Java
+				are installed.
+
+		\end{enumerate}
+\end{enumerate}
