@@ -2,7 +2,6 @@
 % @author Josh Wainwright
 % File name : titlepage.tex
 
-\newgeometry{margin=1in}
 \begin{titlepage}
 	\begin{center}
 		\vspace*{\fill}
@@ -29,9 +28,7 @@
 
 	\end{center}
 \end{titlepage}
-\restoregeometry%
 
-\newgeometry{onecolumn}
 \thispagestyle{empty}
 \pagenumbering{roman}
 
@@ -104,7 +101,7 @@ Birmingham (2013/2014).
 \let\clearpage\relax
 
 \tableofcontents
-\newpage
+% \newpage
 \addcontentsline{toc}{section}{List of Figures}
 \listoffigures
 \addcontentsline{toc}{section}{List of Tables}
@@ -114,6 +111,5 @@ Birmingham (2013/2014).
 \lstlistoflistings%
 \endgroup
 
-\restoregeometry
-\clearpage
+\cleardoublepage%
 \pagestyle{fancy}
