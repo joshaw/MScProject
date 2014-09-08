@@ -236,7 +236,7 @@ public class Cluster_Analysis extends PlugInFrame {
 		subpanel2.add(new Label(""));
 
 		// QuadTree Button {{{
-		quadtreeButton = new Button("QuadTree");
+		quadtreeButton = new Button("Find Clusters");
 		quadtreeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				drawStructureActionPerformed(evt);
@@ -249,7 +249,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 		// }}}
 		// Grid Button {{{
-		gridButton = new Button("Grid");
+		gridButton = new Button("Draw Data");
 		gridButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				drawStructureActionPerformed(evt);
@@ -368,7 +368,7 @@ public class Cluster_Analysis extends PlugInFrame {
 
 			changed = changed | kernelChanged;
 
-			if (label.equals("QuadTree")) {
+			if (label.equals("Find Clusters")) {
 
 				boolean lines = linesBool.getState();
 				boolean points = pointsBool.getState();
@@ -415,7 +415,7 @@ public class Cluster_Analysis extends PlugInFrame {
 				System.out.println("Time: " + (System.currentTimeMillis()-start));
 				changed = false;
 
-			} else if (label.equals("Grid")) {
+			} else if (label.equals("Draw Data")) {
 				dataStructure = new SimpleGrid(maxXval, maxYval,
 						densityVal, filepath, colX, colY, separator);
 

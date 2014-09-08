@@ -161,10 +161,8 @@ public class DrawQuadTreeMapIJ {
 				rt.incrementCounter();
 				rt.addValue("Cluster", clusters.getStatus(i));
 				rt.addValue("No. of Points", clusters.getClusterPoints(i));
-				rt.addValue("Cluster Area", clusters.getClusterArea(i));
-				rt.addValue("Perimeter", clusters.getClusterPerimeter(i));
 				rt.addValue("Area", clusters.getArea(i));
-				rt.addValue("Perm", clusters.getPerimeter(i));
+				rt.addValue("Perimeter", clusters.getPerimeter(i));
 				rt.addValue("Roundness", Math.sqrt(4*Math.PI*clusters.getArea(i)/
 						Math.pow(clusters.getPerimeter(i), 2)));
 			}
